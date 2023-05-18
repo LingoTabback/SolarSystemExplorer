@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: ComputeShaders
+  m_EditorClassIdentifier: 
+  m_GroupName: ComputeShaders
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 45283b0ee19dd7c45befc20822892bd9
+  m_SerializeEntries:
+  - m_GUID: 895fbd8c4abefa2408c1fe60f7f1a76e
+    m_Address: CS_AtmospherePrecomp
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 39d6fe039ea6f014e9190aacd09e4bff, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4d6d1ee977131c94a8cb24b17db978fd, type: 2}
+    - {fileID: 11400000, guid: ba05e356b75f5064b81ec5d7a8fa7e69, type: 2}
