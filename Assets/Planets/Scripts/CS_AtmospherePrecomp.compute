@@ -194,7 +194,6 @@ float3 ComputeOpticalLengthsToTopAtmosphereBoundary(in AtmosphereParameters atmo
 	return result;
 }
 
-
 float3 ComputeTransmittanceToTopAtmosphereBoundary(in AtmosphereParameters atmosphere, float r, float mu)
 {
 	float3 opticalLengths = ComputeOpticalLengthsToTopAtmosphereBoundary(atmosphere, r, mu);

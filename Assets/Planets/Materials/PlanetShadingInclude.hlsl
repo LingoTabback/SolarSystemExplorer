@@ -4,8 +4,6 @@
 #define M_PI 3.1415926535897932
 #define M_INV_PI 0.3183098861837906
 
-//float Length2(float3 v) { return dot(v, v); }
-
 float2 RaySphereInter(float3 ro, float3 rd, float3 pos, float rad)
 {
 	float3 l = pos - ro;
@@ -81,12 +79,6 @@ void SamplePlanetShadows_float(float3 planetPos, float planetRad, float rotation
 		groundElevation.z = GetElevation(planetPos, rotation, samplePos, maxElevation, elevationTexture, ss, lod);
 
 		samples = min(samples, step(0.0, sampleElevation - groundElevation));
-
-		//if (max(max(samples.x, samples.y), samples.z) < 0.5)
-		//{
-		//	outShadow = 0.0;
-		//	return;
-		//}
 	}
 
 	outShadow = (samples.x + samples.y + samples.z) / 3.0;
@@ -96,8 +88,6 @@ void PlanetCloudShadows_float(float3 planetPos, float cloudsRad, float cloudsRot
 {
 	outShadow = 1.0;
 	float2 inter = RaySphereInter(position, -lightDirection, planetPos, cloudsRad);
-	//if (inter.y <= 0.0)
-	//	return;
 
 	float3 hitPosition = position - lightDirection * inter.y;
 	float3 normal = normalize(hitPosition - planetPos);
@@ -111,8 +101,6 @@ void PlanetCloudShadows2_float(float3 planetPos, float cloudsRad, float cloudsRo
 {
 	outShadow = 1.0;
 	float2 inter = RaySphereInter(position, -lightDirection, planetPos, cloudsRad);
-	//if (inter.y <= 0.0)
-	//	return;
 
 	float3 hitPosition = position - lightDirection * inter.y;
 	float3 normal = normalize(hitPosition - planetPos);
@@ -244,8 +232,6 @@ float ClampCosine(float mu) { return clamp(mu, -1.0, 1.0); }
 float ClampRadius(in AtmosphereParameters atmosphere, float r) { return clamp(r, atmosphere.BottomRadius, atmosphere.TopRadius); }
 
 float ClampDistance(float d) { return max(d, 0.0); }
-
-//float SafeSqrt(float a) { return sqrt(max(a, 0.0)); }
 
 bool RayIntersectsGround(in AtmosphereParameters atmosphere, float r, float mu)
 {
@@ -381,7 +367,7 @@ float3 GetExtrapolatedSingleMieScattering(in AtmosphereParameters atmosphere, fl
 {
 	// Algebraically this can never be negative, but rounding errors can produce
 	// that effect for sufficiently short view rays.
-	return scattering.r <= 0.0 ? 0.0 : (scattering.xyz * scattering.w / scattering.x *
+	return scattering.x <= 0.0 ? 0.0 : (scattering.xyz * scattering.w / scattering.x *
 		(atmosphere.RayleighScattering.x / atmosphere.MieScattering.x) *
 		(atmosphere.MieScattering / atmosphere.RayleighScattering));
 }
@@ -477,7 +463,7 @@ float3 GetSkyRadianceToPoint(
 	}
 	scattering = scattering - shadowTransmittance * scatteringP;
 	singleMieScattering = singleMieScattering - shadowTransmittance * singleMieScatteringP;
-	singleMieScattering = GetExtrapolatedSingleMieScattering(atmosphere, float4(scattering, singleMieScattering.x));
+	singleMieScattering = GetExtrapolatedSingleMieScattering(atmosphere, float4(scattering, max(singleMieScattering.x, 0.0001)));
 
 	// Hack to avoid rendering artifacts when the sun is below the horizon.
 	singleMieScattering *= smoothstep(0.0, 0.3, muS);

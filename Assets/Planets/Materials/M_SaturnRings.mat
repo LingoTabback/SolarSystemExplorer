@@ -25,6 +25,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 5b6d4ea7539618b409e81cf3dfe449e2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_5c5d2087950a45699dd73a7bd8d971a6_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ScatteringTexture:
         m_Texture: {fileID: 2800000, guid: 9cd5c3907d1dca942bcbefca549ba5af, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -44,10 +48,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _InnerRadius: 0.5
+    - _LightingEccentricity: 1
     - _PhaseFuncG: 0
+    - _PlanetRadiusRelative: 0.5
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
+    - _PlanetPositionRelative: {r: 0, g: 0, b: 0, a: 0}
     - _SunColor: {r: 1, g: 1, b: 1, a: 0}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
