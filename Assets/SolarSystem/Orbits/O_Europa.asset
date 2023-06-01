@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe507d8c6afc164bb9c52182428a96e, type: 3}
+  m_Name: O_Europa
+  m_EditorClassIdentifier: 
+  Name: Europa Orbit
+  MeanDistance: 0.00448602642
+  Eccentricity: 0.008999999612569809
+  Inclination: 0.5
+  LongitudeOfPeriapsis: 229
+  LongitudeOfAscendingNode: 184
+  MeanLongitudeAtEpoch: 345.4
+  OrbitalPeriod: 3.525463
+  OrbitingObject: {fileID: 3608581063824914051, guid: 37d3bafd4bd29b1479028d8ece2dc0ed,
+    type: 3}
+  SatelliteOrbits: []
+  DisplayColor: {r: 0.74509805, g: 0.6181452, b: 0.6156863, a: 0.25}

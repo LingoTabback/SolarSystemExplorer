@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe507d8c6afc164bb9c52182428a96e, type: 3}
+  m_Name: O_Mars
+  m_EditorClassIdentifier: 
+  Name: Mars Orbit
+  MeanDistance: 1.5237
+  Eccentricity: 0.0933699980378151
+  Inclination: 1.852
+  LongitudeOfPeriapsis: 336.08
+  LongitudeOfAscendingNode: 49.71
+  MeanLongitudeAtEpoch: 355.43
+  OrbitalPeriod: 687
+  DisplayColor: {r: 0.8392157, g: 0.5882353, b: 0.49411765, a: 0.12156863}
+  OrbitingObject: {fileID: 876713000455180635, guid: 245e122e1db82d0418c24a67e42e8456,
+    type: 3}

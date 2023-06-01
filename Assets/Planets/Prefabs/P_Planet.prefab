@@ -25,12 +25,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277767778038839318}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.018868, y: 1.018868, z: 1.018868}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1599114847719265008}
+  m_Father: {fileID: 6933295862165467683}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1277767778038839317
@@ -108,12 +108,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277767778935945864}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.018868, y: 1.018868, z: 1.018868}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1599114847719265008}
+  m_Father: {fileID: 6933295862165467683}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1277767778935945879
@@ -196,7 +196,7 @@ Transform:
   m_LocalScale: {x: 1.0018868, y: 1.0018868, z: 1.0018868}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1599114847719265008}
+  m_Father: {fileID: 6933295862165467683}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2422630858257097717
@@ -258,8 +258,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1599114847719265008}
-  - component: {fileID: 2422630858039172437}
-  - component: {fileID: 466719217908181407}
   - component: {fileID: 2422630858039172434}
   m_Layer: 0
   m_Name: P_Planet
@@ -280,28 +278,117 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 6933295862165467683}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2422630858039172434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124259591061260362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f1c110214249cc41a40af207ac4482a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Radius: 636
+  MaxElevation: 0.88
+  ElevationScale: 2
+  CloudsHeight: 1.2
+  EmissiveColor: {r: 1, g: 0.7, b: 0.4, a: 1}
+  EmissiveBrightness: 2
+  PlanetRotation: 0
+  CloudsRotation: 0
+  AxialTilt: 0
+  ScaleToSize: 2
+  Rings:
+    Enabled: 0
+    InnerRadius: 6690
+    OuterRadius: 13678
+    LightingEccentricity: 0
+  SunDirection: {x: -1, y: 0, z: 0}
+  SunColor: {r: 1, g: 1, b: 1, a: 1}
+  SunBrightness: 4
+  Atmosphere:
+    AtmosphereHeight: 6
+    AtmosphereScale: 2
+    RayleighScattering: {r: 0.175, g: 0.409, b: 1, a: 1}
+    RayleighScale: 0.331
+    RayleighExponent: 0.8
+    MieScattering: {r: 1, g: 1, b: 1, a: 1}
+    MieScatteringScale: 0.03996
+    MieExtinction: {r: 1.1, g: 1.1, b: 1.1, a: 1}
+    MieExtinctionScale: 1.1
+    MieAnisotropy: 0.8
+    MieExponent: 0.12
+    Absorption: {r: 0.345, g: 1, b: 0.045, a: 1}
+    AbsorptionScale: 0.01881
+    TipAltitude: 2.5
+    TipWidth: 2
+    TipValue: 0.5
+    MaxSunAngle: 105
+  PlanetMaterial: {fileID: 2100000, guid: 2dad396745022ba4eb7842156256b2be, type: 2}
+  CloudsMaterial: {fileID: 2100000, guid: 98c228247b53599499c716a46a0ae544, type: 2}
+  AtmosphereAbsorptionMaterial: {fileID: 2100000, guid: a6c7f64cfcba1a242b7d1071b79d459b,
+    type: 2}
+  AtmosphereScatteringMaterial: {fileID: 2100000, guid: f56f07673b4ed7c4294ab886985cf380,
+    type: 2}
+  RingsMaterial: {fileID: 2100000, guid: 69aec12774a638941bc2c9f0cf0c8350, type: 2}
+--- !u!1 &6288419363925946586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6933295862165467683}
+  - component: {fileID: 1236246467270532675}
+  - component: {fileID: 1047535279601849925}
+  m_Layer: 0
+  m_Name: SurfaceMesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6933295862165467683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6288419363925946586}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
   - {fileID: 1599114848004697168}
   - {fileID: 1277767778038839319}
   - {fileID: 1277767778935945865}
   - {fileID: 5790433195317551704}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1599114847719265008}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2422630858039172437
+--- !u!33 &1236246467270532675
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124259591061260362}
+  m_GameObject: {fileID: 6288419363925946586}
   m_Mesh: {fileID: -3965949488369162307, guid: e32bd36c5c1e43d44b989b256f8aa309, type: 3}
---- !u!23 &466719217908181407
+--- !u!23 &1047535279601849925
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124259591061260362}
+  m_GameObject: {fileID: 6288419363925946586}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 1
@@ -337,60 +424,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2422630858039172434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124259591061260362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f1c110214249cc41a40af207ac4482a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Radius: 636
-  MaxElevation: 0.88
-  ElevationScale: 2
-  CloudsHeight: 1.2
-  EmissiveColor: {r: 1, g: 0.7, b: 0.4, a: 1}
-  EmissiveBrightness: 2
-  PlanetRotation: 0
-  CloudsRotation: 0
-  ScaleToSize: 2
-  Rings:
-    Enabled: 0
-    InnerRadius: 6690
-    OuterRadius: 13678
-    LightingEccentricity: 0
-  SunDirection: {x: -1, y: 0, z: 0}
-  SunColor: {r: 1, g: 1, b: 1, a: 1}
-  SunBrightness: 4
-  Atmosphere:
-    AtmosphereHeight: 6
-    AtmosphereScale: 2
-    RayleighScattering: {r: 0.175, g: 0.409, b: 1, a: 1}
-    RayleighScale: 0.331
-    RayleighExponent: 0.8
-    MieScattering: {r: 1, g: 1, b: 1, a: 1}
-    MieScatteringScale: 0.03996
-    MieExtinction: {r: 1.1, g: 1.1, b: 1.1, a: 1}
-    MieExtinctionScale: 1.1
-    MieAnisotropy: 0.8
-    MieExponent: 0.12
-    Absorption: {r: 0.345, g: 1, b: 0.045, a: 1}
-    AbsorptionScale: 0.01881
-    TipAltitude: 2.5
-    TipWidth: 2
-    TipValue: 0.5
-    MaxSunAngle: 105
-  PlanetMaterial: {fileID: 2100000, guid: 2dad396745022ba4eb7842156256b2be, type: 2}
-  CloudsMaterial: {fileID: 2100000, guid: 98c228247b53599499c716a46a0ae544, type: 2}
-  AtmosphereAbsorptionMaterial: {fileID: 2100000, guid: a6c7f64cfcba1a242b7d1071b79d459b,
-    type: 2}
-  AtmosphereScatteringMaterial: {fileID: 2100000, guid: f56f07673b4ed7c4294ab886985cf380,
-    type: 2}
-  RingsMaterial: {fileID: 2100000, guid: 69aec12774a638941bc2c9f0cf0c8350, type: 2}
 --- !u!1 &6561763226306492642
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,12 +449,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6561763226306492642}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 21.506289, y: 21.506289, z: 21.506289}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1599114847719265008}
+  m_Father: {fileID: 6933295862165467683}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7490642706034028029

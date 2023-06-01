@@ -460,13 +460,16 @@ float3 GetSkyRadianceToPoint(
 		// This is the T(x,x_s) term in Eq. (17) of our paper, for light shafts.
 		shadowTransmittance = GetTransmittance(atmosphere, transmittanceTexture, ss,
 			r, mu, d, rayRMuIntersectsGround);
+		
+		shadowTransmittance = saturate(shadowTransmittance);
+
 	}
 	scattering = scattering - shadowTransmittance * scatteringP;
 	singleMieScattering = singleMieScattering - shadowTransmittance * singleMieScatteringP;
-	singleMieScattering = GetExtrapolatedSingleMieScattering(atmosphere, float4(scattering, max(singleMieScattering.x, 0.0001)));
+	//singleMieScattering = GetExtrapolatedSingleMieScattering(atmosphere, float4(scattering, max(singleMieScattering.x, 0.0001)));
 
 	// Hack to avoid rendering artifacts when the sun is below the horizon.
-	singleMieScattering *= smoothstep(0.0, 0.3, muS);
+	//singleMieScattering *= smoothstep(0.0, 0.3, muS);
 
 	return scattering * RayleighPhaseFunction(nu) + singleMieScattering * MiePhaseFunction(atmosphere.MiePhaseFunctionG, nu);
 }

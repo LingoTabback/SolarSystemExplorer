@@ -7,10 +7,40 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3288041736158166754, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: ScaleToSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: ElevationScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
@@ -68,6 +98,11 @@ PrefabInstance:
       value: P_Moon
       objectReference: {fileID: 0}
     - target: {fileID: 5786779955340076868, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962899821187910188, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

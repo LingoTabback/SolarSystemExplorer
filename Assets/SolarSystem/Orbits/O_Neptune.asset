@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe507d8c6afc164bb9c52182428a96e, type: 3}
+  m_Name: O_Neptune
+  m_EditorClassIdentifier: 
+  Name: Neptune Orbit
+  MeanDistance: 30.07
+  Eccentricity: 0.008949999697506428
+  Inclination: 1.77
+  LongitudeOfPeriapsis: 46.68
+  LongitudeOfAscendingNode: 131.79
+  MeanLongitudeAtEpoch: 304.22
+  OrbitalPeriod: 90560
+  DisplayColor: {r: 0.63529414, g: 0.6745098, b: 0.8666667, a: 0.12156863}
+  OrbitingObject: {fileID: 2319790164428465704, guid: e770a6b5d5696c042a122308994efac1,
+    type: 3}

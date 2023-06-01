@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe507d8c6afc164bb9c52182428a96e, type: 3}
+  m_Name: O_Jupiter
+  m_EditorClassIdentifier: 
+  Name: Jupiter Orbit
+  MeanDistance: 5.2025
+  Eccentricity: 0.04853999987244606
+  Inclination: 1.299
+  LongitudeOfPeriapsis: 14.27
+  LongitudeOfAscendingNode: 100.29
+  MeanLongitudeAtEpoch: 34.33
+  OrbitalPeriod: 4331
+  OrbitingObject: {fileID: 4799037691551030445, guid: cb1380b32de4603468780f27d02fb123,
+    type: 3}
+  SatelliteOrbits:
+  - {fileID: 11400000, guid: a26a34d97ef64f349ac96124c48d95df, type: 2}
+  - {fileID: 11400000, guid: 59c661cb1edb67e41871e97e9fd0b823, type: 2}
+  - {fileID: 11400000, guid: a3bdae8acace6ff46946942c57f57cb1, type: 2}
+  - {fileID: 11400000, guid: 5b50d758722eda046af6753709b1db21, type: 2}
+  DisplayColor: {r: 0.7921569, g: 0.59607846, b: 0.6117647, a: 0.12156863}

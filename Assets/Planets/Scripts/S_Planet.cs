@@ -20,6 +20,7 @@ public class S_Planet : MonoBehaviour
 	public float PlanetRotation = 0;
 	[Range(0f, 1f)]
 	public float CloudsRotation = 0;
+	public float AxialTilt = 0;
 
 	public float ScaleToSize = 2;
 
@@ -127,16 +128,16 @@ public class S_Planet : MonoBehaviour
 
 	private void InitObjects()
 	{
-		m_PlanetObject = gameObject;
+		m_PlanetObject = gameObject.transform.Find("SurfaceMesh").gameObject;
 		m_CloudsObject = m_PlanetObject.transform.Find("CloudsMesh").gameObject;
 		m_AtmosphereAbsorptionObject = m_PlanetObject.transform.Find("AtmosphereAbsorptionMesh").gameObject;
 		m_AtmosphereScatteringObject = m_PlanetObject.transform.Find("AtmosphereScatteringMesh").gameObject;
 		m_RingsObject = m_PlanetObject.transform.Find("Rings").gameObject;
 
 		m_PlanetObject.transform.localScale = Vector3.one * (ScaleToSize * 0.5f);
+		m_PlanetObject.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.AngleAxis(-AxialTilt, Vector3.right));
 		m_CloudsObject.transform.localScale = Vector3.one * (1 + CloudsHeight / Radius);
-		m_CloudsObject.transform.localPosition = Vector3.zero;
-		m_CloudsObject.transform.localRotation = Quaternion.identity;
+		m_CloudsObject.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
 
 		m_AtmosphereAbsorptionObject.transform.localScale = Vector3.one * (1 + Atmosphere.AtmosphereHeight * Atmosphere.AtmosphereScale / Radius);
 		m_AtmosphereScatteringObject.transform.localScale = Vector3.one * (1 + Atmosphere.AtmosphereHeight * Atmosphere.AtmosphereScale / Radius);

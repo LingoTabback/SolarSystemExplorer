@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe507d8c6afc164bb9c52182428a96e, type: 3}
+  m_Name: O_Venus
+  m_EditorClassIdentifier: 
+  Name: Venus Orbit
+  MeanDistance: 0.7233
+  Eccentricity: 0.00675999978557229
+  Inclination: 3.398
+  LongitudeOfPeriapsis: 131.77
+  LongitudeOfAscendingNode: 76.67
+  MeanLongitudeAtEpoch: 181.98
+  OrbitalPeriod: 224.7
+  DisplayColor: {r: 0.8, g: 0.7372549, b: 0.57254905, a: 0.12156863}
+  OrbitingObject: {fileID: 5130096011454072063, guid: 152442c325793a2468b3aaf25f1ad334,
+    type: 3}

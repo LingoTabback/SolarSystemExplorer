@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe507d8c6afc164bb9c52182428a96e, type: 3}
+  m_Name: O_Titan
+  m_EditorClassIdentifier: 
+  Name: Titan Orbit
+  MeanDistance: 0.008167897005
+  Eccentricity: 0.028999999165534973
+  Inclination: 0.3
+  LongitudeOfPeriapsis: 156.9
+  LongitudeOfAscendingNode: 78.6
+  MeanLongitudeAtEpoch: 11.7
+  OrbitalPeriod: 15.945448
+  OrbitingObject: {fileID: 2794235374586753485, guid: 293f8bd3109c95547a340e156be9d48a,
+    type: 3}
+  SatelliteOrbits: []
+  DisplayColor: {r: 0.735849, g: 0.5756755, b: 0.3019758, a: 1}

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe507d8c6afc164bb9c52182428a96e, type: 3}
+  m_Name: O_Uranus
+  m_EditorClassIdentifier: 
+  Name: Uranus Orbit
+  MeanDistance: 19.188
+  Eccentricity: 0.046859998255968094
+  Inclination: 0.773
+  LongitudeOfPeriapsis: 172.43
+  LongitudeOfAscendingNode: 73.96
+  MeanLongitudeAtEpoch: 314.2
+  OrbitalPeriod: 30589
+  DisplayColor: {r: 0.6862745, g: 0.8039216, b: 0.8117647, a: 0.12156863}
+  OrbitingObject: {fileID: 7893554569870217981, guid: f1381e646fd954f4baa5b44a76e18443,
+    type: 3}

@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1047535279601849925, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1277767778038839316, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -136,6 +141,11 @@ PrefabInstance:
         type: 3}
       propertyPath: Radius
       value: 2462.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: AxialTilt
+      value: 29.56
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
@@ -276,6 +286,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 5.555195
+      objectReference: {fileID: 0}
+    - target: {fileID: 6933295862165467683, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9669125
+      objectReference: {fileID: 0}
+    - target: {fileID: 6933295862165467683, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.25510827
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a783fef0c379aad4f9ffad6f32d3b967, type: 3}

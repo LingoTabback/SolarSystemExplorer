@@ -1,0 +1,271 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7892883258304116572
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3288041736158166754, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3345360285788532887, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1934205
+      objectReference: {fileID: 0}
+    - target: {fileID: 3345360285788532887, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1934205
+      objectReference: {fileID: 0}
+    - target: {fileID: 3345360285788532887, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1934205
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Radius
+      value: 257.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: MaxElevation
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: MoonMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: dd4028312bdc0ff4bb1a1d9a41981473, type: 2}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: HasAtmosphere
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: ElevationScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.TipValue
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.TipWidth
+      value: 17.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.MaxSunAngle
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.MieExponent
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.TipAltitude
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.Absorption.b
+      value: 0.043137252
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.Absorption.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.Absorption.r
+      value: 0.73570466
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.MieAnisotropy
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.RayleighScale
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.AtmosphereScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.MieExtinction.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.MieExtinction.g
+      value: 0.6289964
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.MieExtinction.r
+      value: 0.41960788
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.MieScattering.b
+      value: 0.1745283
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.MieScattering.g
+      value: 0.6825077
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.MieScattering.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.AtmosphereHeight
+      value: 24.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.RayleighExponent
+      value: 5.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.MieExtinctionScale
+      value: 1.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.MieScatteringScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.RayleighScattering.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.RayleighScattering.g
+      value: 0.3860097
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: Atmosphere.RayleighScattering.r
+      value: 0.1462264
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4732303527213026643, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426338121879570065, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Name
+      value: P_Titan
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786779955340076868, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962899821187910188, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467078746883681273, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136339017606017347, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1934205
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136339017606017347, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1934205
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136339017606017347, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1934205
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 84e9e7edf65b8dc4c827639909962914, type: 3}
