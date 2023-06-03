@@ -20,6 +20,21 @@ MonoBehaviour:
   LongitudeOfAscendingNode: 76.67
   MeanLongitudeAtEpoch: 181.98
   OrbitalPeriod: 224.7
-  DisplayColor: {r: 0.8, g: 0.7372549, b: 0.57254905, a: 0.12156863}
+  Epoch: 1
+  EpochYear: 0
+  EpochDay: 0
+  DerivativeOfMeanMotion: 0
+  DragTerm: 0
+  RightAscension: 0
+  ArgOfPeriapsis: 0
+  MeanAnomalyAtEpoch: 0
+  MeanMotion: 0
+  UsePlanetOrbit: 1
+  PlanetOrbit: 1
+  MoonOrbit: 0
+  OrbitType: 1
+  RotationModelType: 2
   OrbitingObject: {fileID: 5130096011454072063, guid: 152442c325793a2468b3aaf25f1ad334,
     type: 3}
+  SatelliteOrbits: []
+  DisplayColor: {r: 0.8, g: 0.7372549, b: 0.57254905, a: 0.12156863}

@@ -13,13 +13,8 @@ MonoBehaviour:
   m_Name: O_Moon
   m_EditorClassIdentifier: 
   Name: Moon Orbit
-  MeanDistance: 0.00256955529
-  Eccentricity: 0.055399999022483826
-  Inclination: 5.16
-  LongitudeOfPeriapsis: 443.23
-  LongitudeOfAscendingNode: 125.08
-  MeanLongitudeAtEpoch: 135.27
-  OrbitalPeriod: 27.322
+  OrbitType: 8
+  RotationModelType: 9
   OrbitingObject: {fileID: 3454243222725417124, guid: 032941078f9791243882f96676afb691,
     type: 3}
   SatelliteOrbits: []

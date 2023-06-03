@@ -13,13 +13,8 @@ MonoBehaviour:
   m_Name: O_Io
   m_EditorClassIdentifier: 
   Name: Io Orbit
-  MeanDistance: 0.00281955885
-  Eccentricity: 0.004000000189989805
-  Inclination: 0
-  LongitudeOfPeriapsis: 49.1
-  LongitudeOfAscendingNode: 0
-  MeanLongitudeAtEpoch: 330.9
-  OrbitalPeriod: 1.762732
+  OrbitType: 9
+  RotationModelType: 10
   OrbitingObject: {fileID: 8878114255204703649, guid: b165b8ed7cdb4154e853965f8aa29c6c,
     type: 3}
   SatelliteOrbits: []

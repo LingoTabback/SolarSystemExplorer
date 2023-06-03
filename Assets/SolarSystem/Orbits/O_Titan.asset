@@ -13,13 +13,8 @@ MonoBehaviour:
   m_Name: O_Titan
   m_EditorClassIdentifier: 
   Name: Titan Orbit
-  MeanDistance: 0.008167897005
-  Eccentricity: 0.028999999165534973
-  Inclination: 0.3
-  LongitudeOfPeriapsis: 156.9
-  LongitudeOfAscendingNode: 78.6
-  MeanLongitudeAtEpoch: 11.7
-  OrbitalPeriod: 15.945448
+  OrbitType: 13
+  RotationModelType: 14
   OrbitingObject: {fileID: 2794235374586753485, guid: 293f8bd3109c95547a340e156be9d48a,
     type: 3}
   SatelliteOrbits: []

@@ -13,13 +13,8 @@ MonoBehaviour:
   m_Name: O_Callisto
   m_EditorClassIdentifier: 
   Name: Callisto Orbit
-  MeanDistance: 0.01258507218
-  Eccentricity: 0.007000000216066837
-  Inclination: 0.3
-  LongitudeOfPeriapsis: 352.9
-  LongitudeOfAscendingNode: 309.1
-  MeanLongitudeAtEpoch: 87.4
-  OrbitalPeriod: 16.69044
+  OrbitType: 12
+  RotationModelType: 13
   OrbitingObject: {fileID: 2500830092570744895, guid: 08edf149adf6f3a4a811237d32f4ad27,
     type: 3}
   SatelliteOrbits: []

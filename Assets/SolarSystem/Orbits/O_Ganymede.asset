@@ -13,13 +13,8 @@ MonoBehaviour:
   m_Name: O_Ganymede
   m_EditorClassIdentifier: 
   Name: Ganymede Orbit
-  MeanDistance: 0.007155182056
-  Eccentricity: 0.0010000000474974513
-  Inclination: 0.2
-  LongitudeOfPeriapsis: 256.8
-  LongitudeOfAscendingNode: 58.5
-  MeanLongitudeAtEpoch: 324.8
-  OrbitalPeriod: 7.155588
+  OrbitType: 11
+  RotationModelType: 12
   OrbitingObject: {fileID: 9202560898219512048, guid: 673b9ae75b1782f41a41aa05e83900bc,
     type: 3}
   SatelliteOrbits: []

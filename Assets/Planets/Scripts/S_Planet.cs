@@ -1,3 +1,4 @@
+using CustomMath;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,10 +18,10 @@ public class S_Planet : MonoBehaviour
 	public float EmissiveBrightness = 2;
 
 	[Range(0f, 1f)]
-	public float PlanetRotation = 0;
-	[Range(0f, 1f)]
 	public float CloudsRotation = 0;
-	public float AxialTilt = 0;
+
+	[Range(0f, 360f)]
+	public float Meridian = 0;
 
 	public float ScaleToSize = 2;
 
@@ -119,11 +120,17 @@ public class S_Planet : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		m_PlanetMaterial.SetFloat("_PlanetRotation", PlanetRotation);
-		m_PlanetMaterial.SetFloat("_CloudsRotation", PlanetRotation + CloudsRotation);
-		m_CloudsMaterial.SetFloat("_CloudsRotation", PlanetRotation + CloudsRotation);
+		float rotation = Meridian / 360;
+		m_PlanetMaterial.SetFloat("_PlanetRotation", rotation);
+		m_PlanetMaterial.SetFloat("_CloudsRotation", rotation + CloudsRotation);
+		m_CloudsMaterial.SetFloat("_CloudsRotation", rotation + CloudsRotation);
 
 		UpdateLight();
+	}
+
+	public void SetSpin(in dQuaternion spin)
+	{
+		m_PlanetObject.transform.localRotation = (Quaternion)spin;
 	}
 
 	private void InitObjects()
@@ -135,7 +142,7 @@ public class S_Planet : MonoBehaviour
 		m_RingsObject = m_PlanetObject.transform.Find("Rings").gameObject;
 
 		m_PlanetObject.transform.localScale = Vector3.one * (ScaleToSize * 0.5f);
-		m_PlanetObject.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.AngleAxis(-AxialTilt, Vector3.right));
+		m_PlanetObject.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
 		m_CloudsObject.transform.localScale = Vector3.one * (1 + CloudsHeight / Radius);
 		m_CloudsObject.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
 
@@ -163,13 +170,14 @@ public class S_Planet : MonoBehaviour
 		m_RingsObject.GetComponent<MeshRenderer>().sharedMaterial = m_RingsMaterial;
 
 		Vector3 ambientColor = Vector3.Normalize(new Vector3(Atmosphere.RayleighScattering.r, Atmosphere.RayleighScattering.g, Atmosphere.RayleighScattering.b)) * 0.01f;
+		float rotation = Meridian / 360;
 
 		m_PlanetMaterial.SetFloat("_PlanetRadius", Radius);
-		m_PlanetMaterial.SetFloat("_PlanetRotation", PlanetRotation);
+		m_PlanetMaterial.SetFloat("_PlanetRotation", rotation);
 		m_PlanetMaterial.SetFloat("_MaxElevation", MaxElevation);
 		m_PlanetMaterial.SetFloat("_ElevationScale", ElevationScale);
 		m_PlanetMaterial.SetFloat("_CloudsHeight", CloudsHeight);
-		m_PlanetMaterial.SetFloat("_CloudsRotation", PlanetRotation + CloudsRotation);
+		m_PlanetMaterial.SetFloat("_CloudsRotation", rotation + CloudsRotation);
 		m_PlanetMaterial.SetVector("_AmbientColor", ambientColor);
 		m_PlanetMaterial.SetVector("_EmissiveColor", EmissiveColor * EmissiveBrightness);
 		m_PlanetMaterial.SetTexture("_GroundTransmittanceTexture", m_GroundTransmittanceTexture);
@@ -178,7 +186,7 @@ public class S_Planet : MonoBehaviour
 		m_PlanetMaterial.SetFloat("_RingInnerRadiusRelative", Rings.InnerRadius / Radius);
 		m_PlanetMaterial.SetFloat("_RingOuterRadiusRelative", Rings.OuterRadius / Radius);
 
-		m_CloudsMaterial.SetFloat("_CloudsRotation", PlanetRotation + CloudsRotation);
+		m_CloudsMaterial.SetFloat("_CloudsRotation", rotation + CloudsRotation);
 		m_CloudsMaterial.SetFloat("_GroundTransmittanceCoordY", CloudsHeight / Atmosphere.AtmosphereHeight * 0.1f);
 		m_CloudsMaterial.SetVector("_AmbientColor", ambientColor);
 		m_CloudsMaterial.SetTexture("_GroundTransmittanceTexture", m_GroundTransmittanceTexture);

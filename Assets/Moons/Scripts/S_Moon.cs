@@ -1,3 +1,4 @@
+using CustomMath;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,8 +12,10 @@ public class S_Moon : MonoBehaviour
 	public float Radius = 173.74f;
 	public float MaxElevation = 1.8f;
 	public float ElevationScale = 2;
-	[Range(0f, 1f)]
-	public float Rotation = 0;
+
+	[Range(0f, 360f)]
+	public float Meridian = 0;
+
 	public float ScaleToSize = 0.5f;
 
 	[Header("Sun")]
@@ -95,14 +98,20 @@ public class S_Moon : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		m_MoonMaterial.SetFloat("_MoonRotation", Rotation);
+		float rotation = Meridian / 360;
+		m_MoonMaterial.SetFloat("_MoonRotation", rotation);
 
 		UpdateLight();
 	}
 
+	public void SetSpin(in dQuaternion spin)
+	{
+		m_MoonObject.transform.localRotation = (Quaternion)spin;
+	}
+
 	private void InitObjects()
 	{
-		m_MoonObject = gameObject;
+		m_MoonObject = gameObject.transform.Find("SurfaceMesh").gameObject;
 		m_MoonObject.transform.localScale = Vector3.one * (ScaleToSize * 0.5f);
 
 		m_AtmosphereAbsorptionObject = m_MoonObject.transform.Find("AtmosphereAbsorptionMesh").gameObject;
@@ -128,9 +137,10 @@ public class S_Moon : MonoBehaviour
 		m_AtmosphereScatteringObject.GetComponent<MeshRenderer>().sharedMaterial = m_AtmosphereScatteringMaterial;
 
 		Vector3 ambientColor = HasAtmosphere ? Vector3.Normalize(new(Atmosphere.RayleighScattering.r, Atmosphere.RayleighScattering.g, Atmosphere.RayleighScattering.b)) * 0.01f : Vector3.zero;
+		float rotation = Meridian / 360;
 
 		m_MoonMaterial.SetFloat("_MoonRadius", Radius);
-		m_MoonMaterial.SetFloat("_MoonRotation", Rotation);
+		m_MoonMaterial.SetFloat("_MoonRotation", rotation);
 		m_MoonMaterial.SetFloat("_MaxElevation", MaxElevation);
 		m_MoonMaterial.SetFloat("_ElevationScale", ElevationScale);
 		m_MoonMaterial.SetVector("_AmbientColor", ambientColor);

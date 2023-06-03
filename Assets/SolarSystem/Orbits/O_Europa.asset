@@ -13,13 +13,8 @@ MonoBehaviour:
   m_Name: O_Europa
   m_EditorClassIdentifier: 
   Name: Europa Orbit
-  MeanDistance: 0.00448602642
-  Eccentricity: 0.008999999612569809
-  Inclination: 0.5
-  LongitudeOfPeriapsis: 229
-  LongitudeOfAscendingNode: 184
-  MeanLongitudeAtEpoch: 345.4
-  OrbitalPeriod: 3.525463
+  OrbitType: 10
+  RotationModelType: 11
   OrbitingObject: {fileID: 3608581063824914051, guid: 37d3bafd4bd29b1479028d8ece2dc0ed,
     type: 3}
   SatelliteOrbits: []

@@ -300,9 +300,8 @@ MonoBehaviour:
   CloudsHeight: 1.2
   EmissiveColor: {r: 1, g: 0.7, b: 0.4, a: 1}
   EmissiveBrightness: 2
-  PlanetRotation: 0
   CloudsRotation: 0
-  AxialTilt: 0
+  Meridian: 0
   ScaleToSize: 2
   Rings:
     Enabled: 0
@@ -362,7 +361,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6288419363925946586}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

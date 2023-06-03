@@ -20,6 +20,20 @@ MonoBehaviour:
   LongitudeOfAscendingNode: 113.64
   MeanLongitudeAtEpoch: 50.08
   OrbitalPeriod: 10747
+  Epoch: 1
+  EpochYear: 0
+  EpochDay: 0
+  DerivativeOfMeanMotion: 0
+  DragTerm: 0
+  RightAscension: 0
+  ArgOfPeriapsis: 0
+  MeanAnomalyAtEpoch: 0
+  MeanMotion: 0
+  UsePlanetOrbit: 1
+  PlanetOrbit: 5
+  MoonOrbit: 0
+  OrbitType: 5
+  RotationModelType: 6
   OrbitingObject: {fileID: 2770086216268831038, guid: 46dd2b8f1170ab44585d62d724ef4c61,
     type: 3}
   SatelliteOrbits:
