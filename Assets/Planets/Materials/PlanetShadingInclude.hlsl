@@ -663,7 +663,7 @@ void RingShadows_float(float3 ringPositionRel, float3 ringNormalRel, float ringI
 	float t = dot(ringNormalRel, ringPositionRel - position) / dot(ringNormalRel, -lightDirection);
 	float distToCenter = length(position - lightDirection * t - ringPositionRel);
 	float shadowMask = step(0.0, t) * step(ringInnerRadiusRel, distToCenter) * step(distToCenter, ringOutRadiusRel);
-	float shadowSample = SAMPLE_TEXTURE2D(ringsTexture, ss, float2(Remap(distToCenter, ringInnerRadiusRel, ringOutRadiusRel, 0.0, 1.0), 0.0)).w;
+	float shadowSample = SAMPLE_TEXTURE2D(ringsTexture, ss, float2(Remap(distToCenter, ringInnerRadiusRel, ringOutRadiusRel, 0.0, 1.0), 0.0)).y;
 	outShadow = 1.0 - shadowSample * shadowMask;
 }
 

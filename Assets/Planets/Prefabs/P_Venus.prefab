@@ -150,7 +150,7 @@ PrefabInstance:
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: Meridian
-      value: 315
+      value: 337.5
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}

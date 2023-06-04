@@ -378,18 +378,18 @@ MonoBehaviour:
   SunPrefab: {fileID: 4728018978915648042, guid: ffe578a58f94c664087346cd122df3de,
     type: 3}
   SunRadius: 69550
+  TransitionTime: 1
+  PlanetScale: 2
+  LineMaterial: {fileID: 2100000, guid: c63ca54422b11664285547b4693eb92d, type: 2}
   UseDate: 1
   Year: 2000
   Month: 1
   Days: 1
-  Hours: 0
-  Minutes: 0
-  Seconds: 0
-  TimeInDays: 0
+  Hours: 11
+  Minutes: 58
+  Seconds: 55.81607937812805
+  BarycentricDynamicalTime: 2451545
   TimeScale: 0
-  TransitionTime: 1
-  PlanetScale: 10
-  LineMaterial: {fileID: 2100000, guid: c63ca54422b11664285547b4693eb92d, type: 2}
 --- !u!4 &1566099773
 Transform:
   m_ObjectHideFlags: 0

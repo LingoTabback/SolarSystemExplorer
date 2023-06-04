@@ -1,5 +1,5 @@
 using CustomMath;
-using JulianTime;
+using AstroTime;
 using System;
 using Unity.Mathematics;
 
@@ -28,8 +28,8 @@ namespace Ephemeris
 
 	public class RotationModel
 	{
-		public virtual dQuaternion ComputeEquatorOrientation(in JulianDate date) => dQuaternion.identity;
-		public virtual dQuaternion ComputeSpin(in JulianDate date) => dQuaternion.identity;
+		public virtual dQuaternion ComputeEquatorOrientation(double t) => dQuaternion.identity;
+		public virtual dQuaternion ComputeSpin(double t) => dQuaternion.identity;
 
 		public static RotationModel Create(RotationModelType type)
 		{
@@ -67,21 +67,20 @@ namespace Ephemeris
 			m_Flipped = flipped;
 		}
 
-		public override dQuaternion ComputeEquatorOrientation(in JulianDate date)
+		public override dQuaternion ComputeEquatorOrientation(double t)
 		{
-			double jd = date.JulianDay;
-			jd -= JulianDate.J2000;
+			t -= TimeUtil.J2000;
 
-			ComputePole(jd, out double poleRA, out double poleDec);
+			ComputePole(t, out double poleRA, out double poleDec);
 
 			double node = poleRA + 90.0;
 			double inclination = 90.0 - poleDec;
 
 			return dQuaternion.mul(dQuaternion.RotateY(-math.radians(node)), dQuaternion.RotateX(-math.radians(inclination)));
 		}
-		public override dQuaternion ComputeSpin(in JulianDate date)
+		public override dQuaternion ComputeSpin(double t)
 		{
-			double jd = date.JulianDay - JulianDate.J2000;
+			double jd = t - TimeUtil.J2000;
 			double meridian = ComputeMeridian(jd);
 			return dQuaternion.RotateY((m_Flipped ? 1.0 : -1.0) * math.radians(180.0 + meridian));
 		}
@@ -115,7 +114,7 @@ namespace Ephemeris
 
 		protected override void ComputePole(double jd, out double ra, out double dec)
 		{
-			double t = JulianDate.GetJulianCentury(jd);
+			double t = TimeUtil.GetJulianCentury(jd);
 			ClampCenturies(t);
 			ra = m_PoleRA + m_PoleRARate * t;
 			dec = m_PoleDec + m_PoleDecRate * t;
@@ -130,7 +129,7 @@ namespace Ephemeris
 
 		protected override void ComputePole(double jd, out double ra, out double dec)
 		{
-			double t = JulianDate.GetJulianCentury(jd);
+			double t = TimeUtil.GetJulianCentury(jd);
 			double N = math.radians(357.85 + 52.316 * t);
 			ra = 299.36 + 0.70 * math.sin(N);
 			dec = 43.46 - 0.51 * math.cos(N);
@@ -138,7 +137,7 @@ namespace Ephemeris
 
 		protected override double ComputeMeridian(double jd)
 		{
-			double t = JulianDate.GetJulianCentury(jd);
+			double t = TimeUtil.GetJulianCentury(jd);
 			double N = math.radians(357.85 + 52.316 * t);
 			return 253.18 + 536.3128492 * jd - 0.48 * math.sin(N);
 		}
@@ -169,7 +168,7 @@ namespace Ephemeris
 
 	protected override void ComputePole(double jd, out double ra, out double dec)
 		{
-			double T = JulianDate.GetJulianCentury(jd);
+			double T = TimeUtil.GetJulianCentury(jd);
 			ClampCenturies(T);
 
 			CalcArgs(jd,
@@ -233,7 +232,7 @@ namespace Ephemeris
 
 		protected override void ComputePole(double jd, out double ra, out double dec)
 		{
-			double T = JulianDate.GetJulianCentury(jd);
+			double T = TimeUtil.GetJulianCentury(jd);
 			double J3 = math.radians(283.90 + 4850.7 * T);
 			double J4 = math.radians(355.80 + 1191.3 * T);
 			ClampCenturies(T);
@@ -243,7 +242,7 @@ namespace Ephemeris
 
 		protected override double ComputeMeridian(double jd)
 		{
-			double T = JulianDate.GetJulianCentury(jd);
+			double T = TimeUtil.GetJulianCentury(jd);
 			double J3 = math.radians(283.90 + 4850.7 * T);
 			double J4 = math.radians(355.80 + 1191.3 * T);
 			return 200.39 + 203.4889538 * jd - 0.085 * math.sin(J3) - 0.022 * math.sin(J4);
@@ -256,7 +255,7 @@ namespace Ephemeris
 
 		protected override void ComputePole(double jd, out double ra, out double dec)
 		{
-			double T = JulianDate.GetJulianCentury(jd);
+			double T = TimeUtil.GetJulianCentury(jd);
 			double J4 = math.radians(355.80 + 1191.3 * T);
 			double J5 = math.radians(119.90 + 262.1 * T);
 			double J6 = math.radians(229.80 + 64.3 * T);
@@ -268,7 +267,7 @@ namespace Ephemeris
 
 		protected override double ComputeMeridian(double jd)
 		{
-			double T = JulianDate.GetJulianCentury(jd);
+			double T = TimeUtil.GetJulianCentury(jd);
 			double J4 = math.radians(355.80 + 1191.3 * T);
 			double J5 = math.radians(119.90 + 262.1 * T);
 			double J6 = math.radians(229.80 + 64.3 * T);
@@ -283,7 +282,7 @@ namespace Ephemeris
 
 		protected override void ComputePole(double jd, out double ra, out double dec)
 		{
-			double T = JulianDate.GetJulianCentury(jd);
+			double T = TimeUtil.GetJulianCentury(jd);
 			double J4 = math.radians(355.80 + 1191.3 * T);
 			double J5 = math.radians(119.90 + 262.1 * T);
 			double J6 = math.radians(229.80 + 64.3 * T);
@@ -294,7 +293,7 @@ namespace Ephemeris
 
 		protected override double ComputeMeridian(double jd)
 		{
-			double T = JulianDate.GetJulianCentury(jd);
+			double T = TimeUtil.GetJulianCentury(jd);
 			double J4 = math.radians(355.80 + 1191.3 * T);
 			double J5 = math.radians(119.90 + 262.1 * T);
 			double J6 = math.radians(229.80 + 64.3 * T);
@@ -308,7 +307,7 @@ namespace Ephemeris
 
 		protected override void ComputePole(double jd, out double ra, out double dec)
 		{
-			double T = JulianDate.GetJulianCentury(jd);
+			double T = TimeUtil.GetJulianCentury(jd);
 			double J5 = math.radians(119.90 + 262.1 * T);
 			double J6 = math.radians(229.80 + 64.3 * T);
 			double J8 = math.radians(113.35 + 6070.0 * T);
@@ -319,7 +318,7 @@ namespace Ephemeris
 
 		protected override double ComputeMeridian(double jd)
 		{
-			double T = JulianDate.GetJulianCentury(jd);
+			double T = TimeUtil.GetJulianCentury(jd);
 			double J5 = math.radians(119.90 + 262.1 * T);
 			double J6 = math.radians(229.80 + 64.3 * T);
 			double J8 = math.radians(113.35 + 6070.0 * T);
@@ -333,7 +332,7 @@ namespace Ephemeris
 
 		protected override void ComputePole(double jd, out double ra, out double dec)
 		{
-			double T = JulianDate.GetJulianCentury(jd);
+			double T = TimeUtil.GetJulianCentury(jd);
 			double S8 = math.radians(29.80 - 52.1 * T);
 			ClampCenturies(T);
 			ra = 36.41 - 0.036 * T + 2.66 * math.sin(S8);
@@ -342,7 +341,7 @@ namespace Ephemeris
 
 		protected override double ComputeMeridian(double jd)
 		{
-			double T = JulianDate.GetJulianCentury(jd);
+			double T = TimeUtil.GetJulianCentury(jd);
 			double S8 = math.radians(29.80 - 52.1 * T);
 			return 189.64 + 22.5769768 * jd - 2.64 * math.sin(S8);
 		}

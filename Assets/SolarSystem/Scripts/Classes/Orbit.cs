@@ -1,5 +1,5 @@
 using CustomMath;
-using JulianTime;
+using AstroTime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -33,13 +33,12 @@ namespace Ephemeris
 		protected double m_Period = 0;
 		public double Period => m_Period;
 
-		public double3 PositionAtTime(in JulianDate date) => PositionAtTime(date.JulianDay);
-		public abstract double3 PositionAtTime(double jd);
+		public abstract double3 PositionAtTime(double t);
 
-		public virtual double3 VelocityAtTime(in JulianDate date)
+		public virtual double3 VelocityAtTime(double t)
 		{
-			double3 p0 = PositionAtTime(date.JulianDay);
-			double3 p1 = PositionAtTime(date.JulianDay + s_OrbitalVelocityDiffDelta);
+			double3 p0 = PositionAtTime(t);
+			double3 p1 = PositionAtTime(t + s_OrbitalVelocityDiffDelta);
 			return (p1 - p0) * (1.0 / s_OrbitalVelocityDiffDelta);
 		}
 
@@ -295,8 +294,8 @@ namespace Ephemeris
 						  double a0, double d0,
 						  out double a, out double d)
 		{
-			double T = JulianDate.GetJulianCentury(jdFrom - JulianDate.J2000);
-			double t = JulianDate.GetJulianCentury(jdTo - jdFrom);
+			double T = TimeUtil.GetJulianCentury(jdFrom - TimeUtil.J2000);
+			double t = TimeUtil.GetJulianCentury(jdTo - jdFrom);
 
 			double zeta = (2306.2181 + 1.39656 * T - 0.000139 * T * T) * t +
 				(0.30188 - 0.000344 * T) * t * t + 0.017998 * t * t * t;
@@ -335,7 +334,7 @@ namespace Ephemeris
 
 		public override double3 PositionAtTime(double jd)
 		{
-			double t = JulianDate.GetJulianMillenium(jd - JulianDate.J2000);
+			double t = TimeUtil.GetJulianMillenium(jd - TimeUtil.J2000);
 
 			// Heliocentric coordinates
 			double l = 0.0; // longitude
@@ -396,7 +395,7 @@ namespace Ephemeris
 			// Computation requires an abbreviated Julian day:
 			// epoch January 0.5, 1900.
 			double jd19 = jd - 2415020.0;
-			double t = JulianDate.GetJulianCentury(jd19);
+			double t = TimeUtil.GetJulianCentury(jd19);
 			double t2 = t * t;
 
 			double m1 = jd19 / 27.32158213;
@@ -518,7 +517,7 @@ namespace Ephemeris
 			// the J2000 equinox instead.  A better idea would be to directly
 			// compute the position of the Moon in this coordinate system, but
 			// this was easier.
-			EpochConvert(jd, JulianDate.J2000, RA, dec, out RA, out dec);
+			EpochConvert(jd, TimeUtil.J2000, RA, dec, out RA, out dec);
 
 			// Corrections for internal coordinate system
 			dec -= math.PI_DBL * 0.5;

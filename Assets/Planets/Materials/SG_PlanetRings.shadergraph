@@ -3814,8 +3814,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1975.0001220703125,
-            "y": 3084.0,
+            "x": -2006.0,
+            "y": 3097.0,
             "width": 153.0,
             "height": 34.0
         }
@@ -7219,7 +7219,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"5b6d4ea7539618b409e81cf3dfe449e2\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"9cd5c3907d1dca942bcbefca549ba5af\",\"type\":3}}",
         "m_Guid": ""
     },
     "isMainTexture": false,

@@ -11,14 +11,23 @@ using UnityEditor.Build.Pipeline.Interfaces;
 using System.ComponentModel;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
-using JulianTime;
+using AstroTime;
 using Ephemeris;
+using Unity.Collections;
+using UnityEngine.ResourceManagement.ResourceProviders.Simulation;
 
 public class S_SolarSystem : MonoBehaviour
 {
 	public S_OrbitSettings[] Orbits;
 	public GameObject SunPrefab;
 	public float SunRadius = 69550;
+
+	[Header("Transitions")]
+	public float TransitionTime = 5;
+
+	[Header("Rendering")]
+	public double PlanetScale = 10;
+	public Material LineMaterial;
 
 	[Header("Time")]
 	public bool UseDate = true;
@@ -33,15 +42,9 @@ public class S_SolarSystem : MonoBehaviour
 	public int Minutes = 0;
 	[Range(0, 59.999f)]
 	public double Seconds = 0;
-	public double TimeInDays = 0;
+
+	public double BarycentricDynamicalTime = TimeUtil.J2000;
 	public double TimeScale = 1;
-
-	[Header("Transitions")]
-	public float TransitionTime = 5;
-
-	[Header("Rendering")]
-	public double PlanetScale = 10;
-	public Material LineMaterial;
 
 	private static readonly int s_LinePointCount = 200;
 	private static double s_PlanetScale = 1;
@@ -123,7 +126,10 @@ public class S_SolarSystem : MonoBehaviour
 	{
 		s_PlanetScale = PlanetScale;
 
-		SetTime(Year, Month, Days, Hours, Minutes, Seconds);
+		if (UseDate)
+			SetTime(Year, Month, Days, Hours, Minutes, Seconds);
+		else
+			SetTime(BarycentricDynamicalTime);
 
 		m_SunObject = Instantiate(SunPrefab, transform, false);
 		m_SunRadiusInAU = CMath.KMtoAU(SunRadius * 10);
@@ -144,7 +150,7 @@ public class S_SolarSystem : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		SetTime(TimeInDays + Time.deltaTime * TimeScale);
+		SetTime(BarycentricDynamicalTime + Time.deltaTime * TimeScale);
 		UpdateOrbits();
 
 		int nextOrbit = -2;
@@ -308,40 +314,38 @@ public class S_SolarSystem : MonoBehaviour
 
 	private void InitOrbits()
 	{
-		var date = JulianDate.FromTicks(new DateTime(TicksFromDate(2000, 1, 1, 0, 0, TimeInDays * 24 * 60 * 60), DateTimeKind.Utc).Ticks, JulianDate.J2000);
 		foreach (var orbit in m_PlanetOrbits)
-			orbit.Init(date);
+			orbit.Init(BarycentricDynamicalTime);
 	}
 
 	private void UpdateOrbits()
 	{
-		var date = JulianDate.FromTicks(new DateTime(TicksFromDate(2000, 1, 1, 0, 0, TimeInDays * 24 * 60 * 60), DateTimeKind.Utc).Ticks, JulianDate.J2000);
 		foreach (var orbit in m_PlanetOrbits)
-			orbit.Update(date);
+			orbit.Update(BarycentricDynamicalTime);
 	}
 
-	public void SetTime(double timeInDays)
+	public void SetTime(double tdb)
 	{
-		DateTime date = new(TicksFromDate(2000, 1, 1, 0, 0, timeInDays * 24 * 60 * 60), DateTimeKind.Utc);
+		Date date = TimeUtil.TDBtoUTC(tdb);
 		Year = date.Year;
 		Month = date.Month;
 		Days = date.Day;
 		Hours = date.Hour;
 		Minutes = date.Minute;
-		Seconds = (date - new DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, 0, DateTimeKind.Utc)).TotalSeconds;
-		TimeInDays = timeInDays;
+		Seconds = date.Seconds;
+		BarycentricDynamicalTime = tdb;
 	}
 
 	public void SetTime(int year, int month, int day, int hours, int minutes, double seconds)
 	{
-		DateTime date = new(TicksFromDate(year, month, day, hours, minutes, seconds), DateTimeKind.Utc);
+		Date date  = new(year, month, day, hours, minutes, seconds);
 		Year = date.Year;
 		Month = date.Month;
 		Days = date.Day;
 		Hours = date.Hour;
 		Minutes = date.Minute;
-		Seconds = (date - new DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, 0, DateTimeKind.Utc)).TotalSeconds;
-		TimeInDays = (date - new DateTime(2000, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalDays;
+		Seconds = date.Seconds;
+		BarycentricDynamicalTime = TimeUtil.UTCtoTDB(date);
 	}
 
 	private static long TicksFromDate(int year, int month, int day, int hours, int minutes, double seconds)
@@ -370,10 +374,13 @@ public class S_SolarSystem : MonoBehaviour
 		public dQuaternion Spin = dQuaternion.identity;
 		public double RadiusInAU = 1;
 
-		protected double m_StartJulianDay = 0;
-
 		protected Orbit m_Orbit;
 		protected RotationModel m_RotationModel;
+
+		protected double m_LineStartJulian = 0;
+		protected double m_LineEndJulian = 0;
+		protected Vector3[] m_Vertices;
+		protected Vector2[] m_UVs;
 
 		public OrbitWrapper(Orbit orbit, RotationModel frame, S_OrbitSettings settings, Transform systemTransform, Material lineMaterial)
 		{
@@ -411,67 +418,101 @@ public class S_SolarSystem : MonoBehaviour
 			OrbitingObject = null;
 		}
 
-		public virtual void Init(in JulianDate date)
+		public virtual void Init(double t)
 		{
-			m_StartJulianDay = date.JulianDay;
-			EquatorOrientation = dQuaternion.mul(s_SunOrientationQuatInv, m_RotationModel.ComputeEquatorOrientation(date));
-			Spin = m_RotationModel.ComputeSpin(date);
-			PlanetPositionWorld = m_Orbit.PositionAtTime(date.JulianDay);
+			EquatorOrientation = dQuaternion.mul(s_SunOrientationQuatInv, m_RotationModel.ComputeEquatorOrientation(t));
+			Spin = m_RotationModel.ComputeSpin(t);
+			PlanetPositionWorld = m_Orbit.PositionAtTime(t);
 			LineMaterial.SetFloat("_PositionInOrbit", 0);
-			InitOrbitLine(date);
+
+			m_Vertices = new Vector3[s_LinePointCount + 1];
+			m_UVs = new Vector2[s_LinePointCount + 1];
+
+			InitOrbitLine(t);
 		}
 
-		private void InitOrbitLine(in JulianDate date)
+		private void InitOrbitLine(double t)
 		{
-			Vector3[] vertices = new Vector3[s_LinePointCount + 1];
-			Vector2[] uvs = new Vector2[s_LinePointCount + 1];
+			m_LineStartJulian = t - m_Orbit.Period;
+			m_LineEndJulian = t + m_Orbit.Period / (s_LinePointCount - 1);
 
 			int[] indices = new int[s_LinePointCount * 2];
 
 			for (int i = 0; i < s_LinePointCount; ++i)
 			{
-				double time = i / (double)s_LinePointCount * m_Orbit.Period + date.JulianDay;
-				double3 point = m_Orbit.PositionAtTime(time);
-				vertices[i] = (float3)point;
-				uvs[i] = new Vector2(i / (float)s_LinePointCount, 0);
-
 				indices[i * 2] = i;
 				indices[i * 2 + 1] = i + 1;
 			}
-			vertices[s_LinePointCount] = vertices[0];
-			uvs[s_LinePointCount] = new Vector2(1, 0);
 
-			LineMesh.vertices = vertices;
-			LineMesh.uv = uvs;
+			for (int i = 0; i < s_LinePointCount + 1; ++i)
+			{
+				double time = i / (double)(s_LinePointCount - 1) * m_Orbit.Period + m_LineStartJulian;
+				double3 point = m_Orbit.PositionAtTime(time);
+				m_Vertices[i] = (float3)point;
+				m_UVs[i] = new Vector2(i / (float)(s_LinePointCount - 1), 0);
+			}
+
+			LineMesh.vertices = m_Vertices;
+			LineMesh.uv = m_UVs;
 			LineMesh.SetIndices(indices, MeshTopology.Lines, 0, true);
 		}
 
-		private void UpdateOrbitLine(in JulianDate date)
+		private void UpdateOrbitLine(double t)
 		{
-			Vector3[] vertices = new Vector3[s_LinePointCount + 1];
-			Vector2[] uvs = new Vector2[s_LinePointCount + 1];
+			double segmentTime = m_Orbit.Period / (s_LinePointCount - 1);
 
-			for (int i = 0; i < s_LinePointCount; ++i)
+			double dateDiffEnd = t - m_LineEndJulian;
+			double dateDiffStart = m_LineEndJulian - t - segmentTime;
+
+			if (dateDiffEnd > 0.0)
 			{
-				double time = i / (double)s_LinePointCount * m_Orbit.Period + date.JulianDay;
-				double3 point = m_Orbit.PositionAtTime(time);
-				vertices[i] = (float3)point;
-				uvs[i] = new Vector2(i / (float)s_LinePointCount, 0);
-			}
-			vertices[s_LinePointCount] = vertices[0];
-			uvs[s_LinePointCount] = new Vector2(1, 0);
+				int numVerts = 1 + (int)(dateDiffEnd / segmentTime);
 
-			LineMesh.vertices = vertices;
-			LineMesh.uv = uvs;
+				for (int vId = 0; vId < s_LinePointCount + 1 - numVerts; ++vId)
+					m_Vertices[vId] = m_Vertices[vId + numVerts];
+
+				int i = 1 + math.max(numVerts - s_LinePointCount - 1, 0);
+				for (int vId = math.max(s_LinePointCount + 1 - numVerts, 0); vId < s_LinePointCount + 1; ++vId)
+				{
+					m_Vertices[vId] = (float3)m_Orbit.PositionAtTime(m_LineEndJulian + segmentTime * i);
+					++i;
+				}
+
+				m_LineStartJulian += segmentTime * numVerts;
+				m_LineEndJulian += segmentTime * numVerts;
+
+				LineMesh.SetVertices(m_Vertices);
+			}
+			else if (dateDiffStart > 0.0)
+			{
+				int numVerts = 1 + (int)(dateDiffStart / segmentTime);
+
+				for (int vId = s_LinePointCount; vId >= numVerts; --vId)
+					m_Vertices[vId] = m_Vertices[vId - numVerts];
+
+				
+				int iters = math.min(numVerts, s_LinePointCount + 1);
+				int i = numVerts - 1;
+				for (int vId = 0; vId < iters; ++vId)
+				{
+					m_Vertices[vId] = (float3)m_Orbit.PositionAtTime(m_LineStartJulian - segmentTime * i);
+					--i;
+				}
+
+				m_LineStartJulian -= segmentTime * numVerts;
+				m_LineEndJulian -= segmentTime * numVerts;
+
+				LineMesh.SetVertices(m_Vertices);
+			}
 		}
 
-		public virtual void Update(in JulianDate date)
+		public virtual void Update(double t)
 		{
-			PlanetPositionRelative = m_Orbit.PositionAtTime(date.JulianDay);
-			EquatorOrientation = dQuaternion.mul(s_SunOrientationQuatInv, m_RotationModel.ComputeEquatorOrientation(date));
-			Spin = m_RotationModel.ComputeSpin(date);
-			// UpdateOrbitLine(date); // TODO: bad perf, needs other solution
-			LineMaterial.SetFloat("_PositionInOrbit", (float)math.frac((date.JulianDay - m_StartJulianDay) / m_Orbit.Period));
+			PlanetPositionRelative = m_Orbit.PositionAtTime(t);
+			EquatorOrientation = dQuaternion.mul(s_SunOrientationQuatInv, m_RotationModel.ComputeEquatorOrientation(t));
+			Spin = m_RotationModel.ComputeSpin(t);
+			UpdateOrbitLine(t); // TODO: bad perf, needs other solution
+			LineMaterial.SetFloat("_PositionInOrbit", (float)((t - m_LineStartJulian) / m_Orbit.Period));
 		}
 
 		public struct ReferenceOrientation
@@ -504,22 +545,22 @@ public class S_SolarSystem : MonoBehaviour
 				Moons[i] = OrbitWrapperMoon.Create(this, settings.SatelliteOrbits[i], systemTransform, lineMaterial);
 		}
 
-		public override void Init(in JulianDate date)
+		public override void Init(double t)
 		{
-			base.Init(date);
+			base.Init(t);
 			PlanetPositionWorld = PlanetPositionRelative;
 
 			foreach (var moon in Moons)
-				moon.Init(date);
+				moon.Init(t);
 		}
 
-		public override void Update(in JulianDate date)
+		public override void Update(double t)
 		{
-			base.Update(date);
+			base.Update(t);
 			PlanetPositionWorld = PlanetPositionRelative;
 
 			foreach (var moon in Moons)
-				moon.Update(date);
+				moon.Update(t);
 		}
 
 		public override void SpawnPrefab(Transform systemTransform)
@@ -556,15 +597,15 @@ public class S_SolarSystem : MonoBehaviour
 			Parent = parent;
 		}
 
-		public override void Init(in JulianDate date)
+		public override void Init(double t)
 		{
-			base.Init(date);
+			base.Init(t);
 			PlanetPositionWorld = dQuaternion.mul(Parent.EquatorOrientation, PlanetPositionRelative) + Parent.PlanetPositionWorld;
 		}
 
-		public override void Update(in JulianDate date)
+		public override void Update(double t)
 		{
-			base.Update(date);
+			base.Update(t);
 			PlanetPositionWorld = dQuaternion.mul(Parent.EquatorOrientation, PlanetPositionRelative) + Parent.PlanetPositionWorld;
 		}
 
