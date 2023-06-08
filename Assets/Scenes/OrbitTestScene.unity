@@ -588,9 +588,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a407f5f0bef05f344941ee8aa386905a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggleReference: {fileID: 415127961827104363, guid: c348712bda248c246b8c49b3db54643f,
+  ToggleReference: {fileID: 415127961827104363, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
-  solarSystem: {fileID: 1566099772}
+  SolarSystem: {fileID: 1566099772}
 --- !u!1 &1684480501
 GameObject:
   m_ObjectHideFlags: 0
