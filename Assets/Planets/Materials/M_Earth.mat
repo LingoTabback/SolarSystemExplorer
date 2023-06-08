@@ -72,6 +72,7 @@ Material:
     - _CloudsRotation: 0
     - _ElevationScale: 2
     - _EmissiveBrightness: 2.5
+    - _LunarLambert: 0.5
     - _MaxElevation: 0.88
     - _PlanetRadius: 636
     - _PlanetRotation: 0
@@ -82,6 +83,11 @@ Material:
     - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
     - _CloudsColor: {r: 1, g: 1, b: 1, a: 0}
     - _EmissiveColor: {r: 1, g: 0.7, b: 0.4, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
     - _SunColor: {r: 1, g: 1, b: 1, a: 0}
     - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

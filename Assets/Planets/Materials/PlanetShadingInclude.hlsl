@@ -137,7 +137,7 @@ float3 FresnelSchlick(float cosTheta, float3 f0)
 	return f0 + (1.0 - f0) * pow(1.0 - cosTheta, 5.0);
 }
 
-void PlanetShading_float(float3 cameraDirection, float3 baseColor, float roughness, float metallic, float specularF0 , float3 worldNormal, float3 lightDirection, float3 lightColor, float3 ambientColor, float shadows, out float3 output)
+void PlanetShading_float(float3 cameraDirection, float3 baseColor, float roughness, float metallic, float specularF0, float3 worldNormal, float3 lightDirection, float3 lightColor, float3 ambientColor, float lunarLambert, float shadows, out float3 output)
 {
 	float3 f0 = lerp(specularF0.xxx, baseColor, metallic);
 
@@ -156,7 +156,8 @@ void PlanetShading_float(float3 cameraDirection, float3 baseColor, float roughne
 	float3 diffKomp = (1.0 - f) * (1.0 - metallic);
 
 	float3 radiance = lightColor * shadows;
-	float3 directLighting = (diffKomp * baseColor * M_INV_PI + specular) * radiance * nDotL;
+	float lunarDiffuse = lerp(nDotL * M_INV_PI, (nDotL / (max(nDotV, 0.001) + nDotL)) * min(nDotL * 8.0, 1.0) * M_INV_PI * 0.25, lunarLambert); // simple approximation for moon surface reflectance
+	float3 directLighting = (lunarDiffuse * diffKomp * baseColor + specular * nDotL) * radiance;
 
 	float3 indirectLighting = baseColor * M_INV_PI * ambientColor;
 
@@ -635,14 +636,19 @@ float HenyeyGreenstein(float cosAngle, float g)
 	return (1.0 - g * g) / pow(1.0 + g * g - 2.0 * g * cosAngle, 1.5) * 0.25 * M_PI;
 }
 
-void SphereSoftShadow_float(float3 position, float3 lightDirection, float3 center, float radius, float hardness, out float shadow)
-{
-	float3 oc = position - center;
-	float b = dot(oc, lightDirection);
-	float c = dot(oc, oc) - radius * radius;
-	float h = b * b - c;
-
-	shadow = (b > 0.0) ? step(-0.0001, c) : smoothstep(0.0, 1.0, h * hardness / b);
+void SphereSoftShadow_float(float3 position, float3 lightDirection, float3 center, float radius, float lightDistance, float lightRadius, out float shadow)
+{	
+	float3 sphereDirection = center - position;
+	float sphereDistance = length(sphereDirection);
+	sphereDirection = sphereDirection / sphereDistance;
+	
+	float d = lightDistance * (asin(min(1.0, length(cross(lightDirection, sphereDirection))))
+			   - asin(min(1.0, radius / sphereDistance)));
+	float w = clamp(-d / lightRadius, -1.0, 1.0);
+	w *= smoothstep(0.0, 0.2, dot(lightDirection, sphereDirection));
+	
+	shadow = saturate(1.0 - w);
+	shadow = lerp(1.0 - (1.0 - shadow) * (1.0 - shadow), smoothstep(0.0, 1.0, shadow), 0.5); // crude approximation of limb darkenings effect on shadow
 }
 
 void RingShading_float(float3 viewDirection, float3 albedo, float3 backsideAlbedo, float phaseFuncG, float alpha, float3 worldNormal, float3 lightDirection, float3 lightColor, float3 ambientColor, float shadows, out float3 output)

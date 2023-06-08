@@ -6,6 +6,13 @@ namespace AstroTime
 	[Serializable]
 	public struct Date
 	{
+		public enum Format : byte
+		{
+			ISO8601,
+			US, // but with 24h Time Of Day
+			DE
+		}
+
 		public int Year => m_Year;
 		public int Month => m_Month;
 		public int Day => m_Day;
@@ -37,6 +44,20 @@ namespace AstroTime
 			m_Hour = h;
 			m_Minute = min;
 			m_Seconds = s;
+			m_WDay = 0;
+			m_UtcOffset = 0;
+			m_TZName = "UTC";
+		}
+
+		public Date(in DateTime date)
+		{
+			DateTime utc = date.ToUniversalTime();
+			m_Year = utc.Year;
+			m_Month = utc.Month;
+			m_Day = utc.Day;
+			m_Hour = utc.Hour;
+			m_Minute = utc.Minute;
+			m_Seconds = utc.Second;
 			m_WDay = 0;
 			m_UtcOffset = 0;
 			m_TZName = "UTC";
@@ -137,6 +158,43 @@ namespace AstroTime
 		private static readonly double s_SecondsPerDay = 86400.0;
 		private static readonly double s_MinutesPerDay = 1440.0;
 		private static readonly double s_HoursPerDay = 24.0;
+
+		private static readonly string[] s_MonthAbbreviationsUS =
+		{
+			"Jan", "Feb", "Mar", "Apr", "May", "Jun",
+			"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+		};
+		private static readonly string[] s_MonthAbbreviationsDE =
+		{
+			"Jan", "Feb", "Mär", "Apr", "Mai", "Jun",
+			"Jul", "Aug", "Sep", "Okt", "Nov", "Dez"
+		};
+
+		public override string ToString() => ToString(Format.ISO8601);
+
+		public string ToString(Format format)
+		{
+			if (m_Month < 1 | m_Month > 12 | m_Day < 1 | m_Hour < 0 | m_Minute < 0 | m_Seconds < 0)
+				return "NOT A VALID DATE";
+
+			return format switch
+			{
+				Format.ISO8601 => $"{m_Year:0000}-{m_Month:00}-{m_Day:00} {m_Hour:00}:{m_Minute:00}:{(int)m_Seconds:00} {m_TZName}",
+				Format.US => $"{s_MonthAbbreviationsUS[m_Month - 1]} {m_Day:00}, {m_Year:0000} {m_Hour:00}:{m_Minute:00}:{(int)m_Seconds:00} {m_TZName}",
+				Format.DE => $"{m_Day:00}.{s_MonthAbbreviationsUS[m_Month - 1]} {m_Year:0000} {m_Hour:00}:{m_Minute:00}:{(int)m_Seconds:00} {m_TZName}",
+				_ => "NOT A VALID DATE",
+			};
+		}
+	}
+
+	public enum AstroTimeUnit : byte
+	{
+		Seconds,
+		Minutes,
+		Hours,
+		Days,
+		Weeks,
+		Years
 	}
 
 	public static class TimeUtil
@@ -151,15 +209,36 @@ namespace AstroTime
 		public static readonly double J2000 = 2451545.0;
 		public static readonly double J1900 = 2415020.0;
 
-		public static double SecsToDays(double s)
+		public static double ConvertToDays(double t, AstroTimeUnit from)
 		{
-			return s * (1.0 / s_SecondsPerDay);
+			return from switch
+			{
+				AstroTimeUnit.Seconds => t * s_DaysPerSecond,
+				AstroTimeUnit.Minutes => t * s_DaysPerMinute,
+				AstroTimeUnit.Hours => t * s_DaysPerHour,
+				AstroTimeUnit.Weeks => t * s_DaysPerWeek,
+				AstroTimeUnit.Years => t * s_DaysPerYear,
+				_ => t
+			};
 		}
 
-		public static double DaysToSecs(double d)
+		public static double ConvertFromDays(double t, AstroTimeUnit to)
 		{
-			return d * s_SecondsPerDay;
+			return to switch
+			{
+				AstroTimeUnit.Seconds => t * s_SecondsPerDay,
+				AstroTimeUnit.Minutes => t * s_MinutesPerDay,
+				AstroTimeUnit.Hours => t * s_HoursPerDay,
+				AstroTimeUnit.Weeks => t * s_WeeksPerDay,
+				AstroTimeUnit.Years => t * s_YearsPerDay,
+				_ => t
+			};
 		}
+
+		public static double ConvertUnit(double t, AstroTimeUnit from, AstroTimeUnit to) => ConvertFromDays(ConvertToDays(t, from), to);
+
+		public static double SecsToDays(double s) => s * s_DaysPerSecond;
+		public static double DaysToSecs(double d) => d * s_SecondsPerDay;
 
 		public static double GetJulianCentury(double jd) => jd / 36525.0;
 		public static double GetJulianMillenium(double jd) => jd / 365250.0;
@@ -269,8 +348,16 @@ namespace AstroTime
 		private static readonly double s_M1 = 1.99096871e-7;
 
 		private static readonly double s_SecondsPerDay = 86400.0;
-		//private static readonly double s_MinutesPerDay = 1440.0;
-		//private static readonly double s_HoursPerDay = 24.0;
+		private static readonly double s_MinutesPerDay = 1440.0;
+		private static readonly double s_HoursPerDay = 24.0;
+		private static readonly double s_WeeksPerDay = 1.0 / 7.0;
+		private static readonly double s_YearsPerDay = 1.0 / 365.25;
+
+		private static readonly double s_DaysPerSecond = 1.0 / 86400.0;
+		private static readonly double s_DaysPerMinute = 1.0 / 1440.0;
+		private static readonly double s_DaysPerHour = 1.0 / 24.0;
+		private static readonly double s_DaysPerWeek = 7.0;
+		private static readonly double s_DaysPerYear = 365.25;
 
 		// Input is a TDB Julian Date; result is in seconds
 		private static double TDBCorrection(double tdb)
@@ -327,165 +414,4 @@ namespace AstroTime
 			new LeapSecondRecord(37, 2457754.5), // 1 Jan 2017
 		};
 	}
-
-	/*[Serializable]
-	public struct JulianDate
-	{
-		private long m_Ticks;
-		private double m_JulianDay;
-		private double m_Epoch;
-
-		public double DayNumber => GetDayNumber(m_JulianDay);
-		public double JulianDay => m_JulianDay;
-		public double Epoch => m_Epoch;
-		public long Ticks => m_Ticks;
-
-		public static readonly double J2000 = 2451545.0;
-		public static readonly double J1900 = 2415020.0;
-
-		public static JulianDate FromDays(double jd, double epoch)
-		{
-			JulianDate date = new()
-			{
-				m_JulianDay = jd,
-				m_Epoch = epoch,
-				m_Ticks = JulianToDate(jd).Ticks
-			};
-			return date;
-		}
-
-		public static JulianDate FromTicks(long ticks, double epoch)
-		{
-			double jd = MillisToJulian(ticks / 10000.0);
-
-			JulianDate date = new()
-			{
-				m_JulianDay = jd,
-				m_Epoch = epoch,
-				m_Ticks = JulianToDate(jd).Ticks
-			};
-			return date;
-		}
-
-		public static double DateToJulian(in DateTime date) => DateToJulian(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second, date.Millisecond);
-
-		public static double DateToJulian(int year, int month, int day, int hour, int minute, int second, double millisecond, int tz = 0)
-		{
-			double dayDecimal, julianDay, a;
-
-			dayDecimal = day + (hour - tz + (minute + second / 60.0 + millisecond / 1000 / 60) / 60.0) / 24.0;
-
-			if (month < 3)
-			{
-				month += 12;
-				year--;
-			}
-
-			julianDay = math.floor(365.25 * (year + 4716.0)) + math.floor(30.6001 * (month + 1)) + dayDecimal - 1524.5;
-			if (julianDay > 2299160.0)
-			{
-				a = math.floor(year / 100.0);
-				julianDay += (2 - a + math.floor(a / 4));
-			}
-
-			return julianDay;
-		}
-
-		public static double MillisToJulian(double millis)
-		{
-			DateTime date = new((long)(millis * 10000), DateTimeKind.Utc);
-			return DateToJulian(date);
-		}
-
-		public static double JulianNow(bool zeroTime = false)
-		{
-			var d = DateTime.UtcNow;
-
-			int h = (zeroTime == true) ? 0 : d.Hour;
-			int m = (zeroTime == true) ? 0 : d.Minute;
-			int s = (zeroTime == true) ? 0 : d.Second;
-			int ms = (zeroTime == true) ? 0 : d.Millisecond;
-
-			return DateToJulian(d.Year,
-								d.Month,
-								d.Day,
-								h,
-								m,
-								s,
-								ms);
-		}
-
-		public static DateTime JulianToDate(double jd)
-		{
-			jd += 0.5;
-			double z = math.floor(jd);
-			double f = jd - z;
-			double A = 0;
-			if (z < 2299161)
-				A = z;
-			else
-			{
-				double omega = math.floor((z - 1867216.25) / 36524.25);
-				A = z + 1 + omega - math.floor(omega / 4);
-			}
-			double B = A + 1524;
-			double C = math.floor((B - 122.1) / 365.25);
-			double D = math.floor(365.25 * C);
-			double Epsilon = math.floor((B - D) / 30.6001);
-			double dayGreg = B - D - math.floor(30.6001 * Epsilon) + f;
-			double monthGreg, yearGreg;
-			if (Epsilon < 14)
-				monthGreg = Epsilon - 1;
-			else
-				monthGreg = Epsilon - 13;
-			if (monthGreg > 2)
-				yearGreg = C - 4716;
-			else
-				yearGreg = C - 4715;
-
-			var year = yearGreg;
-			var month = monthGreg;
-			var day = math.floor(dayGreg);
-
-			var dayMinutes = ((dayGreg - day) * 1440.0);
-			var hour = math.floor(dayMinutes / 60.0);
-			var minute = math.floor(dayMinutes - (hour * 60.0));
-			var second = math.round(60.0 * (dayMinutes - (hour * 60.0) - minute));
-			//var millisecond = 0.0;//(1000.0 * (60.0 * (dayMinutes - (hour * 60.0) -minute)- second) );
-
-			return new DateTime(TicksFromDate((int)year, (int)month, (int)day, (int)hour, (int)minute, second), DateTimeKind.Utc);
-		}
-
-		private static int Div(int a, int b) => ((a - a % b) / b);
-
-		public static double GetDayNumber(double jd)
-		{
-			var date = JulianToDate(jd);
-			var dd = date.Day;
-			var mm = date.Month;
-			var yyyy = date.Year;
-			var hh = date.Hour;
-			var min = date.Minute;
-			var sec = date.Second;
-			var ms = date.Millisecond;
-
-			double d = 367.0 * yyyy - Div(7 * (yyyy + Div(mm + 9, 12)), 4) + Div(275 * mm, 9) + dd - 730530.0;
-			d = d + hh / 24.0 + min / (60.0 * 24.0) + sec / (24.0 * 60.0 * 60.0);
-
-			return d;
-		}
-
-		public static double GetJulianCentury(double jd) => jd / 36525.0;
-		public static double GetJulianMillenium(double jd) => jd / 365250.0;
-
-		private static long TicksFromDate(int year, int month, int day, int hours, int minutes, double seconds)
-		{
-			long ticks = new DateTime(year, month, 1, 0, 0, 0, DateTimeKind.Utc).Ticks;
-			ticks += (day - 1) * 24L * 60L * 60L * 10000000L;
-			ticks += hours * 60L * 60L * 10000000L;
-			ticks += minutes * 60L * 10000000L;
-			ticks += (long)(seconds * 10000000.0 + 0.5);
-			return ticks;
-		}
-	}*/
 }

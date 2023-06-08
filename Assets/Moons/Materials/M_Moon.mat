@@ -61,6 +61,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _ElevationScale: 2
+    - _LunarLambert: 0.5
     - _MaxElevation: 1.8
     - _MoonRadius: 173.74
     - _MoonRotation: 0
@@ -68,6 +69,11 @@ Material:
     - _QueueOffset: 0
     m_Colors:
     - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
     - _SunColor: {r: 1, g: 1, b: 1, a: 0}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -10,7 +10,7 @@ namespace Ephemeris
 {
 
 	[Serializable]
-	public enum OrbitType
+	public enum OrbitType : byte
 	{
 		Mercury = 0,
 		Venus,
@@ -25,7 +25,9 @@ namespace Ephemeris
 		Europa,
 		Ganymede,
 		Callisto,
-		Titan
+		Titan,
+		Sun,
+		None
 	}
 
 	public abstract class Orbit
@@ -46,20 +48,21 @@ namespace Ephemeris
 		{
 			return type switch
 			{
-				OrbitType.Mercury  => new VSOP87Orbit(VSOPSeries.MercuryL, VSOPSeries.MercuryB, VSOPSeries.MercuryR, 87.9522),
-				OrbitType.Venus    => new VSOP87Orbit(VSOPSeries.VenusL, VSOPSeries.VenusB, VSOPSeries.VenusR, 224.7018),
-				OrbitType.Earth    => new VSOP87Orbit(VSOPSeries.EarthL, VSOPSeries.EarthB, VSOPSeries.EarthR, 365.25),
-				OrbitType.Mars     => new VSOP87Orbit(VSOPSeries.MarsL, VSOPSeries.MarsB, VSOPSeries.MarsR, 689.998725),
-				OrbitType.Jupiter  => new VSOP87Orbit(VSOPSeries.JupiterL, VSOPSeries.JupiterB, VSOPSeries.JupiterR, 4332.66855),
-				OrbitType.Saturn   => new VSOP87Orbit(VSOPSeries.SaturnL, VSOPSeries.SaturnB, VSOPSeries.SaturnR, 10759.42493),
-				OrbitType.Unranus  => new VSOP87Orbit(VSOPSeries.UranusL, VSOPSeries.UranusB, VSOPSeries.UranusR, 30686.07698),
-				OrbitType.Neptune  => new VSOP87Orbit(VSOPSeries.NeptuneL, VSOPSeries.NeptuneB, VSOPSeries.NeptuneR, 60190.64325),
-				OrbitType.Lunar    => new LunarOrbit(),
-				OrbitType.Io       => new IoOrbit(),
-				OrbitType.Europa   => new EuropaOrbit(),
+				OrbitType.Mercury => new VSOP87Orbit(VSOPSeries.MercuryL, VSOPSeries.MercuryB, VSOPSeries.MercuryR, 87.9522),
+				OrbitType.Venus => new VSOP87Orbit(VSOPSeries.VenusL, VSOPSeries.VenusB, VSOPSeries.VenusR, 224.7018),
+				OrbitType.Earth => new VSOP87Orbit(VSOPSeries.EarthL, VSOPSeries.EarthB, VSOPSeries.EarthR, 365.25),
+				OrbitType.Mars => new VSOP87Orbit(VSOPSeries.MarsL, VSOPSeries.MarsB, VSOPSeries.MarsR, 689.998725),
+				OrbitType.Jupiter => new VSOP87Orbit(VSOPSeries.JupiterL, VSOPSeries.JupiterB, VSOPSeries.JupiterR, 4332.66855),
+				OrbitType.Saturn => new VSOP87Orbit(VSOPSeries.SaturnL, VSOPSeries.SaturnB, VSOPSeries.SaturnR, 10759.42493),
+				OrbitType.Unranus => new VSOP87Orbit(VSOPSeries.UranusL, VSOPSeries.UranusB, VSOPSeries.UranusR, 30686.07698),
+				OrbitType.Neptune => new VSOP87Orbit(VSOPSeries.NeptuneL, VSOPSeries.NeptuneB, VSOPSeries.NeptuneR, 60190.64325),
+				OrbitType.Lunar => new LunarOrbit(),
+				OrbitType.Io => new IoOrbit(),
+				OrbitType.Europa => new EuropaOrbit(),
 				OrbitType.Ganymede => new GanymedeOrbit(),
 				OrbitType.Callisto => new CallistoOrbit(),
-				OrbitType.Titan    => new TitanOrbit(),
+				OrbitType.Titan => new TitanOrbit(),
+				OrbitType.Sun => new VSOP87OrbitRect(VSOPSeries.SunX, VSOPSeries.SunY, VSOPSeries.SunZ, 0),
 				_ => null
 			};
 		}
@@ -182,7 +185,7 @@ namespace Ephemeris
 			gam = -math.radians(gam);
 			r *= SaturnRadius;
 
-			// Corrections for Celestia's coordinate system
+			// Corrections for coordinate system
 			u = -u;
 			w = -w;
 
@@ -316,7 +319,15 @@ namespace Ephemeris
 			a = math.atan2(A, B) + z;
 			d = math.asin(C);
 		}
-	}
+
+		protected double SumSeries(double[,] series, double t)
+		{
+			double x = 0.0;
+			for (int i = 0; i < series.GetLength(0); ++i)
+				x += series[i, 0] * math.cos(series[i, 1] + series[i, 2] * t);
+			return x;
+		}
+}
 
 	public class VSOP87Orbit : Orbit
 	{
@@ -380,9 +391,53 @@ namespace Ephemeris
 
 			double x = math.cos(l) * math.sin(b) * r;
 			double y = math.cos(b) * r;
-			double z = -math.sin(l) * math.sin(b) * r;
+			double z = math.sin(l) * math.sin(b) * r;
 
-			return new double3(x, y, -z);
+			return new double3(x, y, z);
+		}
+	}
+
+	public class VSOP87OrbitRect : Orbit
+	{
+		private readonly double[][,] m_X;
+		private readonly double[][,] m_Y;
+		private readonly double[][,] m_Z;
+
+		public VSOP87OrbitRect(double[][,] x, double[][,] y, double[][,] z, double period)
+		{
+			m_X = x;
+			m_Y = y;
+			m_Z = z;
+			m_Period = period;
+		}
+
+		public override double3 PositionAtTime(double jd)
+		{
+			double t = TimeUtil.GetJulianMillenium(jd - TimeUtil.J2000);
+			double3 v = 0;
+
+			double T = 1;
+			for (int i = 0; i < m_X.Length; ++i)
+			{
+				v.x += SumSeries(m_X[i], t) * T;
+				T = t * T;
+			}
+
+			T = 1;
+			for (int i = 0; i < m_Y.Length; ++i)
+			{
+				v.y += SumSeries(m_Y[i], t) * T;
+				T = t * T;
+			}
+
+			T = 1;
+			for (int i = 0; i < m_Z.Length; ++i)
+			{
+				v.z += SumSeries(m_Z[i], t) * T;
+				T = t * T;
+			}
+
+			return new double3(v.x, v.z, v.y);
 		}
 	}
 
@@ -523,12 +578,22 @@ namespace Ephemeris
 			dec -= math.PI_DBL * 0.5;
 			RA += math.PI_DBL;
 
-			double x = math.cos(RA) * math.sin(dec) * distance;
-			double y = math.cos(dec) * distance;
-			double z = math.sin(RA) * math.sin(dec) * distance;
+			double x = distance * math.cos(eclLat) * math.cos(eclLon);
+			double y = distance * math.sin(eclLat);
+			double z = distance * math.cos(eclLat) * math.sin(eclLon);
 
-			return new double3(CMath.KMtoAU(x), CMath.KMtoAU(y), CMath.KMtoAU(z));
+			//double x = math.cos(RA) * math.sin(dec) * distance;
+			//double y = math.cos(dec) * distance;
+			//double z = math.sin(RA) * math.sin(dec) * distance;
+
+			// The position already has Earths Orientation baked in, so we must 'unrotate' it.
+			// This is a BIG MAYBE i dont actually know why this seems to work!!!!
+			double3 position = new(CMath.KMtoAU(x), CMath.KMtoAU(y), CMath.KMtoAU(z));
+			position = dQuaternion.mul(dQuaternion.inverse(s_EarthRotationModel.ComputeEquatorOrientation(jd)), position);
+			return position;
 		}
+
+		private static RotationModel s_EarthRotationModel = RotationModel.Create(RotationModelType.Earth);
 	}
 
 	public class IoOrbit : Orbit

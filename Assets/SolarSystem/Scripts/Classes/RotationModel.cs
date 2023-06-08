@@ -2,12 +2,13 @@ using CustomMath;
 using AstroTime;
 using System;
 using Unity.Mathematics;
+using System.Diagnostics;
 
 namespace Ephemeris
 {
 
 	[Serializable]
-	public enum RotationModelType
+	public enum RotationModelType : byte
 	{
 		None = 0,
 		Mercury,
@@ -28,6 +29,8 @@ namespace Ephemeris
 
 	public class RotationModel
 	{
+		protected double m_Period;
+
 		public virtual dQuaternion ComputeEquatorOrientation(double t) => dQuaternion.identity;
 		public virtual dQuaternion ComputeSpin(double t) => dQuaternion.identity;
 
@@ -37,7 +40,7 @@ namespace Ephemeris
 			{
 				RotationModelType.Mercury => new IAUPrecessingRotationModel(281.01, -0.033, 61.45, -0.005, 329.548, 6.1385025),
 				RotationModelType.Venus => new IAUPrecessingRotationModel(272.76, 0.0, 67.16, 0.0, 160.20, -1.4813688),
-				RotationModelType.Earth => new IAUPrecessingRotationModel(0.0, -0.641, 90.0, -0.557, 190.147, 360.9856235),
+				RotationModelType.Earth => new EarthRotationModel(), //new IAUPrecessingRotationModel(0.0, -0.641, 90.0, -0.557, 190.147, 360.9856235),
 				RotationModelType.Mars => new IAUPrecessingRotationModel(317.68143, -0.1061, 52.88650, -0.0609, 176.630, 350.89198226),
 				RotationModelType.Jupiter => new IAUPrecessingRotationModel(268.05, -0.009, 64.49, -0.003, 284.95, 870.5366420),
 				RotationModelType.Saturn => new IAUPrecessingRotationModel(40.589, -0.036, 83.537, -0.004, 38.90, 810.7939024),
@@ -54,11 +57,62 @@ namespace Ephemeris
 		}
 	}
 
-	// All IAU rotation models are in the J2000.0 Earth equatorial frame
+	class EarthRotationModel : RotationModel
+	{
+		public EarthRotationModel() { m_Period = 23.9344694 / 24.0; }
 
+		public override dQuaternion ComputeEquatorOrientation(double jd)
+		{
+			double T = TimeUtil.GetJulianCentury(jd - TimeUtil.J2000);
+		
+			// Clamp T to the valid time range of the precession theory.
+			T = math.clamp(T, -s_P03lpValidCenturies, s_P03lpValidCenturies);
+			
+			PrecessionAngles prec = Precession.PrecObliquity_P03LP(T);
+			EclipticPole pole = Precession.EclipticPrecession_P03LP(T);
+
+			double obliquity = math.radians(prec.epsA / 3600.0);
+			double precession = math.radians(prec.pA / 3600.0);
+
+			// Calculate the angles pi and Pi from the ecliptic pole coordinates
+			// P and Q:
+			//   P = sin(pi) * sin(Pi)
+			//   Q = sin(pi) * cos(Pi)
+			double P = pole.PA * 2.0 * math.PI_DBL / 1296000.0;
+			double Q = pole.QA * 2.0 * math.PI_DBL / 1296000.0;
+			double piA = math.asin(math.sqrt(P * P + Q * Q));
+			double PiA = math.atan2(P, Q);
+
+			// Calculate the rotation from the J2000 ecliptic to the ecliptic
+			// of date.
+			dQuaternion RPi = dQuaternion.RotateZ(PiA);
+			dQuaternion rpi = dQuaternion.RotateX(piA);
+			dQuaternion eclRotation = dQuaternion.mul(dQuaternion.mul(dQuaternion.conjugate(RPi), rpi), RPi);
+
+			dQuaternion q = dQuaternion.mul(dQuaternion.mul(dQuaternion.RotateX(obliquity), dQuaternion.RotateZ(-precession)), dQuaternion.conjugate(eclRotation));
+
+			// convert to internal coordinate system
+			return dQuaternion.mul(dQuaternion.mul(dQuaternion.RotateX(math.PI_DBL * 0.5), q), dQuaternion.RotateX(-math.PI_DBL * 0.5));
+		}
+
+		public override dQuaternion ComputeSpin(double jd)
+		{
+			// TODO: Use a more accurate model for sidereal time
+			double t = jd - TimeUtil.J2000;
+			double theta = 2 * math.PI_DBL * (t * 24.0 / 23.9344694 - 259.853 / 360.0);
+
+			return dQuaternion.RotateY(-theta);
+		}
+
+		// The P03 long period precession theory for Earth is valid for a one
+		// million year time span centered on J2000. For dates outside far outside
+		// that range, the polynomial terms produce absurd results.
+		protected static readonly double s_P03lpValidCenturies = 5000.0;
+	}
+
+	// All IAU rotation models are in the J2000.0 Earth equatorial frame
 	public abstract class IAURotationModel : RotationModel
 	{
-		protected double m_Period;
 		protected bool m_Flipped;
 
 		public IAURotationModel(double period, bool flipped = false)
@@ -88,6 +142,11 @@ namespace Ephemeris
 		protected abstract void ComputePole(double jd, out double ra, out double dec);
 		protected abstract double ComputeMeridian(double jd);
 
+		// Clamp secular terms in IAU rotation models to this number of centuries
+		// from J2000. Extrapolating much further can lead to ridiculous results,
+		// such as planets 'tipping over' Periodic terms are not clamped; their
+		// validity over long time ranges is questionable, but extrapolating them
+		// doesn't produce obviously absurd results.
 		protected static readonly double s_SecularTermValidCenturies = 50;
 		protected double ClampCenturies(double t) => math.clamp(t, -s_SecularTermValidCenturies, s_SecularTermValidCenturies);
 	}

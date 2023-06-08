@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Rendering;
 
-public class S_Moon : MonoBehaviour
+public class S_Moon : S_CelestialBody
 {
 	public float Radius = 173.74f;
 	public float MaxElevation = 1.8f;
@@ -78,6 +78,9 @@ public class S_Moon : MonoBehaviour
 	private RenderTexture m_AtmosphereScatteringTexture;
 	private static ComputeShader s_AtmospherePrecompShader;
 
+	public override CelestialBodyType Type => CelestialBodyType.Moon;
+	public override double ScaledRadius => CMath.KMtoAU(Radius * 10) * ScaleToSize * 0.5;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -104,9 +107,29 @@ public class S_Moon : MonoBehaviour
 		UpdateLight();
 	}
 
-	public void SetSpin(in dQuaternion spin)
+	public override void SetSpin(in dQuaternion spin) => m_MoonObject.transform.localRotation = (Quaternion)spin;
+	public override void SetSunDirection(float3 direction) => SunDirection = direction;
+
+	public override void SetShadowSpheres(float4[] spheres)
 	{
-		m_MoonObject.transform.localRotation = (Quaternion)spin;
+		if (spheres == null)
+		{
+			m_MoonMaterial.SetVector("_ShadowSphereAlphas", Vector4.zero);
+			return;
+		}
+
+		int iters = math.min(spheres.Length, 4);
+		float4 alphas = 0;
+
+		for (int i = 0; i < iters; ++i)
+		{
+			m_MoonMaterial.SetVector("_ShadowSphere" + i, spheres[i]);
+			m_AtmosphereScatteringMaterial.SetVector("_ShadowSphere" + i, spheres[i]);
+			alphas[i] = 1;
+		}
+
+		m_MoonMaterial.SetVector("_ShadowSphereAlphas", alphas);
+		m_AtmosphereScatteringMaterial.SetVector("_ShadowSphereAlphas", alphas);
 	}
 
 	private void InitObjects()

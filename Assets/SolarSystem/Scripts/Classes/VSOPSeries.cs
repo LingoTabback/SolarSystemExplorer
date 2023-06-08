@@ -7,6 +7,29 @@ namespace Ephemeris
 
 	public static class VSOPSeries
 	{
+		public static readonly double[][,] SunX = {
+			VSOPTerms.SunX0,
+			VSOPTerms.SunX1,
+			VSOPTerms.SunX2,
+			VSOPTerms.SunX3,
+			VSOPTerms.SunX4
+		};
+
+		public static readonly double[][,] SunY = {
+			VSOPTerms.SunY0,
+			VSOPTerms.SunY1,
+			VSOPTerms.SunY2,
+			VSOPTerms.SunY3,
+			VSOPTerms.SunY4
+		};
+
+		public static readonly double[][,] SunZ = {
+			VSOPTerms.SunZ0,
+			VSOPTerms.SunZ1,
+			VSOPTerms.SunZ2
+		};
+
+
 		public static readonly double[][,] MercuryL = {
 			VSOPTerms.MercuryL0,
 			VSOPTerms.MercuryL1,
@@ -15,7 +38,6 @@ namespace Ephemeris
 			VSOPTerms.MercuryL4,
 			VSOPTerms.MercuryL5
 		};
-
 
 		public static readonly double[][,] MercuryB = {
 			VSOPTerms.MercuryB0,

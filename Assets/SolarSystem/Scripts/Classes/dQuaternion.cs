@@ -315,6 +315,9 @@ namespace CustomMath
 			double4 x = q.value;
 			return new dQuaternion(math.rcp(dot(x, x)) * x * new double4(-1.0f, -1.0f, -1.0f, 1.0f));
 		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static dQuaternion conjugate(dQuaternion q) => q.value * new double4(-1, -1, -1, 1);
 	}
 
 }

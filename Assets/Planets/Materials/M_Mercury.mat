@@ -54,6 +54,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: edd059730f712ef4ea56ef6716b8e263, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_173e44416cc64975b068867903ec8da5_Out_0:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -72,6 +76,7 @@ Material:
     - _CloudsRotation: 0
     - _ElevationScale: 2
     - _EmissiveBrightness: 0
+    - _LunarLambert: 0.5
     - _MaxElevation: 0.88
     - _PlanetRadius: 636
     - _PlanetRotation: 0
@@ -85,6 +90,11 @@ Material:
     - _BetaR: {r: 0, g: 0, b: 0, a: 0}
     - _CloudsColor: {r: 1, g: 1, b: 1, a: 0}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
     - _SunColor: {r: 1, g: 1, b: 1, a: 0}
     - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

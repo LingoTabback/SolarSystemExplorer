@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Rendering;
 
-public class S_Planet : MonoBehaviour
+public class S_Planet : S_CelestialBody
 {
 	public float Radius = 636;
 	public float MaxElevation = 0.88f;
@@ -100,6 +100,9 @@ public class S_Planet : MonoBehaviour
 	private RenderTexture m_AtmosphereScatteringTexture;
 	private static ComputeShader s_AtmospherePrecompShader;
 
+	public override CelestialBodyType Type => CelestialBodyType.Planet;
+	public override double ScaledRadius => CMath.KMtoAU(Radius * 10) * ScaleToSize * 0.5;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -128,9 +131,32 @@ public class S_Planet : MonoBehaviour
 		UpdateLight();
 	}
 
-	public void SetSpin(in dQuaternion spin)
+	public override void SetSpin(in dQuaternion spin) => m_PlanetObject.transform.localRotation = (Quaternion)spin;
+	public override void SetSunDirection(float3 direction) => SunDirection = direction;
+	public override void SetShadowSpheres(float4[] spheres)
 	{
-		m_PlanetObject.transform.localRotation = (Quaternion)spin;
+		if (spheres == null)
+		{
+			m_PlanetMaterial.SetVector("_ShadowSphereAlphas", Vector4.zero);
+			return;
+		}
+		
+		int iters = math.min(spheres.Length, 4);
+		float4 alphas = 0;
+		
+		for (int i = 0; i < iters; ++i)
+		{
+			m_PlanetMaterial.SetVector("_ShadowSphere" + i, spheres[i]);
+			m_CloudsMaterial.SetVector("_ShadowSphere" + i, spheres[i]);
+			m_AtmosphereScatteringMaterial.SetVector("_ShadowSphere" + i, spheres[i]);
+			m_RingsMaterial.SetVector("_ShadowSphere" + i, spheres[i]);
+			alphas[i] = 1;
+		}
+
+		m_PlanetMaterial.SetVector("_ShadowSphereAlphas", alphas);
+		m_CloudsMaterial.SetVector("_ShadowSphereAlphas", alphas);
+		m_AtmosphereScatteringMaterial.SetVector("_ShadowSphereAlphas", alphas);
+		m_RingsMaterial.SetVector("_ShadowSphereAlphas", alphas);
 	}
 
 	private void InitObjects()
@@ -217,6 +243,7 @@ public class S_Planet : MonoBehaviour
 		m_RingsMaterial.SetVector("_PlanetPositionRelative", Vector3.zero);
 		m_RingsMaterial.SetFloat("_PlanetRadiusRelative", Radius / Rings.OuterRadius);
 
+		SetShadowSpheres(null);
 		UpdateLight();
 	}
 

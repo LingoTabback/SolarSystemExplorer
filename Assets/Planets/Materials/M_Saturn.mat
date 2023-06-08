@@ -80,6 +80,7 @@ Material:
     - _CloudsRotation: 0
     - _ElevationScale: 2
     - _EmissiveBrightness: 0
+    - _LunarLambert: 0
     - _MaxElevation: 0.88
     - _PlanetRadius: 636
     - _PlanetRotation: 0
@@ -97,6 +98,11 @@ Material:
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
     - _RingNormalRelative: {r: 0, g: 1, b: 0, a: 0}
     - _RingPositionRelative: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
     - _SunColor: {r: 1, g: 1, b: 1, a: 0}
     - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

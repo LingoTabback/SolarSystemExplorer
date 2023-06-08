@@ -7,17 +7,12 @@ using UnityEngine;
 using CustomMath;
 using System;
 using Unity.Mathematics;
-using UnityEditor.Build.Pipeline.Interfaces;
-using System.ComponentModel;
-using UnityEditor;
-using UnityEditor.Experimental.GraphView;
 using AstroTime;
 using Ephemeris;
-using Unity.Collections;
-using UnityEngine.ResourceManagement.ResourceProviders.Simulation;
 
 public class S_SolarSystem : MonoBehaviour
 {
+
 	public S_OrbitSettings[] Orbits;
 	public GameObject SunPrefab;
 	public float SunRadius = 69550;
@@ -28,32 +23,163 @@ public class S_SolarSystem : MonoBehaviour
 	[Header("Rendering")]
 	public double PlanetScale = 10;
 	public Material LineMaterial;
-
+	
 	[Header("Time")]
-	public bool UseDate = true;
-	public int Year = 2000;
-	[Range(1, 12)]
-	public int Month = 1;
-	[Range(1, 31)]
-	public int Days = 1;
-	[Range(0, 23)]
-	public int Hours = 0;
-	[Range(0, 59)]
-	public int Minutes = 0;
-	[Range(0, 59.999f)]
-	public double Seconds = 0;
+	public bool Paused = true;
 
-	public double BarycentricDynamicalTime = TimeUtil.J2000;
-	public double TimeScale = 1;
+	public double TimeScale { get => m_TimeScale; set => m_TimeScale = value; }
+	public Date Date => TimeUtil.TDBtoUTC(m_BarycentricDynamicalTime);
+	public OrbitType FocusedOrbit => m_FocusedOrbit;
+	public ReferenceTransform CurrentReferenceTransform => m_ReferenceTransform;
+
+	private double m_TimeScale = TimeUtil.SecsToDays(1);
+	private double m_BarycentricDynamicalTime = TimeUtil.J2000;
 
 	private static readonly int s_LinePointCount = 200;
 	private static double s_PlanetScale = 1;
 
-	private OrbitWrapperPlanet[] m_PlanetOrbits;
+	private Orbit m_SunOrbit;
+	private OrbitWrapper[] m_PlanetOrbits;
+	private OrbitWrapper[] m_FocusableOrbits;
+
+	private OrbitType m_FocusedOrbit;
+	private bool m_FocusChanged = false;
+
 	private GameObject m_SunObject;
+	private double3 m_SunPosition = 0;
 	private double m_SunRadiusInAU = 1;
 
-	private struct ReferenceTransform
+	private TransformAnimator m_Animator = new();
+	private ReferenceTransform m_ReferenceTransform = ReferenceTransform.Identity;
+
+	// Start is called before the first frame update
+	void Start()
+	{
+		s_PlanetScale = PlanetScale;
+
+		m_SunOrbit = Orbit.Create(OrbitType.Sun);
+		m_SunObject = Instantiate(SunPrefab, transform, false);
+		m_SunRadiusInAU = CMath.KMtoAU(SunRadius * 10);
+
+		m_PlanetOrbits = new OrbitWrapper[Orbits.Length];
+		for (int i = 0; i < Orbits.Length; ++i)
+			m_PlanetOrbits[i] = OrbitWrapper.Create(Orbits[i], transform, LineMaterial);
+
+		m_FocusableOrbits = new OrbitWrapper[(int)OrbitType.None];
+		foreach (OrbitWrapper orbit in m_PlanetOrbits)
+			orbit.CollectFocusableOrbits(m_FocusableOrbits);
+
+
+		InitOrbits();
+
+		foreach (var orbit in m_PlanetOrbits)
+			orbit.SpawnPrefab(transform, this);
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		SetTime(m_BarycentricDynamicalTime + Time.deltaTime * (Paused ? 0.0 : m_TimeScale));
+		UpdateOrbits();
+
+		if (m_FocusChanged)
+		{
+			if (m_FocusedOrbit == OrbitType.None)
+				m_Animator = new TransformAnimator(m_ReferenceTransform, ReferenceTransform.Identity, m_Animator.IndexEnd, (int)m_FocusedOrbit, TransitionTime);
+			else if (m_FocusedOrbit == OrbitType.Sun)
+			{
+				ReferenceTransform target = new()
+				{
+					Position = 0,
+					Rotation = dQuaternion.identity,
+					Scale = m_SunRadiusInAU
+				};
+				m_Animator = new TransformAnimator(m_ReferenceTransform, target, m_Animator.IndexEnd, (int)m_FocusedOrbit, TransitionTime);
+			}
+			else
+			{
+				var orbit = m_FocusableOrbits[(int)m_FocusedOrbit];
+				double3 pos = orbit.BodyPositionWorld;
+				dQuaternion rotation = dQuaternion.identity;
+
+				ReferenceTransform target = new()
+				{
+					Position = pos,
+					Rotation = rotation,
+					Scale = orbit.BodyRadiusInAU
+				};
+				if (m_Animator.IndexStart < (int)OrbitType.Sun)
+					m_FocusableOrbits[m_Animator.IndexStart].LineMaterial.SetFloat("_FadeAmount", 0f);
+				m_Animator = new TransformAnimator(m_ReferenceTransform, target, m_Animator.IndexEnd, (int)m_FocusedOrbit, TransitionTime);
+			}
+
+			m_FocusChanged = false;
+		}
+
+		bool doneThisFrame = !m_Animator.IsDone;
+		m_Animator.Update();
+		doneThisFrame &= m_Animator.IsDone;
+		if (!m_Animator.IsDone || doneThisFrame)
+		{
+			m_ReferenceTransform = m_Animator.TransformCurrent;
+		}
+		else if (m_Animator.IndexCurrent < (int)OrbitType.Sun)
+		{
+			var orbit = m_FocusableOrbits[m_Animator.IndexCurrent];
+
+			m_ReferenceTransform.Position = orbit.BodyPositionWorld;
+			/*
+#if ROTATION_1
+			double angle = math.atan2(orbit.PlanetPositionRelative.z, orbit.PlanetPositionRelative.x);
+			dQuaternion qaut = dQuaternion.RotateY(-angle);
+			m_ReferenceTransform.Rotation = dQuaternion.mul(orbit.OrbitRotation, qaut);
+#endif*/
+		}
+
+		if (m_Animator.IndexStart < (int)OrbitType.Sun)
+			m_FocusableOrbits[m_Animator.IndexStart].LineMaterial.SetFloat("_FadeAmount", 1 - math.smoothstep(0.25f, 0.75f, m_Animator.Progress));
+		if (m_Animator.IndexEnd < (int)OrbitType.Sun)
+			m_FocusableOrbits[m_Animator.IndexEnd].LineMaterial.SetFloat("_FadeAmount", math.smoothstep(0.25f, 0.75f, m_Animator.Progress));
+
+		m_SunObject.transform.localPosition = (float3)((m_SunPosition - m_ReferenceTransform.Position) / m_ReferenceTransform.Scale);
+		m_SunObject.transform.localScale = Vector3.one * (float)(m_SunRadiusInAU / m_ReferenceTransform.Scale);
+
+		foreach (var orbit in m_PlanetOrbits)
+			orbit.UpdateTransforms(m_ReferenceTransform, m_SunPosition);
+
+		transform.localRotation = (Quaternion)dQuaternion.inverse(m_ReferenceTransform.Rotation);
+	}
+
+	public void SetFocus(OrbitType body)
+	{
+		OrbitType newFocus = m_FocusableOrbits != null && (int)body < m_FocusableOrbits.Length ? body : OrbitType.None;
+		if (newFocus != m_FocusedOrbit)
+		{
+			m_FocusedOrbit = newFocus;
+			m_FocusChanged = true;
+		}
+	}
+
+	public void SetTime(double tdb) => m_BarycentricDynamicalTime = tdb;
+	public void SetTime(in Date date) => m_BarycentricDynamicalTime = TimeUtil.UTCtoTDB(date);
+
+	private void InitOrbits()
+	{
+		foreach (var orbit in m_PlanetOrbits)
+			orbit.Init(m_BarycentricDynamicalTime);
+	}
+
+	private void UpdateOrbits()
+	{
+		m_SunPosition = dQuaternion.mul(OrbitWrapper.s_SunOrientationQuat, m_SunOrbit.PositionAtTime(m_BarycentricDynamicalTime)) * 0;
+
+		foreach (var orbit in m_PlanetOrbits)
+			orbit.Update(m_BarycentricDynamicalTime);
+	}
+
+	public static double GetScaleFromPlanet(double scaledRadius) => scaledRadius * s_PlanetScale;
+
+	public struct ReferenceTransform
 	{
 		public double3 Position;
 		public dQuaternion Rotation;
@@ -69,9 +195,9 @@ public class S_SolarSystem : MonoBehaviour
 		public ReferenceTransform TransformCurrent { get => m_TransformCurrent; private set => m_TransformCurrent = value; }
 		private ReferenceTransform m_TransformCurrent = ReferenceTransform.Identity;
 
-		public int IndexStart { get; private set; } = -1;
-		public int IndexEnd { get; private set; } = -1;
-		public int IndexCurrrent { get; private set; } = -1;
+		public int IndexStart { get; private set; } = (int)OrbitType.None;
+		public int IndexEnd { get; private set; } = (int)OrbitType.None;
+		public int IndexCurrent { get; private set; } = (int)OrbitType.None;
 		public float Length { get; private set; } = 1;
 		public float Progress { get; private set; } = 0;
 		public bool IsDone { get; private set; } = false;
@@ -91,7 +217,7 @@ public class S_SolarSystem : MonoBehaviour
 			TransformCurrent = start;
 			IndexStart = indexStart;
 			IndexEnd = indexEnd;
-			IndexCurrrent = indexStart;
+			IndexCurrent = indexStart;
 			Length = length;
 		}
 
@@ -104,7 +230,7 @@ public class S_SolarSystem : MonoBehaviour
 			if (m_Time > Length)
 			{
 				m_Time = Length;
-				IndexCurrrent = IndexEnd;
+				IndexCurrent = IndexEnd;
 				IsDone = true;
 			}
 
@@ -118,272 +244,41 @@ public class S_SolarSystem : MonoBehaviour
 		private float EaseOutSine(float x) => math.sin(x * math.PI * 0.5f);
 	}
 
-	private TransformAnimator m_Animator = new();
-	private ReferenceTransform m_ReferenceTransform = ReferenceTransform.Identity;
-
-	// Start is called before the first frame update
-	void Start()
-	{
-		s_PlanetScale = PlanetScale;
-
-		if (UseDate)
-			SetTime(Year, Month, Days, Hours, Minutes, Seconds);
-		else
-			SetTime(BarycentricDynamicalTime);
-
-		m_SunObject = Instantiate(SunPrefab, transform, false);
-		m_SunRadiusInAU = CMath.KMtoAU(SunRadius * 10);
-
-		m_PlanetOrbits = new OrbitWrapperPlanet[Orbits.Length];
-		for (int i = 0; i < Orbits.Length; ++i)
-		{
-			var orbitSettings = Orbits[i];
-			m_PlanetOrbits[i] = OrbitWrapperPlanet.Create(orbitSettings, transform, LineMaterial);
-		}
-
-		InitOrbits();
-
-		foreach (var orbit in m_PlanetOrbits)
-			orbit.SpawnPrefab(transform);
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-		SetTime(BarycentricDynamicalTime + Time.deltaTime * TimeScale);
-		UpdateOrbits();
-
-		int nextOrbit = -2;
-		if (Input.GetKeyUp(KeyCode.Alpha0)) nextOrbit = -1;
-		if (Input.GetKeyUp(KeyCode.Alpha1)) nextOrbit = 0;
-		if (Input.GetKeyUp(KeyCode.Alpha2)) nextOrbit = 1;
-		if (Input.GetKeyUp(KeyCode.Alpha3)) nextOrbit = 2;
-		if (Input.GetKeyUp(KeyCode.Alpha4)) nextOrbit = 3;
-		if (Input.GetKeyUp(KeyCode.Alpha5)) nextOrbit = 4;
-		if (Input.GetKeyUp(KeyCode.Alpha6)) nextOrbit = 5;
-		if (Input.GetKeyUp(KeyCode.Alpha7)) nextOrbit = 6;
-		if (Input.GetKeyUp(KeyCode.Alpha8)) nextOrbit = 7;
-
-		if (nextOrbit == -1)
-		{
-			ReferenceTransform target = new()
-			{
-				Position = 0,
-				Rotation = dQuaternion.identity,
-				Scale = m_SunRadiusInAU
-			};
-			m_Animator = new TransformAnimator(m_ReferenceTransform, target, m_Animator.IndexEnd, nextOrbit, TransitionTime);
-		}
-		else if (nextOrbit > -1)
-		{
-			var orbitSettings = Orbits[nextOrbit];
-			var orbit = m_PlanetOrbits[nextOrbit];
-
-			/*
-			double3 relPos = GetPositionInOrbit(orbitSettings, TimeInDays + TimeScale * TransitionTime);
-			double3 pos = dQuaternion.mul(orbit.OrbitRotation, relPos);
-
-#if ROTATION_1
-			double angle = math.atan2(relPos.z, relPos.x);
-			dQuaternion rotation = dQuaternion.mul(orbit.OrbitRotation, dQuaternion.RotateY(-angle));
-#elif ROTATION_2
-			dQuaternion rotation = orbit.OrbitRotation;
-#elif ROTATION_3
-			dQuaternion rotation = dQuaternion.identity;
-#elif ROTATION_4
-			double3 orbitUp = dQuaternion.mul(orbit.OrbitRotation, new double3(0, 1, 0));
-			dQuaternion rotation = dQuaternion.FromTo(new double3(0, 1, 0), orbitUp);
-#endif
-			*/
-			double3 pos = orbit.PlanetPositionWorld;
-			dQuaternion rotation = dQuaternion.identity;
-
-			ReferenceTransform target = new()
-			{
-				Position = pos,
-				Rotation = rotation,
-				Scale = orbit.RadiusInAU
-			};
-			if (m_Animator.IndexStart >= 0)
-				m_PlanetOrbits[m_Animator.IndexStart].LineMaterial.SetFloat("_FadeAmount", 0f);
-			m_Animator = new TransformAnimator(m_ReferenceTransform, target, m_Animator.IndexEnd, nextOrbit, TransitionTime);
-
-			//if (m_Animator.IndexStart >= 0)
-			//	m_Orbits[m_Animator.IndexStart].DestroyPrefab();
-			//if (m_Animator.IndexEnd >= 0)
-			//	m_Orbits[m_Animator.IndexEnd].SpawnPrefab(transform);
-		}
-
-		bool doneThisFrame = !m_Animator.IsDone;
-		m_Animator.Update();
-		doneThisFrame &= m_Animator.IsDone;
-		if (!m_Animator.IsDone || doneThisFrame)
-		{
-			m_ReferenceTransform = m_Animator.TransformCurrent;
-		}
-		else if (m_Animator.IndexCurrrent >= 0)
-		{
-			var orbit = m_PlanetOrbits[m_Animator.IndexCurrrent];
-
-			m_ReferenceTransform.Position = orbit.PlanetPositionWorld;
-			/*
-#if ROTATION_1
-			double angle = math.atan2(orbit.PlanetPositionRelative.z, orbit.PlanetPositionRelative.x);
-			dQuaternion qaut = dQuaternion.RotateY(-angle);
-			m_ReferenceTransform.Rotation = dQuaternion.mul(orbit.OrbitRotation, qaut);
-#endif*/
-		}
-
-		if (m_Animator.IndexStart >= 0)
-			m_PlanetOrbits[m_Animator.IndexStart].LineMaterial.SetFloat("_FadeAmount", 1 - math.smoothstep(0.25f, 0.75f, m_Animator.Progress));
-		if (m_Animator.IndexEnd >= 0)
-			m_PlanetOrbits[m_Animator.IndexEnd].LineMaterial.SetFloat("_FadeAmount", math.smoothstep(0.25f, 0.75f, m_Animator.Progress));
-
-		m_SunObject.transform.localPosition = -(float3)(m_ReferenceTransform.Position / m_ReferenceTransform.Scale);
-		m_SunObject.transform.localScale = Vector3.one * (float)(m_SunRadiusInAU / m_ReferenceTransform.Scale);
-
-		//foreach (var orbit in m_PlanetOrbits)
-		//{
-		//	orbit.LineMaterial.SetVector("_FadeCenter", (Vector3)(float3)((orbit.PlanetPositionWorld - m_ReferenceTransform.Position) / m_ReferenceTransform.Scale));
-		//	orbit.OrbitLineObject.transform.localPosition = (float3)((orbit.ParentPosition - m_ReferenceTransform.Position) / m_ReferenceTransform.Scale);
-		//	orbit.OrbitLineObject.transform.localScale = Vector3.one * (float)(1d / m_ReferenceTransform.Scale);
-		//	if (orbit.OrbitingObject != null)
-		//	{
-		//		orbit.OrbitingObject.transform.localPosition = (float3)((orbit.PlanetPositionWorld - m_ReferenceTransform.Position) / m_ReferenceTransform.Scale);
-		//		orbit.OrbitingObject.transform.localScale = Vector3.one * (float)(orbit.RadiusInAU / m_ReferenceTransform.Scale);
-
-		//		if (orbit.Script != null)
-		//			orbit.Script.SunDirection = (float3)dQuaternion.mul(dQuaternion.inverse(m_ReferenceTransform.Rotation), math.normalize(orbit.PlanetPositionWorld));
-		//	}
-
-		//	foreach (var moonOrbit in orbit.MoonOrbits)
-		//	{
-		//		moonOrbit.LineMaterial.SetVector("_FadeCenter", (Vector3)(float3)((moonOrbit.PlanetPositionWorld - m_ReferenceTransform.Position) / m_ReferenceTransform.Scale));
-		//		moonOrbit.OrbitLineObject.transform.localPosition = (float3)((moonOrbit.ParentPosition - m_ReferenceTransform.Position) / m_ReferenceTransform.Scale);
-		//		moonOrbit.OrbitLineObject.transform.localScale = Vector3.one * (float)(1d / m_ReferenceTransform.Scale);
-
-		//		if (moonOrbit.OrbitingObject != null)
-		//		{
-		//			moonOrbit.OrbitingObject.transform.localPosition = (float3)((moonOrbit.PlanetPositionWorld - m_ReferenceTransform.Position) / m_ReferenceTransform.Scale);
-		//			moonOrbit.OrbitingObject.transform.localScale = Vector3.one * (float)(moonOrbit.RadiusInAU / m_ReferenceTransform.Scale);
-
-		//			if (moonOrbit.Script != null)
-		//				moonOrbit.Script.SunDirection = (float3)dQuaternion.mul(dQuaternion.inverse(m_ReferenceTransform.Rotation), math.normalize(moonOrbit.PlanetPositionWorld));
-		//		}
-		//	}
-		//}
-
-		foreach (var orbit in m_PlanetOrbits)
-		{
-			orbit.LineMaterial.SetVector("_FadeCenter", (Vector3)(float3)((orbit.PlanetPositionWorld - m_ReferenceTransform.Position) / m_ReferenceTransform.Scale));
-			orbit.OrbitLineObject.transform.localPosition = (float3)((-m_ReferenceTransform.Position) / m_ReferenceTransform.Scale);
-			orbit.OrbitLineObject.transform.localScale = Vector3.one * (float)(1d / m_ReferenceTransform.Scale);
-			if (orbit.OrbitingObject != null)
-			{
-				orbit.OrbitingObject.transform.localPosition = (float3)((orbit.PlanetPositionWorld - m_ReferenceTransform.Position) / m_ReferenceTransform.Scale);
-				orbit.OrbitingObject.transform.localScale = Vector3.one * (float)(orbit.RadiusInAU / m_ReferenceTransform.Scale);
-				orbit.OrbitingObject.transform.localRotation = (Quaternion)orbit.EquatorOrientation;
-				orbit.Script.SetSpin(orbit.Spin);
-
-				if (orbit.Script != null)
-					orbit.Script.SunDirection = (float3)dQuaternion.mul(dQuaternion.inverse(m_ReferenceTransform.Rotation), math.normalize(orbit.PlanetPositionWorld));
-			}
-
-			foreach (var moon in orbit.Moons)
-			{
-				moon.LineMaterial.SetVector("_FadeCenter", (Vector3)(float3)((moon.PlanetPositionWorld - m_ReferenceTransform.Position) / m_ReferenceTransform.Scale));
-				moon.OrbitLineObject.transform.localPosition = (float3)((moon.Parent.PlanetPositionWorld - m_ReferenceTransform.Position) / m_ReferenceTransform.Scale);
-				moon.OrbitLineObject.transform.localScale = Vector3.one * (float)(1d / m_ReferenceTransform.Scale);
-				moon.OrbitLineObject.transform.localRotation = (Quaternion)moon.Parent.EquatorOrientation;
-			
-				if (moon.OrbitingObject != null)
-				{
-					moon.OrbitingObject.transform.localPosition = (float3)((moon.PlanetPositionWorld - m_ReferenceTransform.Position) / m_ReferenceTransform.Scale);
-					moon.OrbitingObject.transform.localScale = Vector3.one * (float)(moon.RadiusInAU / m_ReferenceTransform.Scale);
-					moon.OrbitingObject.transform.localRotation = (Quaternion)orbit.EquatorOrientation;
-					moon.Script.SetSpin(moon.Spin);
-
-					if (moon.Script != null)
-						moon.Script.SunDirection = (float3)dQuaternion.mul(dQuaternion.inverse(m_ReferenceTransform.Rotation), math.normalize(moon.PlanetPositionWorld));
-				}
-			}
-		}
-
-		transform.localRotation = (Quaternion)dQuaternion.inverse(m_ReferenceTransform.Rotation);
-	}
-
-	private void InitOrbits()
-	{
-		foreach (var orbit in m_PlanetOrbits)
-			orbit.Init(BarycentricDynamicalTime);
-	}
-
-	private void UpdateOrbits()
-	{
-		foreach (var orbit in m_PlanetOrbits)
-			orbit.Update(BarycentricDynamicalTime);
-	}
-
-	public void SetTime(double tdb)
-	{
-		Date date = TimeUtil.TDBtoUTC(tdb);
-		Year = date.Year;
-		Month = date.Month;
-		Days = date.Day;
-		Hours = date.Hour;
-		Minutes = date.Minute;
-		Seconds = date.Seconds;
-		BarycentricDynamicalTime = tdb;
-	}
-
-	public void SetTime(int year, int month, int day, int hours, int minutes, double seconds)
-	{
-		Date date  = new(year, month, day, hours, minutes, seconds);
-		Year = date.Year;
-		Month = date.Month;
-		Days = date.Day;
-		Hours = date.Hour;
-		Minutes = date.Minute;
-		Seconds = date.Seconds;
-		BarycentricDynamicalTime = TimeUtil.UTCtoTDB(date);
-	}
-
-	private static long TicksFromDate(int year, int month, int day, int hours, int minutes, double seconds)
-	{
-		long ticks = new DateTime(year, month, 1, 0, 0, 0, DateTimeKind.Utc).Ticks;
-		ticks += (day - 1) * 24L * 60L * 60L * 10000000L;
-		ticks += hours * 60L * 60L * 10000000L;
-		ticks += minutes * 60L * 10000000L;
-		ticks += (long)(seconds * 10000000.0 + 0.5);
-		return ticks;
-	}
-	public static double GetScaleFromPlanet(float radius, float scaleToSize) => CMath.KMtoAU(radius * 10) * scaleToSize * 0.5 * s_PlanetScale;
-
-	private abstract class OrbitWrapper<ScriptType> where ScriptType : MonoBehaviour
+	private class OrbitWrapper
 	{
 		public S_OrbitSettings Settings;
 		public GameObject OrbitLineObject;
 		public GameObject OrbitingObject;
-		public ScriptType Script;
+		public S_CelestialBody Script;
 		public Mesh LineMesh;
 		public Material LineMaterial;
 
-		public double3 PlanetPositionRelative = 0;
-		public double3 PlanetPositionWorld = 0;
-		public dQuaternion EquatorOrientation = dQuaternion.identity;
+		public double3 BodyPositionRelative = 0;
+		public double3 BodyPositionWorld = 0;
+		public dQuaternion EquatorOrientationRelative = dQuaternion.identity;
+		public dQuaternion EquatorOrientationWorld = dQuaternion.identity;
 		public dQuaternion Spin = dQuaternion.identity;
-		public double RadiusInAU = 1;
+		public double BodyRadiusInAU = 1;
+
+		public double3 ParentPosition => m_Parent != null ? m_Parent.BodyPositionWorld : double3.zero;
+		public dQuaternion ParentOrientation => m_Parent != null ? m_Parent.EquatorOrientationWorld : dQuaternion.identity;
 
 		protected Orbit m_Orbit;
 		protected RotationModel m_RotationModel;
+		protected OrbitWrapper m_Parent;
+		protected OrbitWrapper[] m_Satellites;
+
+		protected float4[] m_SatelliteShadowSpheres;
+		protected float4 m_ShadowSphere = 0;
 
 		protected double m_LineStartJulian = 0;
 		protected double m_LineEndJulian = 0;
 		protected Vector3[] m_Vertices;
 		protected Vector2[] m_UVs;
 
-		public OrbitWrapper(Orbit orbit, RotationModel frame, S_OrbitSettings settings, Transform systemTransform, Material lineMaterial)
+		public OrbitWrapper(Orbit orbit, RotationModel frame, S_OrbitSettings settings, Transform systemTransform, Material lineMaterial, OrbitWrapper parent = null)
 		{
+			m_Parent = parent;
 			m_Orbit = orbit;
 			m_RotationModel = frame;
 
@@ -397,38 +292,77 @@ public class S_SolarSystem : MonoBehaviour
 			LineMesh = new Mesh();
 			OrbitLineObject.AddComponent<MeshFilter>().sharedMesh = LineMesh;
 			OrbitLineObject.AddComponent<MeshRenderer>().sharedMaterial = LineMaterial;
+
+			if (settings.OrbitingObject.TryGetComponent(out S_Planet planetScript))
+				BodyRadiusInAU = GetScaleFromPlanet(planetScript.ScaledRadius);
+			else if (settings.OrbitingObject.TryGetComponent(out S_Moon moonScript))
+				BodyRadiusInAU = GetScaleFromPlanet(moonScript.ScaledRadius);
+
+			m_Satellites = new OrbitWrapper[settings.SatelliteOrbits.Length];
+			for (int i = 0; i < m_Satellites.Length; ++i)
+				m_Satellites[i] = Create(settings.SatelliteOrbits[i], systemTransform, lineMaterial, this);
+
+			m_SatelliteShadowSpheres = new float4[m_Parent == null ? m_Satellites.Length : (m_Satellites.Length + 1)];
 		}
 
-		public virtual void SpawnPrefab(Transform systemTransform)
+		public void CollectFocusableOrbits(OrbitWrapper[] focusableOrbits)
+		{
+			int index = (int)Settings.OrbitType;
+			if (index < focusableOrbits.Length)
+				focusableOrbits[index] = this;
+
+			foreach (var satellite in m_Satellites)
+				satellite.CollectFocusableOrbits(focusableOrbits);
+		}
+
+		public void SpawnPrefab(Transform systemTransform, S_SolarSystem system)
 		{
 			DestroyPrefab();
 
 			OrbitingObject = Instantiate(Settings.OrbitingObject);
 			OrbitingObject.transform.SetParent(systemTransform, false);
 			OrbitingObject.transform.localScale = Vector3.one * 0.001f;
-			OrbitingObject.transform.localRotation = (Quaternion)EquatorOrientation;
-			OrbitingObject.TryGetComponent(out Script);
+			OrbitingObject.transform.localRotation = (Quaternion)EquatorOrientationWorld;
+
+			if (OrbitingObject.TryGetComponent(out S_Planet planetScript))
+				Script = planetScript;
+			else if (OrbitingObject.TryGetComponent(out S_Moon moonScript))
+				Script = moonScript;
+
+			Script.CurrentOrbit = Settings.OrbitType;
+			Script.ParentSystem = system;
+
+			foreach (var satellite in m_Satellites)
+				satellite.SpawnPrefab(systemTransform, system);
 		}
 
-		public virtual void DestroyPrefab()
+		public void DestroyPrefab()
 		{
 			if (OrbitingObject != null)
 				Destroy(OrbitingObject);
 
 			OrbitingObject = null;
+
+			foreach (var satellite in m_Satellites)
+				satellite.DestroyPrefab();
 		}
 
-		public virtual void Init(double t)
+		public void Init(double t)
 		{
-			EquatorOrientation = dQuaternion.mul(s_SunOrientationQuatInv, m_RotationModel.ComputeEquatorOrientation(t));
+			EquatorOrientationRelative = m_RotationModel.ComputeEquatorOrientation(t);
+			EquatorOrientationWorld = dQuaternion.mul(ParentOrientation, EquatorOrientationRelative);
 			Spin = m_RotationModel.ComputeSpin(t);
-			PlanetPositionWorld = m_Orbit.PositionAtTime(t);
-			LineMaterial.SetFloat("_PositionInOrbit", 0);
+			BodyPositionRelative = m_Orbit.PositionAtTime(t);
+			BodyPositionWorld = dQuaternion.mul(ParentOrientation, BodyPositionRelative) + ParentPosition;
 
+			LineMaterial.SetFloat("_PositionInOrbit", 0);
 			m_Vertices = new Vector3[s_LinePointCount + 1];
 			m_UVs = new Vector2[s_LinePointCount + 1];
 
 			InitOrbitLine(t);
+
+			foreach (var satellite in m_Satellites)
+				satellite.Init(t);
 		}
 
 		private void InitOrbitLine(double t)
@@ -506,13 +440,71 @@ public class S_SolarSystem : MonoBehaviour
 			}
 		}
 
-		public virtual void Update(double t)
+		public void Update(double t)
 		{
-			PlanetPositionRelative = m_Orbit.PositionAtTime(t);
-			EquatorOrientation = dQuaternion.mul(s_SunOrientationQuatInv, m_RotationModel.ComputeEquatorOrientation(t));
+			EquatorOrientationRelative = m_RotationModel.ComputeEquatorOrientation(t);
+			EquatorOrientationWorld = dQuaternion.mul(ParentOrientation, EquatorOrientationRelative);
 			Spin = m_RotationModel.ComputeSpin(t);
-			UpdateOrbitLine(t); // TODO: bad perf, needs other solution
+			BodyPositionRelative = m_Orbit.PositionAtTime(t);
+			if (m_Parent == null)
+			{
+				if (Settings.RotationModelType == RotationModelType.Earth)
+					EquatorOrientationWorld = dQuaternion.mul(s_SunOrientationQuat, EquatorOrientationRelative);
+				BodyPositionWorld = dQuaternion.mul(s_SunOrientationQuat, BodyPositionRelative) + ParentPosition;
+			}
+			else
+				BodyPositionWorld = dQuaternion.mul(ParentOrientation, BodyPositionRelative) + ParentPosition;
+
+			UpdateOrbitLine(t);
 			LineMaterial.SetFloat("_PositionInOrbit", (float)((t - m_LineStartJulian) / m_Orbit.Period));
+
+			foreach (var satellite in m_Satellites)
+				satellite.Update(t);
+		}
+
+		public void UpdateTransforms(in ReferenceTransform referenceTransform, double3 sunPosition)
+		{
+			double3 finalPosition = (BodyPositionWorld - referenceTransform.Position) / referenceTransform.Scale;
+			LineMaterial.SetVector("_FadeCenter", (Vector3)(float3)finalPosition);
+			OrbitLineObject.transform.localPosition = (float3)((ParentPosition - referenceTransform.Position) / referenceTransform.Scale);
+			OrbitLineObject.transform.localScale = Vector3.one * (float)(1d / referenceTransform.Scale);
+
+			m_ShadowSphere = new float4((float3)dQuaternion.mul(dQuaternion.inverse(referenceTransform.Rotation), finalPosition), (float)(BodyRadiusInAU / referenceTransform.Scale));
+
+			if (m_Parent == null)
+				OrbitLineObject.transform.localRotation = (Quaternion)s_SunOrientationQuat;
+			else
+				OrbitLineObject.transform.localRotation = (Quaternion)ParentOrientation;
+
+			if (OrbitingObject != null)
+			{
+				OrbitingObject.transform.localPosition = (float3)((BodyPositionWorld - referenceTransform.Position) / referenceTransform.Scale);
+				OrbitingObject.transform.localScale = Vector3.one * (float)(BodyRadiusInAU / referenceTransform.Scale);
+				OrbitingObject.transform.localRotation = (Quaternion)EquatorOrientationWorld;
+			}
+
+			if (Script != null)
+			{
+				Script.SetSpin(Spin);
+				Script.SetSunDirection((float3)dQuaternion.mul(dQuaternion.inverse(referenceTransform.Rotation), math.normalize(BodyPositionWorld - sunPosition)));
+			}
+
+			foreach (var satellite in m_Satellites)
+				satellite.UpdateTransforms(referenceTransform, sunPosition);
+
+			int shadowIndexOffset = m_Parent == null ? 0 : 1;
+			for (int i = 0; i < m_Satellites.Length; ++i)
+				m_SatelliteShadowSpheres[i + shadowIndexOffset] = m_Satellites[i].m_ShadowSphere;
+			if (m_Parent != null)
+				m_SatelliteShadowSpheres[0] = m_Parent.m_ShadowSphere;
+
+			if (Script != null)
+				Script.SetShadowSpheres(m_SatelliteShadowSpheres);
+		}
+
+		public static OrbitWrapper Create(S_OrbitSettings settings, Transform systemTransform, Material lineMaterial, OrbitWrapper parent = null)
+		{
+			return new OrbitWrapper(Orbit.Create(settings.OrbitType), RotationModel.Create(settings.RotationModelType), settings, systemTransform, lineMaterial, parent);
 		}
 
 		public struct ReferenceOrientation
@@ -528,90 +520,5 @@ public class S_SolarSystem : MonoBehaviour
 		public static readonly ReferenceOrientation s_SunOrientation = new() { Ra = 286.13, Dec = 63.87, Node = 286.13 + 90, Inclination = 90 - 63.87 };
 		public static readonly dQuaternion s_SunOrientationQuat = s_SunOrientation.GetRotation();
 		public static readonly dQuaternion s_SunOrientationQuatInv = dQuaternion.inverse(s_SunOrientationQuat);
-	}
-
-	private class OrbitWrapperPlanet : OrbitWrapper<S_Planet>
-	{
-		public OrbitWrapperMoon[] Moons;
-
-		public OrbitWrapperPlanet(Orbit orbit, RotationModel frame,
-			S_OrbitSettings settings, Transform systemTransform, Material lineMaterial) : base(orbit, frame, settings, systemTransform, lineMaterial)
-		{
-			if (settings.OrbitingObject.TryGetComponent(out S_Planet planetScript))
-				RadiusInAU = GetScaleFromPlanet(planetScript.Radius, planetScript.ScaleToSize);
-
-			Moons = new OrbitWrapperMoon[settings.SatelliteOrbits.Length];
-			for (int i = 0; i < Moons.Length; ++i)
-				Moons[i] = OrbitWrapperMoon.Create(this, settings.SatelliteOrbits[i], systemTransform, lineMaterial);
-		}
-
-		public override void Init(double t)
-		{
-			base.Init(t);
-			PlanetPositionWorld = PlanetPositionRelative;
-
-			foreach (var moon in Moons)
-				moon.Init(t);
-		}
-
-		public override void Update(double t)
-		{
-			base.Update(t);
-			PlanetPositionWorld = PlanetPositionRelative;
-
-			foreach (var moon in Moons)
-				moon.Update(t);
-		}
-
-		public override void SpawnPrefab(Transform systemTransform)
-		{
-			base.SpawnPrefab(systemTransform);
-			foreach (var orbit in Moons)
-				orbit.SpawnPrefab(systemTransform);
-		}
-
-		public override void DestroyPrefab()
-		{
-			base.DestroyPrefab();
-			foreach (var orbit in Moons)
-				orbit.DestroyPrefab();
-		}
-
-		public static OrbitWrapperPlanet Create(S_OrbitSettings settings, Transform systemTransform, Material lineMaterial)
-		{
-			return new OrbitWrapperPlanet(Orbit.Create(settings.OrbitType), RotationModel.Create(settings.RotationModelType), settings, systemTransform, lineMaterial);
-		}
-		
-	}
-
-	private class OrbitWrapperMoon : OrbitWrapper<S_Moon>
-	{
-		public OrbitWrapperPlanet Parent;
-
-		public OrbitWrapperMoon(OrbitWrapperPlanet parent, Orbit orbit, RotationModel frame, S_OrbitSettings settings, Transform systemTransform, Material lineMaterial)
-			: base(orbit, frame, settings, systemTransform, lineMaterial)
-		{
-			if (settings.OrbitingObject.TryGetComponent(out S_Moon moonScript))
-				RadiusInAU = GetScaleFromPlanet(moonScript.Radius, moonScript.ScaleToSize);
-
-			Parent = parent;
-		}
-
-		public override void Init(double t)
-		{
-			base.Init(t);
-			PlanetPositionWorld = dQuaternion.mul(Parent.EquatorOrientation, PlanetPositionRelative) + Parent.PlanetPositionWorld;
-		}
-
-		public override void Update(double t)
-		{
-			base.Update(t);
-			PlanetPositionWorld = dQuaternion.mul(Parent.EquatorOrientation, PlanetPositionRelative) + Parent.PlanetPositionWorld;
-		}
-
-		public static OrbitWrapperMoon Create(OrbitWrapperPlanet parent, S_OrbitSettings settings, Transform systemTransform, Material lineMaterial)
-		{
-			return new OrbitWrapperMoon(parent, Orbit.Create(settings.OrbitType), RotationModel.Create(settings.RotationModelType), settings, systemTransform, lineMaterial);
-		}
 	}
 }
