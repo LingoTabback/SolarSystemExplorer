@@ -30,7 +30,7 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 		Camera cam = Camera.main;
 		Vector3 diff = transform.position - cam.transform.position;
 		float distance = diff.magnitude;
-		if (m_Body.CurrentOrbit != m_Body.ParentSystem.FocusedOrbit)
+		if (m_Body.ID != m_Body.ParentSystem.FocusedOrbit)
 			m_Collider.radius = (float)(distance / m_Body.ScaledRadiusInSolarSystem * ColliderRadiusUnfocused);
 		else
 			m_Collider.radius = ColliderRadiusFocused;
@@ -39,21 +39,21 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 	protected override void OnHoverEntered(HoverEnterEventArgs args)
 	{
 		base.OnHoverEntered(args);
-		Debug.Log($"Entering {m_Body.CurrentOrbit}");
+		Debug.Log($"Entering {m_Body.ID}");
 		//TODO: Start Highlighting
 	}
 
 	protected override void OnHoverExited(HoverExitEventArgs args)
 	{
 		base.OnHoverExited(args);
-		Debug.Log($"Exiting {m_Body.CurrentOrbit}");
+		Debug.Log($"Exiting {m_Body.ID}");
 		//TODO: Stop Highlighting
 	}
 
 	protected override void OnSelectEntered(SelectEnterEventArgs args)
 	{
 		base.OnSelectEntered(args);
-		Debug.Log($"Selecting {m_Body.CurrentOrbit}");
+		Debug.Log($"Selecting {m_Body.ID}");
 
 		m_Body.Focus();
 	}

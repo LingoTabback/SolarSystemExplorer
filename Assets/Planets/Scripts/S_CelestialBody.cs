@@ -19,8 +19,8 @@ public abstract class S_CelestialBody : MonoBehaviour
 	public abstract void SetSpin(in dQuaternion spin);
 	public abstract void SetSunDirection(float3 direction);
 	public virtual void SetShadowSpheres(float4[] spheres) { }
-	public OrbitType CurrentOrbit { get; set; } = OrbitType.None; // only changed in S_SolarSystem
-	public S_SolarSystem ParentSystem { get; set; } = null; // only changed in S_SolarSystem
-	public void Focus() => ParentSystem.SetFocus(CurrentOrbit);
+	public OrbitID ID { get; set; } = OrbitID.Invalid; // only changed in S_SolarSystem!
+	public S_SolarSystem ParentSystem { get; set; } = null; // only changed in S_SolarSystem!
+	public void Focus() => ParentSystem.SetFocus(ID);
 
 }

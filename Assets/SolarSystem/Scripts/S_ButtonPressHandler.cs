@@ -21,7 +21,6 @@ public class S_ButtonPressHandler : MonoBehaviour
 
 	public void Teleport(InputAction.CallbackContext context)
 	{
-		OrbitType orbitType = OrbitType.None;
-		SolarSystem.SetFocus(orbitType);
+		SolarSystem.SetFocus(OrbitID.Invalid);
 	}
 }
