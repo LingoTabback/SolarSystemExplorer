@@ -6,9 +6,8 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Rendering;
-using UnityEngine.XR.Interaction.Toolkit;
 
-public class S_Planet : XRBaseInteractable
+public class S_Planet : MonoBehaviour
 {
 	public float Radius = 636;
 	public float MaxElevation = 0.88f;
@@ -341,19 +340,4 @@ public class S_Planet : XRBaseInteractable
 		int nZ = (threadsZ + (int)numThreadsZ - 1) / (int)numThreadsZ;
 		shader.Dispatch(kernelIndex, nX, nY, nZ);
 	}
-
-    //XR interactions
-    
-	protected void OnSelectEntering(XRBaseInteractor interactor)
-	{
-        base.OnSelectEntering(interactor);
-        Debug.Log("SELECT ENTER");
-    }
-
-    protected void OnSelectExiting(XRBaseInteractor interactor)
-    {
-        base.OnSelectExiting(interactor);
-        Debug.Log("SELECT EXIT");
-    }
-	
 }
