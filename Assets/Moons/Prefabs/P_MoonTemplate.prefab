@@ -222,7 +222,7 @@ MonoBehaviour:
   ScaleToSize: 2
   SunDirection: {x: -1, y: -0, z: -0}
   SunColor: {r: 1, g: 1, b: 1, a: 1}
-  SunBrightness: 4
+  SunBrightness: 16
   HasAtmosphere: 0
   Atmosphere:
     AtmosphereHeight: 6

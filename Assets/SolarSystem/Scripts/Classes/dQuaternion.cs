@@ -14,24 +14,12 @@ namespace CustomMath
 		public static readonly dQuaternion identity = new(0d, 0d, 0d, 1d);
 
 		public static explicit operator Quaternion(dQuaternion q)
-		{
-			return new Quaternion((float)q.value.x, (float)q.value.y, (float)q.value.z, (float)q.value.w);
-		}
-
-		public static explicit operator dQuaternion(Quaternion q)
-		{
-			return new dQuaternion(q.x, q.y, q.z, q.w);
-		}
-
-		public static explicit operator quaternion(dQuaternion q)
-		{
-			return new quaternion((float4)q.value);
-		}
-
-		public static explicit operator dQuaternion(quaternion q)
-		{
-			return new dQuaternion(q.value);
-		}
+			=> new((float)q.value.x, (float)q.value.y, (float)q.value.z, (float)q.value.w);
+		public static explicit operator dQuaternion(Quaternion q) => new(q.x, q.y, q.z, q.w);
+		public static explicit operator quaternion(dQuaternion q) => new((float4)q.value);
+		public static explicit operator dQuaternion(quaternion q) => new(q.value);
+		public static implicit operator dQuaternion((double x, double y, double z, double w) value)
+			=> new(value.x, value.y, value.z, value.w);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public dQuaternion(double x, double y, double z, double w)
@@ -43,17 +31,10 @@ namespace CustomMath
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public dQuaternion(double4 value)
-		{
-			this.value = value;
-		}
+		public dQuaternion(double4 value) => this.value = value;
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static implicit operator dQuaternion(double4 v)
-		{
-			return new dQuaternion(v);
-		}
-
+		public static implicit operator dQuaternion(double4 v) => new(v);
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static dQuaternion AxisAngle(double3 axis, double angle)
 		{
@@ -104,40 +85,22 @@ namespace CustomMath
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static dQuaternion EulerXYZ(double x, double y, double z)
-		{
-			return EulerXYZ(math.double3(x, y, z));
-		}
+		public static dQuaternion EulerXYZ(double x, double y, double z) => EulerXYZ(math.double3(x, y, z));
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static dQuaternion EulerXZY(double x, double y, double z)
-		{
-			return EulerXZY(math.double3(x, y, z));
-		}
+		public static dQuaternion EulerXZY(double x, double y, double z) => EulerXZY(math.double3(x, y, z));
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static dQuaternion EulerYXZ(double x, double y, double z)
-		{
-			return EulerYXZ(math.double3(x, y, z));
-		}
+		public static dQuaternion EulerYXZ(double x, double y, double z) => EulerYXZ(math.double3(x, y, z));
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static dQuaternion EulerYZX(double x, double y, double z)
-		{
-			return EulerYZX(math.double3(x, y, z));
-		}
+		public static dQuaternion EulerYZX(double x, double y, double z) => EulerYZX(math.double3(x, y, z));
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static dQuaternion EulerZXY(double x, double y, double z)
-		{
-			return EulerZXY(math.double3(x, y, z));
-		}
+		public static dQuaternion EulerZXY(double x, double y, double z) => EulerZXY(math.double3(x, y, z));
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static dQuaternion EulerZYX(double x, double y, double z)
-		{
-			return EulerZYX(math.double3(x, y, z));
-		}
+		public static dQuaternion EulerZYX(double x, double y, double z) => EulerZYX(math.double3(x, y, z));
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static dQuaternion Euler(double3 xyz, math.RotationOrder order = math.RotationOrder.ZXY)
@@ -156,9 +119,7 @@ namespace CustomMath
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static dQuaternion Euler(double x, double y, double z, math.RotationOrder order = math.RotationOrder.ZXY)
-		{
-			return Euler(math.double3(x, y, z), order);
-		}
+			=> Euler(math.double3(x, y, z), order);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static dQuaternion RotateX(double angle)
@@ -189,9 +150,7 @@ namespace CustomMath
 		}
 
 		public static dQuaternion LookRotationSafe(double3 forward, double3 up)
-		{
-			return (dQuaternion)quaternion.LookRotationSafe((float3)forward, (float3)up);
-		}
+			=> (dQuaternion)quaternion.LookRotationSafe((float3)forward, (float3)up);
 
 		public static dQuaternion FromTo(double3 from, double3 to)
 		{
@@ -211,10 +170,7 @@ namespace CustomMath
 		public bool Equals(dQuaternion x)
 		{
 			if (value.x == x.value.x && value.y == x.value.y && value.z == x.value.z)
-			{
 				return value.w == x.value.w;
-			}
-
 			return false;
 		}
 
@@ -226,33 +182,22 @@ namespace CustomMath
 				dQuaternion x2 = (dQuaternion)x;
 				return Equals(x2);
 			}
-
 			return false;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public override int GetHashCode()
-		{
-			return (int)math.hash(this.value);
-		}
+		public override int GetHashCode() => (int)math.hash(this.value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public override string ToString()
-		{
-			return $"dQuaternion({value.x}d, {value.y}d, {value.z}d, {value.w}d)";
-		}
+		public override string ToString() => $"dQuaternion({value.x}d, {value.y}d, {value.z}d, {value.w}d)";
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public string ToString(string format, IFormatProvider formatProvider)
-		{
-			return $"dQuaternion({value.x.ToString(format, formatProvider)}d, {value.y.ToString(format, formatProvider)}d, {value.z.ToString(format, formatProvider)}d, {value.w.ToString(format, formatProvider)}d)";
-		}
+			=> $"dQuaternion({value.x.ToString(format, formatProvider)}d, {value.y.ToString(format, formatProvider)}d, {value.z.ToString(format, formatProvider)}d, {value.w.ToString(format, formatProvider)}d)";
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static dQuaternion mul(dQuaternion a, dQuaternion b)
-		{
-			return new dQuaternion(a.value.wwww * b.value + (a.value.xyzx * b.value.wwwx + a.value.yzxy * b.value.zxyy) * math.double4(1d, 1d, 1d, -1d) - a.value.zxyz * b.value.yzxz);
-		}
+			=> new dQuaternion(a.value.wwww * b.value + (a.value.xyzx * b.value.wwwx + a.value.yzxy * b.value.zxyy) * math.double4(1d, 1d, 1d, -1d) - a.value.zxyz * b.value.yzxz);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static double3 mul(dQuaternion q, double3 v)
@@ -262,10 +207,7 @@ namespace CustomMath
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static double dot(dQuaternion a, dQuaternion b)
-		{
-			return math.dot(a.value, b.value);
-		}
+		public static double dot(dQuaternion a, dQuaternion b) => math.dot(a.value, b.value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public static dQuaternion normalize(dQuaternion q)

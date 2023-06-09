@@ -9,6 +9,7 @@ namespace Ephemeris
 		public double PA;
 		public double QA;
 		public EclipticPole(double pa, double qa) { PA = pa; QA = qa; }
+		public static implicit operator EclipticPole((double pa, double qa) value) => new(value.pa, value.qa);
 	};
 
 	// piA and PiA are angles that transform the J2000 ecliptic to the
@@ -24,6 +25,7 @@ namespace Ephemeris
 		public double piA;
 		public double PiA;
 		public EclipticAngles(double piA, double PiA) { this.piA = piA; this.PiA = PiA; }
+		public static implicit operator EclipticAngles((double piA, double PiA) value) => new(value.piA, value.PiA);
 	};
 
 	// epsA is the angle between the ecliptic and mean equator of date. pA is the
@@ -35,6 +37,7 @@ namespace Ephemeris
 		public double pA;     // precession
 		public double epsA;   // obliquity
 		public PrecessionAngles(double pA, double epsA) { this.pA = pA; this.epsA = epsA; }
+		public static implicit operator PrecessionAngles((double pA, double epsA) value) => new(value.pA, value.epsA);
 	}
 
 	public struct EquatorialPrecessionAngles
@@ -48,12 +51,13 @@ namespace Ephemeris
 			this.zA = zA;
 			this.thetaA = thetaA;
 		}
+		public static implicit operator EquatorialPrecessionAngles((double zetaA, double zA, double thetaA) value)
+			=> new(value.zetaA, value.zA, value.thetaA);
 	}
 
 	public static class Precession
 	{
-		// Periodic term for the long-period extension of the P03 precession
-		// model.
+		// Periodic term for the long-period extension of the P03 precession model.
 		private struct EclipticPrecessionTerm
 		{
 			public double Pc;
@@ -70,16 +74,19 @@ namespace Ephemeris
 				Qs = qs;
 				Period = period;
 			}
+
+			public static implicit operator EclipticPrecessionTerm((double pc, double qc, double ps, double qs, double period) value)
+				=> new(value.pc, value.qc, value.ps, value.qs, value.period);
 		}
 
 		private static readonly EclipticPrecessionTerm[] s_EclipticPrecessionTerms =
 		{
-			new EclipticPrecessionTerm(  486.230527, 2559.065245, -2578.462809,   485.116645, 2308.98),
-			new EclipticPrecessionTerm( -963.825784,  247.582718,  -237.405076,  -971.375498, 1831.25),
-			new EclipticPrecessionTerm(-1868.737098, -957.399054,  1007.593090, -1930.464338,  687.52),
-			new EclipticPrecessionTerm(-1589.172175,  493.021354,  -423.035168, -1634.905683,  729.97),
-			new EclipticPrecessionTerm(  429.442489, -328.301413,   337.266785,   429.594383,  492.21),
-			new EclipticPrecessionTerm(-2244.742029, -339.969833,   221.240093, -2131.745072,  708.13)
+			(  486.230527, 2559.065245, -2578.462809,   485.116645, 2308.98),
+			( -963.825784,  247.582718,  -237.405076,  -971.375498, 1831.25),
+			(-1868.737098, -957.399054,  1007.593090, -1930.464338,  687.52),
+			(-1589.172175,  493.021354,  -423.035168, -1634.905683,  729.97),
+			(  429.442489, -328.301413,   337.266785,   429.594383,  492.21),
+			(-2244.742029, -339.969833,   221.240093, -2131.745072,  708.13)
 		};
 
 		// Periodic term for the long-period extension of the P03 precession
@@ -100,20 +107,23 @@ namespace Ephemeris
 				this.epss = epss;
 				Period = period;
 			}
+
+			public static implicit operator PrecessionTerm((double pc, double epsc, double ps, double epss, double period) value)
+				=> new(value.pc, value.epsc, value.ps, value.epss, value.period);
 		}
 
 		private static readonly PrecessionTerm[] s_PrecessionTerms =
 		{
-			new PrecessionTerm(-6180.062400,   807.904635, -2434.845716, -2056.455197,  409.90),
-			new PrecessionTerm(-2721.869299,  -177.959383,   538.034071,  -912.727303,  396.15),
-			new PrecessionTerm( 1460.746498,   371.942696, -1245.689351,   447.710000,  536.91),
-			new PrecessionTerm(-1838.488899,  -176.029134,   529.220775,  -611.297411,  402.90),
-			new PrecessionTerm(  949.518077,   -89.154030,   277.195375,   315.900626,  417.15),
-			new PrecessionTerm(   32.701460,  -336.048179,   945.979710,    12.390157,  288.92),
-			new PrecessionTerm(  598.054819,   -17.415730,  -955.163661,   -15.922155, 4042.97),
-			new PrecessionTerm( -293.145284,   -28.084479,    93.894079,  -102.870153,  304.90),
-			new PrecessionTerm(   66.354942,    21.456146,     0.671968,    24.123484,  281.46),
-			new PrecessionTerm(   18.894136,    30.917011,  -184.663935,     2.512708,  204.38)
+			(-6180.062400,   807.904635, -2434.845716, -2056.455197,  409.90),
+			(-2721.869299,  -177.959383,   538.034071,  -912.727303,  396.15),
+			( 1460.746498,   371.942696, -1245.689351,   447.710000,  536.91),
+			(-1838.488899,  -176.029134,   529.220775,  -611.297411,  402.90),
+			(  949.518077,   -89.154030,   277.195375,   315.900626,  417.15),
+			(   32.701460,  -336.048179,   945.979710,    12.390157,  288.92),
+			(  598.054819,   -17.415730,  -955.163661,   -15.922155, 4042.97),
+			( -293.145284,   -28.084479,    93.894079,  -102.870153,  304.90),
+			(   66.354942,    21.456146,     0.671968,    24.123484,  281.46),
+			(   18.894136,    30.917011,  -184.663935,     2.512708,  204.38)
 		};
 
 		// DE405 obliquity of the ecliptic
@@ -305,13 +315,6 @@ namespace Ephemeris
 						+ 0.00007964 * T3
 						- 0.000023857 * T4
 						- 0.0000000383 * T5);
-#if false
-			prec.chiA = (  10.556403 * T
-						-  2.3814292 * T2
-						-  0.00121197 * T3
-						+  0.000170663 * T4
-						-  0.0000000560 * T5);
-#endif
 
 			return prec;
 		}

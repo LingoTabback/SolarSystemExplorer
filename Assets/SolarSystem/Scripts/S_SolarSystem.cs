@@ -61,7 +61,7 @@ public class S_SolarSystem : MonoBehaviour
 	private List<OrbitWrapper> m_AllOrbits;
 	private OrbitID[] m_OrbitDict;
 
-	private OrbitID m_FocusedOrbit;
+	private OrbitID m_FocusedOrbit = OrbitID.Invalid;
 	private bool m_FocusChanged = false;
 
 	private GameObject m_SunObject;
@@ -85,8 +85,10 @@ public class S_SolarSystem : MonoBehaviour
 			m_PlanetOrbits[i] = OrbitWrapper.Create(Orbits[i], transform, LineMaterial);
 
 		m_AllOrbits = new() { null };
-		m_OrbitDict = new OrbitID[(int)OrbitType.Sun];
+		m_OrbitDict = new OrbitID[(int)OrbitType.Sun + 1];
 		Array.Fill(m_OrbitDict, OrbitID.Invalid);
+		m_OrbitDict[(int)OrbitType.Sun] = 0;
+
 		foreach (OrbitWrapper orbit in m_PlanetOrbits)
 			orbit.CollectFocusableOrbits(m_AllOrbits, m_OrbitDict);
 
@@ -180,7 +182,7 @@ public class S_SolarSystem : MonoBehaviour
 
 	public void SetFocus(OrbitType type)
 	{
-		OrbitID newID = m_AllOrbits != null && (int)type >= 0 && (int)type < (int)OrbitType.Sun ? m_OrbitDict[(int)type] : OrbitID.Invalid;
+		OrbitID newID = m_AllOrbits != null && (int)type >= 0 && (int)type <= (int)OrbitType.Sun ? m_OrbitDict[(int)type] : OrbitID.Invalid;
 		if (newID != m_FocusedOrbit)
 		{
 			m_FocusedOrbit = newID;

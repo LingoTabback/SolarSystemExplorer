@@ -49,7 +49,7 @@ public class S_SolarSystemInspector : Editor
 
 			if (newDate[0] != m_Date.Year || newDate[1] != m_Date.Month || newDate[2] != m_Date.Day
 				|| newTime[0] != m_Date.Hour || newTime[1] != m_Date.Minute || newTime[2] != (int)m_Date.Seconds)
-				m_Date = new Date(newDate[0], newDate[1], newDate[2], newTime[0], newTime[1], newTime[2]);
+				m_Date = new(newDate[0], newDate[1], newDate[2], newTime[0], newTime[1], newTime[2]);
 		}
 
 		EditorGUILayout.BeginHorizontal();
@@ -64,18 +64,18 @@ public class S_SolarSystemInspector : Editor
 		{
 			const Date.Format format = Date.Format.US;
 			// Solar Eclipse Dates
-			TimeJumpButton(script, new Date(2001,  6, 21, 12,  4, 0), format);
-			TimeJumpButton(script, new Date(2002, 12,  4,  7, 32, 0), format);
-			TimeJumpButton(script, new Date(2003, 11, 23, 22, 50, 0), format);
-			TimeJumpButton(script, new Date(2006,  3, 29, 10, 12, 0), format);
-			TimeJumpButton(script, new Date(2010,  7, 11, 19, 34, 0), format);
-			TimeJumpButton(script, new Date(2012, 11, 13, 22, 12, 0), format);
-			TimeJumpButton(script, new Date(2016,  3,  9,  1, 58, 0), format);
-			TimeJumpButton(script, new Date(2017,  8, 21, 18, 26, 0), format);
-			TimeJumpButton(script, new Date(2020, 12, 14, 16, 14, 0), format);
-			TimeJumpButton(script, new Date(2021, 12,  4,  6, 34, 0), format);
-			TimeJumpButton(script, new Date(2024,  4,  8, 18, 18, 0), format);
-			TimeJumpButton(script, new Date(-100,  4,  8, 18, 18, 0), format);
+			TimeJumpButton(script, new(2001,  6, 21, 12,  4, 0), format);
+			TimeJumpButton(script, new(2002, 12,  4,  7, 32, 0), format);
+			TimeJumpButton(script, new(2003, 11, 23, 22, 50, 0), format);
+			TimeJumpButton(script, new(2006,  3, 29, 10, 12, 0), format);
+			TimeJumpButton(script, new(2010,  7, 11, 19, 34, 0), format);
+			TimeJumpButton(script, new(2012, 11, 13, 22, 12, 0), format);
+			TimeJumpButton(script, new(2016,  3,  9,  1, 58, 0), format);
+			TimeJumpButton(script, new(2017,  8, 21, 18, 26, 0), format);
+			TimeJumpButton(script, new(2020, 12, 14, 16, 14, 0), format);
+			TimeJumpButton(script, new(2021, 12,  4,  6, 34, 0), format);
+			TimeJumpButton(script, new(2024,  4,  8, 18, 18, 0), format);
+			TimeJumpButton(script, new(-100,  4,  8, 18, 18, 0), format);
 
 			EditorGUILayout.EndFoldoutHeaderGroup();
 		}
@@ -96,7 +96,6 @@ public class S_SolarSystemInspector : Editor
 		script.SetTime(date);
 		return true;
 	}
-	private bool TimeJumpButton(S_SolarSystem script, string label, DateTime date) => TimeJumpButton(script, label, new Date(date));
 	private bool TimeJumpButton(S_SolarSystem script, string label, double t)
 	{
 		if (!GUILayout.Button(label))

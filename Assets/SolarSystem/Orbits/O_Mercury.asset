@@ -13,28 +13,9 @@ MonoBehaviour:
   m_Name: O_Mercury
   m_EditorClassIdentifier: 
   Name: Mercury Orbit
-  MeanDistance: 0.3871
-  Eccentricity: 0.2056400030851364
-  Inclination: 7.006
-  LongitudeOfPeriapsis: 77.46
-  LongitudeOfAscendingNode: 48.34
-  MeanLongitudeAtEpoch: 252.25
-  OrbitalPeriod: 88
-  Epoch: 1
-  EpochYear: 0
-  EpochDay: 0
-  DerivativeOfMeanMotion: 0
-  DragTerm: 0
-  RightAscension: 0
-  ArgOfPeriapsis: 0
-  MeanAnomalyAtEpoch: 0
-  MeanMotion: 0
-  UsePlanetOrbit: 1
-  PlanetOrbit: 0
-  MoonOrbit: 0
   OrbitType: 0
   RotationModelType: 1
   OrbitingObject: {fileID: 6016091382721183278, guid: 2ec891f73ecb06347949d7622c3f071a,
     type: 3}
   SatelliteOrbits: []
-  DisplayColor: {r: 0.8, g: 0.8, b: 0.8, a: 0.12156863}
+  DisplayColor: {r: 0.8, g: 0.8, b: 0.8, a: 0.24313726}

@@ -18,4 +18,4 @@ MonoBehaviour:
   OrbitingObject: {fileID: 2500830092570744895, guid: 08edf149adf6f3a4a811237d32f4ad27,
     type: 3}
   SatelliteOrbits: []
-  DisplayColor: {r: 0.5754717, g: 0.46501753, b: 0.33388218, a: 0.25}
+  DisplayColor: {r: 0.5754717, g: 0.46501753, b: 0.33388218, a: 0.5019608}

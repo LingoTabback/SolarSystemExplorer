@@ -97,6 +97,9 @@ namespace AstroTime
 			m_TZName = "UTC";
 		}
 
+		public static implicit operator Date(double jd) => new(jd);
+		public static implicit operator Date(in DateTime date) => new(date);
+
 		public static Date WithLeapSeconds(double jd, int leapSeconds)
 		{
 			Date date = new(jd);
@@ -380,38 +383,39 @@ namespace AstroTime
 			public int Seconds;
 			public double T;
 			public LeapSecondRecord(int s, double t) { Seconds = s; T = t; }
+			public static implicit operator LeapSecondRecord((int s, double t) value) => new(value.s, value.t);
 		}
 
 		private static readonly LeapSecondRecord[] s_LeapSeconds =
 		{
-			new LeapSecondRecord(10, 2441317.5), // 1 Jan 1972
-			new LeapSecondRecord(11, 2441499.5), // 1 Jul 1972
-			new LeapSecondRecord(12, 2441683.5), // 1 Jan 1973
-			new LeapSecondRecord(13, 2442048.5), // 1 Jan 1974
-			new LeapSecondRecord(14, 2442413.5), // 1 Jan 1975
-			new LeapSecondRecord(15, 2442778.5), // 1 Jan 1976
-			new LeapSecondRecord(16, 2443144.5), // 1 Jan 1977
-			new LeapSecondRecord(17, 2443509.5), // 1 Jan 1978
-			new LeapSecondRecord(18, 2443874.5), // 1 Jan 1979
-			new LeapSecondRecord(19, 2444239.5), // 1 Jan 1980
-			new LeapSecondRecord(20, 2444786.5), // 1 Jul 1981
-			new LeapSecondRecord(21, 2445151.5), // 1 Jul 1982
-			new LeapSecondRecord(22, 2445516.5), // 1 Jul 1983
-			new LeapSecondRecord(23, 2446247.5), // 1 Jul 1985
-			new LeapSecondRecord(24, 2447161.5), // 1 Jan 1988
-			new LeapSecondRecord(25, 2447892.5), // 1 Jan 1990
-			new LeapSecondRecord(26, 2448257.5), // 1 Jan 1991
-			new LeapSecondRecord(27, 2448804.5), // 1 Jul 1992
-			new LeapSecondRecord(28, 2449169.5), // 1 Jul 1993
-			new LeapSecondRecord(29, 2449534.5), // 1 Jul 1994
-			new LeapSecondRecord(30, 2450083.5), // 1 Jan 1996
-			new LeapSecondRecord(31, 2450630.5), // 1 Jul 1997
-			new LeapSecondRecord(32, 2451179.5), // 1 Jan 1999
-			new LeapSecondRecord(33, 2453736.5), // 1 Jan 2006
-			new LeapSecondRecord(34, 2454832.5), // 1 Jan 2009
-			new LeapSecondRecord(35, 2456109.5), // 1 Jul 2012
-			new LeapSecondRecord(36, 2457204.5), // 1 Jul 2015
-			new LeapSecondRecord(37, 2457754.5), // 1 Jan 2017
+			(10, 2441317.5), // 1 Jan 1972
+			(11, 2441499.5), // 1 Jul 1972
+			(12, 2441683.5), // 1 Jan 1973
+			(13, 2442048.5), // 1 Jan 1974
+			(14, 2442413.5), // 1 Jan 1975
+			(15, 2442778.5), // 1 Jan 1976
+			(16, 2443144.5), // 1 Jan 1977
+			(17, 2443509.5), // 1 Jan 1978
+			(18, 2443874.5), // 1 Jan 1979
+			(19, 2444239.5), // 1 Jan 1980
+			(20, 2444786.5), // 1 Jul 1981
+			(21, 2445151.5), // 1 Jul 1982
+			(22, 2445516.5), // 1 Jul 1983
+			(23, 2446247.5), // 1 Jul 1985
+			(24, 2447161.5), // 1 Jan 1988
+			(25, 2447892.5), // 1 Jan 1990
+			(26, 2448257.5), // 1 Jan 1991
+			(27, 2448804.5), // 1 Jul 1992
+			(28, 2449169.5), // 1 Jul 1993
+			(29, 2449534.5), // 1 Jul 1994
+			(30, 2450083.5), // 1 Jan 1996
+			(31, 2450630.5), // 1 Jul 1997
+			(32, 2451179.5), // 1 Jan 1999
+			(33, 2453736.5), // 1 Jan 2006
+			(34, 2454832.5), // 1 Jan 2009
+			(35, 2456109.5), // 1 Jul 2012
+			(36, 2457204.5), // 1 Jul 2015
+			(37, 2457754.5), // 1 Jan 2017
 		};
 	}
 }
