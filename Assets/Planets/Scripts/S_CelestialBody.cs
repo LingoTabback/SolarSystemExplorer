@@ -17,6 +17,7 @@ public abstract class S_CelestialBody : MonoBehaviour
 	public abstract double ScaledRadius { get; }
 	public double ScaledRadiusInSolarSystem => ScaledRadius / (ParentSystem != null ? ParentSystem.CurrentReferenceTransform.Scale : 1);
 	public abstract void SetSpin(in dQuaternion spin);
+	public abstract void SetScale(float scale);
 	public abstract void SetSunDirection(float3 direction);
 	public virtual void SetShadowSpheres(float4[] spheres) { }
 	public OrbitID ID { get; set; } = OrbitID.Invalid; // only changed in S_SolarSystem!

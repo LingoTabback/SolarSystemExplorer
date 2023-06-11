@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe507d8c6afc164bb9c52182428a96e, type: 3}
   m_Name: O_Mars
   m_EditorClassIdentifier: 
-  Name: Mars Orbit
-  OrbitType: 3
-  RotationModelType: 4
-  OrbitingObject: {fileID: 876713000455180635, guid: 245e122e1db82d0418c24a67e42e8456,
+  m_OrbitName: Mars Orbit
+  m_OrbitType: 3
+  m_RotationModelType: 4
+  m_OrbitingObject: {fileID: 876713000455180635, guid: 245e122e1db82d0418c24a67e42e8456,
     type: 3}
-  SatelliteOrbits: []
-  DisplayColor: {r: 0.8392157, g: 0.5882353, b: 0.49411765, a: 0.24313726}
+  m_SatelliteOrbits: []
+  m_DisplayColor: {r: 0.6039216, g: 0.30588236, b: 0.098039225, a: 0.25}

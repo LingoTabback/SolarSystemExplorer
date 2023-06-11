@@ -69,56 +69,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
-        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -164,8 +114,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_Radius
+      value: 338.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: AxialTilt
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Meridian
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
@@ -194,6 +154,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_MaxElevation
+      value: 3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: EmissiveBrightness
       value: 0
       objectReference: {fileID: 0}
@@ -210,6 +175,21 @@ PrefabInstance:
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: Atmosphere.TipWidth
+      value: 4.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_EmissiveBrightness
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.TipValue
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.TipWidth
       value: 4.57
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
@@ -231,6 +211,36 @@ PrefabInstance:
         type: 3}
       propertyPath: Atmosphere.RayleighScale
       value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.MieExponent
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.TipAltitude
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_CloudsMaterialTemplate
+      value: 
+      objectReference: {fileID: 2100000, guid: 21bc1827190f0bb4d8165cf6070fccfd, type: 2}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_PlanetMaterialTemplate
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c3df03f0232fdb439afc60d324fa08e, type: 2}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.Absorption.b
+      value: 0.043137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.Absorption.r
+      value: 0.34509805
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
@@ -269,6 +279,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_Atmosphere.MieAnisotropy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.RayleighScale
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: Atmosphere.AtmosphereHeight
       value: 8
       objectReference: {fileID: 0}
@@ -279,6 +299,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_Atmosphere.AbsorptionScale
+      value: 0.001881
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.AtmosphereScale
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.MieExtinction.b
+      value: 0.9895876
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.MieExtinction.g
+      value: 1.3427114
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.MieExtinction.r
+      value: 1.9606782
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.MieScattering.b
+      value: 0.28627452
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.MieScattering.g
+      value: 0.44313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: Atmosphere.MieExtinctionScale
       value: 0.05
       objectReference: {fileID: 0}
@@ -286,6 +341,16 @@ PrefabInstance:
         type: 3}
       propertyPath: Atmosphere.MieScatteringScale
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.AtmosphereHeight
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.RayleighExponent
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
@@ -300,6 +365,31 @@ PrefabInstance:
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: Atmosphere.RayleighScattering.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.MieExtinctionScale
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.MieScatteringScale
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.RayleighScattering.b
+      value: 0.1764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.RayleighScattering.g
+      value: 0.3019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.RayleighScattering.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4616449735410555191, guid: a783fef0c379aad4f9ffad6f32d3b967,

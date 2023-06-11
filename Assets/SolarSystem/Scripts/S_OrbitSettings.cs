@@ -7,14 +7,27 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "O_NewOrbitSettings", menuName = "Solar System/Orbit Settings")]
 public class S_OrbitSettings : ScriptableObject
 {
-	public string Name = "Unnamed Orbit";
+	public string OrbitName => m_OrbitName;
+	public OrbitType OrbitType => m_OrbitType;
+	public RotationModelType RotationModelType => m_RotationModelType;
+	public GameObject OrbitingObject => m_OrbitingObject;
+	public S_OrbitSettings[] SatelliteOrbits => m_SatelliteOrbits;
+	public Color DisplayColor => m_DisplayColor;
 
-	public OrbitType OrbitType = OrbitType.Earth;
-	public RotationModelType RotationModelType = RotationModelType.Earth;
+	[SerializeField]
+	private string m_OrbitName = "Unnamed Orbit";
 
-	public GameObject OrbitingObject;
-	public S_OrbitSettings[] SatelliteOrbits;
+	[SerializeField]
+	private OrbitType m_OrbitType = OrbitType.Earth;
+	[SerializeField]
+	private RotationModelType m_RotationModelType = RotationModelType.Earth;
+
+	[SerializeField]
+	private GameObject m_OrbitingObject;
+	[SerializeField]
+	private S_OrbitSettings[] m_SatelliteOrbits;
 
 	[Header("Display Settings")]
-	public Color DisplayColor = new(1, 1, 1, 0.25f);
+	[SerializeField]
+	private Color m_DisplayColor = new(1, 1, 1, 0.25f);
 }

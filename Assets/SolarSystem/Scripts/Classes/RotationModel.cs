@@ -2,7 +2,6 @@ using CustomMath;
 using AstroTime;
 using System;
 using Unity.Mathematics;
-using System.Diagnostics;
 
 namespace Ephemeris
 {

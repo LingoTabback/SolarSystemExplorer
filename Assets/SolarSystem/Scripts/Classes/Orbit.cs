@@ -1,10 +1,7 @@
 using CustomMath;
 using AstroTime;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
-using UnityEngine;
 
 namespace Ephemeris
 {
@@ -18,7 +15,7 @@ namespace Ephemeris
 		Mars,
 		Jupiter,
 		Saturn,
-		Unranus,
+		Uranus,
 		Neptune,
 		Lunar,
 		Io,
@@ -54,7 +51,7 @@ namespace Ephemeris
 				OrbitType.Mars => new VSOP87Orbit(VSOPSeries.MarsL, VSOPSeries.MarsB, VSOPSeries.MarsR, 689.998725),
 				OrbitType.Jupiter => new VSOP87Orbit(VSOPSeries.JupiterL, VSOPSeries.JupiterB, VSOPSeries.JupiterR, 4332.66855),
 				OrbitType.Saturn => new VSOP87Orbit(VSOPSeries.SaturnL, VSOPSeries.SaturnB, VSOPSeries.SaturnR, 10759.42493),
-				OrbitType.Unranus => new VSOP87Orbit(VSOPSeries.UranusL, VSOPSeries.UranusB, VSOPSeries.UranusR, 30686.07698),
+				OrbitType.Uranus => new VSOP87Orbit(VSOPSeries.UranusL, VSOPSeries.UranusB, VSOPSeries.UranusR, 30686.07698),
 				OrbitType.Neptune => new VSOP87Orbit(VSOPSeries.NeptuneL, VSOPSeries.NeptuneB, VSOPSeries.NeptuneR, 60190.64325),
 				OrbitType.Lunar => new LunarOrbit(),
 				OrbitType.Io => new IoOrbit(),

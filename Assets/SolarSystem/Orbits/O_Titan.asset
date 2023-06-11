@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe507d8c6afc164bb9c52182428a96e, type: 3}
   m_Name: O_Titan
   m_EditorClassIdentifier: 
-  Name: Titan Orbit
-  OrbitType: 13
-  RotationModelType: 14
-  OrbitingObject: {fileID: 2794235374586753485, guid: 293f8bd3109c95547a340e156be9d48a,
+  m_OrbitName: Saturn Orbit
+  m_OrbitType: 13
+  m_RotationModelType: 14
+  m_OrbitingObject: {fileID: 2794235374586753485, guid: 293f8bd3109c95547a340e156be9d48a,
     type: 3}
-  SatelliteOrbits: []
-  DisplayColor: {r: 0.9622642, g: 0.7526941, b: 0.39489147, a: 0.50980395}
+  m_SatelliteOrbits: []
+  m_DisplayColor: {r: 0.8352941, g: 0.75686276, b: 0.5294118, a: 0.2509804}

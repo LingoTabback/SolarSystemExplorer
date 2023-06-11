@@ -69,41 +69,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 12.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1599114847719265008, guid: a783fef0c379aad4f9ffad6f32d3b967,
-        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -149,6 +114,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_Radius
+      value: 5823.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: AxialTilt
       value: 0
       objectReference: {fileID: 0}
@@ -169,6 +139,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7b23a8eaa4cbe3c47a4191177e3abb05, type: 2}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_Rings.Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: Rings.PhaseFuncG
       value: -0.3
       objectReference: {fileID: 0}
@@ -181,6 +156,11 @@ PrefabInstance:
         type: 3}
       propertyPath: Atmosphere.TipValue
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_EmissiveBrightness
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
@@ -217,6 +197,21 @@ PrefabInstance:
       propertyPath: Atmosphere.RayleighScale
       value: 0.005
       objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.MieExponent
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_CloudsMaterialTemplate
+      value: 
+      objectReference: {fileID: 2100000, guid: 21bc1827190f0bb4d8165cf6070fccfd, type: 2}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_PlanetMaterialTemplate
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b23a8eaa4cbe3c47a4191177e3abb05, type: 2}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: Atmosphere.AtmosphereScale
@@ -259,6 +254,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_Atmosphere.MieAnisotropy
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.RayleighScale
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: Atmosphere.AtmosphereHeight
       value: 4
       objectReference: {fileID: 0}
@@ -274,6 +279,36 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c2a42d726a0a21642ae5804bf70827fc, type: 2}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_Atmosphere.AtmosphereScale
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.MieExtinction.b
+      value: 0.4117647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.MieExtinction.g
+      value: 0.8352941
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.MieScattering.b
+      value: 0.654902
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.MieScattering.g
+      value: 0.8117647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Rings.LightingEccentricity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: Atmosphere.MieExtinctionScale
       value: 0.4
       objectReference: {fileID: 0}
@@ -281,6 +316,11 @@ PrefabInstance:
         type: 3}
       propertyPath: Atmosphere.MieScatteringScale
       value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.AtmosphereHeight
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
@@ -297,6 +337,36 @@ PrefabInstance:
       propertyPath: Atmosphere.RayleighScattering.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.MieExtinctionScale
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.MieScatteringScale
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.RayleighScattering.b
+      value: 0.63529414
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.RayleighScattering.g
+      value: 0.8784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Atmosphere.RayleighScattering.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_AtmosphereScatteringMaterialTemplate
+      value: 
+      objectReference: {fileID: 2100000, guid: c2a42d726a0a21642ae5804bf70827fc, type: 2}
     - target: {fileID: 4616449735410555191, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

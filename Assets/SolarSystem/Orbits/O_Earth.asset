@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe507d8c6afc164bb9c52182428a96e, type: 3}
   m_Name: O_Earth
   m_EditorClassIdentifier: 
-  Name: Earth Orbit
-  OrbitType: 2
-  RotationModelType: 3
-  OrbitingObject: {fileID: 414858915291128501, guid: e92b46d312c1bc345837a8838efcf409,
+  m_OrbitName: Earth Orbit
+  m_OrbitType: 2
+  m_RotationModelType: 3
+  m_OrbitingObject: {fileID: 414858915291128501, guid: e92b46d312c1bc345837a8838efcf409,
     type: 3}
-  SatelliteOrbits:
+  m_SatelliteOrbits:
   - {fileID: 11400000, guid: b7e6d9ed7bd7eb84e9fb72abe905fd86, type: 2}
-  DisplayColor: {r: 0.54901963, g: 0.7254902, b: 0.8784314, a: 0.24313726}
+  m_DisplayColor: {r: 0, g: 0.6, b: 0.8000001, a: 0.25}

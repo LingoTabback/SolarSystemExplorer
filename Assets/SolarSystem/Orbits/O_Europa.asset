@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe507d8c6afc164bb9c52182428a96e, type: 3}
   m_Name: O_Europa
   m_EditorClassIdentifier: 
-  Name: Europa Orbit
-  OrbitType: 10
-  RotationModelType: 11
-  OrbitingObject: {fileID: 3608581063824914051, guid: 37d3bafd4bd29b1479028d8ece2dc0ed,
+  m_OrbitName: Europa Orbit
+  m_OrbitType: 10
+  m_RotationModelType: 11
+  m_OrbitingObject: {fileID: 3608581063824914051, guid: 37d3bafd4bd29b1479028d8ece2dc0ed,
     type: 3}
-  SatelliteOrbits: []
-  DisplayColor: {r: 0.74509805, g: 0.6181452, b: 0.6156863, a: 0.5019608}
+  m_SatelliteOrbits: []
+  m_DisplayColor: {r: 0.85490197, g: 0.54509807, b: 0.44705883, a: 0.2509804}

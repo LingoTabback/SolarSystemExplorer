@@ -44,6 +44,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
+      propertyPath: m_Radius
+      value: 182.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
       propertyPath: ScaleToSize
       value: 2
       objectReference: {fileID: 0}
@@ -62,6 +67,11 @@ PrefabInstance:
       propertyPath: ElevationScale
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_MoonMaterialTemplate
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b0eea93a58f20b45b3f34dd38902dce, type: 2}
     - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
       propertyPath: m_RootOrder

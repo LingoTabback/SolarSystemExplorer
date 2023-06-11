@@ -1,7 +1,5 @@
 using CustomMath;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -9,21 +7,30 @@ using UnityEngine.Rendering;
 
 public class S_Planet : S_CelestialBody
 {
-	public float Radius = 636;
-	public float MaxElevation = 0.88f;
-	public float ElevationScale = 2;
-	public float CloudsHeight = 1.2f;
+	[SerializeField]
+	private float m_Radius = 636;
+	[SerializeField]
+	private float m_MaxElevation = 0.88f;
+	[SerializeField]
+	private float m_ElevationScale = 2;
+	[SerializeField]
+	private float m_CloudsHeight = 1.2f;
 	[ColorUsage(false, true)]
-	public Color EmissiveColor = new(1, 0.7f, 0.4f);
-	public float EmissiveBrightness = 2;
+	[SerializeField]
+	private Color m_EmissiveColor = new(1, 0.7f, 0.4f);
+	[SerializeField]
+	private float m_EmissiveBrightness = 2;
 
 	[Range(0f, 1f)]
-	public float CloudsRotation = 0;
+	[SerializeField]
+	private float m_CloudsRotation = 0;
 
 	[Range(0f, 360f)]
-	public float Meridian = 0;
+	[SerializeField]
+	private float m_Meridian = 0;
 
-	public float ScaleToSize = 2;
+	[SerializeField]
+	private float m_ScaleToSize = 2;
 
 	[Serializable]
 	public class RingSettings
@@ -33,13 +40,17 @@ public class S_Planet : S_CelestialBody
 		public float OuterRadius = 13678;
 		public float LightingEccentricity = 0;
 	}
-	public RingSettings Rings;
+	[SerializeField]
+	private RingSettings m_Rings;
 
 	[Header("Sun")]
-	public Vector3 SunDirection = Vector3.right;
+	[SerializeField]
+	private Vector3 m_SunDirection = -Vector3.right;
 	[ColorUsage(false, true)]
-	public Color SunColor = Color.white;
-	public float SunBrightness = 4;
+	[SerializeField]
+	private Color m_SunColor = Color.white;
+	[SerializeField]
+	private float m_SunBrightness = 16;
 
 	[Serializable]
 	public class AtmosphereSettings
@@ -75,13 +86,19 @@ public class S_Planet : S_CelestialBody
 		[Range(90f, 180f)]
 		public float MaxSunAngle = 105;
 	}
-	public AtmosphereSettings Atmosphere;
+	[SerializeField]
+	private AtmosphereSettings m_Atmosphere;
 
-	public Material PlanetMaterial;
-	public Material CloudsMaterial;
-	public Material AtmosphereAbsorptionMaterial;
-	public Material AtmosphereScatteringMaterial;
-	public Material RingsMaterial;
+	[SerializeField]
+	private Material m_PlanetMaterialTemplate;
+	[SerializeField]
+	private Material m_CloudsMaterialTemplate;
+	[SerializeField]
+	private Material m_AtmosphereAbsorptionMaterialTemplate;
+	[SerializeField]
+	private Material m_AtmosphereScatteringMaterialTemplate;
+	[SerializeField]
+	private Material m_RingsMaterialTemplate;
 
 	private GameObject m_PlanetObject;
 	private GameObject m_CloudsObject;
@@ -101,7 +118,7 @@ public class S_Planet : S_CelestialBody
 	private static ComputeShader s_AtmospherePrecompShader;
 
 	public override CelestialBodyType Type => CelestialBodyType.Planet;
-	public override double ScaledRadius => CMath.KMtoAU(Radius * 10) * ScaleToSize * 0.5;
+	public override double ScaledRadius => CMath.KMtoAU(m_Radius * 10) * m_ScaleToSize * 0.5;
 
 	// Start is called before the first frame update
 	void Start()
@@ -123,16 +140,17 @@ public class S_Planet : S_CelestialBody
 	// Update is called once per frame
 	void Update()
 	{
-		float rotation = Meridian / 360;
+		float rotation = m_Meridian / 360;
 		m_PlanetMaterial.SetFloat("_PlanetRotation", rotation);
-		m_PlanetMaterial.SetFloat("_CloudsRotation", rotation + CloudsRotation);
-		m_CloudsMaterial.SetFloat("_CloudsRotation", rotation + CloudsRotation);
+		m_PlanetMaterial.SetFloat("_CloudsRotation", rotation + m_CloudsRotation);
+		m_CloudsMaterial.SetFloat("_CloudsRotation", rotation + m_CloudsRotation);
 
 		UpdateLight();
 	}
 
 	public override void SetSpin(in dQuaternion spin) => m_PlanetObject.transform.localRotation = (Quaternion)spin;
-	public override void SetSunDirection(float3 direction) => SunDirection = direction;
+	public override void SetScale(float scale) => m_PlanetObject.transform.localScale = Vector3.one * scale;
+	public override void SetSunDirection(float3 direction) => m_SunDirection = direction;
 	public override void SetShadowSpheres(float4[] spheres)
 	{
 		if (spheres == null)
@@ -167,27 +185,27 @@ public class S_Planet : S_CelestialBody
 		m_AtmosphereScatteringObject = m_PlanetObject.transform.Find("AtmosphereScatteringMesh").gameObject;
 		m_RingsObject = m_PlanetObject.transform.Find("Rings").gameObject;
 
-		m_PlanetObject.transform.localScale = Vector3.one * (ScaleToSize * 0.5f);
+		m_PlanetObject.transform.localScale = Vector3.one * (m_ScaleToSize * 0.5f);
 		m_PlanetObject.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-		m_CloudsObject.transform.localScale = Vector3.one * (1 + CloudsHeight / Radius);
+		m_CloudsObject.transform.localScale = Vector3.one * (1 + m_CloudsHeight / m_Radius);
 		m_CloudsObject.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
 
-		m_AtmosphereAbsorptionObject.transform.localScale = Vector3.one * (1 + Atmosphere.AtmosphereHeight * Atmosphere.AtmosphereScale / Radius);
-		m_AtmosphereScatteringObject.transform.localScale = Vector3.one * (1 + Atmosphere.AtmosphereHeight * Atmosphere.AtmosphereScale / Radius);
+		m_AtmosphereAbsorptionObject.transform.localScale = Vector3.one * (1 + m_Atmosphere.AtmosphereHeight * m_Atmosphere.AtmosphereScale / m_Radius);
+		m_AtmosphereScatteringObject.transform.localScale = Vector3.one * (1 + m_Atmosphere.AtmosphereHeight * m_Atmosphere.AtmosphereScale / m_Radius);
 		m_AtmosphereAbsorptionObject.transform.localPosition = Vector3.zero;
 		m_AtmosphereScatteringObject.transform.localPosition = Vector3.zero;
 
-		m_RingsObject.SetActive(Rings.Enabled);
-		m_RingsObject.transform.localScale = Vector3.one * (Rings.OuterRadius / Radius);
+		m_RingsObject.SetActive(m_Rings.Enabled);
+		m_RingsObject.transform.localScale = Vector3.one * (m_Rings.OuterRadius / m_Radius);
 	}
 
 	private void InitMaterials()
 	{
-		m_PlanetMaterial = new(PlanetMaterial);
-		m_CloudsMaterial = new(CloudsMaterial);
-		m_AtmosphereAbsorptionMaterial = new(AtmosphereAbsorptionMaterial);
-		m_AtmosphereScatteringMaterial = new(AtmosphereScatteringMaterial);
-		m_RingsMaterial = new(RingsMaterial);
+		m_PlanetMaterial = new(m_PlanetMaterialTemplate);
+		m_CloudsMaterial = new(m_CloudsMaterialTemplate);
+		m_AtmosphereAbsorptionMaterial = new(m_AtmosphereAbsorptionMaterialTemplate);
+		m_AtmosphereScatteringMaterial = new(m_AtmosphereScatteringMaterialTemplate);
+		m_RingsMaterial = new(m_RingsMaterialTemplate);
 
 		m_PlanetObject.GetComponent<MeshRenderer>().sharedMaterial = m_PlanetMaterial;
 		m_CloudsObject.GetComponent<MeshRenderer>().sharedMaterial = m_CloudsMaterial;
@@ -195,53 +213,53 @@ public class S_Planet : S_CelestialBody
 		m_AtmosphereScatteringObject.GetComponent<MeshRenderer>().sharedMaterial = m_AtmosphereScatteringMaterial;
 		m_RingsObject.GetComponent<MeshRenderer>().sharedMaterial = m_RingsMaterial;
 
-		Vector3 ambientColor = Vector3.Normalize(new Vector3(Atmosphere.RayleighScattering.r, Atmosphere.RayleighScattering.g, Atmosphere.RayleighScattering.b)) * 0.01f;
-		float rotation = Meridian / 360;
+		Vector3 ambientColor = Vector3.Normalize(new Vector3(m_Atmosphere.RayleighScattering.r, m_Atmosphere.RayleighScattering.g, m_Atmosphere.RayleighScattering.b)) * 0.01f;
+		float rotation = m_Meridian / 360;
 
-		m_PlanetMaterial.SetFloat("_PlanetRadius", Radius);
+		m_PlanetMaterial.SetFloat("_PlanetRadius", m_Radius);
 		m_PlanetMaterial.SetFloat("_PlanetRotation", rotation);
-		m_PlanetMaterial.SetFloat("_MaxElevation", MaxElevation);
-		m_PlanetMaterial.SetFloat("_ElevationScale", ElevationScale);
-		m_PlanetMaterial.SetFloat("_CloudsHeight", CloudsHeight);
-		m_PlanetMaterial.SetFloat("_CloudsRotation", rotation + CloudsRotation);
+		m_PlanetMaterial.SetFloat("_MaxElevation", m_MaxElevation);
+		m_PlanetMaterial.SetFloat("_ElevationScale", m_ElevationScale);
+		m_PlanetMaterial.SetFloat("_CloudsHeight", m_CloudsHeight);
+		m_PlanetMaterial.SetFloat("_CloudsRotation", rotation + m_CloudsRotation);
 		m_PlanetMaterial.SetVector("_AmbientColor", ambientColor);
-		m_PlanetMaterial.SetVector("_EmissiveColor", EmissiveColor * EmissiveBrightness);
+		m_PlanetMaterial.SetVector("_EmissiveColor", m_EmissiveColor * m_EmissiveBrightness);
 		m_PlanetMaterial.SetTexture("_GroundTransmittanceTexture", m_GroundTransmittanceTexture);
 		m_PlanetMaterial.SetVector("_RingPositionRelative", m_RingsObject.transform.localPosition);
 		m_PlanetMaterial.SetVector("_RingNormalRelative", m_RingsObject.transform.localRotation * Vector3.up);
-		m_PlanetMaterial.SetFloat("_RingInnerRadiusRelative", Rings.InnerRadius / Radius);
-		m_PlanetMaterial.SetFloat("_RingOuterRadiusRelative", Rings.OuterRadius / Radius);
+		m_PlanetMaterial.SetFloat("_RingInnerRadiusRelative", m_Rings.InnerRadius / m_Radius);
+		m_PlanetMaterial.SetFloat("_RingOuterRadiusRelative", m_Rings.OuterRadius / m_Radius);
 
-		m_CloudsMaterial.SetFloat("_CloudsRotation", rotation + CloudsRotation);
-		m_CloudsMaterial.SetFloat("_GroundTransmittanceCoordY", CloudsHeight / Atmosphere.AtmosphereHeight * 0.1f);
+		m_CloudsMaterial.SetFloat("_CloudsRotation", rotation + m_CloudsRotation);
+		m_CloudsMaterial.SetFloat("_GroundTransmittanceCoordY", m_CloudsHeight / m_Atmosphere.AtmosphereHeight * 0.1f);
 		m_CloudsMaterial.SetVector("_AmbientColor", ambientColor);
 		m_CloudsMaterial.SetTexture("_GroundTransmittanceTexture", m_GroundTransmittanceTexture);
 
-		float cosMaxSunAngle = math.cos(math.radians(Atmosphere.MaxSunAngle));
+		float cosMaxSunAngle = math.cos(math.radians(m_Atmosphere.MaxSunAngle));
 		m_AtmosphereAbsorptionMaterial.SetTexture("_TransmittanceTexture", m_AtmosphereTransmittanceTexture);
-		m_AtmosphereAbsorptionMaterial.SetFloat("_BottomRadius", Radius);
-		m_AtmosphereAbsorptionMaterial.SetFloat("_TopRadius", Radius + Atmosphere.AtmosphereHeight * Atmosphere.AtmosphereScale);
+		m_AtmosphereAbsorptionMaterial.SetFloat("_BottomRadius", m_Radius);
+		m_AtmosphereAbsorptionMaterial.SetFloat("_TopRadius", m_Radius + m_Atmosphere.AtmosphereHeight * m_Atmosphere.AtmosphereScale);
 		m_AtmosphereAbsorptionMaterial.SetFloat("_CosineMaxSunAngle", cosMaxSunAngle);
 
 		m_AtmosphereScatteringMaterial.SetTexture("_AtmosphereDepthTexture", m_GroundTransmittanceTexture);
 		m_AtmosphereScatteringMaterial.SetTexture("_TransmittanceTexture", m_AtmosphereTransmittanceTexture);
 		m_AtmosphereScatteringMaterial.SetTexture("_ScatteringTexture", m_AtmosphereScatteringTexture);
-		m_AtmosphereScatteringMaterial.SetFloat("_BottomRadius", Radius);
-		float atmosphereTopRadius = Radius + Atmosphere.AtmosphereHeight * Atmosphere.AtmosphereScale;
+		m_AtmosphereScatteringMaterial.SetFloat("_BottomRadius", m_Radius);
+		float atmosphereTopRadius = m_Radius + m_Atmosphere.AtmosphereHeight * m_Atmosphere.AtmosphereScale;
 		m_AtmosphereScatteringMaterial.SetFloat("_TopRadius", atmosphereTopRadius);
-		m_AtmosphereScatteringMaterial.SetVector("_RayleighScattering", Atmosphere.RayleighScattering * Atmosphere.RayleighScale / Atmosphere.AtmosphereScale);
-		m_AtmosphereScatteringMaterial.SetVector("_MieScattering", Atmosphere.MieScattering * Atmosphere.MieScatteringScale / Atmosphere.AtmosphereScale);
-		m_AtmosphereScatteringMaterial.SetFloat("_MiePhaseFunctionG", Atmosphere.MieAnisotropy);
+		m_AtmosphereScatteringMaterial.SetVector("_RayleighScattering", m_Atmosphere.RayleighScattering * m_Atmosphere.RayleighScale / m_Atmosphere.AtmosphereScale);
+		m_AtmosphereScatteringMaterial.SetVector("_MieScattering", m_Atmosphere.MieScattering * m_Atmosphere.MieScatteringScale / m_Atmosphere.AtmosphereScale);
+		m_AtmosphereScatteringMaterial.SetFloat("_MiePhaseFunctionG", m_Atmosphere.MieAnisotropy);
 		m_AtmosphereScatteringMaterial.SetFloat("_CosineMaxSunAngle", cosMaxSunAngle);
 		m_AtmosphereScatteringMaterial.SetVector("_RingPositionRelative", m_RingsObject.transform.localPosition);
 		m_AtmosphereScatteringMaterial.SetVector("_RingNormalRelative", m_RingsObject.transform.localRotation * Vector3.up);
-		m_AtmosphereScatteringMaterial.SetFloat("_RingInnerRadiusRelative", Rings.InnerRadius / atmosphereTopRadius);
-		m_AtmosphereScatteringMaterial.SetFloat("_RingOuterRadiusRelative", Rings.OuterRadius / atmosphereTopRadius);
+		m_AtmosphereScatteringMaterial.SetFloat("_RingInnerRadiusRelative", m_Rings.InnerRadius / atmosphereTopRadius);
+		m_AtmosphereScatteringMaterial.SetFloat("_RingOuterRadiusRelative", m_Rings.OuterRadius / atmosphereTopRadius);
 
-		m_RingsMaterial.SetFloat("_InnerRadius", Rings.InnerRadius / Rings.OuterRadius);
-		m_RingsMaterial.SetFloat("_LightingEccentricity", Rings.LightingEccentricity);
+		m_RingsMaterial.SetFloat("_InnerRadius", m_Rings.InnerRadius / m_Rings.OuterRadius);
+		m_RingsMaterial.SetFloat("_LightingEccentricity", m_Rings.LightingEccentricity);
 		m_RingsMaterial.SetVector("_PlanetPositionRelative", Vector3.zero);
-		m_RingsMaterial.SetFloat("_PlanetRadiusRelative", Radius / Rings.OuterRadius);
+		m_RingsMaterial.SetFloat("_PlanetRadiusRelative", m_Radius / m_Rings.OuterRadius);
 
 		SetShadowSpheres(null);
 		UpdateLight();
@@ -249,8 +267,8 @@ public class S_Planet : S_CelestialBody
 
 	private void UpdateLight()
 	{
-		Vector3 sunDirection = Vector3.Normalize(SunDirection);
-		Color sunColor = SunColor * SunBrightness;
+		Vector3 sunDirection = Vector3.Normalize(m_SunDirection);
+		Color sunColor = m_SunColor * m_SunBrightness;
 
 		m_PlanetMaterial.SetVector("_SunDirection", sunDirection);
 		m_PlanetMaterial.SetVector("_SunColor", sunColor);
@@ -314,35 +332,35 @@ public class S_Planet : S_CelestialBody
 		};
 		m_AtmosphereScatteringTexture.Create();
 
-		s_AtmospherePrecompShader.SetFloat("u_BottomRadius", Radius);
-		float cosMaxSunAngle = math.cos(math.radians(Atmosphere.MaxSunAngle));
+		s_AtmospherePrecompShader.SetFloat("u_BottomRadius", m_Radius);
+		float cosMaxSunAngle = math.cos(math.radians(m_Atmosphere.MaxSunAngle));
 		s_AtmospherePrecompShader.SetFloat("u_CosineMaxSunAngle", cosMaxSunAngle);
 
 		// No scaling for accurate ground lighting
-		s_AtmospherePrecompShader.SetFloat("u_TopRadius", Radius + Atmosphere.AtmosphereHeight);
-		s_AtmospherePrecompShader.SetFloat("u_RayleighExpScale", -1.0f / Atmosphere.RayleighExponent);
-		s_AtmospherePrecompShader.SetVector("u_RayleighScattering", Atmosphere.RayleighScattering * Atmosphere.RayleighScale);
-		s_AtmospherePrecompShader.SetFloat("u_MieExpScale", -1.0f / Atmosphere.MieExponent);
-		s_AtmospherePrecompShader.SetVector("u_MieScattering", Atmosphere.MieScattering * Atmosphere.MieScatteringScale);
-		s_AtmospherePrecompShader.SetVector("u_MieExtinction", Atmosphere.MieExtinction * Atmosphere.MieExtinctionScale);
-		s_AtmospherePrecompShader.SetFloat("u_AbsorptionTipAltitude", Atmosphere.TipAltitude);
-		s_AtmospherePrecompShader.SetFloat("u_AbsorptionTipWidth", Atmosphere.TipWidth);
-		s_AtmospherePrecompShader.SetVector("u_AbsorptionExtinction", Atmosphere.Absorption * Atmosphere.AbsorptionScale * Atmosphere.TipValue);
+		s_AtmospherePrecompShader.SetFloat("u_TopRadius", m_Radius + m_Atmosphere.AtmosphereHeight);
+		s_AtmospherePrecompShader.SetFloat("u_RayleighExpScale", -1.0f / m_Atmosphere.RayleighExponent);
+		s_AtmospherePrecompShader.SetVector("u_RayleighScattering", m_Atmosphere.RayleighScattering * m_Atmosphere.RayleighScale);
+		s_AtmospherePrecompShader.SetFloat("u_MieExpScale", -1.0f / m_Atmosphere.MieExponent);
+		s_AtmospherePrecompShader.SetVector("u_MieScattering", m_Atmosphere.MieScattering * m_Atmosphere.MieScatteringScale);
+		s_AtmospherePrecompShader.SetVector("u_MieExtinction", m_Atmosphere.MieExtinction * m_Atmosphere.MieExtinctionScale);
+		s_AtmospherePrecompShader.SetFloat("u_AbsorptionTipAltitude", m_Atmosphere.TipAltitude);
+		s_AtmospherePrecompShader.SetFloat("u_AbsorptionTipWidth", m_Atmosphere.TipWidth);
+		s_AtmospherePrecompShader.SetVector("u_AbsorptionExtinction", m_Atmosphere.Absorption * m_Atmosphere.AbsorptionScale * m_Atmosphere.TipValue);
 
 		int groundTransmittanceKernel = s_AtmospherePrecompShader.FindKernel("CSPrecompGroundTransmittance");
 		s_AtmospherePrecompShader.SetTexture(groundTransmittanceKernel, "u_OutGroundTransmittanceTexture", m_GroundTransmittanceTexture, 0);
 		s_AtmospherePrecompShader.SetVector("u_InvResolution", new(1f / m_GroundTransmittanceTexture.width, 1f / m_GroundTransmittanceTexture.height, 0, 0));
 		DispatchCompute(s_AtmospherePrecompShader, groundTransmittanceKernel, m_GroundTransmittanceTexture.width, m_GroundTransmittanceTexture.height);
 
-		s_AtmospherePrecompShader.SetFloat("u_TopRadius", Radius + Atmosphere.AtmosphereHeight * Atmosphere.AtmosphereScale);
-		s_AtmospherePrecompShader.SetFloat("u_RayleighExpScale", -1.0f / (Atmosphere.RayleighExponent * Atmosphere.AtmosphereScale));
-		s_AtmospherePrecompShader.SetVector("u_RayleighScattering", Atmosphere.RayleighScattering * Atmosphere.RayleighScale / Atmosphere.AtmosphereScale);
-		s_AtmospherePrecompShader.SetFloat("u_MieExpScale", -1.0f / (Atmosphere.MieExponent * Atmosphere.AtmosphereScale));
-		s_AtmospherePrecompShader.SetVector("u_MieScattering", Atmosphere.MieScattering * Atmosphere.MieScatteringScale / Atmosphere.AtmosphereScale);
-		s_AtmospherePrecompShader.SetVector("u_MieExtinction", Atmosphere.MieExtinction * Atmosphere.MieExtinctionScale / Atmosphere.AtmosphereScale);
-		s_AtmospherePrecompShader.SetFloat("u_AbsorptionTipAltitude", Atmosphere.TipAltitude * Atmosphere.AtmosphereScale);
-		s_AtmospherePrecompShader.SetFloat("u_AbsorptionTipWidth", Atmosphere.TipWidth * Atmosphere.AtmosphereScale);
-		s_AtmospherePrecompShader.SetVector("u_AbsorptionExtinction", Atmosphere.Absorption * Atmosphere.AbsorptionScale * Atmosphere.TipValue / Atmosphere.AtmosphereScale);
+		s_AtmospherePrecompShader.SetFloat("u_TopRadius", m_Radius + m_Atmosphere.AtmosphereHeight * m_Atmosphere.AtmosphereScale);
+		s_AtmospherePrecompShader.SetFloat("u_RayleighExpScale", -1.0f / (m_Atmosphere.RayleighExponent * m_Atmosphere.AtmosphereScale));
+		s_AtmospherePrecompShader.SetVector("u_RayleighScattering", m_Atmosphere.RayleighScattering * m_Atmosphere.RayleighScale / m_Atmosphere.AtmosphereScale);
+		s_AtmospherePrecompShader.SetFloat("u_MieExpScale", -1.0f / (m_Atmosphere.MieExponent * m_Atmosphere.AtmosphereScale));
+		s_AtmospherePrecompShader.SetVector("u_MieScattering", m_Atmosphere.MieScattering * m_Atmosphere.MieScatteringScale / m_Atmosphere.AtmosphereScale);
+		s_AtmospherePrecompShader.SetVector("u_MieExtinction", m_Atmosphere.MieExtinction * m_Atmosphere.MieExtinctionScale / m_Atmosphere.AtmosphereScale);
+		s_AtmospherePrecompShader.SetFloat("u_AbsorptionTipAltitude", m_Atmosphere.TipAltitude * m_Atmosphere.AtmosphereScale);
+		s_AtmospherePrecompShader.SetFloat("u_AbsorptionTipWidth", m_Atmosphere.TipWidth * m_Atmosphere.AtmosphereScale);
+		s_AtmospherePrecompShader.SetVector("u_AbsorptionExtinction", m_Atmosphere.Absorption * m_Atmosphere.AbsorptionScale * m_Atmosphere.TipValue / m_Atmosphere.AtmosphereScale);
 
 		int transmittanceKernel = s_AtmospherePrecompShader.FindKernel("CSPrecompTransmittance");
 		s_AtmospherePrecompShader.SetTexture(transmittanceKernel, "u_OutTransmittanceTexture", m_AtmosphereTransmittanceTexture, 0);

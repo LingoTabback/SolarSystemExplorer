@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe507d8c6afc164bb9c52182428a96e, type: 3}
   m_Name: O_Ganymede
   m_EditorClassIdentifier: 
-  Name: Ganymede Orbit
-  OrbitType: 11
-  RotationModelType: 12
-  OrbitingObject: {fileID: 9202560898219512048, guid: 673b9ae75b1782f41a41aa05e83900bc,
+  m_OrbitName: Ganymede Orbit
+  m_OrbitType: 11
+  m_RotationModelType: 12
+  m_OrbitingObject: {fileID: 9202560898219512048, guid: 673b9ae75b1782f41a41aa05e83900bc,
     type: 3}
-  SatelliteOrbits: []
-  DisplayColor: {r: 0.5943396, g: 0.53549945, b: 0.46257564, a: 0.5019608}
+  m_SatelliteOrbits: []
+  m_DisplayColor: {r: 0.85490197, g: 0.54509807, b: 0.44705883, a: 0.2509804}

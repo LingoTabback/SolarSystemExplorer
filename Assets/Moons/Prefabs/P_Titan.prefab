@@ -39,6 +39,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
+      propertyPath: m_Radius
+      value: 257.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
       propertyPath: MaxElevation
       value: 0.5
       objectReference: {fileID: 0}
@@ -56,6 +61,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ElevationScale
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_MaxElevation
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
@@ -82,6 +92,11 @@ PrefabInstance:
       propertyPath: Atmosphere.TipAltitude
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_MoonMaterialTemplate
+      value: 
+      objectReference: {fileID: 2100000, guid: dd4028312bdc0ff4bb1a1d9a41981473, type: 2}
     - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
       propertyPath: Atmosphere.Absorption.b

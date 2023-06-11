@@ -1,15 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class S_CelestialBodyInteractible : XRBaseInteractable
 {
-	public float ColliderRadiusFocused = 1;
-	public float ColliderRadiusUnfocused = 0.05f;
+	[SerializeField]
+	private float m_ColliderRadiusFocused = 1;
+	[SerializeField]
+	private float m_ColliderRadiusUnfocused = 0.05f;
 
-	private S_CelestialBody m_Body;
+	[SerializeField]
 	private SphereCollider m_Collider;
+	[SerializeField]
+	private S_BodyHighlight m_Highlight;
+	private S_CelestialBody m_Body;
 
 	// Start is called before the first frame update
 	void Start()
@@ -19,10 +22,8 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 		else if (TryGetComponent(out S_Moon moonScript))
 			m_Body = moonScript;
 
-		TryGetComponent(out m_Collider);
-		m_Collider.radius = 0.001f;
-
 		colliders.Add(m_Collider);
+		m_Collider.radius = 0.001f;
 	}
 
 	private void Update()
@@ -31,9 +32,13 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 		Vector3 diff = transform.position - cam.transform.position;
 		float distance = diff.magnitude;
 		if (m_Body.ID != m_Body.ParentSystem.FocusedOrbit)
-			m_Collider.radius = (float)(distance / m_Body.ScaledRadiusInSolarSystem * ColliderRadiusUnfocused);
+			m_Collider.radius = (float)(distance * m_ColliderRadiusUnfocused);
 		else
-			m_Collider.radius = ColliderRadiusFocused;
+			m_Collider.radius = m_ColliderRadiusFocused;
+
+		bool focusable = m_Body.ParentSystem.IsOrbitFocusable(m_Body.ID);
+		m_Collider.enabled = focusable;
+		m_Highlight.SetActive(focusable);
 	}
 
 	protected override void OnHoverEntered(HoverEnterEventArgs args)
@@ -41,6 +46,8 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 		base.OnHoverEntered(args);
 		Debug.Log($"Entering {m_Body.ID}");
 		//TODO: Start Highlighting
+
+		m_Highlight.OnHoverStart();
 	}
 
 	protected override void OnHoverExited(HoverExitEventArgs args)
@@ -48,6 +55,8 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 		base.OnHoverExited(args);
 		Debug.Log($"Exiting {m_Body.ID}");
 		//TODO: Stop Highlighting
+
+		m_Highlight.OnHoverEnd();
 	}
 
 	protected override void OnSelectEntered(SelectEnterEventArgs args)

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe507d8c6afc164bb9c52182428a96e, type: 3}
   m_Name: O_Callisto
   m_EditorClassIdentifier: 
-  Name: Callisto Orbit
-  OrbitType: 12
-  RotationModelType: 13
-  OrbitingObject: {fileID: 2500830092570744895, guid: 08edf149adf6f3a4a811237d32f4ad27,
+  m_OrbitName: Callisto Orbit
+  m_OrbitType: 12
+  m_RotationModelType: 13
+  m_OrbitingObject: {fileID: 2500830092570744895, guid: 08edf149adf6f3a4a811237d32f4ad27,
     type: 3}
-  SatelliteOrbits: []
-  DisplayColor: {r: 0.5754717, g: 0.46501753, b: 0.33388218, a: 0.5019608}
+  m_SatelliteOrbits: []
+  m_DisplayColor: {r: 0.85490197, g: 0.54509807, b: 0.44705883, a: 0.2509804}

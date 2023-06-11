@@ -9,22 +9,30 @@ using UnityEngine.Rendering;
 
 public class S_Moon : S_CelestialBody
 {
-	public float Radius = 173.74f;
-	public float MaxElevation = 1.8f;
-	public float ElevationScale = 2;
+	[SerializeField]
+	private float m_Radius = 173.74f;
+	[SerializeField]
+	private float m_MaxElevation = 1.8f;
+	[SerializeField]
+	private float m_ElevationScale = 2;
 
 	[Range(0f, 360f)]
-	public float Meridian = 0;
-
-	public float ScaleToSize = 0.5f;
+	[SerializeField]
+	private float m_Meridian = 0;
+	[SerializeField]
+	private float m_ScaleToSize = 0.5f;
 
 	[Header("Sun")]
-	public Vector3 SunDirection = -Vector3.right;
+	[SerializeField]
+	private Vector3 m_SunDirection = -Vector3.right;
+	[SerializeField]
 	[ColorUsage(false, true)]
-	public Color SunColor = Color.white;
-	public float SunBrightness = 4;
+	private Color m_SunColor = Color.white;
+	[SerializeField]
+	private float m_SunBrightness = 4;
 
-	public bool HasAtmosphere = false;
+	[SerializeField]
+	private bool HasAtmosphere = false;
 	[Serializable]
 	public class AtmosphereSettings
 	{
@@ -59,11 +67,15 @@ public class S_Moon : S_CelestialBody
 		[Range(90f, 180f)]
 		public float MaxSunAngle = 105;
 	}
-	public AtmosphereSettings Atmosphere;
+	[SerializeField]
+	private AtmosphereSettings Atmosphere;
 
-	public Material MoonMaterial;
-	public Material AtmosphereAbsorptionMaterial;
-	public Material AtmosphereScatteringMaterial;
+	[SerializeField]
+	private Material m_MoonMaterialTemplate;
+	[SerializeField]
+	private Material m_AtmosphereAbsorptionMaterialTemplate;
+	[SerializeField]
+	private Material m_AtmosphereScatteringMaterialTemplate;
 
 	private GameObject m_MoonObject;
 	private GameObject m_AtmosphereAbsorptionObject;
@@ -79,7 +91,7 @@ public class S_Moon : S_CelestialBody
 	private static ComputeShader s_AtmospherePrecompShader;
 
 	public override CelestialBodyType Type => CelestialBodyType.Moon;
-	public override double ScaledRadius => CMath.KMtoAU(Radius * 10) * ScaleToSize * 0.5;
+	public override double ScaledRadius => CMath.KMtoAU(m_Radius * 10) * m_ScaleToSize * 0.5;
 
 	// Start is called before the first frame update
 	void Start()
@@ -101,14 +113,15 @@ public class S_Moon : S_CelestialBody
 	// Update is called once per frame
 	void Update()
 	{
-		float rotation = Meridian / 360;
+		float rotation = m_Meridian / 360;
 		m_MoonMaterial.SetFloat("_MoonRotation", rotation);
 
 		UpdateLight();
 	}
 
 	public override void SetSpin(in dQuaternion spin) => m_MoonObject.transform.localRotation = (Quaternion)spin;
-	public override void SetSunDirection(float3 direction) => SunDirection = direction;
+	public override void SetScale(float scale) => m_MoonObject.transform.localScale = Vector3.one * scale;
+	public override void SetSunDirection(float3 direction) => m_SunDirection = direction;
 
 	public override void SetShadowSpheres(float4[] spheres)
 	{
@@ -135,13 +148,13 @@ public class S_Moon : S_CelestialBody
 	private void InitObjects()
 	{
 		m_MoonObject = gameObject.transform.Find("SurfaceMesh").gameObject;
-		m_MoonObject.transform.localScale = Vector3.one * (ScaleToSize * 0.5f);
+		m_MoonObject.transform.localScale = Vector3.one * (m_ScaleToSize * 0.5f);
 
 		m_AtmosphereAbsorptionObject = m_MoonObject.transform.Find("AtmosphereAbsorptionMesh").gameObject;
 		m_AtmosphereScatteringObject = m_MoonObject.transform.Find("AtmosphereScatteringMesh").gameObject;
 
-		m_AtmosphereAbsorptionObject.transform.localScale = Vector3.one * (1 + Atmosphere.AtmosphereHeight * Atmosphere.AtmosphereScale / Radius);
-		m_AtmosphereScatteringObject.transform.localScale = Vector3.one * (1 + Atmosphere.AtmosphereHeight * Atmosphere.AtmosphereScale / Radius);
+		m_AtmosphereAbsorptionObject.transform.localScale = Vector3.one * (1 + Atmosphere.AtmosphereHeight * Atmosphere.AtmosphereScale / m_Radius);
+		m_AtmosphereScatteringObject.transform.localScale = Vector3.one * (1 + Atmosphere.AtmosphereHeight * Atmosphere.AtmosphereScale / m_Radius);
 		m_AtmosphereAbsorptionObject.transform.localPosition = Vector3.zero;
 		m_AtmosphereScatteringObject.transform.localPosition = Vector3.zero;
 
@@ -151,21 +164,21 @@ public class S_Moon : S_CelestialBody
 
 	private void InitMaterials()
 	{
-		m_MoonMaterial = new(MoonMaterial);
-		m_AtmosphereAbsorptionMaterial = new(AtmosphereAbsorptionMaterial);
-		m_AtmosphereScatteringMaterial = new(AtmosphereScatteringMaterial);
+		m_MoonMaterial = new(m_MoonMaterialTemplate);
+		m_AtmosphereAbsorptionMaterial = new(m_AtmosphereAbsorptionMaterialTemplate);
+		m_AtmosphereScatteringMaterial = new(m_AtmosphereScatteringMaterialTemplate);
 
 		m_MoonObject.GetComponent<MeshRenderer>().sharedMaterial = m_MoonMaterial;
 		m_AtmosphereAbsorptionObject.GetComponent<MeshRenderer>().sharedMaterial = m_AtmosphereAbsorptionMaterial;
 		m_AtmosphereScatteringObject.GetComponent<MeshRenderer>().sharedMaterial = m_AtmosphereScatteringMaterial;
 
 		Vector3 ambientColor = HasAtmosphere ? Vector3.Normalize(new(Atmosphere.RayleighScattering.r, Atmosphere.RayleighScattering.g, Atmosphere.RayleighScattering.b)) * 0.01f : Vector3.zero;
-		float rotation = Meridian / 360;
+		float rotation = m_Meridian / 360;
 
-		m_MoonMaterial.SetFloat("_MoonRadius", Radius);
+		m_MoonMaterial.SetFloat("_MoonRadius", m_Radius);
 		m_MoonMaterial.SetFloat("_MoonRotation", rotation);
-		m_MoonMaterial.SetFloat("_MaxElevation", MaxElevation);
-		m_MoonMaterial.SetFloat("_ElevationScale", ElevationScale);
+		m_MoonMaterial.SetFloat("_MaxElevation", m_MaxElevation);
+		m_MoonMaterial.SetFloat("_ElevationScale", m_ElevationScale);
 		m_MoonMaterial.SetVector("_AmbientColor", ambientColor);
 
 		if (HasAtmosphere)
@@ -174,15 +187,15 @@ public class S_Moon : S_CelestialBody
 
 			float cosMaxSunAngle = math.cos(math.radians(Atmosphere.MaxSunAngle));
 			m_AtmosphereAbsorptionMaterial.SetTexture("_TransmittanceTexture", m_AtmosphereTransmittanceTexture);
-			m_AtmosphereAbsorptionMaterial.SetFloat("_BottomRadius", Radius);
-			m_AtmosphereAbsorptionMaterial.SetFloat("_TopRadius", Radius + Atmosphere.AtmosphereHeight * Atmosphere.AtmosphereScale);
+			m_AtmosphereAbsorptionMaterial.SetFloat("_BottomRadius", m_Radius);
+			m_AtmosphereAbsorptionMaterial.SetFloat("_TopRadius", m_Radius + Atmosphere.AtmosphereHeight * Atmosphere.AtmosphereScale);
 			m_AtmosphereAbsorptionMaterial.SetFloat("_CosineMaxSunAngle", cosMaxSunAngle);
 
 			m_AtmosphereScatteringMaterial.SetTexture("_AtmosphereDepthTexture", m_GroundTransmittanceTexture);
 			m_AtmosphereScatteringMaterial.SetTexture("_TransmittanceTexture", m_AtmosphereTransmittanceTexture);
 			m_AtmosphereScatteringMaterial.SetTexture("_ScatteringTexture", m_AtmosphereScatteringTexture);
-			m_AtmosphereScatteringMaterial.SetFloat("_BottomRadius", Radius);
-			float atmosphereTopRadius = Radius + Atmosphere.AtmosphereHeight * Atmosphere.AtmosphereScale;
+			m_AtmosphereScatteringMaterial.SetFloat("_BottomRadius", m_Radius);
+			float atmosphereTopRadius = m_Radius + Atmosphere.AtmosphereHeight * Atmosphere.AtmosphereScale;
 			m_AtmosphereScatteringMaterial.SetFloat("_TopRadius", atmosphereTopRadius);
 			m_AtmosphereScatteringMaterial.SetVector("_RayleighScattering", Atmosphere.RayleighScattering * Atmosphere.RayleighScale / Atmosphere.AtmosphereScale);
 			m_AtmosphereScatteringMaterial.SetVector("_MieScattering", Atmosphere.MieScattering * Atmosphere.MieScatteringScale / Atmosphere.AtmosphereScale);
@@ -195,8 +208,8 @@ public class S_Moon : S_CelestialBody
 
 	private void UpdateLight()
 	{
-		Vector3 sunDirection = Vector3.Normalize(SunDirection);
-		Color sunColor = SunColor * SunBrightness;
+		Vector3 sunDirection = Vector3.Normalize(m_SunDirection);
+		Color sunColor = m_SunColor * m_SunBrightness;
 
 		m_MoonMaterial.SetVector("_SunDirection", sunDirection);
 		m_MoonMaterial.SetVector("_SunColor", sunColor);
@@ -262,12 +275,12 @@ public class S_Moon : S_CelestialBody
 		};
 		m_AtmosphereScatteringTexture.Create();
 
-		s_AtmospherePrecompShader.SetFloat("u_BottomRadius", Radius);
+		s_AtmospherePrecompShader.SetFloat("u_BottomRadius", m_Radius);
 		float cosMaxSunAngle = math.cos(math.radians(Atmosphere.MaxSunAngle));
 		s_AtmospherePrecompShader.SetFloat("u_CosineMaxSunAngle", cosMaxSunAngle);
 
 		// No scaling for accurate ground lighting
-		s_AtmospherePrecompShader.SetFloat("u_TopRadius", Radius + Atmosphere.AtmosphereHeight);
+		s_AtmospherePrecompShader.SetFloat("u_TopRadius", m_Radius + Atmosphere.AtmosphereHeight);
 		s_AtmospherePrecompShader.SetFloat("u_RayleighExpScale", -1.0f / Atmosphere.RayleighExponent);
 		s_AtmospherePrecompShader.SetVector("u_RayleighScattering", Atmosphere.RayleighScattering * Atmosphere.RayleighScale);
 		s_AtmospherePrecompShader.SetFloat("u_MieExpScale", -1.0f / Atmosphere.MieExponent);
@@ -282,7 +295,7 @@ public class S_Moon : S_CelestialBody
 		s_AtmospherePrecompShader.SetVector("u_InvResolution", new(1f / m_GroundTransmittanceTexture.width, 1f / m_GroundTransmittanceTexture.height, 0, 0));
 		DispatchCompute(s_AtmospherePrecompShader, groundTransmittanceKernel, m_GroundTransmittanceTexture.width, m_GroundTransmittanceTexture.height);
 
-		s_AtmospherePrecompShader.SetFloat("u_TopRadius", Radius + Atmosphere.AtmosphereHeight * Atmosphere.AtmosphereScale);
+		s_AtmospherePrecompShader.SetFloat("u_TopRadius", m_Radius + Atmosphere.AtmosphereHeight * Atmosphere.AtmosphereScale);
 		s_AtmospherePrecompShader.SetFloat("u_RayleighExpScale", -1.0f / (Atmosphere.RayleighExponent * Atmosphere.AtmosphereScale));
 		s_AtmospherePrecompShader.SetVector("u_RayleighScattering", Atmosphere.RayleighScattering * Atmosphere.RayleighScale / Atmosphere.AtmosphereScale);
 		s_AtmospherePrecompShader.SetFloat("u_MieExpScale", -1.0f / (Atmosphere.MieExponent * Atmosphere.AtmosphereScale));

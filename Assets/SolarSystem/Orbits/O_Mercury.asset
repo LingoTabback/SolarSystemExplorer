@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe507d8c6afc164bb9c52182428a96e, type: 3}
   m_Name: O_Mercury
   m_EditorClassIdentifier: 
-  Name: Mercury Orbit
-  OrbitType: 0
-  RotationModelType: 1
-  OrbitingObject: {fileID: 6016091382721183278, guid: 2ec891f73ecb06347949d7622c3f071a,
+  m_OrbitName: Mercury Orbit
+  m_OrbitType: 0
+  m_RotationModelType: 1
+  m_OrbitingObject: {fileID: 6016091382721183278, guid: 2ec891f73ecb06347949d7622c3f071a,
     type: 3}
-  SatelliteOrbits: []
-  DisplayColor: {r: 0.8, g: 0.8, b: 0.8, a: 0.24313726}
+  m_SatelliteOrbits: []
+  m_DisplayColor: {r: 0.5921569, g: 0.40784317, b: 0.6745098, a: 0.25}

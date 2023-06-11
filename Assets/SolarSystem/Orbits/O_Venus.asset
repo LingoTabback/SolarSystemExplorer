@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe507d8c6afc164bb9c52182428a96e, type: 3}
   m_Name: O_Venus
   m_EditorClassIdentifier: 
-  Name: Venus Orbit
-  OrbitType: 1
-  RotationModelType: 2
-  OrbitingObject: {fileID: 5130096011454072063, guid: 152442c325793a2468b3aaf25f1ad334,
+  m_OrbitName: Venus Orbit
+  m_OrbitType: 1
+  m_RotationModelType: 2
+  m_OrbitingObject: {fileID: 5130096011454072063, guid: 152442c325793a2468b3aaf25f1ad334,
     type: 3}
-  SatelliteOrbits: []
-  DisplayColor: {r: 0.8, g: 0.7372549, b: 0.57254905, a: 0.24313726}
+  m_SatelliteOrbits: []
+  m_DisplayColor: {r: 0.6901961, g: 0.47450984, b: 0.098039225, a: 0.25}

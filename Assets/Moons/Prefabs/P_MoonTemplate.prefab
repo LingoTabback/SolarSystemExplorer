@@ -85,6 +85,103 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3533105021703380448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3925104390951906439}
+  - component: {fileID: 3465557946376016169}
+  - component: {fileID: 3955253015511303270}
+  - component: {fileID: 5591727349306520765}
+  m_Layer: 0
+  m_Name: HighlightMesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3925104390951906439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3533105021703380448}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4613350030550146091}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &3465557946376016169
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3533105021703380448}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &3955253015511303270
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3533105021703380448}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 0
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f5549fcce2d7f424b8022dee0dd64165, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5591727349306520765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3533105021703380448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f551a06eca30cb442b4b79f62aef28c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MaterialTemplate: {fileID: 2100000, guid: f5549fcce2d7f424b8022dee0dd64165, type: 2}
 --- !u!1 &4732303527213026643
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +297,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1585552076143175262}
+  - {fileID: 3925104390951906439}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -215,14 +313,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ed16964c4a93542b1b20d25c250fc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Radius: 173.74
-  MaxElevation: 1.8
-  ElevationScale: 2
-  Meridian: 0
-  ScaleToSize: 2
-  SunDirection: {x: -1, y: -0, z: -0}
-  SunColor: {r: 1, g: 1, b: 1, a: 1}
-  SunBrightness: 16
+  m_Radius: 173.74
+  m_MaxElevation: 1.8
+  m_ElevationScale: 2
+  m_Meridian: 0
+  m_ScaleToSize: 2
+  m_SunDirection: {x: -1, y: -0, z: -0}
+  m_SunColor: {r: 1, g: 1, b: 1, a: 1}
+  m_SunBrightness: 16
   HasAtmosphere: 0
   Atmosphere:
     AtmosphereHeight: 6
@@ -242,10 +340,11 @@ MonoBehaviour:
     TipWidth: 1.5
     TipValue: 0.75
     MaxSunAngle: 105
-  MoonMaterial: {fileID: 2100000, guid: 19fdcc5ee53721f4e96975cd70059cd3, type: 2}
-  AtmosphereAbsorptionMaterial: {fileID: 2100000, guid: a6c7f64cfcba1a242b7d1071b79d459b,
+  m_MoonMaterialTemplate: {fileID: 2100000, guid: 19fdcc5ee53721f4e96975cd70059cd3,
     type: 2}
-  AtmosphereScatteringMaterial: {fileID: 2100000, guid: f56f07673b4ed7c4294ab886985cf380,
+  m_AtmosphereAbsorptionMaterialTemplate: {fileID: 2100000, guid: a6c7f64cfcba1a242b7d1071b79d459b,
+    type: 2}
+  m_AtmosphereScatteringMaterialTemplate: {fileID: 2100000, guid: f56f07673b4ed7c4294ab886985cf380,
     type: 2}
 --- !u!114 &1225368601630351095
 MonoBehaviour:
@@ -336,8 +435,10 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  ColliderRadiusFocused: 1
-  ColliderRadiusUnfocused: 0.05
+  m_ColliderRadiusFocused: 1
+  m_ColliderRadiusUnfocused: 0.05
+  m_Collider: {fileID: 8009338262306083165}
+  m_Highlight: {fileID: 5591727349306520765}
 --- !u!135 &8009338262306083165
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe507d8c6afc164bb9c52182428a96e, type: 3}
   m_Name: O_Uranus
   m_EditorClassIdentifier: 
-  Name: Uranus Orbit
-  OrbitType: 6
-  RotationModelType: 7
-  OrbitingObject: {fileID: 7893554569870217981, guid: f1381e646fd954f4baa5b44a76e18443,
+  m_OrbitName: Uranus Orbit
+  m_OrbitType: 6
+  m_RotationModelType: 7
+  m_OrbitingObject: {fileID: 7893554569870217981, guid: f1381e646fd954f4baa5b44a76e18443,
     type: 3}
-  SatelliteOrbits: []
-  DisplayColor: {r: 0.6862745, g: 0.8039216, b: 0.8117647, a: 0.24313726}
+  m_SatelliteOrbits: []
+  m_DisplayColor: {r: 0.40784317, g: 0.8000001, b: 0.854902, a: 0.25}

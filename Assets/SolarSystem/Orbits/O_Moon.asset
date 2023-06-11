@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe507d8c6afc164bb9c52182428a96e, type: 3}
   m_Name: O_Moon
   m_EditorClassIdentifier: 
-  Name: Moon Orbit
-  OrbitType: 8
-  RotationModelType: 9
-  OrbitingObject: {fileID: 3454243222725417124, guid: 032941078f9791243882f96676afb691,
+  m_OrbitName: Lunar Orbit
+  m_OrbitType: 8
+  m_RotationModelType: 9
+  m_OrbitingObject: {fileID: 3454243222725417124, guid: 032941078f9791243882f96676afb691,
     type: 3}
-  SatelliteOrbits: []
-  DisplayColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5019608}
+  m_SatelliteOrbits: []
+  m_DisplayColor: {r: 0.7137255, g: 0.6745098, b: 0.6745098, a: 0.25}

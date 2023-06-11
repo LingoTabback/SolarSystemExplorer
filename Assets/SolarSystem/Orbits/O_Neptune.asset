@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe507d8c6afc164bb9c52182428a96e, type: 3}
   m_Name: O_Neptune
   m_EditorClassIdentifier: 
-  Name: Neptune Orbit
-  OrbitType: 7
-  RotationModelType: 8
-  OrbitingObject: {fileID: 2319790164428465704, guid: e770a6b5d5696c042a122308994efac1,
+  m_OrbitName: Neptune Orbit
+  m_OrbitType: 7
+  m_RotationModelType: 8
+  m_OrbitingObject: {fileID: 2319790164428465704, guid: e770a6b5d5696c042a122308994efac1,
     type: 3}
-  SatelliteOrbits: []
-  DisplayColor: {r: 0.63529414, g: 0.6745098, b: 0.8666667, a: 0.24313726}
+  m_SatelliteOrbits: []
+  m_DisplayColor: {r: 0.43921572, g: 0.54901963, b: 0.89019614, a: 0.25}
