@@ -8,7 +8,8 @@ using UnityEngine;
 public enum CelestialBodyType : byte
 {
 	Planet = 0,
-	Moon
+	Moon,
+	Star
 }
 
 public abstract class S_CelestialBody : MonoBehaviour
@@ -23,5 +24,16 @@ public abstract class S_CelestialBody : MonoBehaviour
 	public OrbitID ID { get; set; } = OrbitID.Invalid; // only changed in S_SolarSystem!
 	public S_SolarSystem ParentSystem { get; set; } = null; // only changed in S_SolarSystem!
 	public void Focus() => ParentSystem.SetFocus(ID);
+
+	public static S_CelestialBody GetCelestialBodyComponent(GameObject obj)
+	{
+		if (obj.TryGetComponent(out S_Planet planetScript))
+			return planetScript;
+		else if (obj.TryGetComponent(out S_Moon moonScript))
+			return moonScript;
+		else if (obj.TryGetComponent(out S_Sun sunScript))
+			return sunScript;
+		return null;
+	}
 
 }

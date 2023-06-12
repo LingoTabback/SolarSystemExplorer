@@ -17,10 +17,7 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 	// Start is called before the first frame update
 	void Start()
 	{
-		if (TryGetComponent(out S_Planet planetScript))
-			m_Body = planetScript;
-		else if (TryGetComponent(out S_Moon moonScript))
-			m_Body = moonScript;
+		m_Body = S_CelestialBody.GetCelestialBodyComponent(gameObject);
 
 		colliders.Add(m_Collider);
 		m_Collider.radius = 0.001f;
@@ -31,12 +28,18 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 		Camera cam = Camera.main;
 		Vector3 diff = transform.position - cam.transform.position;
 		float distance = diff.magnitude;
-		if (m_Body.ID != m_Body.ParentSystem.FocusedOrbit)
-			m_Collider.radius = (float)(distance * m_ColliderRadiusUnfocused);
-		else
-			m_Collider.radius = m_ColliderRadiusFocused;
 
-		bool focusable = m_Body.ParentSystem.IsOrbitFocusable(m_Body.ID);
+		bool focusable = false;
+
+		if (m_Body.ParentSystem != null)
+		{
+			if (m_Body.ID != m_Body.ParentSystem.FocusedOrbit)
+				m_Collider.radius = (float)(distance * m_ColliderRadiusUnfocused);
+			else
+				m_Collider.radius = m_ColliderRadiusFocused;
+
+			focusable = m_Body.ParentSystem.IsOrbitFocusable(m_Body.ID);
+		}
 		m_Collider.enabled = focusable;
 		m_Highlight.SetActive(focusable);
 	}
@@ -44,26 +47,18 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 	protected override void OnHoverEntered(HoverEnterEventArgs args)
 	{
 		base.OnHoverEntered(args);
-		Debug.Log($"Entering {m_Body.ID}");
-		//TODO: Start Highlighting
-
 		m_Highlight.OnHoverStart();
 	}
 
 	protected override void OnHoverExited(HoverExitEventArgs args)
 	{
 		base.OnHoverExited(args);
-		Debug.Log($"Exiting {m_Body.ID}");
-		//TODO: Stop Highlighting
-
 		m_Highlight.OnHoverEnd();
 	}
 
 	protected override void OnSelectEntered(SelectEnterEventArgs args)
 	{
 		base.OnSelectEntered(args);
-		Debug.Log($"Selecting {m_Body.ID}");
-
 		m_Body.Focus();
 	}
 }

@@ -1,6 +1,7 @@
 using CustomMath;
 using System;
 using Unity.Mathematics;
+using UnityEditor.Rendering.Universal.ShaderGraph;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Rendering;
@@ -106,6 +107,10 @@ public class S_Planet : S_CelestialBody
 	private GameObject m_AtmosphereScatteringObject;
 	private GameObject m_RingsObject;
 
+	private MeshRenderer m_AtmosphereAbsorptionRenderer;
+	private MeshRenderer m_AtmosphereScatteringRenderer;
+	private MeshRenderer m_RingsRenderer;
+
 	private Material m_PlanetMaterial;
 	private Material m_CloudsMaterial;
 	private Material m_AtmosphereAbsorptionMaterial;
@@ -127,6 +132,13 @@ public class S_Planet : S_CelestialBody
 		InitObjects();
 		InitAtmosphere();
 		InitMaterials();
+
+		RenderPipelineManager.beginCameraRendering += OnBeginCameraRendering;
+	}
+
+	void OnDestroy()
+	{
+		RenderPipelineManager.beginCameraRendering -= OnBeginCameraRendering;
 	}
 
 	void OnValidate()
@@ -135,6 +147,11 @@ public class S_Planet : S_CelestialBody
 		InitObjects();
 		InitAtmosphere();
 		InitMaterials();
+
+		m_CloudsMaterial.renderQueue = (int)RenderQueue.Transparent - 3;
+		m_AtmosphereAbsorptionMaterial.renderQueue = (int)RenderQueue.Transparent - 2;
+		m_AtmosphereScatteringMaterial.renderQueue = (int)RenderQueue.Transparent - 1;
+		m_RingsMaterial.renderQueue = (int)RenderQueue.Transparent;
 	}
 
 	// Update is called once per frame
@@ -184,6 +201,10 @@ public class S_Planet : S_CelestialBody
 		m_AtmosphereAbsorptionObject = m_PlanetObject.transform.Find("AtmosphereAbsorptionMesh").gameObject;
 		m_AtmosphereScatteringObject = m_PlanetObject.transform.Find("AtmosphereScatteringMesh").gameObject;
 		m_RingsObject = m_PlanetObject.transform.Find("Rings").gameObject;
+
+		m_AtmosphereAbsorptionObject.TryGetComponent(out m_AtmosphereAbsorptionRenderer);
+		m_AtmosphereScatteringObject.TryGetComponent(out m_AtmosphereScatteringRenderer);
+		m_RingsObject.TryGetComponent(out m_RingsRenderer);
 
 		m_PlanetObject.transform.localScale = Vector3.one * (m_ScaleToSize * 0.5f);
 		m_PlanetObject.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
@@ -370,6 +391,30 @@ public class S_Planet : S_CelestialBody
 		s_AtmospherePrecompShader.SetTexture(scatteringKernel, "u_OutScatteringTexture", m_AtmosphereScatteringTexture, 0);
 		s_AtmospherePrecompShader.SetTexture(scatteringKernel, "u_TransmittanceTexture", m_AtmosphereTransmittanceTexture);
 		DispatchCompute(s_AtmospherePrecompShader, scatteringKernel, m_AtmosphereScatteringTexture.width, m_AtmosphereScatteringTexture.height, m_AtmosphereScatteringTexture.volumeDepth);
+	}
+
+	public void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
+	{
+		const float eps = 0.001f;
+		Vector3 camForward = camera.transform.forward;
+
+		Bounds adjustedBounds = m_AtmosphereAbsorptionRenderer.bounds;
+		adjustedBounds.center = m_AtmosphereAbsorptionRenderer.transform.position - camForward * eps;
+		adjustedBounds.extents = Vector3.Scale(m_AtmosphereAbsorptionRenderer.localBounds.extents,
+			m_AtmosphereAbsorptionRenderer.transform.lossyScale) * 1.05f;
+		m_AtmosphereAbsorptionRenderer.bounds = adjustedBounds;
+
+		adjustedBounds = m_AtmosphereScatteringRenderer.bounds;
+		adjustedBounds.center = m_AtmosphereScatteringRenderer.transform.position - camForward * (eps * 2);
+		adjustedBounds.extents = Vector3.Scale(m_AtmosphereScatteringRenderer.localBounds.extents,
+			m_AtmosphereScatteringRenderer.transform.lossyScale) * 1.05f;
+		m_AtmosphereScatteringRenderer.bounds = adjustedBounds;
+
+		adjustedBounds = m_RingsRenderer.bounds;
+		adjustedBounds.center = m_RingsRenderer.transform.position - camForward * (eps * 3);
+		adjustedBounds.extents = Vector3.Scale(m_RingsRenderer.localBounds.extents,
+			m_RingsRenderer.transform.lossyScale) * 1.05f;
+		m_RingsRenderer.bounds = adjustedBounds;
 	}
 
 	private static void LoadShaders()

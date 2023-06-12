@@ -1,5 +1,6 @@
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class S_BodyHighlight : MonoBehaviour
 {
@@ -28,6 +29,13 @@ public class S_BodyHighlight : MonoBehaviour
 		m_Material.SetFloat("_Size", s_Size * m_Animatior.ScaleCurrent);
 		m_Material.SetFloat("_Brightness", s_Brightness * m_Animatior.BrightnessCurrent);
 		m_Material.SetFloat("_Halo", m_Animatior.HaloCurrent);
+
+		RenderPipelineManager.beginCameraRendering += OnBeginCameraRendering;
+	}
+
+	void OnDestroy()
+	{
+		RenderPipelineManager.beginCameraRendering -= OnBeginCameraRendering;
 	}
 
 	// Update is called once per frame
@@ -42,11 +50,6 @@ public class S_BodyHighlight : MonoBehaviour
 			m_Material.SetFloat("_Brightness", s_Brightness * m_Animatior.BrightnessCurrent);
 			m_Material.SetFloat("_Halo", m_Animatior.HaloCurrent);
 		}
-
-		Bounds adjustedBounds = m_MeshRenderer.bounds;
-		adjustedBounds.center = Camera.main.transform.position
-			+ (Camera.main.transform.forward * (Camera.main.farClipPlane - Camera.main.nearClipPlane) * 0.5f);
-		m_MeshRenderer.bounds = adjustedBounds;
 	}
 
 	public void SetActive(bool active) => m_MeshRenderer.enabled = active;
@@ -59,6 +62,14 @@ public class S_BodyHighlight : MonoBehaviour
 	public void OnHoverEnd()
 	{
 		m_Animatior = new(m_Animatior.ScaleCurrent, 1, m_Animatior.BrightnessCurrent, 1, m_Animatior.HaloCurrent, s_Halo, s_AnimationLength);
+	}
+
+	public void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
+	{
+		Bounds adjustedBounds = m_MeshRenderer.bounds;
+		adjustedBounds.center = camera.transform.position
+			+ ((camera.farClipPlane - camera.nearClipPlane) * 0.5f * camera.transform.forward);
+		m_MeshRenderer.bounds = adjustedBounds;
 	}
 
 	private class HighlightAnimator

@@ -74,8 +74,10 @@ public class S_SolarSystem : MonoBehaviour
 	private bool m_FocusChanged = false;
 
 	private GameObject m_SunObject;
+	private S_Sun m_SunScript;
 	private double3 m_SunPosition = 0;
 	private double m_SunRadiusInAU = 1;
+	private bool m_SunFocusable = true;
 
 	private TransformAnimator m_Animator = new();
 	private ReferenceTransform m_ReferenceTransform = ReferenceTransform.Identity;
@@ -85,7 +87,7 @@ public class S_SolarSystem : MonoBehaviour
 
 	public void SetFocus(OrbitID id)
 	{
-		OrbitID newID = m_AllOrbits != null && (int)id < m_AllOrbits.Count && (int)id > 0 ? id : OrbitID.Invalid;
+		OrbitID newID = m_AllOrbits != null && (int)id < m_AllOrbits.Count && (int)id >= 0 ? id : OrbitID.Invalid;
 		if (newID != m_FocusedOrbit)
 		{
 			m_FocusedOrbit = newID;
@@ -105,7 +107,7 @@ public class S_SolarSystem : MonoBehaviour
 		}
 	}
 
-	public bool IsOrbitFocusable(OrbitID id) => (int)id < 0 | (int)id >= m_AllOrbits.Count ? false : m_AllOrbits[(int)id].Focusable;
+	public bool IsOrbitFocusable(OrbitID id) => (int)id < 0 | (int)id >= m_AllOrbits.Count ? false : ((int)id == 0 ? m_SunFocusable : m_AllOrbits[(int)id].Focusable);
 
 	// Start is called before the first frame update
 	void Start()
@@ -114,7 +116,10 @@ public class S_SolarSystem : MonoBehaviour
 
 		m_SunOrbit = Orbit.Create(OrbitType.Sun);
 		m_SunObject = Instantiate(m_SunPrefab, transform, false);
-		m_SunRadiusInAU = CMath.KMtoAU(m_SunRadius * 10);
+		m_SunScript = m_SunObject.GetComponent<S_Sun>();
+		m_SunScript.ID = 0;
+		m_SunScript.ParentSystem = this;
+		m_SunRadiusInAU = GetScaleFromPlanet(m_SunScript.ScaledRadius);
 
 		m_PlanetOrbits = new OrbitWrapper[m_OrbitsSettingsObjects.Length];
 		for (int i = 0; i < m_OrbitsSettingsObjects.Length; ++i)
@@ -200,7 +205,7 @@ public class S_SolarSystem : MonoBehaviour
 			m_AllOrbits[(int)m_Animator.EndID]?.LineMaterial.SetFloat("_FadeAmount", math.smoothstep(0.25f, 0.75f, m_Animator.Progress));
 
 		m_SunObject.transform.localPosition = (float3)((m_SunPosition - m_ReferenceTransform.Position) / m_ReferenceTransform.Scale);
-		m_SunObject.transform.localScale = Vector3.one * (float)(m_SunRadiusInAU / m_ReferenceTransform.Scale);
+		m_SunScript.SetScale((float)(m_SunRadiusInAU / m_ReferenceTransform.Scale));
 
 		foreach (var orbit in m_PlanetOrbits)
 			orbit.UpdateTransforms(m_ReferenceTransform, m_SunPosition);
@@ -210,6 +215,7 @@ public class S_SolarSystem : MonoBehaviour
 
 	private void MarkFocusableOrbits()
 	{
+		m_SunFocusable = m_FocusedOrbit != 0;
 		foreach (var orbit in m_PlanetOrbits)
 			orbit.MarkFocusable(m_FocusedOrbit, true);
 	}
@@ -379,11 +385,7 @@ public class S_SolarSystem : MonoBehaviour
 			OrbitingObject.transform.SetParent(systemTransform, false);
 			OrbitingObject.transform.localRotation = (Quaternion)EquatorOrientationWorld;
 
-			if (OrbitingObject.TryGetComponent(out S_Planet planetScript))
-				Script = planetScript;
-			else if (OrbitingObject.TryGetComponent(out S_Moon moonScript))
-				Script = moonScript;
-
+			Script = S_CelestialBody.GetCelestialBodyComponent(OrbitingObject);
 			Script.ID = m_ID;
 			Script.ParentSystem = system;
 
