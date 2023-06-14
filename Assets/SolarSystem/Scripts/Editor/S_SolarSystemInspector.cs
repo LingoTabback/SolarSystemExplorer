@@ -21,6 +21,7 @@ public class S_SolarSystemInspector : Editor
 	private AstroTimeUnit m_TimeUnit = AstroTimeUnit.Seconds;
 
 	private bool m_SolarEclipseDatesFoldout = false;
+	private bool m_LunarEclipseDatesFoldout = false;
 	private OrbitType m_FocusSelection = OrbitType.None;
 	private Date m_Date = TimeUtil.TDBtoUTC(TimeUtil.J2000);
 
@@ -76,9 +77,27 @@ public class S_SolarSystemInspector : Editor
 			TimeJumpButton(script, new(2021, 12,  4,  6, 34, 0), format);
 			TimeJumpButton(script, new(2024,  4,  8, 18, 18, 0), format);
 			TimeJumpButton(script, new(-100,  4,  8, 18, 18, 0), format);
-
-			EditorGUILayout.EndFoldoutHeaderGroup();
 		}
+		EditorGUILayout.EndFoldoutHeaderGroup();
+
+		m_LunarEclipseDatesFoldout = EditorGUILayout.BeginFoldoutHeaderGroup(m_LunarEclipseDatesFoldout, "Lunar Eclipse Dates");
+		if (m_LunarEclipseDatesFoldout)
+		{
+			const Date.Format format = Date.Format.US;
+			// Lunar Eclipse Dates
+			TimeJumpButton(script, new(1902,  4, 22, 20, 35, 0), format);
+			TimeJumpButton(script, new(2000,  1, 21,  4, 44, 0), format);
+			TimeJumpButton(script, new(2000,  7, 16, 13, 56, 0), format);
+			TimeJumpButton(script, new(2001,  1,  9, 20, 21, 0), format);
+			TimeJumpButton(script, new(2003,  5, 16,  3, 40, 0), format);
+			TimeJumpButton(script, new(2003, 11,  9,  1, 19, 0), format);
+			TimeJumpButton(script, new(2004,  5,  4, 20, 30, 0), format);
+			TimeJumpButton(script, new(2004, 10, 28,  3,  4, 0), format);
+			TimeJumpButton(script, new(2007,  8, 28, 10, 37, 0), format);
+			TimeJumpButton(script, new(2011,  6, 15, 20, 13, 0), format);
+			TimeJumpButton(script, new(2054,  8, 18,  8, 45, 0), format);
+		}
+		EditorGUILayout.EndFoldoutHeaderGroup();
 
 		EditorGUILayout.Separator();
 		EditorGUILayout.BeginHorizontal();

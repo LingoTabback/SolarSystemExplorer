@@ -13,6 +13,7 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 	[SerializeField]
 	private S_BodyHighlight m_Highlight;
 	private S_CelestialBody m_Body;
+	private int m_NumHovers = 0;
 
 	// Start is called before the first frame update
 	void Start()
@@ -47,13 +48,15 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 	protected override void OnHoverEntered(HoverEnterEventArgs args)
 	{
 		base.OnHoverEntered(args);
-		m_Highlight.OnHoverStart();
+		if (++m_NumHovers > 0)
+			m_Highlight.OnHoverStart();
 	}
 
 	protected override void OnHoverExited(HoverExitEventArgs args)
 	{
 		base.OnHoverExited(args);
-		m_Highlight.OnHoverEnd();
+		if (--m_NumHovers <= 0)
+			m_Highlight.OnHoverEnd();
 	}
 
 	protected override void OnSelectEntered(SelectEnterEventArgs args)
