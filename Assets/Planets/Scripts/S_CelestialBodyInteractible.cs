@@ -12,6 +12,8 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 	private SphereCollider m_Collider;
 	[SerializeField]
 	private S_BodyHighlight m_Highlight;
+	[SerializeField]
+	private S_BodyHoverText m_HoverText;
 	private S_CelestialBody m_Body;
 	private int m_NumHovers = 0;
 
@@ -49,14 +51,20 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 	{
 		base.OnHoverEntered(args);
 		if (++m_NumHovers > 0)
+		{
 			m_Highlight.OnHoverStart();
+			m_HoverText.OnHoverStart();
+		}
 	}
 
 	protected override void OnHoverExited(HoverExitEventArgs args)
 	{
 		base.OnHoverExited(args);
 		if (--m_NumHovers <= 0)
+		{
 			m_Highlight.OnHoverEnd();
+			m_HoverText.OnHoverEnd();
+		}
 	}
 
 	protected override void OnSelectEntered(SelectEnterEventArgs args)

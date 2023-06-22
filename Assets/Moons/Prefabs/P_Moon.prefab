@@ -24,6 +24,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
+      propertyPath: m_BodyName
+      value: Mond
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
       propertyPath: m_Meridian
       value: 180
       objectReference: {fileID: 0}

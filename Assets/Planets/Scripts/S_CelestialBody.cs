@@ -24,6 +24,11 @@ public abstract class S_CelestialBody : MonoBehaviour
 	public OrbitID ID { get; set; } = OrbitID.Invalid; // only changed in S_SolarSystem!
 	public S_SolarSystem ParentSystem { get; set; } = null; // only changed in S_SolarSystem!
 	public void Focus() => ParentSystem.SetFocus(ID);
+	public string BodyName => m_BodyName;
+
+	[SerializeField]
+	protected string m_BodyName = "Unnamed";
+	
 
 	public static S_CelestialBody GetCelestialBodyComponent(GameObject obj)
 	{

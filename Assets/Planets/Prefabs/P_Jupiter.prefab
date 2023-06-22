@@ -124,6 +124,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_BodyName
+      value: Jupiter
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: m_Meridian
       value: 90
       objectReference: {fileID: 0}

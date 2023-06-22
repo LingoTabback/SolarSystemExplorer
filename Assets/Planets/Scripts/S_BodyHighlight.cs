@@ -12,7 +12,7 @@ public class S_BodyHighlight : MonoBehaviour
 	private static float s_SelectedHalo = 0.75f;
 	private static float s_AnimationLength = 0.5f;
 
-	private HighlightAnimator m_Animatior = new();
+	private HighlightAnimator m_Animatior = HighlightAnimator.CreateDone(1, 1, 1, 1, s_Halo, s_Halo, 1);
 	[SerializeField]
 	private Material m_MaterialTemplate;
 	private Material m_Material;
@@ -21,8 +21,6 @@ public class S_BodyHighlight : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		m_Animatior = HighlightAnimator.CreateDone(1, 1, 1, 1, s_Halo, s_Halo, 1);
-
 		TryGetComponent(out m_MeshRenderer);
 		m_Material = new(m_MaterialTemplate);
 		m_MeshRenderer.sharedMaterial = m_Material;
@@ -141,7 +139,7 @@ public class S_BodyHighlight : MonoBehaviour
 
 		public static HighlightAnimator CreateDone(float sStart, float sEnd, float bStart, float bEnd, float hStart, float hEnd, float length)
 		{
-			var result = new HighlightAnimator(sStart, sEnd, bStart, bEnd, hStart, hEnd, length)
+			return new HighlightAnimator(sStart, sEnd, bStart, bEnd, hStart, hEnd, length)
 			{
 				ScaleCurrent = sEnd,
 				BrightnessCurrent = bEnd,
@@ -150,7 +148,6 @@ public class S_BodyHighlight : MonoBehaviour
 				m_Time = length,
 				IsDone = true
 			};
-			return result;
 		}
 	}
 }
