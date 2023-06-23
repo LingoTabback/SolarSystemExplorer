@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 4368623461897024738}
   - component: {fileID: 6063445827716189167}
   - component: {fileID: 2628933624461690628}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: P_Sun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
