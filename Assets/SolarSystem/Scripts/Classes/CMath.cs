@@ -19,5 +19,7 @@ namespace CustomMath
 
 		public static double AUtoKM(double au) => au * 1.496e+8;
 		public static double KMtoAU(double km) => km / 1.496e+8;
+
+		public static readonly double SpeedOfLight = 299_792_458.0 / 1000.0; // in km/s
 	}
 }

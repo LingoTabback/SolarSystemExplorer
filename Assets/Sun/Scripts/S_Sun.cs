@@ -11,8 +11,9 @@ public class S_Sun : S_CelestialBody
 	[SerializeField]
 	private float m_ScaleToSize = 2;
 
-	public override CelestialBodyType Type => CelestialBodyType.Star;
+	//public override CelestialBodyType Type => CelestialBodyType.Star;
 	public override double ScaledRadius => CMath.KMtoAU(m_Radius * 10) * m_ScaleToSize * 0.5;
+	public override double Radius => m_Radius * 10;
 
 	private GameObject m_SunObject;
 

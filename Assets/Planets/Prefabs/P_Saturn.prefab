@@ -109,6 +109,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: Meridian
       value: 0
       objectReference: {fileID: 0}
@@ -126,6 +131,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BodyName
       value: Saturn
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_BodyIndex
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
@@ -372,6 +382,21 @@ PrefabInstance:
       propertyPath: m_AtmosphereScatteringMaterialTemplate
       value: 
       objectReference: {fileID: 2100000, guid: c2a42d726a0a21642ae5804bf70827fc, type: 2}
+    - target: {fileID: 3826704154332498924, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_LabelColor.b
+      value: 0.34117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826704154332498924, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_LabelColor.g
+      value: 0.6392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826704154332498924, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_LabelColor.r
+      value: 0.9215687
+      objectReference: {fileID: 0}
     - target: {fileID: 4616449735410555191, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

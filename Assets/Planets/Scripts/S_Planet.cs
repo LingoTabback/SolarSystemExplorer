@@ -122,8 +122,9 @@ public class S_Planet : S_CelestialBody
 	private RenderTexture m_AtmosphereScatteringTexture;
 	private static ComputeShader s_AtmospherePrecompShader;
 
-	public override CelestialBodyType Type => CelestialBodyType.Planet;
+	//public override CelestialBodyType Type => CelestialBodyType.Planet;
 	public override double ScaledRadius => CMath.KMtoAU(m_Radius * 10) * m_ScaleToSize * 0.5;
+	public override double Radius => m_Radius * 10;
 
 	// Start is called before the first frame update
 	void Start()

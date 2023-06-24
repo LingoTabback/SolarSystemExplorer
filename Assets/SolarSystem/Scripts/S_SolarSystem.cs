@@ -10,7 +10,6 @@ using Unity.Mathematics;
 using AstroTime;
 using Ephemeris;
 using System.Collections.Generic;
-using UnityEngine.Animations;
 
 public struct OrbitID
 {
@@ -75,6 +74,7 @@ public class S_SolarSystem : MonoBehaviour
 
 	private GameObject m_SunObject;
 	private S_Sun m_SunScript;
+	private double3 m_SunDisplayPosition = 0;
 	private double3 m_SunPosition = 0;
 	private double m_SunRadiusInAU = 1;
 	private bool m_SunFocusable = true;
@@ -108,6 +108,22 @@ public class S_SolarSystem : MonoBehaviour
 	}
 
 	public bool IsOrbitFocusable(OrbitID id) => (int)id < 0 | (int)id >= m_AllOrbits.Count ? false : ((int)id == 0 ? m_SunFocusable : m_AllOrbits[(int)id].Focusable);
+
+	public double3 GetBodyPositionInSystem(OrbitID id)
+	{
+		if (m_OrbitDict[(int)OrbitType.Sun] == id)
+			return m_SunPosition;
+		return (int)id < 0 | (int)id >= m_AllOrbits.Count ? 0 : (m_AllOrbits[(int)id] == null ? 0 : m_AllOrbits[(int)id].BodyPositionWorld);
+	}
+	public double3 GetBodyPositionInSystem(OrbitType type)
+	{
+		if (type == OrbitType.Sun)
+			return m_SunPosition;
+		OrbitID id = m_AllOrbits != null && (int)type >= 0 && (int)type <= (int)OrbitType.Sun ? m_OrbitDict[(int)type] : OrbitID.Invalid;
+		return (int)id < 0 | (int)id >= m_AllOrbits.Count ? 0 : (m_AllOrbits[(int)id] == null ? 0 : m_AllOrbits[(int)id].BodyPositionWorld);
+	}
+
+	public double GetOrbitalPeriod(OrbitID id) => (int)id < 0 | (int)id >= m_AllOrbits.Count ? 0 : m_AllOrbits[(int)id].Orbit.Period;
 
 	// Start is called before the first frame update
 	void Start()
@@ -204,11 +220,11 @@ public class S_SolarSystem : MonoBehaviour
 		if (m_Animator.EndID.Valid)
 			m_AllOrbits[(int)m_Animator.EndID]?.LineMaterial.SetFloat("_FadeAmount", math.smoothstep(0.25f, 0.75f, m_Animator.Progress));
 
-		m_SunObject.transform.localPosition = (float3)((m_SunPosition - m_ReferenceTransform.Position) / m_ReferenceTransform.Scale);
+		m_SunObject.transform.localPosition = (float3)((m_SunDisplayPosition - m_ReferenceTransform.Position) / m_ReferenceTransform.Scale);
 		m_SunScript.SetScale((float)(m_SunRadiusInAU / m_ReferenceTransform.Scale));
 
 		foreach (var orbit in m_PlanetOrbits)
-			orbit.UpdateTransforms(m_ReferenceTransform, m_SunPosition);
+			orbit.UpdateTransforms(m_ReferenceTransform, m_SunDisplayPosition);
 
 		transform.localRotation = (Quaternion)dQuaternion.inverse(m_ReferenceTransform.Rotation);
 	}
@@ -228,7 +244,8 @@ public class S_SolarSystem : MonoBehaviour
 
 	private void UpdateOrbits()
 	{
-		m_SunPosition = dQuaternion.mul(OrbitWrapper.s_SunOrientationQuat, m_SunOrbit.PositionAtTime(m_BarycentricDynamicalTime)) * 0;
+		m_SunPosition = 0; // dQuaternion.mul(OrbitWrapper.s_SunOrientationQuat, m_SunOrbit.PositionAtTime(m_BarycentricDynamicalTime));
+		m_SunDisplayPosition = 0;
 
 		foreach (var orbit in m_PlanetOrbits)
 			orbit.Update(m_BarycentricDynamicalTime);
@@ -321,6 +338,7 @@ public class S_SolarSystem : MonoBehaviour
 
 		public double3 ParentPosition => m_Parent != null ? m_Parent.BodyPositionWorld : double3.zero;
 		public dQuaternion ParentOrientation => m_Parent != null ? m_Parent.EquatorOrientationWorld : dQuaternion.identity;
+		public Orbit Orbit => m_Orbit;
 
 		private Orbit m_Orbit;
 		private RotationModel m_RotationModel;

@@ -99,6 +99,9 @@ namespace AstroTime
 
 		public static implicit operator Date(double jd) => new(jd);
 		public static implicit operator Date(in DateTime date) => new(date);
+		public static bool operator ==(in Date a, in Date b)
+			=> a.m_Year == b.m_Year & a.m_Month == b.m_Month & a.m_Day == b.m_Day & a.m_Minute == b.m_Minute & a.m_Seconds == b.m_Seconds;
+		public static bool operator !=(in Date a, in Date b) => !(a == b);
 
 		public static Date WithLeapSeconds(double jd, int leapSeconds)
 		{
@@ -184,9 +187,58 @@ namespace AstroTime
 			{
 				Format.ISO8601 => $"{m_Year:0000}-{m_Month:00}-{m_Day:00} {m_Hour:00}:{m_Minute:00}:{(int)m_Seconds:00} {m_TZName}",
 				Format.US => $"{s_MonthAbbreviationsUS[m_Month - 1]} {m_Day:00}, {m_Year:0000} {m_Hour:00}:{m_Minute:00}:{(int)m_Seconds:00} {m_TZName}",
-				Format.DE => $"{m_Day:00}.{s_MonthAbbreviationsUS[m_Month - 1]} {m_Year:0000} {m_Hour:00}:{m_Minute:00}:{(int)m_Seconds:00} {m_TZName}",
+				Format.DE => $"{m_Day:00}.{s_MonthAbbreviationsDE[m_Month - 1]} {m_Year:0000} {m_Hour:00}:{m_Minute:00}:{(int)m_Seconds:00} {m_TZName}",
 				_ => "NOT A VALID DATE",
 			};
+		}
+
+		public override bool Equals(object obj)
+		{
+			return obj is Date date&&
+				   Year==date.Year&&
+				   Month==date.Month&&
+				   Day==date.Day&&
+				   Hour==date.Hour&&
+				   Minute==date.Minute&&
+				   Seconds==date.Seconds&&
+				   UtcOffset==date.UtcOffset&&
+				   WeekDay==date.WeekDay&&
+				   TimeZoneName==date.TimeZoneName&&
+				   Julian==date.Julian&&
+				   m_Year==date.m_Year&&
+				   m_Month==date.m_Month&&
+				   m_Day==date.m_Day&&
+				   m_Hour==date.m_Hour&&
+				   m_Minute==date.m_Minute&&
+				   m_WDay==date.m_WDay&&
+				   m_UtcOffset==date.m_UtcOffset&&
+				   m_TZName==date.m_TZName&&
+				   m_Seconds==date.m_Seconds;
+		}
+
+		public override int GetHashCode()
+		{
+			HashCode hash = new();
+			hash.Add(Year);
+			hash.Add(Month);
+			hash.Add(Day);
+			hash.Add(Hour);
+			hash.Add(Minute);
+			hash.Add(Seconds);
+			hash.Add(UtcOffset);
+			hash.Add(WeekDay);
+			hash.Add(TimeZoneName);
+			hash.Add(Julian);
+			hash.Add(m_Year);
+			hash.Add(m_Month);
+			hash.Add(m_Day);
+			hash.Add(m_Hour);
+			hash.Add(m_Minute);
+			hash.Add(m_WDay);
+			hash.Add(m_UtcOffset);
+			hash.Add(m_TZName);
+			hash.Add(m_Seconds);
+			return hash.ToHashCode();
 		}
 	}
 

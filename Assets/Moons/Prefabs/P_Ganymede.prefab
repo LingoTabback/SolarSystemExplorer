@@ -12,6 +12,31 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1850784248585570365, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_ItemTypes.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850784248585570365, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_ItemTypes.Array.data[1]
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850784248585570365, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_ItemTypes.Array.data[2]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850784248585570365, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_ItemTypes.Array.data[3]
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850784248585570365, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_ItemTypes.Array.data[4]
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 3288041736158166754, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -39,6 +64,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
       propertyPath: Rotation
       value: 0
       objectReference: {fileID: 0}
@@ -54,6 +84,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
+      propertyPath: m_BodyIndex
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
       propertyPath: MaxElevation
       value: 0.1
       objectReference: {fileID: 0}
@@ -64,8 +99,28 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0ff3da10299abe6438d2edeef954f0e2, type: 2}
     - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
+      propertyPath: m_Moonwalkers
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
       propertyPath: m_MaxElevation
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_HumanVisitors
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_DiscoveryDate.Day
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_DiscoveryDate.Year
+      value: 1610
       objectReference: {fileID: 0}
     - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
