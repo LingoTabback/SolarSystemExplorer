@@ -114,6 +114,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: Meridian
       value: 180
       objectReference: {fileID: 0}
@@ -136,6 +141,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Meridian
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_BodyIndex
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
@@ -331,6 +341,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Atmosphere.RayleighScattering.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826704154332498924, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_LabelColor.b
+      value: 0.054901965
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826704154332498924, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_LabelColor.g
+      value: 0.6901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826704154332498924, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_LabelColor.r
+      value: 0.9843138
       objectReference: {fileID: 0}
     - target: {fileID: 4616449735410555191, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}

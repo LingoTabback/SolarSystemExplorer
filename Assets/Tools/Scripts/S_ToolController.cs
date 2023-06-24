@@ -110,6 +110,6 @@ public class S_ToolController : MonoBehaviour
                 Instantiate(P_Tool_03,rightHandController.transform); break;
         }
         //Debug
-        print("Created tool " + currentTool + "(Clone)"); 
+        print("Created tool " + currentTool + "(Clone)");
     }
 }
