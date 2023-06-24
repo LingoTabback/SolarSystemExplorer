@@ -2123,7 +2123,7 @@
                 {
                     "name": "",
                     "id": "7f4d8ccb-e7cd-4b40-a85a-aca568a68221",
-                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
