@@ -290,6 +290,12 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &516591145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9014170783705847997, guid: 895f6f3c2d334633b5800312285058d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 637308183}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &637308183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -301,6 +307,192 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416107345475451306, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: p_Tool01
+      value: 
+      objectReference: {fileID: 5324529165427265608, guid: 627a76c220d71b644ac2f3aea07c1df0,
+        type: 3}
+    - target: {fileID: 416107345475451306, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: p_Tool02
+      value: 
+      objectReference: {fileID: 5324529165427265608, guid: 6e793b7478cf62b4f951123172ef32e2,
+        type: 3}
+    - target: {fileID: 416107345475451306, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: p_Tool03
+      value: 
+      objectReference: {fileID: 5324529165427265608, guid: 5b8a7310a1c310b498367d043bda88cf,
+        type: 3}
+    - target: {fileID: 416107345475451306, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: P_Tool_01
+      value: 
+      objectReference: {fileID: 5324529165427265608, guid: 627a76c220d71b644ac2f3aea07c1df0,
+        type: 3}
+    - target: {fileID: 416107345475451306, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: P_Tool_02
+      value: 
+      objectReference: {fileID: 5324529165427265608, guid: 6e793b7478cf62b4f951123172ef32e2,
+        type: 3}
+    - target: {fileID: 416107345475451306, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: P_Tool_03
+      value: 
+      objectReference: {fileID: 5324529165427265608, guid: 5b8a7310a1c310b498367d043bda88cf,
+        type: 3}
+    - target: {fileID: 416107345475451306, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: currentTool
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 416107345475451306, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: current_tool
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416107345475451306, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: rightHandController
+      value: 
+      objectReference: {fileID: 516591145}
+    - target: {fileID: 416107345475451306, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_RightHandController
+      value: 
+      objectReference: {fileID: 516591145}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_SelectAction.m_Action.m_Id
+      value: 149401ff-1f86-4820-8df5-164aeef59e41
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_UIPressAction.m_Action.m_Id
+      value: d8c09cfc-a6fc-4b1f-bd25-ea464ce8fd3f
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_ActivateAction.m_Action.m_Id
+      value: ce60d31e-4e51-4fda-87f4-76457e55b2ca
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_PositionAction.m_Action.m_Id
+      value: 3dabb4ae-f72b-41a9-adb6-e12150a3c376
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_RotationAction.m_Action.m_Id
+      value: d09b2b2f-4117-43ee-8aba-0b2b0fd5a517
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_SelectAction.m_Action.m_Name
+      value: Select
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_UIPressAction.m_Action.m_Name
+      value: UI Press
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_ActivateAction.m_Action.m_Name
+      value: Activate
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_PositionAction.m_Action.m_Name
+      value: Position
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_RotationAction.m_Action.m_Name
+      value: Rotation
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_SelectActionValue.m_Action.m_Id
+      value: f6beb04d-cd1f-4e19-961c-027676155b5a
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_HapticDeviceAction.m_Action.m_Id
+      value: 9f405e81-f22f-47eb-a9e0-be190d89e144
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_RotateAnchorAction.m_Action.m_Id
+      value: 0b57b494-2b32-472c-9780-389fd2f062f3
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_UIPressActionValue.m_Action.m_Id
+      value: 57bde883-7d5e-4859-a439-6e4ac712271c
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_ActivateActionValue.m_Action.m_Id
+      value: 12f0712f-04c8-4e9c-8087-e874095f78bd
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_SelectActionValue.m_Action.m_Name
+      value: Select Action Value
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_TrackingStateAction.m_Action.m_Id
+      value: 57fb271d-e265-4e1b-acf8-0e1adddf65a5
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_HapticDeviceAction.m_Action.m_Name
+      value: Haptic Device
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_RotateAnchorAction.m_Action.m_Name
+      value: Rotate Anchor
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_UIPressActionValue.m_Action.m_Name
+      value: UI Press Action Value
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_ActivateActionValue.m_Action.m_Name
+      value: Activate Action Value
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_TrackingStateAction.m_Action.m_Name
+      value: Tracking State
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_TranslateAnchorAction.m_Action.m_Id
+      value: 4b9388a9-faf4-462c-8793-7f279fe0298a
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_TranslateAnchorAction.m_Action.m_Name
+      value: Translate Anchor
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_DirectionalAnchorRotationAction.m_Action.m_Id
+      value: c3719fc1-03eb-481d-ad21-1f14fa80cb96
+      objectReference: {fileID: 0}
+    - target: {fileID: 524558825870800802, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_DirectionalAnchorRotationAction.m_Action.m_Name
+      value: Directional Anchor Rotation
       objectReference: {fileID: 0}
     - target: {fileID: 2140833953817275108, guid: 895f6f3c2d334633b5800312285058d2,
         type: 3}
@@ -467,6 +659,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9014170783705847997, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_Name
+      value: RightHand (Interaction Manager)
+      objectReference: {fileID: 0}
     - target: {fileID: 9014170783809206330, guid: 895f6f3c2d334633b5800312285058d2,
         type: 3}
       propertyPath: far clip plane
@@ -486,6 +683,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014170785475729474, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_Name
+      value: LeftHand (Teleport Manager)
       objectReference: {fileID: 0}
     - target: {fileID: 9014170785475729497, guid: 895f6f3c2d334633b5800312285058d2,
         type: 3}
