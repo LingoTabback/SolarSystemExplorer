@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class s_Tool_Controller : MonoBehaviour
+public class S_ToolController : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
