@@ -10,11 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1276266140428445009}
   m_Layer: 0
-<<<<<<<< HEAD:Assets/Tools/Prefabs/P_Tool_01.prefab
   m_Name: P_Tool_01
-========
-  m_Name: P_Tool
->>>>>>>> fccf42f362f549270ecdcfe50f40f3e9da35e6b9:Assets/Tools/Prefabs/P_Tool.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

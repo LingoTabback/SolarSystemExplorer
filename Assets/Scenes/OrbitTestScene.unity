@@ -330,7 +330,7 @@ PrefabInstance:
         type: 3}
       propertyPath: P_Tool_01
       value: 
-      objectReference: {fileID: 5324529165427265608, guid: 627a76c220d71b644ac2f3aea07c1df0,
+      objectReference: {fileID: 5324529165427265608, guid: ed587385ff3116d43ba869ea74afc417,
         type: 3}
     - target: {fileID: 416107345475451306, guid: 895f6f3c2d334633b5800312285058d2,
         type: 3}
@@ -679,6 +679,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9014170783705847993, guid: 895f6f3c2d334633b5800312285058d2,
+        type: 3}
+      propertyPath: m_ModelPrefab
+      value: 
+      objectReference: {fileID: 1276266140428445009, guid: ed587385ff3116d43ba869ea74afc417,
+        type: 3}
     - target: {fileID: 9014170783705847997, guid: 895f6f3c2d334633b5800312285058d2,
         type: 3}
       propertyPath: m_Name
