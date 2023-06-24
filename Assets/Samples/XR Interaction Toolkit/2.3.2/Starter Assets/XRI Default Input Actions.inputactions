@@ -2132,6 +2132,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Toolkit",
+            "id": "2ef5507d-686b-4fcf-b621-fa9dd5ec1e17",
+            "actions": [
+                {
+                    "name": "ChangeTools",
+                    "type": "Button",
+                    "id": "e5d96efe-7f52-43c5-87d0-fa5921115bb6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1aff14c1-3ec0-40fb-8bcd-897c0dd30807",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "ChangeTools",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
