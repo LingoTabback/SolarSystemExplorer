@@ -181,7 +181,7 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 		return $"{distance / CMath.SpeedOfLight / 60:n3} Minuten";
 	}
 	private static string GetDiscoveredValue(S_CelestialBody body)
-		=> body.DiscoveryDate == S_CelestialBody.InvalidDiscoveryDate ? "n/a" : body.DiscoveryDate.ToString(Date.Format.DE);
+		=> body.DiscoveryDate == S_CelestialBody.InvalidDiscoveryDate ? "n/a" : body.DiscoveryDate.ToString(Date.Format.DE, true);
 
 	private static string GetDistanceFromSaturnValue(S_CelestialBody body)
 	{

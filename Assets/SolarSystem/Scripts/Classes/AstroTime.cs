@@ -177,12 +177,22 @@ namespace AstroTime
 		};
 
 		public override string ToString() => ToString(Format.ISO8601);
-
-		public string ToString(Format format)
+		public string ToString(bool dateOnly) => ToString(Format.ISO8601, dateOnly);
+		public string ToString(Format format, bool dateOnly = false)
 		{
 			if (m_Month < 1 | m_Month > 12 | m_Day < 1 | m_Hour < 0 | m_Minute < 0 | m_Seconds < 0)
 				return "NOT A VALID DATE";
 
+			if (dateOnly)
+			{
+				return format switch
+				{
+					Format.ISO8601 => $"{m_Year:0000}-{m_Month:00}-{m_Day:00}",
+					Format.US => $"{s_MonthAbbreviationsUS[m_Month - 1]} {m_Day:00}, {m_Year:0000}",
+					Format.DE => $"{m_Day:00}.{s_MonthAbbreviationsDE[m_Month - 1]} {m_Year:0000}",
+					_ => "NOT A VALID DATE",
+				};
+			}
 			return format switch
 			{
 				Format.ISO8601 => $"{m_Year:0000}-{m_Month:00}-{m_Day:00} {m_Hour:00}:{m_Minute:00}:{(int)m_Seconds:00} {m_TZName}",
