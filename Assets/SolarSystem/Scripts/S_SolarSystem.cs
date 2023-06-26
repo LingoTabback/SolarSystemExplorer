@@ -181,7 +181,7 @@ public class S_SolarSystem : MonoBehaviour
 				double3 camPosition = (double3)(float3)(Camera.main.transform.position - transform.position);
 				camPosition.y = 0;
 				double camRadius = math.length(camPosition) * m_SunRadiusInAU;
-				double3 nextOffset = GetOffsetOnCircle(0, correctedPosition, camRadius);//(1 + s_TeleportDistanceFromBody) * m_SunRadiusInAU);
+				double3 nextOffset = GetOffsetOnCircle(camPosition * m_ReferenceTransform.Scale, correctedPosition, camRadius);//(1 + s_TeleportDistanceFromBody) * m_SunRadiusInAU);
 				nextOffset -= (camPosition + (float3)transform.position) * m_SunRadiusInAU;
 
 				ReferenceTransform target = new()
@@ -203,7 +203,7 @@ public class S_SolarSystem : MonoBehaviour
 				double3 camPosition = (double3)(float3)(Camera.main.transform.position - transform.position);
 				camPosition.y = 0;
 				double camRadius = math.length(camPosition) * orbit.BodyRadiusInAU;
-				double3 nextOffset = GetOffsetOnCircle(0, correctedPosition, camRadius);//(1 + s_TeleportDistanceFromBody) * orbit.BodyRadiusInAU);
+				double3 nextOffset = GetOffsetOnCircle(camPosition * m_ReferenceTransform.Scale, correctedPosition, camRadius);//(1 + s_TeleportDistanceFromBody) * orbit.BodyRadiusInAU);
 				nextOffset -= (camPosition + (float3)transform.position) * orbit.BodyRadiusInAU;
 
 				double3 pos = orbit.BodyPositionWorld;
