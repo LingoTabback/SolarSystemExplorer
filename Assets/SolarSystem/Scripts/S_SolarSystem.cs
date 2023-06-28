@@ -169,61 +169,62 @@ public class S_SolarSystem : MonoBehaviour
 
 	private void UpdateFocus()
 	{
-		if (m_FocusChanged)
+		if (!m_FocusChanged)
+			return;
+
+		if (!m_FocusedOrbit.Valid) // go back to view of complete solar system
+			m_Animator = new TransformAnimator(m_ReferenceTransform, ReferenceTransform.Identity, m_Animator.EndID, m_FocusedOrbit, m_TransitionTime);
+		else if (m_AllOrbits[(int)m_FocusedOrbit] == null) // focus on sun
 		{
-			if (!m_FocusedOrbit.Valid) // go back to view of complete solar system
-				m_Animator = new TransformAnimator(m_ReferenceTransform, ReferenceTransform.Identity, m_Animator.EndID, m_FocusedOrbit, m_TransitionTime);
-			else if (m_AllOrbits[(int)m_FocusedOrbit] == null) // focus on sun
+			double3 finalPosition = m_SunDisplayPosition - m_ReferenceTransform.Position;
+			double3 correctedPosition = dQuaternion.mul(dQuaternion.inverse(m_ReferenceTransform.Rotation), finalPosition);
+			correctedPosition.y = 0;
+
+			double3 camPosition = (double3)(float3)(Camera.main.transform.position - transform.position);
+			camPosition.y = 0;
+			double camRadius = math.length(camPosition) * m_SunRadiusInAU;
+			double3 nextOffset = GetOffsetOnCircle(camPosition * m_ReferenceTransform.Scale, correctedPosition, camRadius);//(1 + s_TeleportDistanceFromBody) * m_SunRadiusInAU);
+			nextOffset -= (camPosition + (float3)transform.position) * m_SunRadiusInAU;
+
+			ReferenceTransform target = new()
 			{
-				double3 finalPosition = m_SunDisplayPosition - m_ReferenceTransform.Position;
-				double3 correctedPosition = dQuaternion.mul(dQuaternion.inverse(m_ReferenceTransform.Rotation), finalPosition);
-
-				double3 camPosition = (double3)(float3)(Camera.main.transform.position - transform.position);
-				camPosition.y = 0;
-				double camRadius = math.length(camPosition) * m_SunRadiusInAU;
-				double3 nextOffset = GetOffsetOnCircle(camPosition * m_ReferenceTransform.Scale, correctedPosition, camRadius);//(1 + s_TeleportDistanceFromBody) * m_SunRadiusInAU);
-				nextOffset -= (camPosition + (float3)transform.position) * m_SunRadiusInAU;
-
-				ReferenceTransform target = new()
-				{
-					Position = m_SunDisplayPosition,
-					Rotation = dQuaternion.identity,
-					Scale = m_SunRadiusInAU,
-					WorldOffset = nextOffset
-				};
-				m_Animator = new TransformAnimator(m_ReferenceTransform, target, m_Animator.EndID, m_FocusedOrbit, m_TransitionTime);
-			}
-			else // focus planet or moon
-			{
-				var orbit = m_AllOrbits[(int)m_FocusedOrbit];
-
-				double3 finalPosition = orbit.BodyPositionWorld - m_ReferenceTransform.Position;
-				double3 correctedPosition = dQuaternion.mul(dQuaternion.inverse(m_ReferenceTransform.Rotation), finalPosition);
-				correctedPosition.y = 0;
-
-				double3 camPosition = (double3)(float3)(Camera.main.transform.position - transform.position);
-				camPosition.y = 0;
-				double camRadius = math.length(camPosition) * orbit.BodyRadiusInAU;
-				double3 nextOffset = GetOffsetOnCircle(camPosition * m_ReferenceTransform.Scale, correctedPosition, camRadius);//(1 + s_TeleportDistanceFromBody) * orbit.BodyRadiusInAU);
-				nextOffset -= (camPosition + (float3)transform.position) * orbit.BodyRadiusInAU;
-
-				double3 pos = orbit.BodyPositionWorld;
-				dQuaternion rotation = dQuaternion.identity;
-
-				ReferenceTransform target = new()
-				{
-					Position = pos,
-					Rotation = rotation,
-					Scale = orbit.BodyRadiusInAU,
-					WorldOffset = nextOffset
-				};
-				if (m_Animator.StartID.Valid)
-					m_AllOrbits[(int)m_Animator.StartID]?.LineMaterial.SetFloat("_FadeAmount", 0f);
-				m_Animator = new TransformAnimator(m_ReferenceTransform, target, m_Animator.EndID, m_FocusedOrbit, m_TransitionTime);
-			}
-
-			m_FocusChanged = false;
+				Position = m_SunDisplayPosition,
+				Rotation = dQuaternion.identity,
+				Scale = m_SunRadiusInAU,
+				WorldOffset = nextOffset
+			};
+			m_Animator = new TransformAnimator(m_ReferenceTransform, target, m_Animator.EndID, m_FocusedOrbit, m_TransitionTime);
 		}
+		else // focus planet or moon
+		{
+			var orbit = m_AllOrbits[(int)m_FocusedOrbit];
+
+			double3 finalPosition = orbit.BodyPositionWorld - m_ReferenceTransform.Position;
+			double3 correctedPosition = dQuaternion.mul(dQuaternion.inverse(m_ReferenceTransform.Rotation), finalPosition);
+			correctedPosition.y = 0;
+
+			double3 camPosition = (double3)(float3)(Camera.main.transform.position - transform.position);
+			camPosition.y = 0;
+			double camRadius = math.length(camPosition) * orbit.BodyRadiusInAU;
+			double3 nextOffset = GetOffsetOnCircle(camPosition * m_ReferenceTransform.Scale, correctedPosition, camRadius);//(1 + s_TeleportDistanceFromBody) * orbit.BodyRadiusInAU);
+			nextOffset -= (camPosition + (float3)transform.position) * orbit.BodyRadiusInAU;
+
+			double3 pos = orbit.BodyPositionWorld;
+			dQuaternion rotation = dQuaternion.identity;
+
+			ReferenceTransform target = new()
+			{
+				Position = pos,
+				Rotation = rotation,
+				Scale = orbit.BodyRadiusInAU,
+				WorldOffset = nextOffset
+			};
+			if (m_Animator.StartID.Valid)
+				m_AllOrbits[(int)m_Animator.StartID]?.LineMaterial.SetFloat("_FadeAmount", 0f);
+			m_Animator = new TransformAnimator(m_ReferenceTransform, target, m_Animator.EndID, m_FocusedOrbit, m_TransitionTime);
+		}
+
+		m_FocusChanged = false;
 	}
 
 	// Update is called once per frame
@@ -231,40 +232,6 @@ public class S_SolarSystem : MonoBehaviour
 	{
 		SetTime(m_BarycentricDynamicalTime + Time.deltaTime * (m_Paused ? 0.0 : m_TimeScale));
 		UpdateOrbits();
-
-		//if (m_FocusChanged)
-		//{
-		//	if (!m_FocusedOrbit.Valid)
-		//		m_Animator = new TransformAnimator(m_ReferenceTransform, ReferenceTransform.Identity, m_Animator.EndID, m_FocusedOrbit, m_TransitionTime);
-		//	else if (m_AllOrbits[(int)m_FocusedOrbit] == null)
-		//	{
-		//		ReferenceTransform target = new()
-		//		{
-		//			Position = 0,
-		//			Rotation = dQuaternion.identity,
-		//			Scale = m_SunRadiusInAU
-		//		};
-		//		m_Animator = new TransformAnimator(m_ReferenceTransform, target, m_Animator.EndID, m_FocusedOrbit, m_TransitionTime);
-		//	}
-		//	else
-		//	{
-		//		var orbit = m_AllOrbits[(int)m_FocusedOrbit];
-		//		double3 pos = orbit.BodyPositionWorld;
-		//		dQuaternion rotation = dQuaternion.identity;
-
-		//		ReferenceTransform target = new()
-		//		{
-		//			Position = pos,
-		//			Rotation = rotation,
-		//			Scale = orbit.BodyRadiusInAU
-		//		};
-		//		if (m_Animator.StartID.Valid)
-		//			m_AllOrbits[(int)m_Animator.StartID]?.LineMaterial.SetFloat("_FadeAmount", 0f);
-		//		m_Animator = new TransformAnimator(m_ReferenceTransform, target, m_Animator.EndID, m_FocusedOrbit, m_TransitionTime);
-		//	}
-
-		//	m_FocusChanged = false;
-		//}
 
 		UpdateFocus();
 
