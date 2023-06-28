@@ -109,7 +109,7 @@ public class S_SolarSystem : MonoBehaviour
 		}
 	}
 
-	public bool IsOrbitFocusable(OrbitID id) => (int)id < 0 | (int)id >= m_AllOrbits.Count ? false : ((int)id == 0 ? m_SunFocusable : m_AllOrbits[(int)id].Focusable);
+	public bool IsOrbitFocusable(OrbitID id) => (int)id >= 0 & (int)id < m_AllOrbits.Count && ((int)id == 0 ? m_SunFocusable : m_AllOrbits[(int)id].Focusable);
 
 	public double3 GetBodyPositionInSystem(OrbitID id)
 	{
@@ -163,7 +163,7 @@ public class S_SolarSystem : MonoBehaviour
 	{
 		double3 direction = from - to;
 		direction.y = 0;
-		direction = math.dot(direction, direction) < 0.0001 ? new double3(1, 0, 0) : math.normalize(direction);
+		direction = math.dot(direction, direction) <= 0 ? new double3(1, 0, 0) : math.normalize(direction);
 		return direction * radius;
 	}
 
@@ -199,6 +199,7 @@ public class S_SolarSystem : MonoBehaviour
 
 				double3 finalPosition = orbit.BodyPositionWorld - m_ReferenceTransform.Position;
 				double3 correctedPosition = dQuaternion.mul(dQuaternion.inverse(m_ReferenceTransform.Rotation), finalPosition);
+				correctedPosition.y = 0;
 
 				double3 camPosition = (double3)(float3)(Camera.main.transform.position - transform.position);
 				camPosition.y = 0;
@@ -304,7 +305,7 @@ public class S_SolarSystem : MonoBehaviour
 	{
 		m_SunFocusable = m_FocusedOrbit != 0;
 		foreach (var orbit in m_PlanetOrbits)
-			orbit.MarkFocusable(m_FocusedOrbit, true);
+			orbit.MarkFocusable(m_FocusedOrbit, true, false);
 	}
 
 	private void InitOrbits()
@@ -539,12 +540,15 @@ public class S_SolarSystem : MonoBehaviour
 			LineMesh.SetIndices(indices, MeshTopology.Lines, 0, true);
 		}
 
-		public void MarkFocusable(OrbitID currentFocus, bool parentFocused)
+		public void MarkFocusable(OrbitID currentFocus, bool parentFocused, bool siblingFocused)
 		{
 			bool focused = currentFocus == m_ID;
-			Focusable = !focused & parentFocused;
+			Focusable = !focused & (parentFocused | siblingFocused);
+			bool childFocused = false;
 			foreach (var orbit in m_Satellites)
-				orbit.MarkFocusable(currentFocus, focused);
+				childFocused |= orbit.m_ID == currentFocus;
+			foreach (var orbit in m_Satellites)
+				orbit.MarkFocusable(currentFocus, focused, childFocused);
 		}
 
 		private void UpdateOrbitLine(double t)

@@ -371,7 +371,7 @@ PrefabInstance:
     - target: {fileID: 7313654230448209575, guid: 895f6f3c2d334633b5800312285058d2,
         type: 3}
       propertyPath: m_Name
-      value: P_SolarSystemPlayer
+      value: P_SolarSystemPlayer Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7873184977108000993, guid: 895f6f3c2d334633b5800312285058d2,
         type: 3}
@@ -486,14 +486,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SelectAction: {fileID: 501073271436130593, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
-  rightHandController: {fileID: 4009452121742794674}
-  P_Tool_01: {fileID: 5324529165427265608, guid: ed587385ff3116d43ba869ea74afc417,
-    type: 3}
-  P_Tool_02: {fileID: 5324529165427265608, guid: 6e793b7478cf62b4f951123172ef32e2,
-    type: 3}
-  P_Tool_03: {fileID: 5324529165427265608, guid: 5b8a7310a1c310b498367d043bda88cf,
-    type: 3}
-  currentTool: 1
+  m_ToolPrefabs: []
+  m_CurrentToolIndex: 0
 --- !u!1 &4009452121915227955 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2,

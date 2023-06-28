@@ -439,6 +439,12 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &878628706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4009452121742794674, guid: ec57412d09ebf3a4cbb280f6378d0593,
+    type: 3}
+  m_PrefabInstance: {fileID: 5385368265250507288}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1566099771
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,6 +695,44 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
+      propertyPath: m_Tool01
+      value: 
+      objectReference: {fileID: 5324529165427265608, guid: ed587385ff3116d43ba869ea74afc417,
+        type: 3}
+    - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
+      propertyPath: m_Tool02
+      value: 
+      objectReference: {fileID: 5324529165427265608, guid: 6e793b7478cf62b4f951123172ef32e2,
+        type: 3}
+    - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
+      propertyPath: m_Tool03
+      value: 
+      objectReference: {fileID: 5324529165427265608, guid: 5b8a7310a1c310b498367d043bda88cf,
+        type: 3}
+    - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
+      propertyPath: m_RightHandController
+      value: 
+      objectReference: {fileID: 878628706}
+    - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
+      propertyPath: m_ToolPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
+      propertyPath: m_ToolPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 5324529165427265608, guid: ed587385ff3116d43ba869ea74afc417,
+        type: 3}
+    - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
+      propertyPath: m_ToolPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 5324529165427265608, guid: 6e793b7478cf62b4f951123172ef32e2,
+        type: 3}
+    - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
+      propertyPath: m_ToolPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 5324529165427265608, guid: 5b8a7310a1c310b498367d043bda88cf,
+        type: 3}
     - target: {fileID: 3441869565400873384, guid: ec57412d09ebf3a4cbb280f6378d0593,
         type: 3}
       propertyPath: m_Name

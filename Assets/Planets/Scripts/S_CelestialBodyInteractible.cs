@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -37,9 +38,9 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 		if (m_Body.ParentSystem != null)
 		{
 			if (m_Body.ID != m_Body.ParentSystem.FocusedOrbit)
-				m_Collider.radius = (float)(distance * m_ColliderRadiusUnfocused);
+				m_Collider.radius = (float)(math.max(distance * m_ColliderRadiusUnfocused, m_Body.ScaledRadiusInSolarSystem));
 			else
-				m_Collider.radius = m_ColliderRadiusFocused;
+				m_Collider.radius = m_ColliderRadiusFocused * (float)m_Body.ScaledRadiusInSolarSystem;
 
 			focusable = m_Body.ParentSystem.IsOrbitFocusable(m_Body.ID);
 		}

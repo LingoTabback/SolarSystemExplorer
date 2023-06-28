@@ -59,7 +59,7 @@ public class S_BodyHoverText : MonoBehaviour
 		if (!m_MeshRenderer.enabled)
 			return;
 
-		transform.localPosition = m_LocalPosition * (float)m_Body.ScaledRadiusInSolarSystem;
+		transform.position = transform.parent.position +  m_LocalPosition * (float)m_Body.ScaledRadiusInSolarSystem;
 		Vector3 camPos = camera.transform.position;
 		Vector3 camForward = camera.transform.forward;
 		Vector3 relPos = transform.position - camPos;
