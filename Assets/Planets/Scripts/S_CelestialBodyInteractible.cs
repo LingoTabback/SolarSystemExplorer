@@ -15,13 +15,14 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 	private S_BodyHighlight m_Highlight;
 	[SerializeField]
 	private S_BodyHoverText m_HoverText;
-	private S_CelestialBody m_Body;
+	[SerializeField]
+	private S_CelestialBody m_CelestialBody;
 	private int m_NumHovers = 0;
 
 	// Start is called before the first frame update
 	void Start()
 	{
-		m_Body = S_CelestialBody.GetCelestialBodyComponent(gameObject);
+		//m_CelestialBody = S_CelestialBody.GetCelestialBodyComponent(gameObject);
 
 		colliders.Add(m_Collider);
 		m_Collider.radius = 0.001f;
@@ -29,20 +30,25 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 
 	private void Update()
 	{
-		Camera cam = Camera.main;
-		Vector3 diff = transform.position - cam.transform.position;
-		float distance = diff.magnitude;
-
 		bool focusable = false;
 
-		if (m_Body.ParentSystem != null)
+		if (m_CelestialBody.ParentSystem != null)
 		{
-			if (m_Body.ID != m_Body.ParentSystem.FocusedOrbit)
-				m_Collider.radius = (float)(math.max(distance * m_ColliderRadiusUnfocused, m_Body.ScaledRadiusInSolarSystem));
+			if (m_CelestialBody.ID != m_CelestialBody.ParentSystem.FocusedOrbit)
+			{
+				Camera cam = Camera.main;
+				Vector3 diff = transform.parent.position - cam.transform.position;
+				float distance = math.min(diff.magnitude, 100);
+				transform.position = cam.transform.position + Vector3.Normalize(diff) * distance;
+				m_Collider.radius = (float)math.max(distance * m_ColliderRadiusUnfocused, m_CelestialBody.ScaledRadiusInSolarSystem / diff.magnitude);
+			}
 			else
-				m_Collider.radius = m_ColliderRadiusFocused * (float)m_Body.ScaledRadiusInSolarSystem;
+			{
+				m_Collider.radius = m_ColliderRadiusFocused * (float)m_CelestialBody.ScaledRadiusInSolarSystem;
+				transform.localPosition = Vector3.zero;
+			}
 
-			focusable = m_Body.ParentSystem.IsOrbitFocusable(m_Body.ID);
+			focusable = m_CelestialBody.ParentSystem.IsOrbitFocusable(m_CelestialBody.ID);
 		}
 		m_Collider.enabled = focusable;
 		m_Highlight.SetActive(focusable);
@@ -71,6 +77,6 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 	protected override void OnSelectEntered(SelectEnterEventArgs args)
 	{
 		base.OnSelectEntered(args);
-		m_Body.Focus();
+		m_CelestialBody.Focus();
 	}
 }
