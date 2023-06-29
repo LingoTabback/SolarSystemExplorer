@@ -35,6 +35,8 @@ public abstract class S_CelestialBody : MonoBehaviour
 	public double3 PositionInSystem => ParentSystem.GetBodyPositionInSystem(ID);
 	public double OrbitalPeriod => ParentSystem.GetOrbitalPeriod(ID);
 	public bool IsFocused => ParentSystem.FocusedOrbit == ID & ID != OrbitID.Invalid;
+	public virtual double SurfaceTemparature => 0;
+	public virtual string AtmosphereComposition => "Gas 1, Gas 2, Gas 3.";
 
 	[SerializeField]
 	private CelestialBodyType m_Type = CelestialBodyType.Unknown;
