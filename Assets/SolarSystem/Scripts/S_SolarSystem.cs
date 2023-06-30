@@ -10,6 +10,8 @@ using Unity.Mathematics;
 using AstroTime;
 using Ephemeris;
 using System.Collections.Generic;
+using Animation;
+using System.ComponentModel.Design;
 
 public struct OrbitID
 {
@@ -79,10 +81,8 @@ public class S_SolarSystem : MonoBehaviour
 	private double m_SunRadiusInAU = 1;
 	private bool m_SunFocusable = true;
 
-	private TransformAnimator m_Animator = new();
+	private Animator<ReferenceTransform> m_Animator = Animator<ReferenceTransform>.CreateDone(ReferenceTransform.Identity, ReferenceTransform.Identity, 1, EasingType.EaseOutSine);
 	private ReferenceTransform m_ReferenceTransform = ReferenceTransform.Identity;
-
-	private static readonly double s_TeleportDistanceFromBody = 0.5;
 
 	public void SetTime(double tdb) => m_BarycentricDynamicalTime = tdb;
 	public void SetTime(in Date date) => m_BarycentricDynamicalTime = TimeUtil.UTCtoTDB(date);
@@ -173,7 +173,11 @@ public class S_SolarSystem : MonoBehaviour
 			return;
 
 		if (!m_FocusedOrbit.Valid) // go back to view of complete solar system
-			m_Animator = new TransformAnimator(m_ReferenceTransform, ReferenceTransform.Identity, m_Animator.EndID, m_FocusedOrbit, m_TransitionTime);
+		{
+			ReferenceTransform from = m_ReferenceTransform;
+			from.ID = m_Animator.End.ID;
+			m_Animator.Reset(from, ReferenceTransform.Identity, m_TransitionTime);
+		}
 		else if (m_AllOrbits[(int)m_FocusedOrbit] == null) // focus on sun
 		{
 			double3 finalPosition = m_SunDisplayPosition - m_ReferenceTransform.Position;
@@ -184,7 +188,7 @@ public class S_SolarSystem : MonoBehaviour
 			camPosition.y = 0;
 			double camRadius = math.length(camPosition) * m_SunRadiusInAU;
 			camRadius = math.clamp(camRadius, m_SunRadiusInAU * 1.4, m_SunRadiusInAU * 3);
-			double3 nextOffset = GetOffsetOnCircle(camPosition * m_ReferenceTransform.Scale, correctedPosition, camRadius);//(1 + s_TeleportDistanceFromBody) * m_SunRadiusInAU);
+			double3 nextOffset = GetOffsetOnCircle(camPosition * m_ReferenceTransform.Scale, correctedPosition, camRadius);
 			nextOffset -= (camPosition + (float3)transform.position) * m_SunRadiusInAU;
 
 			ReferenceTransform target = new()
@@ -192,9 +196,12 @@ public class S_SolarSystem : MonoBehaviour
 				Position = m_SunDisplayPosition,
 				Rotation = dQuaternion.identity,
 				Scale = m_SunRadiusInAU,
-				WorldOffset = nextOffset
+				WorldOffset = nextOffset,
+				ID = m_FocusedOrbit
 			};
-			m_Animator = new TransformAnimator(m_ReferenceTransform, target, m_Animator.EndID, m_FocusedOrbit, m_TransitionTime);
+			ReferenceTransform from = m_ReferenceTransform;
+			from.ID = m_Animator.End.ID;
+			m_Animator.Reset(from, target, m_TransitionTime);
 		}
 		else // focus planet or moon
 		{
@@ -208,7 +215,7 @@ public class S_SolarSystem : MonoBehaviour
 			camPosition.y = 0;
 			double camRadius = math.length(camPosition) * orbit.BodyRadiusInAU;
 			camRadius = math.clamp(camRadius, orbit.BodyRadiusInAU * 1.4, orbit.BodyRadiusInAU * 3);
-			double3 nextOffset = GetOffsetOnCircle(camPosition * m_ReferenceTransform.Scale, correctedPosition, camRadius);//(1 + s_TeleportDistanceFromBody) * orbit.BodyRadiusInAU);
+			double3 nextOffset = GetOffsetOnCircle(camPosition * m_ReferenceTransform.Scale, correctedPosition, camRadius);
 			nextOffset -= (camPosition + (float3)transform.position) * orbit.BodyRadiusInAU;
 
 			double3 pos = orbit.BodyPositionWorld;
@@ -219,11 +226,14 @@ public class S_SolarSystem : MonoBehaviour
 				Position = pos,
 				Rotation = rotation,
 				Scale = orbit.BodyRadiusInAU,
-				WorldOffset = nextOffset
+				WorldOffset = nextOffset,
+				ID = m_FocusedOrbit
 			};
-			if (m_Animator.StartID.Valid)
-				m_AllOrbits[(int)m_Animator.StartID]?.LineMaterial.SetFloat("_FadeAmount", 0f);
-			m_Animator = new TransformAnimator(m_ReferenceTransform, target, m_Animator.EndID, m_FocusedOrbit, m_TransitionTime);
+			if (m_Animator.Start.ID.Valid)
+				m_AllOrbits[(int)m_Animator.Start.ID]?.LineMaterial.SetFloat("_FadeAmount", 0f);
+			ReferenceTransform from = m_ReferenceTransform;
+			from.ID = m_Animator.End.ID;
+			m_Animator.Reset(from, target, m_TransitionTime);
 		}
 
 		m_FocusChanged = false;
@@ -238,13 +248,13 @@ public class S_SolarSystem : MonoBehaviour
 		UpdateFocus();
 
 		bool doneThisFrame = !m_Animator.IsDone;
-		m_Animator.Update();
+		m_Animator.Update(Time.deltaTime);
 		doneThisFrame &= m_Animator.IsDone;
 		if (!m_Animator.IsDone || doneThisFrame)
-			m_ReferenceTransform = m_Animator.TransformCurrent;
-		else if (m_Animator.CurrentID.Valid && m_AllOrbits[(int)m_Animator.CurrentID] != null)
+			m_ReferenceTransform = m_Animator.Current;
+		else if (m_Animator.Current.ID.Valid && m_AllOrbits[(int)m_Animator.Current.ID] != null)
 		{
-			var orbit = m_AllOrbits[(int)m_Animator.CurrentID];
+			var orbit = m_AllOrbits[(int)m_Animator.Current.ID];
 
 			m_ReferenceTransform.Position = orbit.BodyPositionWorld;
 			/*
@@ -255,10 +265,10 @@ public class S_SolarSystem : MonoBehaviour
 #endif*/
 		}
 
-		if (m_Animator.StartID.Valid)
-			m_AllOrbits[(int)m_Animator.StartID]?.LineMaterial.SetFloat("_FadeAmount", 1 - math.smoothstep(0.25f, 0.75f, m_Animator.Progress));
-		if (m_Animator.EndID.Valid)
-			m_AllOrbits[(int)m_Animator.EndID]?.LineMaterial.SetFloat("_FadeAmount", math.smoothstep(0.25f, 0.75f, m_Animator.Progress));
+		if (m_Animator.Start.ID.Valid)
+			m_AllOrbits[(int)m_Animator.Start.ID]?.LineMaterial.SetFloat("_FadeAmount", 1 - math.smoothstep(0.25f, 0.75f, m_Animator.Progress));
+		if (m_Animator.End.ID.Valid)
+			m_AllOrbits[(int)m_Animator.End.ID]?.LineMaterial.SetFloat("_FadeAmount", math.smoothstep(0.25f, 0.75f, m_Animator.Progress));
 
 		m_SunObject.transform.localPosition = (float3)((m_SunDisplayPosition - m_ReferenceTransform.Position) / m_ReferenceTransform.Scale);
 		m_SunScript.SetScale((float)(m_SunRadiusInAU / m_ReferenceTransform.Scale));
@@ -294,71 +304,34 @@ public class S_SolarSystem : MonoBehaviour
 
 	public static double GetScaleFromPlanet(double scaledRadius) => scaledRadius * s_PlanetScale;
 
-	public struct ReferenceTransform
+	public struct ReferenceTransform : IAnimatable<ReferenceTransform>
 	{
 		public double3 Position;
 		public dQuaternion Rotation;
 		public double Scale;
 		public double3 WorldOffset;
+		public OrbitID ID;
 
-		public static readonly ReferenceTransform Identity = new() { Position = 0, Rotation = dQuaternion.identity, Scale = 1, WorldOffset = 0 };
-	}
+		public static readonly ReferenceTransform Identity = new(0, dQuaternion.identity, 1, 0, OrbitID.Invalid);
 
-	private class TransformAnimator
-	{
-		public ReferenceTransform TransformStart { get; private set; } = ReferenceTransform.Identity;
-		public ReferenceTransform TransformEnd { get; private set; } = ReferenceTransform.Identity;
-		public ReferenceTransform TransformCurrent { get => m_TransformCurrent; }
-		private ReferenceTransform m_TransformCurrent = ReferenceTransform.Identity;
-
-		public OrbitID StartID { get; private set; } = OrbitID.Invalid;
-		public OrbitID EndID { get; private set; } = OrbitID.Invalid;
-		public OrbitID CurrentID { get; private set; } = OrbitID.Invalid;
-		public float Length { get; private set; } = 1;
-		public float Progress { get; private set; } = 0;
-		public bool IsDone { get; private set; } = false;
-		private float m_Time = 0;
-
-		public TransformAnimator()
+		public ReferenceTransform(in double3 position, in dQuaternion rotation, double scale, in double3 worldOffset, OrbitID id)
 		{
-			Progress = 1;
-			m_Time = 1;
-			IsDone = true;
+			Position = position;
+			Rotation = rotation;
+			Scale = scale;
+			WorldOffset = worldOffset;
+			ID = id;
 		}
 
-		public TransformAnimator(in ReferenceTransform start, in ReferenceTransform end, OrbitID indexStart, OrbitID indexEnd, float length)
+		public ReferenceTransform Lerp(ReferenceTransform to, float alpha)
 		{
-			TransformStart = start;
-			TransformEnd = end;
-			m_TransformCurrent = start;
-			StartID = indexStart;
-			EndID = indexEnd;
-			CurrentID = indexStart;
-			Length = length;
+			return new(
+				math.lerp(Position, to.Position, alpha),
+				dQuaternion.slerp(Rotation, to.Rotation, alpha),
+				math.lerp(Scale, to.Scale, alpha),
+				math.lerp(WorldOffset, to.WorldOffset, alpha),
+				alpha >= 1 ? to.ID : ID);
 		}
-
-		public void Update()
-		{
-			if (IsDone)
-				return;
-
-			m_Time += Time.deltaTime;
-			if (m_Time > Length)
-			{
-				m_Time = Length;
-				CurrentID = EndID;
-				IsDone = true;
-			}
-
-			Progress = EaseOutSine(m_Time / Length);
-			m_TransformCurrent.Position = math.lerp(TransformStart.Position, TransformEnd.Position, Progress);
-			m_TransformCurrent.Rotation = dQuaternion.slerp(TransformStart.Rotation, TransformEnd.Rotation, Progress);
-			m_TransformCurrent.Scale = math.lerp(TransformStart.Scale, TransformEnd.Scale, Progress);
-			m_TransformCurrent.WorldOffset = math.lerp(TransformStart.WorldOffset, TransformEnd.WorldOffset, Progress);
-		}
-
-		private static float EaseOutQuad(float x) => 1f - (1f - x) * (1f - x);
-		private static float EaseOutSine(float x) => math.sin(x * math.PI * 0.5f);
 	}
 
 	private class OrbitWrapper

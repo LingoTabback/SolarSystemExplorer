@@ -182,6 +182,121 @@ PrefabInstance:
       propertyPath: m_LabelColor.r
       value: 0.3216002
       objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[0].Name
+      value: Dead Sea
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[1].Name
+      value: Arctic
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[2].Name
+      value: Arctic
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[3].Name
+      value: Antarctica
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[4].Name
+      value: Mount Everest
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[5].Name
+      value: Yarlung Tsangpo, Tibet, China
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[6].Name
+      value: Mauna Kea
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[7].Name
+      value: Chicxulub Crater
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[0].Latitude
+      value: 31.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[1].Latitude
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[2].Latitude
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[3].Latitude
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[4].Latitude
+      value: 27.986065
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[5].Latitude
+      value: 29.156
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[6].Latitude
+      value: 20.00504
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[7].Latitude
+      value: 21.399998
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[0].Longitude
+      value: -35.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[1].Longitude
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[4].Longitude
+      value: -86.92262
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[5].Longitude
+      value: -93.983
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[6].Longitude
+      value: 155.82462
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[7].Longitude
+      value: 89.51666
+      objectReference: {fileID: 0}
     - target: {fileID: 4616449735410555191, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

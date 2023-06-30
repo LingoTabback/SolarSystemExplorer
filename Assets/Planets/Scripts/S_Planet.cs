@@ -394,7 +394,7 @@ public class S_Planet : S_CelestialBody
 		DispatchCompute(s_AtmospherePrecompShader, scatteringKernel, m_AtmosphereScatteringTexture.width, m_AtmosphereScatteringTexture.height, m_AtmosphereScatteringTexture.volumeDepth);
 	}
 
-	public void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
+	private void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
 	{
 		const float eps = 0.001f;
 		Vector3 camForward = camera.transform.forward;

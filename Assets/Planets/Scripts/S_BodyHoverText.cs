@@ -1,3 +1,4 @@
+using Animation;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ public class S_BodyHoverText : MonoBehaviour
 	private Vector3 m_LocalScale;
 
 	private static readonly float s_AnimationLength = 0.5f;
-	private TextAnimator m_Animatior = TextAnimator.CreateDone(0, 0, false, false, s_AnimationLength);
+	private Animator<TextProperties> m_Animatior = Animator<TextProperties>.CreateDone(new(0, false), new(0, false), s_AnimationLength, EasingType.EaseOutQuad);
 
 	// Start is called before the first frame update
 	void Start()
@@ -43,18 +44,18 @@ public class S_BodyHoverText : MonoBehaviour
 	void Update()
 	{
 		bool doneThisFrame = !m_Animatior.IsDone;
-		m_Animatior.Update();
+		m_Animatior.Update(Time.deltaTime);
 		doneThisFrame &= m_Animatior.IsDone;
 		if (!m_Animatior.IsDone || doneThisFrame)
 		{
 			var color = m_TextMesh.color;
-			color.a = math.pow(m_Animatior.AlphaCurrent, 2.2f);
+			color.a = math.pow(m_Animatior.Current.Alpha, 2.2f);
 			m_TextMesh.color = color;
-			m_MeshRenderer.enabled = m_Animatior.EnabledCurrent;
+			m_MeshRenderer.enabled = m_Animatior.Current.Enabled;
 		}
 	}
 
-	public void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
+	private void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
 	{
 		if (!m_MeshRenderer.enabled)
 			return;
@@ -72,86 +73,22 @@ public class S_BodyHoverText : MonoBehaviour
 		transform.rotation = camera.transform.rotation;
 	}
 
-	public void OnHoverStart()
+	public void OnHoverStart() => m_Animatior.Reset(m_Animatior.Current, new(1, true));
+
+	public void OnHoverEnd() => m_Animatior.Reset(m_Animatior.Current, new(0, false));
+
+	private struct TextProperties : IAnimatable<TextProperties>
 	{
-		m_Animatior = new(m_Animatior.AlphaCurrent, 1, m_Animatior.EnabledCurrent, true, s_AnimationLength);
-	}
+		public float Alpha;
+		public bool Enabled;
 
-	public void OnHoverEnd()
-	{
-		m_Animatior = new(m_Animatior.AlphaCurrent, 0, m_Animatior.EnabledCurrent, false, s_AnimationLength);
-	}
-
-	private class TextAnimator
-	{
-
-		public float AlphaStart { get; private set; } = 0;
-		public float AlphaEnd { get; private set; } = 0;
-		public float AlphaCurrent { get; private set; } = 0;
-
-		public bool EnabledStart { get; private set; } = false;
-		public bool EnabledEnd { get; private set; } = false;
-		public bool EnabledCurrent { get; private set; } = false;
-
-		public float Length { get; private set; } = 1;
-		public float Progress { get; private set; } = 0;
-		public bool IsDone { get; private set; } = false;
-		private float m_Time = 0;
-
-		public TextAnimator()
+		public TextProperties(float alpha, bool enabled)
 		{
-			Progress = 1;
-			m_Time = 1;
-			IsDone = true;
+			Alpha = alpha;
+			Enabled = enabled;
 		}
 
-		public TextAnimator(float aStart, float aEnd, bool eStart, bool eEnd, float length)
-		{
-			AlphaStart = aStart;
-			AlphaEnd = aEnd;
-			AlphaCurrent = aStart;
-			EnabledStart = eStart;
-			EnabledEnd = eEnd;
-			EnabledCurrent = eStart;
-			Length = length;
-		}
-
-		public void Update()
-		{
-			if (IsDone)
-				return;
-
-			m_Time += Time.deltaTime;
-			if (m_Time > Length)
-			{
-				m_Time = Length;
-				IsDone = true;
-			}
-
-			if (!EnabledStart)
-				EnabledCurrent = EnabledEnd;
-			else if (IsDone)
-				EnabledCurrent = EnabledEnd;
-
-			Progress = EaseOutQuad(m_Time / Length);
-			AlphaCurrent = math.lerp(AlphaStart, AlphaEnd, Progress);
-		}
-
-		private static float EaseOutQuad(float x)
-		{
-			return 1f - (1f - x) * (1f - x);
-		}
-
-		public static TextAnimator CreateDone(float aStart, float aEnd, bool eStart, bool eEnd, float length)
-		{
-			return new TextAnimator(aStart, aEnd, eStart, eEnd, length)
-			{
-				AlphaCurrent = aEnd,
-				EnabledCurrent = eEnd,
-				Progress = 1,
-				m_Time = length,
-				IsDone = true
-			};
-		}
+		public TextProperties Lerp(TextProperties to, float alpha)
+			=> new(math.lerp(Alpha, to.Alpha, alpha), !Enabled | alpha >= 1 ? to.Enabled : Enabled);
 	}
 }

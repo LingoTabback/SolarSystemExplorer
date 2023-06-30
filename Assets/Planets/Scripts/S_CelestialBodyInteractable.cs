@@ -2,7 +2,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class S_CelestialBodyInteractible : XRBaseInteractable
+public class S_CelestialBodyInteractable : XRBaseInteractable
 {
 	[SerializeField]
 	private float m_ColliderRadiusFocused = 1;
@@ -17,12 +17,20 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 	private S_BodyHoverText m_HoverText;
 	[SerializeField]
 	private S_CelestialBody m_CelestialBody;
+	[SerializeField]
+	private S_LandmarkManager m_LandmarkManager;
+
+	[SerializeField]
+	private InteractionLayerMask m_FocusedInterationLayer;
+	private InteractionLayerMask m_UnfocusedInterationLayer;
+
 	private int m_NumHovers = 0;
+	private bool m_LastFocused = false;
 
 	// Start is called before the first frame update
 	void Start()
 	{
-		//m_CelestialBody = S_CelestialBody.GetCelestialBodyComponent(gameObject);
+		m_UnfocusedInterationLayer = interactionLayers;
 
 		colliders.Add(m_Collider);
 		m_Collider.radius = 0.001f;
@@ -31,6 +39,7 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 	private void Update()
 	{
 		bool focusable = false;
+		bool isFocused = false;
 
 		if (m_CelestialBody.ParentSystem != null)
 		{
@@ -49,15 +58,22 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 			}
 
 			focusable = m_CelestialBody.ParentSystem.IsOrbitFocusable(m_CelestialBody.ID);
+			isFocused = m_CelestialBody.IsFocused;
 		}
-		m_Collider.enabled = focusable;
+		m_Collider.enabled = focusable | isFocused;
+		interactionLayers = isFocused ? m_FocusedInterationLayer : m_UnfocusedInterationLayer;
 		m_Highlight.SetActive(focusable);
+
+		if (m_LastFocused & !isFocused)
+			m_LandmarkManager.OnSelectEnd();
+
+		m_LastFocused = isFocused;
 	}
 
 	protected override void OnHoverEntered(HoverEnterEventArgs args)
 	{
 		base.OnHoverEntered(args);
-		if (++m_NumHovers > 0)
+		if (++m_NumHovers == 1)
 		{
 			m_Highlight.OnHoverStart();
 			m_HoverText.OnHoverStart();
@@ -67,7 +83,7 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 	protected override void OnHoverExited(HoverExitEventArgs args)
 	{
 		base.OnHoverExited(args);
-		if (--m_NumHovers <= 0)
+		if (--m_NumHovers == 0)
 		{
 			m_Highlight.OnHoverEnd();
 			m_HoverText.OnHoverEnd();
@@ -78,5 +94,6 @@ public class S_CelestialBodyInteractible : XRBaseInteractable
 	{
 		base.OnSelectEntered(args);
 		m_CelestialBody.Focus();
+		m_LandmarkManager.OnSelectStart();
 	}
 }

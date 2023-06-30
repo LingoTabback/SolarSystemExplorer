@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1071266137419343411}
   - component: {fileID: 4147413663976804444}
   - component: {fileID: 519244420786205911}
+  - component: {fileID: 518490034125468179}
   m_Layer: 0
   m_Name: SurfaceMesh
   m_TagString: Untagged
@@ -116,6 +117,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &518490034125468179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173169631104464800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c41ec310e96c34f8505e04489b0c97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MarkerColorDefault: {r: 1, g: 1, b: 1, a: 1}
+  m_MarkerColorManMade: {r: 1, g: 1, b: 1, a: 1}
+  m_Landsmarks: []
+  m_LandmarkPrefab: {fileID: 8708439711239044045, guid: 50bbfa3cf4e654c4389ab3026a438338,
+    type: 3}
 --- !u!1 &2403469274515271481
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,6 +262,9 @@ MonoBehaviour:
   m_Highlight: {fileID: 5591727349306520765}
   m_HoverText: {fileID: 324242940696500146}
   m_CelestialBody: {fileID: 3860934045257871789}
+  m_LandmarkManager: {fileID: 518490034125468179}
+  m_FocusedInterationLayer:
+    m_Bits: 0
 --- !u!135 &2593101937838794968
 SphereCollider:
   m_ObjectHideFlags: 0

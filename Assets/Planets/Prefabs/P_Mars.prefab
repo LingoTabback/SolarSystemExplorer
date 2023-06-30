@@ -422,6 +422,276 @@ PrefabInstance:
       propertyPath: m_LabelColor.r
       value: 0.97647065
       objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_MarkerColor.b
+      value: 0.3105724
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_MarkerColor.g
+      value: 0.16637807
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_MarkerColor.r
+      value: 1.0592737
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[0].Name
+      value: Olympus Mons
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[1].Name
+      value: Valles Marineris
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[2].Name
+      value: Orcus Patera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[3].Name
+      value: Hellas Planitia
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[4].Name
+      value: Viking 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[5].Name
+      value: Viking 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[6].Name
+      value: Pathfinder
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[7].Name
+      value: Opportunity Rover
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[8].Name
+      value: Perseverance Rover
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[9].Name
+      value: InSight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[10].Name
+      value: Curiosity Rover
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[11].Name
+      value: Spirit Rover
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[12].Name
+      value: Phoenix
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[0].Latitude
+      value: 18.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[1].Latitude
+      value: -11.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[2].Latitude
+      value: 14.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[3].Latitude
+      value: -41.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[4].InfoText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[4].Latitude
+      value: 22.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[5].Latitude
+      value: 47.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[6].Latitude
+      value: 17.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[7].Latitude
+      value: -2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[8].Latitude
+      value: 18.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[9].Latitude
+      value: 4.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[0].Longitude
+      value: 133.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[10].Latitude
+      value: -4.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[11].Latitude
+      value: -14.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[12].InfoText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[12].Latitude
+      value: 68.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[1].Longitude
+      value: 65.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[2].Longitude
+      value: -178.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[3].Longitude
+      value: -68.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[4].IsManMade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[4].Longitude
+      value: 50.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[5].IsManMade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[5].Longitude
+      value: -133.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[6].IsManMade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[6].Longitude
+      value: 34.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[7].IsManMade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[7].Longitude
+      value: 5.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[8].IsManMade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[8].Longitude
+      value: -77.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[9].IsManMade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[9].Longitude
+      value: -135.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[10].IsManMade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[10].Longitude
+      value: -137.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[11].IsManMade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[11].Longitude
+      value: -175.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[12].IsManMade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[12].Longitude
+      value: 125.93
+      objectReference: {fileID: 0}
     - target: {fileID: 4616449735410555191, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
