@@ -12,17 +12,20 @@ public class S_LandmarkManager : MonoBehaviour
 		public float Latitude = 0;
 		public float Longitude = 0;
 		public string Name = "Unnamed";
-		public bool IsManMade = false;
+		public int ColorIndex = 0;
 		[TextArea(5, 10)]
 		public string InfoText = "n/a";
 	}
 
 	[SerializeField]
 	[ColorUsage(true, true)]
-	private Color m_MarkerColorDefault = Color.white;
-	[SerializeField]
-	[ColorUsage(true, true)]
-	private Color m_MarkerColorManMade = Color.white;
+	private Color[] m_MarkerColors;
+	//[SerializeField]
+	//[ColorUsage(true, true)]
+	//private Color m_MarkerColorDefault = Color.white;
+	//[SerializeField]
+	//[ColorUsage(true, true)]
+	//private Color m_MarkerColorManMade = Color.white;
 	[SerializeField]
 	private Landmark[] m_Landsmarks;
 	[SerializeField]
@@ -43,7 +46,7 @@ public class S_LandmarkManager : MonoBehaviour
 
 			var marker = landmarkObject.transform.GetChild(0).gameObject.GetComponent<S_LandmarkMarker>();
 			marker.Label = landmark.Name;
-			marker.MarkerColor = landmark.IsManMade ? m_MarkerColorManMade : m_MarkerColorDefault;
+			marker.MarkerColor = m_MarkerColors[math.clamp(landmark.ColorIndex, 0, m_MarkerColors.Length - 1)];
 
 			landmarkObject.SetActive(false);
 			m_LandmarkObjects[i] = landmarkObject;

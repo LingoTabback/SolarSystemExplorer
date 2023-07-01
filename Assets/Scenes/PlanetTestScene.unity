@@ -124,6 +124,43 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!84 &2830075
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 128
+  m_Height: 128
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 48
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!84 &5357344
 RenderTexture:
   m_ObjectHideFlags: 0
@@ -240,6 +277,43 @@ Material:
     - _SunColor: {r: 4, g: 4, b: 4, a: 4}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!84 &33523607
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 128
+  m_Height: 128
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 48
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!21 &34306947
 Material:
   serializedVersion: 8
@@ -296,6 +370,144 @@ Material:
     - _QueueOffset: 0
     m_Colors:
     - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &37061809
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Earth
+  m_Shader: {fileID: -6465566751694194690, guid: ebe76ff2110f3b64db4cf0faf4d02318,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: 6cd1485224b992949ba20dc2b8c9a3a3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudsMap:
+        m_Texture: {fileID: 2800000, guid: e994a2cd22a01344abcae576c04ed619, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GroundTransmittanceTexture:
+        m_Texture: {fileID: 492929845}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 2b610fdd1e5705049aaa5ced56bb7843, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_173e44416cc64975b068867903ec8da5_Out_0:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CloudsHeight: 1.2
+    - _CloudsRotation: 0.5
+    - _ElevationScale: 2
+    - _EmissiveBrightness: 2.5
+    - _LunarLambert: 0.5
+    - _MaxElevation: 0.88
+    - _PlanetRadius: 636
+    - _PlanetRotation: 0.5
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 4
+    m_Colors:
+    - _AmbientColor: {r: 0.0015989196, g: 0.003736904, b: 0.009136683, a: 0}
+    - _CloudsColor: {r: 1, g: 1, b: 1, a: 0}
+    - _EmissiveColor: {r: 8, g: 5.6, b: 3.2, a: 8}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &41844097
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereScattering
+  m_Shader: {fileID: -6465566751694194690, guid: aca78678a3867e24c8c7b636b1111ad0,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ScatteringTexture:
+        m_Texture: {fileID: 742416755}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 1026111461}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BottomRadius: 636
+    - _CosineMaxSunAngle: -0.25881904
+    - _MiePhaseFunctionG: 0.8
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _TopRadius: 648
+    m_Colors:
+    - _MieScattering: {r: 0.01998, g: 0.01998, b: 0.01998, a: 0.01998}
+    - _RayleighScattering: {r: 0.0289625, g: 0.0676895, b: 0.1655, a: 0.1655}
     - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
@@ -442,6 +654,70 @@ Material:
     - _SunColor: {r: 16, g: 16, b: 16, a: 16}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!21 &67133313
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereAbsorption
+  m_Shader: {fileID: -6465566751694194690, guid: c65c24b48e418a44aacff32dc6ca1ba1,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2998
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AtmosphereHeight: 1.2
+    - _AtmosphereScale: 2
+    - _BottomRadius: 363
+    - _CosineMaxSunAngle: -0.2
+    - _G: 0.8
+    - _HM: 0
+    - _HO: 0
+    - _HR: 0
+    - _PlanetRadius: 363
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 0
+    - _TopRadius: 369
+    - _WO: 0
+    m_Colors:
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!21 &88682336
 Material:
   serializedVersion: 8
@@ -519,6 +795,70 @@ Material:
     - _BetaR: {r: 0, g: 0, b: 0, a: 0}
     - _CloudsColor: {r: 1, g: 1, b: 1, a: 0}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &95219384
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Callisto
+  m_Shader: {fileID: -6465566751694194690, guid: ee3a78da0f0585a4392980caf441bbf4,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: 62ab9113fe875ff409cb8637a0bf835c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: ce2515af7043cd745ab355914b59660b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_173e44416cc64975b068867903ec8da5_Out_0:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ElevationScale: 2
+    - _LunarLambert: 0.5
+    - _MaxElevation: 1
+    - _MoonRadius: 241.03
+    - _MoonRotation: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
@@ -692,6 +1032,91 @@ Material:
     - _CloudsColor: {r: 1, g: 1, b: 1, a: 0}
     - _EmissiveColor: {r: 2, g: 1.4, b: 0.8, a: 2}
     - _SunColor: {r: 4, g: 4, b: 4, a: 4}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &124317242
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Jupiter
+  m_Shader: {fileID: -6465566751694194690, guid: ebe76ff2110f3b64db4cf0faf4d02318,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: ac8878a542ec02646a09ac3022125274, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudsMap:
+        m_Texture: {fileID: 2800000, guid: ed0fbaea735792540a2c35034fd5f118, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GroundTransmittanceTexture:
+        m_Texture: {fileID: 967459233}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: a3984cb48c2e63f40910d16e944f4597, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_173e44416cc64975b068867903ec8da5_Out_0:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CloudsHeight: 1.2
+    - _CloudsRotation: 0
+    - _ElevationScale: 2
+    - _EmissiveBrightness: 0
+    - _LunarLambert: 0
+    - _MaxElevation: 0.88
+    - _PlanetRadius: 7149.2
+    - _PlanetRotation: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 4
+    m_Colors:
+    - _AmbientColor: {r: 0.0073590693, g: 0.005367792, b: 0.004126851, a: 0}
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _CloudsColor: {r: 1, g: 1, b: 1, a: 0}
+    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!21 &125836018
@@ -960,6 +1385,163 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!21 &168030102
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereScattering
+  m_Shader: {fileID: -6465566751694194690, guid: aca78678a3867e24c8c7b636b1111ad0,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ScatteringTexture:
+        m_Texture: {fileID: 303968360}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 613778286}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BottomRadius: 2462.2
+    - _CosineMaxSunAngle: -0.25881904
+    - _MiePhaseFunctionG: 0.3
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _TopRadius: 2482.2
+    m_Colors:
+    - _MieScattering: {r: 0.015686275, g: 0.02392157, b: 0.1, a: 0.1}
+    - _RayleighScattering: {r: 0.0008137255, g: 0.0012941177, b: 0.0025, a: 0.0025}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &182028663
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereScattering
+  m_Shader: {fileID: -6465566751694194690, guid: aca78678a3867e24c8c7b636b1111ad0,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ScatteringTexture:
+        m_Texture: {fileID: 605020337}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 1053212385}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BottomRadius: 257.47
+    - _CosineMaxSunAngle: -0.57357645
+    - _MiePhaseFunctionG: 0.2
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _TopRadius: 307.27
+    m_Colors:
+    - _MieScattering: {r: 0.5, g: 0.34125385, b: 0.08726415, a: 0.5}
+    - _RayleighScattering: {r: 0.001462264, g: 0.003860097, b: 0.01, a: 0.01}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: -0, b: -0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!84 &187505461
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 128
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 48
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 3
+  m_VolumeDepth: 32
+  m_ShadowSamplingMode: 2
 --- !u!21 &198649970
 Material:
   serializedVersion: 8
@@ -1080,6 +1662,118 @@ Material:
     - _SunColor: {r: 4, g: 4, b: 4, a: 4}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!21 &216383739
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Venus
+  m_Shader: {fileID: -6465566751694194690, guid: 33ef4ce4e5267ed4bae5b017e3e9d6ae,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: 219c9cb1d00d6784d8884a93d2bbb028, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudsMap:
+        m_Texture: {fileID: 2800000, guid: 7bb771697f2a986409961eaba8177549, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GroundTransmittanceTexture:
+        m_Texture: {fileID: 2013743261}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 1cde42c11dfebb84089b069ad13ed088, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_173e44416cc64975b068867903ec8da5_Out_0:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CloudsHeight: 1.2
+    - _CloudsRotation: 0.9375
+    - _ElevationScale: 2
+    - _LunarLambert: 0.5
+    - _MaxElevation: 0.11
+    - _PlanetRadius: 605
+    - _PlanetRotation: 0.9375
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _AmbientColor: {r: 0.006844731, g: 0.005851574, b: 0.0043484173, a: 0}
+    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!84 &238099013
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 64
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!21 &239652721
 Material:
   serializedVersion: 8
@@ -1144,6 +1838,165 @@ Material:
     - _SunColor: {r: 1, g: 1, b: 1, a: 0}
     - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!21 &243328689
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_SaturnRings
+  m_Shader: {fileID: -6465566751694194690, guid: c72593170161adf40ac5c2391c10ed3e,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ColorTexture:
+        m_Texture: {fileID: 2800000, guid: 5b6d4ea7539618b409e81cf3dfe449e2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_5c5d2087950a45699dd73a7bd8d971a6_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScatteringTexture:
+        m_Texture: {fileID: 2800000, guid: 9cd5c3907d1dca942bcbefca549ba5af, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _InnerRadius: 0.4891066
+    - _LightingEccentricity: 0.5
+    - _PhaseFuncG: 0
+    - _PlanetRadiusRelative: 0.42573476
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _PlanetPositionRelative: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &251760887
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Moon
+  m_Shader: {fileID: -6465566751694194690, guid: ee3a78da0f0585a4392980caf441bbf4,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: 5ce2861fa0df15942bf13a6885bdcafb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: ad07c63aebcefb444bcfe2bb0704409d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_173e44416cc64975b068867903ec8da5_Out_0:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ElevationScale: 1
+    - _LunarLambert: 0.5
+    - _MaxElevation: 1.8
+    - _MoonRadius: 173.74
+    - _MoonRotation: 0.5
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!84 &252937003
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 128
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 48
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 3
+  m_VolumeDepth: 32
+  m_ShadowSamplingMode: 2
 --- !u!84 &253927653
 RenderTexture:
   m_ObjectHideFlags: 0
@@ -1181,6 +2034,70 @@ RenderTexture:
   m_Dimension: 2
   m_VolumeDepth: 1
   m_ShadowSamplingMode: 2
+--- !u!21 &254586481
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereAbsorption
+  m_Shader: {fileID: -6465566751694194690, guid: c65c24b48e418a44aacff32dc6ca1ba1,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 613778286}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AtmosphereHeight: 1.2
+    - _AtmosphereScale: 2
+    - _BottomRadius: 2462.2
+    - _CosineMaxSunAngle: -0.25881904
+    - _G: 0.8
+    - _HM: 0
+    - _HO: 0
+    - _HR: 0
+    - _PlanetRadius: 363
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 0
+    - _TopRadius: 2482.2
+    - _WO: 0
+    m_Colors:
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!21 &289054650
 Material:
   serializedVersion: 8
@@ -1303,6 +2220,43 @@ Material:
     - _SunColor: {r: 1, g: 1, b: 1, a: 0}
     - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!84 &303968360
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 128
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 48
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 3
+  m_VolumeDepth: 32
+  m_ShadowSamplingMode: 2
 --- !u!21 &325515306
 Material:
   serializedVersion: 8
@@ -1445,6 +2399,63 @@ Material:
     - _SunColor: {r: 16, g: 16, b: 16, a: 16}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!21 &345535316
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_VenusClouds
+  m_Shader: {fileID: -6465566751694194690, guid: 948564eec46c3e04bbabb506377664bb,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _CloudsMap:
+        m_Texture: {fileID: 2800000, guid: 7bb771697f2a986409961eaba8177549, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GroundTransmittanceTexture:
+        m_Texture: {fileID: 2013743261}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CloudsRotation: 0.9375
+    - _GroundTransmittanceCoordY: 0.030000001
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _AmbientColor: {r: 0.006844731, g: 0.005851574, b: 0.0043484173, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!21 &346531145
 Material:
   serializedVersion: 8
@@ -1500,6 +2511,124 @@ Material:
     - _QueueOffset: 0
     m_Colors:
     - _PlanetPositionRelative: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &375336822
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_SaturnRings
+  m_Shader: {fileID: -6465566751694194690, guid: c72593170161adf40ac5c2391c10ed3e,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ColorTexture:
+        m_Texture: {fileID: 2800000, guid: 5b6d4ea7539618b409e81cf3dfe449e2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_5c5d2087950a45699dd73a7bd8d971a6_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScatteringTexture:
+        m_Texture: {fileID: 2800000, guid: 9cd5c3907d1dca942bcbefca549ba5af, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _InnerRadius: 0.4891066
+    - _LightingEccentricity: 0
+    - _PhaseFuncG: 0
+    - _PlanetRadiusRelative: 0.046498027
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _PlanetPositionRelative: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &375874375
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereScattering
+  m_Shader: {fileID: -6465566751694194690, guid: aca78678a3867e24c8c7b636b1111ad0,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ScatteringTexture:
+        m_Texture: {fileID: 883395432}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 1990622913}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BottomRadius: 605
+    - _CosineMaxSunAngle: -0.25881904
+    - _MiePhaseFunctionG: 0.1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _TopRadius: 613
+    m_Colors:
+    - _MieScattering: {r: 0.025, g: 0.017254902, b: 0.011176471, a: 0.025}
+    - _RayleighScattering: {r: 0.0005, g: 0.000427451, b: 0.0003176471, a: 0.0005}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
     - _SunColor: {r: 16, g: 16, b: 16, a: 16}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
@@ -1779,6 +2908,189 @@ RenderTexture:
   m_Dimension: 2
   m_VolumeDepth: 1
   m_ShadowSamplingMode: 2
+--- !u!84 &425519645
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 64
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
+--- !u!21 &440831837
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_NeptuneClouds
+  m_Shader: {fileID: -6465566751694194690, guid: 23fda78f05a96c84dac944ee84881346,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: ce96e2b6887d5c34db29e29544435499, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudsMap:
+        m_Texture: {fileID: 2800000, guid: ad222d45a0b3a6c41ab21d26a7fb5449, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GroundTransmittanceTexture:
+        m_Texture: {fileID: 1210045529}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 320f6ff2a428c9e408ba210948aa5592, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CloudsHeight: 1.2
+    - _CloudsRotation: 0.75
+    - _ElevationScale: 2
+    - _GroundTransmittanceCoordY: 0.04
+    - _LightBrightness: 3
+    - _MaxElevation: 0.88
+    - _PlanetRadius: 636
+    - _PlanetRotation: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 4
+    m_Colors:
+    - _AmbientColor: {r: 0.0027768984, g: 0.004416272, b: 0.008531434, a: 0}
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _CloudsColor: {r: 0.943, g: 0.943, b: 0.943, a: 0}
+    - _LightColor: {r: 1, g: 1, b: 1, a: 0}
+    - _LightDirection: {r: 1, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &440953778
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereAbsorption
+  m_Shader: {fileID: -6465566751694194690, guid: c65c24b48e418a44aacff32dc6ca1ba1,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2998
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AtmosphereHeight: 1.2
+    - _AtmosphereScale: 2
+    - _BottomRadius: 363
+    - _CosineMaxSunAngle: -0.2
+    - _G: 0.8
+    - _HM: 0
+    - _HO: 0
+    - _HR: 0
+    - _PlanetRadius: 363
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 0
+    - _TopRadius: 369
+    - _WO: 0
+    m_Colors:
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!21 &441189879
 Material:
   serializedVersion: 8
@@ -1843,6 +3155,223 @@ Material:
     - _SunColor: {r: 1, g: 1, b: 1, a: 0}
     - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!21 &453731543
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_SaturnRings
+  m_Shader: {fileID: -6465566751694194690, guid: c72593170161adf40ac5c2391c10ed3e,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ColorTexture:
+        m_Texture: {fileID: 2800000, guid: 5b6d4ea7539618b409e81cf3dfe449e2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_5c5d2087950a45699dd73a7bd8d971a6_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScatteringTexture:
+        m_Texture: {fileID: 2800000, guid: 9cd5c3907d1dca942bcbefca549ba5af, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _InnerRadius: 0.4891066
+    - _LightingEccentricity: 0
+    - _PhaseFuncG: 0
+    - _PlanetRadiusRelative: 0.18542184
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _PlanetPositionRelative: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &485246564
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Mercury
+  m_Shader: {fileID: -6465566751694194690, guid: ebe76ff2110f3b64db4cf0faf4d02318,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: b430cb0cd34b46a488a9b1728e423097, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudsMap:
+        m_Texture: {fileID: 2800000, guid: ed0fbaea735792540a2c35034fd5f118, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GroundTransmittanceTexture:
+        m_Texture: {fileID: 1501131598}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: edd059730f712ef4ea56ef6716b8e263, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_173e44416cc64975b068867903ec8da5_Out_0:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CloudsHeight: 1.2
+    - _CloudsRotation: 0.5
+    - _ElevationScale: 2
+    - _EmissiveBrightness: 0
+    - _LunarLambert: 0.5
+    - _MaxElevation: 0.3
+    - _PlanetRadius: 224
+    - _PlanetRotation: 0.5
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 4
+    m_Colors:
+    - _AmbientColor: {r: 0.0057735024, g: 0.0057735024, b: 0.0057735024, a: 0}
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _CloudsColor: {r: 1, g: 1, b: 1, a: 0}
+    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!84 &492929845
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 128
+  m_Height: 128
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 48
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
+--- !u!84 &523142646
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 128
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 48
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 3
+  m_VolumeDepth: 32
+  m_ShadowSamplingMode: 2
 --- !u!21 &525147983
 Material:
   serializedVersion: 8
@@ -1903,43 +3432,6 @@ Material:
     - _SunColor: {r: 1, g: 1, b: 1, a: 0}
     - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!84 &525186395
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 128
-  m_Height: 128
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 0
-  m_ColorFormat: 48
-  m_MipMap: 0
-  m_GenerateMips: 0
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!21 &547843115
 Material:
   serializedVersion: 8
@@ -2082,7 +3574,335 @@ RenderTexture:
   m_Dimension: 2
   m_VolumeDepth: 1
   m_ShadowSamplingMode: 2
---- !u!84 &590472040
+--- !u!21 &554417993
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_SaturnRings
+  m_Shader: {fileID: -6465566751694194690, guid: c72593170161adf40ac5c2391c10ed3e,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ColorTexture:
+        m_Texture: {fileID: 2800000, guid: 5b6d4ea7539618b409e81cf3dfe449e2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_5c5d2087950a45699dd73a7bd8d971a6_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScatteringTexture:
+        m_Texture: {fileID: 2800000, guid: 9cd5c3907d1dca942bcbefca549ba5af, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _InnerRadius: 0.4891066
+    - _LightingEccentricity: 0
+    - _PhaseFuncG: 0
+    - _PlanetRadiusRelative: 0.02478067
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _PlanetPositionRelative: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &558138664
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Saturn
+  m_Shader: {fileID: -6465566751694194690, guid: 3e3ff25152cb5d44aa4ca43863c05223,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: 4011830a2b3830042bce21eaf7ab6a89, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudsMap:
+        m_Texture: {fileID: 2800000, guid: ed0fbaea735792540a2c35034fd5f118, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GroundTransmittanceTexture:
+        m_Texture: {fileID: 656490615}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: d62e03589bd7e6d428aa816f85cddc13, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RingsTexture:
+        m_Texture: {fileID: 2800000, guid: 9cd5c3907d1dca942bcbefca549ba5af, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_173e44416cc64975b068867903ec8da5_Out_0:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CloudsHeight: 1.2
+    - _CloudsRotation: 0
+    - _ElevationScale: 2
+    - _EmissiveBrightness: 0
+    - _LunarLambert: 0
+    - _MaxElevation: 0.88
+    - _PlanetRadius: 5823.2
+    - _PlanetRotation: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _RingInnerRadiusRelative: 1.1488528
+    - _RingOuterRadiusRelative: 2.3488803
+    - _SunBrightness: 4
+    m_Colors:
+    - _AmbientColor: {r: 0.0067802602, g: 0.005955993, b: 0.0043074596, a: 0}
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _CloudsColor: {r: 1, g: 1, b: 1, a: 0}
+    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+    - _RingNormalRelative: {r: 0, g: 1, b: 0, a: 0}
+    - _RingPositionRelative: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &584673610
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_SaturnRings
+  m_Shader: {fileID: -6465566751694194690, guid: c72593170161adf40ac5c2391c10ed3e,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ColorTexture:
+        m_Texture: {fileID: 2800000, guid: 5b6d4ea7539618b409e81cf3dfe449e2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_5c5d2087950a45699dd73a7bd8d971a6_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScatteringTexture:
+        m_Texture: {fileID: 2800000, guid: 9cd5c3907d1dca942bcbefca549ba5af, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _InnerRadius: 0.4891066
+    - _LightingEccentricity: 0
+    - _PhaseFuncG: 0
+    - _PlanetRadiusRelative: 0.016376663
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _PlanetPositionRelative: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &595686913
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_EarthClouds
+  m_Shader: {fileID: -6465566751694194690, guid: 23fda78f05a96c84dac944ee84881346,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: ce96e2b6887d5c34db29e29544435499, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudsMap:
+        m_Texture: {fileID: 2800000, guid: e994a2cd22a01344abcae576c04ed619, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GroundTransmittanceTexture:
+        m_Texture: {fileID: 492929845}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 320f6ff2a428c9e408ba210948aa5592, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CloudsHeight: 1.2
+    - _CloudsRotation: 0.5
+    - _ElevationScale: 2
+    - _GroundTransmittanceCoordY: 0.020000001
+    - _LightBrightness: 3
+    - _MaxElevation: 0.88
+    - _PlanetRadius: 636
+    - _PlanetRotation: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 4
+    m_Colors:
+    - _AmbientColor: {r: 0.0015989196, g: 0.003736904, b: 0.009136683, a: 0}
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _CloudsColor: {r: 0.943, g: 0.943, b: 0.943, a: 0}
+    - _LightColor: {r: 1, g: 1, b: 1, a: 0}
+    - _LightDirection: {r: 1, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!84 &605020337
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 128
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 48
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 3
+  m_VolumeDepth: 32
+  m_ShadowSamplingMode: 2
+--- !u!84 &613778286
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2274,6 +4094,103 @@ Material:
     - _SunColor: {r: 1, g: 1, b: 1, a: 0}
     - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!84 &656490615
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 128
+  m_Height: 128
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 48
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
+--- !u!21 &703048691
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereScattering
+  m_Shader: {fileID: -6465566751694194690, guid: aca78678a3867e24c8c7b636b1111ad0,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2999
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ScatteringTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BottomRadius: 363
+    - _CosineMaxSunAngle: -0.2
+    - _MiePhaseFunctionG: 0.8
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _TopRadius: 369
+    m_Colors:
+    - _MieScattering: {r: 0, g: 0, b: 0, a: 0}
+    - _RayleighScattering: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!84 &703117504
 RenderTexture:
   m_ObjectHideFlags: 0
@@ -2371,6 +4288,88 @@ Material:
     - _SunColor: {r: 16, g: 16, b: 16, a: 16}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!21 &715610115
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_NoClouds
+  m_Shader: {fileID: -6465566751694194690, guid: 23fda78f05a96c84dac944ee84881346,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: ce96e2b6887d5c34db29e29544435499, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudsMap:
+        m_Texture: {fileID: 2800000, guid: ed0fbaea735792540a2c35034fd5f118, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GroundTransmittanceTexture:
+        m_Texture: {fileID: 656490615}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 320f6ff2a428c9e408ba210948aa5592, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CloudsHeight: 1.2
+    - _CloudsRotation: 0
+    - _ElevationScale: 2
+    - _GroundTransmittanceCoordY: 0.030000001
+    - _LightBrightness: 3
+    - _MaxElevation: 0.88
+    - _PlanetRadius: 636
+    - _PlanetRotation: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 4
+    m_Colors:
+    - _AmbientColor: {r: 0.0067802602, g: 0.005955993, b: 0.0043074596, a: 0}
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _CloudsColor: {r: 1, g: 1, b: 1, a: 0}
+    - _LightColor: {r: 1, g: 1, b: 1, a: 0}
+    - _LightDirection: {r: 1, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!21 &724956169
 Material:
   serializedVersion: 8
@@ -2435,6 +4434,43 @@ Material:
     - _SunColor: {r: 16, g: 16, b: 16, a: 16}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!84 &742416755
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 128
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 48
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 3
+  m_VolumeDepth: 32
+  m_ShadowSamplingMode: 2
 --- !u!21 &793760857
 Material:
   serializedVersion: 8
@@ -2596,29 +4632,29 @@ RenderTexture:
   m_Dimension: 2
   m_VolumeDepth: 1
   m_ShadowSamplingMode: 2
---- !u!21 &860569465
+--- !u!21 &844972691
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Jupiter
-  m_Shader: {fileID: -6465566751694194690, guid: ebe76ff2110f3b64db4cf0faf4d02318,
+  m_Name: M_UranusClouds
+  m_Shader: {fileID: -6465566751694194690, guid: 23fda78f05a96c84dac944ee84881346,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoMap:
-        m_Texture: {fileID: 2800000, guid: ac8878a542ec02646a09ac3022125274, type: 3}
+        m_Texture: {fileID: 2800000, guid: ce96e2b6887d5c34db29e29544435499, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AtmosphereDepthTexture:
@@ -2626,19 +4662,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CloudsMap:
-        m_Texture: {fileID: 2800000, guid: ed0fbaea735792540a2c35034fd5f118, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5d69809750a10fc4f95caceeb5200953, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GroundTransmittanceTexture:
-        m_Texture: {fileID: 525186395}
+        m_Texture: {fileID: 1899893671}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: a3984cb48c2e63f40910d16e944f4597, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_173e44416cc64975b068867903ec8da5_Out_0:
-        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Texture: {fileID: 2800000, guid: 320f6ff2a428c9e408ba210948aa5592, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -2656,23 +4688,24 @@ Material:
     m_Ints: []
     m_Floats:
     - _CloudsHeight: 1.2
-    - _CloudsRotation: 0.25
+    - _CloudsRotation: 0
     - _ElevationScale: 2
-    - _EmissiveBrightness: 0
-    - _LunarLambert: 0
+    - _GroundTransmittanceCoordY: 0.025
+    - _LightBrightness: 3
     - _MaxElevation: 0.88
-    - _PlanetRadius: 7149.2
-    - _PlanetRotation: 0.25
+    - _PlanetRadius: 636
+    - _PlanetRotation: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SunBrightness: 4
     m_Colors:
-    - _AmbientColor: {r: 0.0073590693, g: 0.005367792, b: 0.004126851, a: 0}
+    - _AmbientColor: {r: 0.0015602913, g: 0.0044034887, b: 0.008841651, a: 0}
     - _BetaM: {r: 0, g: 0, b: 0, a: 0}
     - _BetaO: {r: 0, g: 0, b: 0, a: 0}
     - _BetaR: {r: 0, g: 0, b: 0, a: 0}
-    - _CloudsColor: {r: 1, g: 1, b: 1, a: 0}
-    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+    - _CloudsColor: {r: 0.943, g: 0.943, b: 0.943, a: 0}
+    - _LightColor: {r: 1, g: 1, b: 1, a: 0}
+    - _LightDirection: {r: 1, g: 0, b: 0, a: 0}
     - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
@@ -2681,6 +4714,140 @@ Material:
     - _SunColor: {r: 16, g: 16, b: 16, a: 16}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!84 &864547201
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 128
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 48
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 3
+  m_VolumeDepth: 32
+  m_ShadowSamplingMode: 2
+--- !u!21 &876405450
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereScattering
+  m_Shader: {fileID: -6465566751694194690, guid: aca78678a3867e24c8c7b636b1111ad0,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ScatteringTexture:
+        m_Texture: {fileID: 523142646}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 1185623070}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BottomRadius: 338.95
+    - _CosineMaxSunAngle: -0.25881904
+    - _MiePhaseFunctionG: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _TopRadius: 344.95
+    m_Colors:
+    - _MieScattering: {r: 0.06666667, g: 0.029542483, b: 0.01908497, a: 0.06666667}
+    - _RayleighScattering: {r: 0.026666665, g: 0.008052288, b: 0.004705882, a: 0.026666665}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!84 &883395432
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 128
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 48
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 3
+  m_VolumeDepth: 32
+  m_ShadowSamplingMode: 2
 --- !u!21 &890574487
 Material:
   serializedVersion: 8
@@ -2760,6 +4927,66 @@ Material:
     - _SunColor: {r: 4, g: 4, b: 4, a: 4}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!21 &890846348
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereScattering
+  m_Shader: {fileID: -6465566751694194690, guid: aca78678a3867e24c8c7b636b1111ad0,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ScatteringTexture:
+        m_Texture: {fileID: 252937003}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 238099013}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BottomRadius: 2536.2
+    - _CosineMaxSunAngle: -0.25881904
+    - _MiePhaseFunctionG: 0.3
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _TopRadius: 2576.2
+    m_Colors:
+    - _MieScattering: {r: 0.0045588235, g: 0.0125, b: 0.012058823, a: 0.0125}
+    - _RayleighScattering: {r: 0.0000882353, g: 0.00024901962, b: 0.0005, a: 0.0005}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!21 &898272896
 Material:
   serializedVersion: 8
@@ -2823,6 +5050,66 @@ Material:
     - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
     - _SunColor: {r: 16, g: 16, b: 16, a: 16}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &908684988
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereScattering
+  m_Shader: {fileID: -6465566751694194690, guid: aca78678a3867e24c8c7b636b1111ad0,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2999
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ScatteringTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BottomRadius: 363
+    - _CosineMaxSunAngle: -0.2
+    - _MiePhaseFunctionG: 0.8
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _TopRadius: 369
+    m_Colors:
+    - _MieScattering: {r: 0, g: 0, b: 0, a: 0}
+    - _RayleighScattering: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!21 &911746461
 Material:
@@ -3021,6 +5308,107 @@ Material:
     - _SunColor: {r: 4, g: 4, b: 4, a: 4}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!21 &961036897
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereAbsorption
+  m_Shader: {fileID: -6465566751694194690, guid: c65c24b48e418a44aacff32dc6ca1ba1,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 1990622913}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AtmosphereHeight: 1.2
+    - _AtmosphereScale: 2
+    - _BottomRadius: 605
+    - _CosineMaxSunAngle: -0.25881904
+    - _G: 0.8
+    - _HM: 0
+    - _HO: 0
+    - _HR: 0
+    - _PlanetRadius: 363
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 0
+    - _TopRadius: 613
+    - _WO: 0
+    m_Colors:
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!84 &967459233
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 128
+  m_Height: 128
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 48
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!84 &967874587
 RenderTexture:
   m_ObjectHideFlags: 0
@@ -3116,6 +5504,70 @@ Material:
     - _SunColor: {r: 16, g: 16, b: 16, a: 16}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!21 &983970421
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereAbsorption
+  m_Shader: {fileID: -6465566751694194690, guid: c65c24b48e418a44aacff32dc6ca1ba1,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 1185623070}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AtmosphereHeight: 1.2
+    - _AtmosphereScale: 2
+    - _BottomRadius: 338.95
+    - _CosineMaxSunAngle: -0.25881904
+    - _G: 0.8
+    - _HM: 0
+    - _HO: 0
+    - _HR: 0
+    - _PlanetRadius: 363
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 0
+    - _TopRadius: 344.95
+    - _WO: 0
+    m_Colors:
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!21 &991453864
 Material:
   serializedVersion: 8
@@ -3188,44 +5640,7 @@ Material:
     - _SunColor: {r: 4, g: 4, b: 4, a: 4}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!84 &1006573996
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 256
-  m_Height: 128
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 0
-  m_ColorFormat: 48
-  m_MipMap: 0
-  m_GenerateMips: 0
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 3
-  m_VolumeDepth: 32
-  m_ShadowSamplingMode: 2
---- !u!21 &1036086855
+--- !u!21 &996414945
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -3240,18 +5655,18 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2999
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _ScatteringTexture:
-        m_Texture: {fileID: 1006573996}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TransmittanceTexture:
-        m_Texture: {fileID: 590472040}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -3268,24 +5683,61 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BottomRadius: 7149.2
-    - _CosineMaxSunAngle: -0.25881904
-    - _MiePhaseFunctionG: 0.15
+    - _BottomRadius: 363
+    - _CosineMaxSunAngle: -0.2
+    - _MiePhaseFunctionG: 0.8
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _TopRadius: 7197.2
+    - _TopRadius: 369
     m_Colors:
-    - _MieScattering: {r: 0.015, g: 0.011352941, b: 0.008117647, a: 0.015}
-    - _RayleighScattering: {r: 0.0005, g: 0.00036470592, b: 0.00028039218, a: 0.0005}
+    - _MieScattering: {r: 0, g: 0, b: 0, a: 0}
+    - _RayleighScattering: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
-    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
-    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!21 &1042213866
+--- !u!84 &1026111461
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 64
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
+--- !u!21 &1048460279
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -3335,7 +5787,7 @@ Material:
     - _InnerRadius: 0.4891066
     - _LightingEccentricity: 0
     - _PhaseFuncG: 0
-    - _PlanetRadiusRelative: 0.5226788
+    - _PlanetRadiusRelative: 0.044231612
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
@@ -3343,6 +5795,43 @@ Material:
     - _SunColor: {r: 16, g: 16, b: 16, a: 16}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!84 &1053212385
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 64
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!84 &1067196490
 RenderTexture:
   m_ObjectHideFlags: 0
@@ -3516,7 +6005,145 @@ Material:
     - _SunColor: {r: 16, g: 16, b: 16, a: 16}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!21 &1131955601
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereAbsorption
+  m_Shader: {fileID: -6465566751694194690, guid: c65c24b48e418a44aacff32dc6ca1ba1,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 1053212385}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AtmosphereHeight: 1.2
+    - _AtmosphereScale: 2
+    - _BottomRadius: 257.47
+    - _CosineMaxSunAngle: -0.57357645
+    - _G: 0.8
+    - _HM: 0
+    - _HO: 0
+    - _HR: 0
+    - _PlanetRadius: 363
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 0
+    - _TopRadius: 307.27
+    - _WO: 0
+    m_Colors:
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!84 &1178075147
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 128
+  m_Height: 128
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 48
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
+--- !u!84 &1185623070
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 64
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
+--- !u!84 &1210045529
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3731,6 +6358,84 @@ Material:
     - _SunColor: {r: 16, g: 16, b: 16, a: 16}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!21 &1260024805
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Neptune
+  m_Shader: {fileID: -6465566751694194690, guid: ebe76ff2110f3b64db4cf0faf4d02318,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: 399cc7e7516e13b47a1dd2fde8319a89, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudsMap:
+        m_Texture: {fileID: 2800000, guid: ad222d45a0b3a6c41ab21d26a7fb5449, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GroundTransmittanceTexture:
+        m_Texture: {fileID: 1210045529}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: fdee6d9c8e7f1f44abf96ae0badf9c8b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_173e44416cc64975b068867903ec8da5_Out_0:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CloudsHeight: 4
+    - _CloudsRotation: 0.75
+    - _ElevationScale: 2
+    - _EmissiveBrightness: 2.5
+    - _LunarLambert: 0
+    - _MaxElevation: 0.88
+    - _PlanetRadius: 2462.2
+    - _PlanetRotation: 0.75
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 4
+    m_Colors:
+    - _AmbientColor: {r: 0.0027768984, g: 0.004416272, b: 0.008531434, a: 0}
+    - _CloudsColor: {r: 1, g: 1, b: 1, a: 0}
+    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!84 &1262409822
 RenderTexture:
   m_ObjectHideFlags: 0
@@ -3889,6 +6594,70 @@ Material:
     - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
     - _SunColor: {r: 4, g: 4, b: 4, a: 4}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &1314712200
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereAbsorption
+  m_Shader: {fileID: -6465566751694194690, guid: c65c24b48e418a44aacff32dc6ca1ba1,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 238099013}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AtmosphereHeight: 1.2
+    - _AtmosphereScale: 2
+    - _BottomRadius: 2536.2
+    - _CosineMaxSunAngle: -0.25881904
+    - _G: 0.8
+    - _HM: 0
+    - _HO: 0
+    - _HR: 0
+    - _PlanetRadius: 363
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 0
+    - _TopRadius: 2576.2
+    - _WO: 0
+    m_Colors:
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1001 &1319465568
 PrefabInstance:
@@ -4118,6 +6887,70 @@ Material:
     - _SunColor: {r: 1, g: 1, b: 1, a: 0}
     - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!21 &1379720627
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Io
+  m_Shader: {fileID: -6465566751694194690, guid: ee3a78da0f0585a4392980caf441bbf4,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: 0b6dc9a40d8ef084cb24ece6a35e27ba, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 65f41197536c0644991f68b8e59a1a57, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_173e44416cc64975b068867903ec8da5_Out_0:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ElevationScale: 2
+    - _LunarLambert: 0.5
+    - _MaxElevation: 1.8
+    - _MoonRadius: 182.16
+    - _MoonRotation: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!21 &1387756439
 Material:
   serializedVersion: 8
@@ -4177,6 +7010,247 @@ Material:
     - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
     - _SunColor: {r: 1, g: 1, b: 1, a: 0}
     - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &1390578601
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereAbsorption
+  m_Shader: {fileID: -6465566751694194690, guid: c65c24b48e418a44aacff32dc6ca1ba1,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 1026111461}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AtmosphereHeight: 1.2
+    - _AtmosphereScale: 2
+    - _BottomRadius: 636
+    - _CosineMaxSunAngle: -0.25881904
+    - _G: 0.8
+    - _HM: 0
+    - _HO: 0
+    - _HR: 0
+    - _PlanetRadius: 363
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 0
+    - _TopRadius: 648
+    - _WO: 0
+    m_Colors:
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &1396592405
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_NoClouds
+  m_Shader: {fileID: -6465566751694194690, guid: 23fda78f05a96c84dac944ee84881346,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2997
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: ce96e2b6887d5c34db29e29544435499, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudsMap:
+        m_Texture: {fileID: 2800000, guid: ed0fbaea735792540a2c35034fd5f118, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GroundTransmittanceTexture:
+        m_Texture: {fileID: 967459233}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 320f6ff2a428c9e408ba210948aa5592, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CloudsHeight: 1.2
+    - _CloudsRotation: 0
+    - _ElevationScale: 2
+    - _GroundTransmittanceCoordY: 0.010000001
+    - _LightBrightness: 3
+    - _MaxElevation: 0.88
+    - _PlanetRadius: 636
+    - _PlanetRotation: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 4
+    m_Colors:
+    - _AmbientColor: {r: 0.0073590693, g: 0.005367792, b: 0.004126851, a: 0}
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _CloudsColor: {r: 1, g: 1, b: 1, a: 0}
+    - _LightColor: {r: 1, g: 1, b: 1, a: 0}
+    - _LightDirection: {r: 1, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!84 &1400493591
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 128
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 48
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 3
+  m_VolumeDepth: 32
+  m_ShadowSamplingMode: 2
+--- !u!21 &1406081958
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_SaturnRings
+  m_Shader: {fileID: -6465566751694194690, guid: c72593170161adf40ac5c2391c10ed3e,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ColorTexture:
+        m_Texture: {fileID: 2800000, guid: 5b6d4ea7539618b409e81cf3dfe449e2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_5c5d2087950a45699dd73a7bd8d971a6_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScatteringTexture:
+        m_Texture: {fileID: 2800000, guid: 9cd5c3907d1dca942bcbefca549ba5af, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _InnerRadius: 0.4891066
+    - _LightingEccentricity: 0
+    - _PhaseFuncG: 0
+    - _PlanetRadiusRelative: 0.18001169
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _PlanetPositionRelative: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!21 &1416744267
 Material:
@@ -4259,6 +7333,198 @@ Material:
     - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
     - _SunColor: {r: 16, g: 16, b: 16, a: 16}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &1418892216
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Ganymede
+  m_Shader: {fileID: -6465566751694194690, guid: ee3a78da0f0585a4392980caf441bbf4,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: 4793db2d8204b374da56fa4fa03b239b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 68333ee73e1aadd4480c1652d421d69b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_173e44416cc64975b068867903ec8da5_Out_0:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ElevationScale: 2
+    - _LunarLambert: 0.5
+    - _MaxElevation: 0.1
+    - _MoonRadius: 263.41
+    - _MoonRotation: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &1422294269
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereAbsorption
+  m_Shader: {fileID: -6465566751694194690, guid: c65c24b48e418a44aacff32dc6ca1ba1,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2998
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AtmosphereHeight: 1.2
+    - _AtmosphereScale: 2
+    - _BottomRadius: 363
+    - _CosineMaxSunAngle: -0.2
+    - _G: 0.8
+    - _HM: 0
+    - _HO: 0
+    - _HR: 0
+    - _PlanetRadius: 363
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 0
+    - _TopRadius: 369
+    - _WO: 0
+    m_Colors:
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &1430720588
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereAbsorption
+  m_Shader: {fileID: -6465566751694194690, guid: c65c24b48e418a44aacff32dc6ca1ba1,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2998
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AtmosphereHeight: 1.2
+    - _AtmosphereScale: 2
+    - _BottomRadius: 363
+    - _CosineMaxSunAngle: -0.2
+    - _G: 0.8
+    - _HM: 0
+    - _HO: 0
+    - _HR: 0
+    - _PlanetRadius: 363
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 0
+    - _TopRadius: 369
+    - _WO: 0
+    m_Colors:
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!84 &1433356092
 RenderTexture:
@@ -4455,6 +7721,138 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1445098647
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereAbsorption
+  m_Shader: {fileID: -6465566751694194690, guid: c65c24b48e418a44aacff32dc6ca1ba1,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2998
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 1489701145}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AtmosphereHeight: 1.2
+    - _AtmosphereScale: 2
+    - _BottomRadius: 7149.2
+    - _CosineMaxSunAngle: -0.25881904
+    - _G: 0.8
+    - _HM: 0
+    - _HO: 0
+    - _HR: 0
+    - _PlanetRadius: 363
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 0
+    - _TopRadius: 7197.2
+    - _WO: 0
+    m_Colors:
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &1452368936
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereScatteringRings
+  m_Shader: {fileID: -6465566751694194690, guid: 6ed3d5c301fc00545ae9ccf8a978d098,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _RingsTexture:
+        m_Texture: {fileID: 2800000, guid: 9cd5c3907d1dca942bcbefca549ba5af, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScatteringTexture:
+        m_Texture: {fileID: 1400493591}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 2121664247}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BottomRadius: 5823.2
+    - _CosineMaxSunAngle: -0.25881904
+    - _MiePhaseFunctionG: 0.15
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _RingInnerRadiusRelative: 1.1425741
+    - _RingOuterRadiusRelative: 2.3360431
+    - _TopRadius: 5855.2
+    m_Colors:
+    - _MieScattering: {r: 0.01875, g: 0.015220589, b: 0.012279413, a: 0.01875}
+    - _RayleighScattering: {r: 0.000625, g: 0.0005490196, b: 0.00039705881, a: 0.000625}
+    - _RingNormalRelative: {r: 0, g: 1, b: 0, a: 0}
+    - _RingPositionRelative: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!21 &1453686655
 Material:
   serializedVersion: 8
@@ -4611,6 +8009,43 @@ RenderTexture:
   m_Dimension: 3
   m_VolumeDepth: 32
   m_ShadowSamplingMode: 2
+--- !u!84 &1489701145
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 64
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!21 &1492103389
 Material:
   serializedVersion: 8
@@ -4671,6 +8106,128 @@ Material:
     - _SunColor: {r: 16, g: 16, b: 16, a: 16}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!21 &1497252067
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Mars
+  m_Shader: {fileID: -6465566751694194690, guid: ebe76ff2110f3b64db4cf0faf4d02318,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: 88f444f87deba8f4cbcb2efbb1a33c90, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudsMap:
+        m_Texture: {fileID: 2800000, guid: ed0fbaea735792540a2c35034fd5f118, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GroundTransmittanceTexture:
+        m_Texture: {fileID: 2830075}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: d99aaee62bc4db74a82b4a78335958f2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_173e44416cc64975b068867903ec8da5_Out_0:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CloudsHeight: 1.2
+    - _CloudsRotation: 0.5
+    - _ElevationScale: 2
+    - _EmissiveBrightness: 0
+    - _LunarLambert: 0.5
+    - _MaxElevation: 3.1
+    - _PlanetRadius: 338.95
+    - _PlanetRotation: 0.5
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 4
+    m_Colors:
+    - _AmbientColor: {r: 0.0094393315, g: 0.0028503079, b: 0.0016657643, a: 0}
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _CloudsColor: {r: 1, g: 1, b: 1, a: 0}
+    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!84 &1501131598
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 128
+  m_Height: 128
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 48
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!21 &1510434685
 Material:
   serializedVersion: 8
@@ -4882,88 +8439,6 @@ Material:
     - _SunColor: {r: 4, g: 4, b: 4, a: 4}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!21 &1547498761
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: M_NoClouds
-  m_Shader: {fileID: -6465566751694194690, guid: 23fda78f05a96c84dac944ee84881346,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlbedoMap:
-        m_Texture: {fileID: 2800000, guid: ce96e2b6887d5c34db29e29544435499, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _AtmosphereDepthTexture:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _CloudsMap:
-        m_Texture: {fileID: 2800000, guid: ed0fbaea735792540a2c35034fd5f118, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _GroundTransmittanceTexture:
-        m_Texture: {fileID: 525186395}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 320f6ff2a428c9e408ba210948aa5592, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _CloudsHeight: 1.2
-    - _CloudsRotation: 0.25
-    - _ElevationScale: 2
-    - _GroundTransmittanceCoordY: 0.010000001
-    - _LightBrightness: 3
-    - _MaxElevation: 0.88
-    - _PlanetRadius: 636
-    - _PlanetRotation: 0
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _SunBrightness: 4
-    m_Colors:
-    - _AmbientColor: {r: 0.0073590693, g: 0.005367792, b: 0.004126851, a: 0}
-    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
-    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
-    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
-    - _CloudsColor: {r: 1, g: 1, b: 1, a: 0}
-    - _LightColor: {r: 1, g: 1, b: 1, a: 0}
-    - _LightDirection: {r: 1, g: 0, b: 0, a: 0}
-    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
-    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
-    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
-    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
-    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
-    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
-    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
-  m_BuildTextureStacks: []
 --- !u!21 &1576372224
 Material:
   serializedVersion: 8
@@ -5032,6 +8507,66 @@ Material:
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
     - _SunColor: {r: 4, g: 4, b: 4, a: 4}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &1585286356
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereScattering
+  m_Shader: {fileID: -6465566751694194690, guid: aca78678a3867e24c8c7b636b1111ad0,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2999
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ScatteringTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BottomRadius: 363
+    - _CosineMaxSunAngle: -0.2
+    - _MiePhaseFunctionG: 0.8
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _TopRadius: 369
+    m_Colors:
+    - _MieScattering: {r: 0, g: 0, b: 0, a: 0}
+    - _RayleighScattering: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!21 &1601449981
 Material:
@@ -5138,6 +8673,88 @@ RenderTexture:
   m_Dimension: 2
   m_VolumeDepth: 1
   m_ShadowSamplingMode: 2
+--- !u!21 &1625176539
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_NoClouds
+  m_Shader: {fileID: -6465566751694194690, guid: 23fda78f05a96c84dac944ee84881346,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: ce96e2b6887d5c34db29e29544435499, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudsMap:
+        m_Texture: {fileID: 2800000, guid: ed0fbaea735792540a2c35034fd5f118, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GroundTransmittanceTexture:
+        m_Texture: {fileID: 1501131598}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 320f6ff2a428c9e408ba210948aa5592, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CloudsHeight: 1.2
+    - _CloudsRotation: 0.5
+    - _ElevationScale: 2
+    - _GroundTransmittanceCoordY: 0.060000002
+    - _LightBrightness: 3
+    - _MaxElevation: 0.88
+    - _PlanetRadius: 636
+    - _PlanetRotation: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 4
+    m_Colors:
+    - _AmbientColor: {r: 0.0057735024, g: 0.0057735024, b: 0.0057735024, a: 0}
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _CloudsColor: {r: 1, g: 1, b: 1, a: 0}
+    - _LightColor: {r: 1, g: 1, b: 1, a: 0}
+    - _LightDirection: {r: 1, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!84 &1635553900
 RenderTexture:
   m_ObjectHideFlags: 0
@@ -5640,6 +9257,70 @@ RenderTexture:
   m_Dimension: 2
   m_VolumeDepth: 1
   m_ShadowSamplingMode: 2
+--- !u!21 &1749498006
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereAbsorption
+  m_Shader: {fileID: -6465566751694194690, guid: c65c24b48e418a44aacff32dc6ca1ba1,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2998
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AtmosphereHeight: 1.2
+    - _AtmosphereScale: 2
+    - _BottomRadius: 363
+    - _CosineMaxSunAngle: -0.2
+    - _G: 0.8
+    - _HM: 0
+    - _HO: 0
+    - _HR: 0
+    - _PlanetRadius: 363
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 0
+    - _TopRadius: 369
+    - _WO: 0
+    m_Colors:
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!21 &1750706402
 Material:
   serializedVersion: 8
@@ -5735,6 +9416,70 @@ RenderTexture:
   m_Dimension: 2
   m_VolumeDepth: 1
   m_ShadowSamplingMode: 2
+--- !u!21 &1764289085
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Europa
+  m_Shader: {fileID: -6465566751694194690, guid: ee3a78da0f0585a4392980caf441bbf4,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: 3c1fa65d232cf494da6162bfc801491a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: fbc4ef0281957d94ca7019064aa78837, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_173e44416cc64975b068867903ec8da5_Out_0:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ElevationScale: 2
+    - _LunarLambert: 0.5
+    - _MaxElevation: 0.1
+    - _MoonRadius: 263.41
+    - _MoonRotation: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!84 &1765599134
 RenderTexture:
   m_ObjectHideFlags: 0
@@ -5844,6 +9589,88 @@ Material:
     - _BetaO: {r: 0, g: 0, b: 0, a: 0}
     - _BetaR: {r: 0, g: 0, b: 0, a: 0}
     - _CloudsColor: {r: 0.943, g: 0.943, b: 0.943, a: 0}
+    - _LightColor: {r: 1, g: 1, b: 1, a: 0}
+    - _LightDirection: {r: 1, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &1767877977
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_NoClouds
+  m_Shader: {fileID: -6465566751694194690, guid: 23fda78f05a96c84dac944ee84881346,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: ce96e2b6887d5c34db29e29544435499, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudsMap:
+        m_Texture: {fileID: 2800000, guid: ed0fbaea735792540a2c35034fd5f118, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GroundTransmittanceTexture:
+        m_Texture: {fileID: 2830075}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 320f6ff2a428c9e408ba210948aa5592, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CloudsHeight: 1.2
+    - _CloudsRotation: 0.5
+    - _ElevationScale: 2
+    - _GroundTransmittanceCoordY: 0.015000001
+    - _LightBrightness: 3
+    - _MaxElevation: 0.88
+    - _PlanetRadius: 636
+    - _PlanetRotation: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 4
+    m_Colors:
+    - _AmbientColor: {r: 0.0094393315, g: 0.0028503079, b: 0.0016657643, a: 0}
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _CloudsColor: {r: 1, g: 1, b: 1, a: 0}
     - _LightColor: {r: 1, g: 1, b: 1, a: 0}
     - _LightDirection: {r: 1, g: 0, b: 0, a: 0}
     - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
@@ -6029,70 +9856,6 @@ Material:
     - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
     - _SunColor: {r: 16, g: 16, b: 16, a: 16}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
-  m_BuildTextureStacks: []
---- !u!21 &1782123871
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: M_AtmosphereAbsorption
-  m_Shader: {fileID: -6465566751694194690, guid: c65c24b48e418a44aacff32dc6ca1ba1,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AtmosphereDepthTexture:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _TransmittanceTexture:
-        m_Texture: {fileID: 590472040}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AtmosphereHeight: 1.2
-    - _AtmosphereScale: 2
-    - _BottomRadius: 7149.2
-    - _CosineMaxSunAngle: -0.25881904
-    - _G: 0.8
-    - _HM: 0
-    - _HO: 0
-    - _HR: 0
-    - _PlanetRadius: 363
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _SunBrightness: 0
-    - _TopRadius: 7197.2
-    - _WO: 0
-    m_Colors:
-    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
-    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
-    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
-    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
-    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!84 &1784295009
 RenderTexture:
@@ -6360,6 +10123,138 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!21 &1889360328
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Titan
+  m_Shader: {fileID: -6465566751694194690, guid: 6583949bf73f17440948dc003961e672,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: 2b6540a819e065a459fbaabd3a51e3e1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GroundTransmittanceTexture:
+        m_Texture: {fileID: 33523607}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: ffe3c7cf6b363b548a43ab08d1dbc8c0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_173e44416cc64975b068867903ec8da5_Out_0:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ElevationScale: 2
+    - _LunarLambert: 0.5
+    - _MaxElevation: 0.5
+    - _MoonRadius: 257.47
+    - _MoonRotation: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _AmbientColor: {r: 0.0013516408, g: 0.0035680728, b: 0.00924348, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &1889944389
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereAbsorption
+  m_Shader: {fileID: -6465566751694194690, guid: c65c24b48e418a44aacff32dc6ca1ba1,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 425519645}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AtmosphereHeight: 1.2
+    - _AtmosphereScale: 2
+    - _BottomRadius: 224
+    - _CosineMaxSunAngle: -0.25881904
+    - _G: 0.8
+    - _HM: 0
+    - _HO: 0
+    - _HR: 0
+    - _PlanetRadius: 363
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 0
+    - _TopRadius: 228
+    - _WO: 0
+    m_Colors:
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!21 &1894494019
 Material:
   serializedVersion: 8
@@ -6442,6 +10337,43 @@ Material:
     - _SunColor: {r: 16, g: 16, b: 16, a: 16}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!84 &1899893671
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 128
+  m_Height: 128
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 48
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!21 &1919988337
 Material:
   serializedVersion: 8
@@ -6564,6 +10496,184 @@ Material:
     - _SunColor: {r: 16, g: 16, b: 16, a: 16}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!21 &1935595758
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereScattering
+  m_Shader: {fileID: -6465566751694194690, guid: aca78678a3867e24c8c7b636b1111ad0,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2999
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ScatteringTexture:
+        m_Texture: {fileID: 864547201}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 1489701145}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BottomRadius: 7149.2
+    - _CosineMaxSunAngle: -0.25881904
+    - _MiePhaseFunctionG: 0.15
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _TopRadius: 7197.2
+    m_Colors:
+    - _MieScattering: {r: 0.015, g: 0.011352941, b: 0.008117647, a: 0.015}
+    - _RayleighScattering: {r: 0.0005, g: 0.00036470592, b: 0.00028039218, a: 0.0005}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &1945084166
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_SaturnRings
+  m_Shader: {fileID: -6465566751694194690, guid: c72593170161adf40ac5c2391c10ed3e,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ColorTexture:
+        m_Texture: {fileID: 2800000, guid: 5b6d4ea7539618b409e81cf3dfe449e2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_5c5d2087950a45699dd73a7bd8d971a6_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScatteringTexture:
+        m_Texture: {fileID: 2800000, guid: 9cd5c3907d1dca942bcbefca549ba5af, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _InnerRadius: 0.4891066
+    - _LightingEccentricity: 0
+    - _PhaseFuncG: 0
+    - _PlanetRadiusRelative: 0.5226788
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _PlanetPositionRelative: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &1963764886
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereScattering
+  m_Shader: {fileID: -6465566751694194690, guid: aca78678a3867e24c8c7b636b1111ad0,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ScatteringTexture:
+        m_Texture: {fileID: 187505461}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 425519645}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BottomRadius: 224
+    - _CosineMaxSunAngle: -0.25881904
+    - _MiePhaseFunctionG: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _TopRadius: 228
+    m_Colors:
+    - _MieScattering: {r: 0.005, g: 0.005, b: 0.005, a: 0.005}
+    - _RayleighScattering: {r: 0.0005, g: 0.0005, b: 0.0005, a: 0.0005}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!21 &1971903586
 Material:
   serializedVersion: 8
@@ -6620,6 +10730,107 @@ Material:
     - _QueueOffset: 0
     - _SunBrightness: 0
     - _TopRadius: 369
+    - _WO: 0
+    m_Colors:
+    - _BetaM: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaO: {r: 0, g: 0, b: 0, a: 0}
+    - _BetaR: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!84 &1990622913
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 64
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
+--- !u!21 &2001392358
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereAbsorption
+  m_Shader: {fileID: -6465566751694194690, guid: c65c24b48e418a44aacff32dc6ca1ba1,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AtmosphereDepthTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 2121664247}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AtmosphereHeight: 1.2
+    - _AtmosphereScale: 2
+    - _BottomRadius: 5823.2
+    - _CosineMaxSunAngle: -0.25881904
+    - _G: 0.8
+    - _HM: 0
+    - _HO: 0
+    - _HR: 0
+    - _PlanetRadius: 363
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 0
+    - _TopRadius: 5855.2
     - _WO: 0
     m_Colors:
     - _BetaM: {r: 0, g: 0, b: 0, a: 0}
@@ -6692,6 +10903,43 @@ Material:
     - _SunColor: {r: 1, g: 1, b: 1, a: 0}
     - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!84 &2013743261
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 128
+  m_Height: 128
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 48
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!21 &2026777888
 Material:
   serializedVersion: 8
@@ -6749,6 +10997,144 @@ Material:
     - _PlanetPositionRelative: {r: 0, g: 0, b: 0, a: 0}
     - _SunColor: {r: 16, g: 16, b: 16, a: 16}
     - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &2042126605
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Uranus
+  m_Shader: {fileID: -6465566751694194690, guid: ebe76ff2110f3b64db4cf0faf4d02318,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: 0bd8777f74533d64694a01072454aaca, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudsMap:
+        m_Texture: {fileID: 2800000, guid: 5d69809750a10fc4f95caceeb5200953, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GroundTransmittanceTexture:
+        m_Texture: {fileID: 1899893671}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: bb38de5b0b145ea4b9e10647ee40839b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_173e44416cc64975b068867903ec8da5_Out_0:
+        m_Texture: {fileID: 2800000, guid: 34dc007adc7507547a46c5981f5bd433, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CloudsHeight: 2.5
+    - _CloudsRotation: 0
+    - _ElevationScale: 2
+    - _EmissiveBrightness: 2.5
+    - _LunarLambert: 0
+    - _MaxElevation: 0.88
+    - _PlanetRadius: 2536.2
+    - _PlanetRotation: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SunBrightness: 4
+    m_Colors:
+    - _AmbientColor: {r: 0.0015602913, g: 0.0044034887, b: 0.008841651, a: 0}
+    - _CloudsColor: {r: 1, g: 1, b: 1, a: 0}
+    - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 16, g: 16, b: 16, a: 16}
+    - _SunDirection: {r: -1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &2095819979
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AtmosphereScattering
+  m_Shader: {fileID: -6465566751694194690, guid: aca78678a3867e24c8c7b636b1111ad0,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2999
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ScatteringTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TransmittanceTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BottomRadius: 363
+    - _CosineMaxSunAngle: -0.2
+    - _MiePhaseFunctionG: 0.8
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _TopRadius: 369
+    m_Colors:
+    - _MieScattering: {r: 0, g: 0, b: 0, a: 0}
+    - _RayleighScattering: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere0: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere1: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere2: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphere3: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowSphereAlphas: {r: 0, g: 0, b: 0, a: 0}
+    - _SunColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SunDirection: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!84 &2096729785
 RenderTexture:
@@ -6823,6 +11209,43 @@ RenderTexture:
     m_WrapW: 1
   m_Dimension: 3
   m_VolumeDepth: 32
+  m_ShadowSamplingMode: 2
+--- !u!84 &2121664247
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 64
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 0
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
   m_ShadowSamplingMode: 2
 --- !u!1001 &66388537498740471
 PrefabInstance:
@@ -8197,7 +12620,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1042213866}
+      objectReference: {fileID: 1945084166}
     - target: {fileID: 4601405959451879108, guid: cb1380b32de4603468780f27d02fb123,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -8302,7 +12725,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1036086855}
+      objectReference: {fileID: 1935595758}
     - target: {fileID: 5645528812931362032, guid: cb1380b32de4603468780f27d02fb123,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -8322,17 +12745,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1782123871}
+      objectReference: {fileID: 1445098647}
     - target: {fileID: 5866763440918086306, guid: cb1380b32de4603468780f27d02fb123,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 860569465}
+      objectReference: {fileID: 124317242}
     - target: {fileID: 6456304973066060760, guid: cb1380b32de4603468780f27d02fb123,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1547498761}
+      objectReference: {fileID: 1396592405}
     - target: {fileID: 6456304973351468408, guid: cb1380b32de4603468780f27d02fb123,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

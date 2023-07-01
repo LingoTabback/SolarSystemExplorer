@@ -816,8 +816,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c41ec310e96c34f8505e04489b0c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MarkerColorDefault: {r: 1.0592737, g: 0.16637807, b: 0.3105724, a: 1}
-  m_MarkerColorManMade: {r: 1, g: 0.5764706, b: 0.15686275, a: 1}
+  m_MarkerColors:
+  - {r: 1.0592737, g: 0.16637807, b: 0.3105724, a: 1}
+  - {r: 1, g: 0.5764706, b: 0.15686275, a: 1}
   m_Landsmarks: []
   m_LandmarkPrefab: {fileID: 8708439711239044045, guid: 50bbfa3cf4e654c4389ab3026a438338,
     type: 3}

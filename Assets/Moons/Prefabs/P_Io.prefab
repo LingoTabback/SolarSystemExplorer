@@ -7,6 +7,176 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[0].Name
+      value: Amirani
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[1].Name
+      value: Chaac
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[2].Name
+      value: Culann
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[3].Name
+      value: Loki
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[4].Name
+      value: Pele
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[5].Name
+      value: Pillan Mons
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[6].Name
+      value: Prometheus
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[7].Name
+      value: Thor
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[8].Name
+      value: Tupan Patera
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[9].Name
+      value: Tvasthar Paterae
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[10].Name
+      value: Tvasthar Paterae
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[0].Latitude
+      value: 25.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[1].Latitude
+      value: 11.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[2].Latitude
+      value: -19.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[3].Latitude
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[4].Latitude
+      value: -18.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[5].Latitude
+      value: -8.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[6].Latitude
+      value: -1.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[7].Latitude
+      value: 39.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[8].Latitude
+      value: -18.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[9].Latitude
+      value: 62.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[0].Longitude
+      value: 115.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[10].Latitude
+      value: 62.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[1].Longitude
+      value: 157.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[2].Longitude
+      value: 160.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[3].Longitude
+      value: 309
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[4].Longitude
+      value: 255.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[5].Longitude
+      value: 245.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[6].Longitude
+      value: 154
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[7].Longitude
+      value: 133.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[8].Longitude
+      value: 141.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[9].Longitude
+      value: 123.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[10].Longitude
+      value: 123.53
+      objectReference: {fileID: 0}
     - target: {fileID: 1071266137419343411, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -96,6 +266,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BodyName
       value: Io
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Meridian
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}

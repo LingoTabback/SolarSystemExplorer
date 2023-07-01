@@ -412,7 +412,7 @@ public class S_Planet : S_CelestialBody
 		m_AtmosphereScatteringRenderer.bounds = adjustedBounds;
 
 		adjustedBounds = m_RingsRenderer.bounds;
-		adjustedBounds.center = m_RingsRenderer.transform.position - camForward * (eps * 3);
+		adjustedBounds.center = m_RingsRenderer.transform.position - camForward * (eps * 4);
 		adjustedBounds.extents = Vector3.Scale(m_RingsRenderer.localBounds.extents,
 			m_RingsRenderer.transform.lossyScale) * 1.05f;
 		m_RingsRenderer.bounds = adjustedBounds;

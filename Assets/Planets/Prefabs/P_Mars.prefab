@@ -692,6 +692,51 @@ PrefabInstance:
       propertyPath: m_Landsmarks.Array.data[12].Longitude
       value: 125.93
       objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[4].ColorIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[5].ColorIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[6].ColorIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[7].ColorIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[8].ColorIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[9].ColorIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[10].ColorIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[11].ColorIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[12].ColorIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4616449735410555191, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
