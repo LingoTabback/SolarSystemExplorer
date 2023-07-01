@@ -81,7 +81,7 @@ Material:
     m_Colors:
     - _Color: {r: 0.16509432, g: 0.5164953, b: 1, a: 0}
     - _ColorBottom: {r: 0.09803921, g: 1, b: 0.15241744, a: 1}
-    - _ColorTop: {r: 1, g: 0, b: 0.2291913, a: 0.8}
+    - _ColorTop: {r: 1, g: 0, b: 0.3920045, a: 0.8}
     - _ColorTransitionMinMax: {r: 0.25, g: 0.9, b: 0, a: 0}
     - _FluctuationWeights: {r: 1, g: 0.8, b: 0.6, a: 0.4}
     - _HeightMinMax: {r: 0.04, g: 0.1, b: 0, a: 0}
