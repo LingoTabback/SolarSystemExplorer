@@ -1,3 +1,4 @@
+using Animation;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,6 +7,10 @@ using UnityEngine;
 
 public class S_LandmarkManager : MonoBehaviour
 {
+	[SerializeField]
+	private S_CelestialBody m_Body;
+	public float MarkersAlpha => m_UIFocusAnimator.Current;
+
 	[Serializable]
 	public class Landmark
 	{
@@ -20,12 +25,6 @@ public class S_LandmarkManager : MonoBehaviour
 	[SerializeField]
 	[ColorUsage(true, true)]
 	private Color[] m_MarkerColors;
-	//[SerializeField]
-	//[ColorUsage(true, true)]
-	//private Color m_MarkerColorDefault = Color.white;
-	//[SerializeField]
-	//[ColorUsage(true, true)]
-	//private Color m_MarkerColorManMade = Color.white;
 	[SerializeField]
 	private Landmark[] m_Landsmarks;
 	[SerializeField]
@@ -33,9 +32,15 @@ public class S_LandmarkManager : MonoBehaviour
 
 	private GameObject[] m_LandmarkObjects;
 
+	private static readonly float s_UIFocusAnimationLength = 4;
+	private Animator<FloatAnimatable> m_UIFocusAnimator = Animator<FloatAnimatable>.CreateDone(0, 0, s_UIFocusAnimationLength, EasingType.EaseOutQuad);
+
 	// Start is called before the first frame update
 	private void Start()
 	{
+		m_Body.FocusGained += OnFocusGained;
+		m_Body.FocusLoosing += OnFocusLoosing;
+
 		m_LandmarkObjects = new GameObject[m_Landsmarks.Length];
 
 		for (int i = 0; i < m_Landsmarks.Length; ++i)
@@ -45,6 +50,7 @@ public class S_LandmarkManager : MonoBehaviour
 			landmarkObject.transform.localPosition = LatLongToDirection(math.radians(landmark.Latitude), math.radians(landmark.Longitude));
 
 			var marker = landmarkObject.transform.GetChild(0).gameObject.GetComponent<S_LandmarkMarker>();
+			marker.Manager = this;
 			marker.Label = landmark.Name;
 			marker.MarkerColor = m_MarkerColors[math.clamp(landmark.ColorIndex, 0, m_MarkerColors.Length - 1)];
 
@@ -53,14 +59,30 @@ public class S_LandmarkManager : MonoBehaviour
 		}
 	}
 
-	public void OnSelectStart()
+	private void OnDestroy()
 	{
+		if (m_Body != null)
+		{
+			m_Body.FocusGained -= OnFocusGained;
+			m_Body.FocusLoosing -= OnFocusLoosing;
+		}
+	}
+
+	private void Update()
+	{
+		m_UIFocusAnimator.Update(Time.deltaTime);
+	}
+
+	public void OnFocusGained()
+	{
+		m_UIFocusAnimator.Reset(1);
 		foreach (var landmark in m_LandmarkObjects)
 			landmark.SetActive(true);
 	}
 
-	public void OnSelectEnd()
+	public void OnFocusLoosing()
 	{
+		m_UIFocusAnimator.Reset(0);
 		foreach (var landmark in m_LandmarkObjects)
 			landmark.SetActive(false);
 	}

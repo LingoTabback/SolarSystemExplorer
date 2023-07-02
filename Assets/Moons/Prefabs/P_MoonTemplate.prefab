@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c41ec310e96c34f8505e04489b0c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Body: {fileID: 3860934045257871789}
   m_MarkerColors:
   - {r: 1.0592737, g: 0.16637807, b: 0.3105724, a: 1}
   - {r: 1, g: 0.5764706, b: 0.15686275, a: 1}
@@ -263,7 +264,6 @@ MonoBehaviour:
   m_Highlight: {fileID: 5591727349306520765}
   m_HoverText: {fileID: 324242940696500146}
   m_CelestialBody: {fileID: 3860934045257871789}
-  m_LandmarkManager: {fileID: 518490034125468179}
   m_FocusedInterationLayer:
     m_Bits: 0
 --- !u!135 &2593101937838794968
@@ -515,10 +515,6 @@ MonoBehaviour:
   m_HumanVisitors: -1
   m_Moonwalkers: -1
   m_RoboticVisits: -1
-  m_DiscoveryDate:
-    Year: 0
-    Month: 1
-    Day: 2
   m_Radius: 173.74
   m_MaxElevation: 1.8
   m_ElevationScale: 2

@@ -226,6 +226,8 @@ MonoBehaviour:
   m_HoverText: {fileID: 2360672085740854862}
   m_CelestialBody: {fileID: 4368623461897024738}
   m_LandmarkManager: {fileID: 8530058019577059744}
+  m_FocusedInterationLayer:
+    m_Bits: 0
 --- !u!135 &187985926436514726
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -378,10 +380,6 @@ MonoBehaviour:
   m_HumanVisitors: -1
   m_Moonwalkers: -1
   m_RoboticVisits: -1
-  m_DiscoveryDate:
-    Year: 0
-    Month: 1
-    Day: 2
   m_Radius: 69550
   m_ScaleToSize: 2
 --- !u!114 &6075348402544880791
@@ -686,6 +684,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c41ec310e96c34f8505e04489b0c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Body: {fileID: 4368623461897024738}
+  m_MarkerColors: []
   m_Landsmarks: []
   m_LandmarkPrefab: {fileID: 8708439711239044045, guid: 50bbfa3cf4e654c4389ab3026a438338,
     type: 3}

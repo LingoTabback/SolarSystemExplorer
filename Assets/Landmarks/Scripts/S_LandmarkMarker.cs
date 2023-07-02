@@ -12,6 +12,7 @@ public class S_LandmarkMarker : MonoBehaviour
 		get => m_MarkerColor;
 		set { m_MarkerColor = value; if (m_MarkerMaterial != null) m_MarkerMaterial.SetColor("_RingColor", m_MarkerColor); }
 	}
+	public S_LandmarkManager Manager { get; set; }
 
 	[SerializeField]
 	private float m_ScreenSize = 0.05f;
@@ -28,7 +29,7 @@ public class S_LandmarkMarker : MonoBehaviour
 	private bool m_IsHovered = false;
 	private static readonly float s_HoveredScale = 1.2f;
 	private static readonly float s_AnimationLength = 0.5f;
-	private Animator<MarkerProperties> m_Animator = Animator<MarkerProperties>.CreateDone(new(1), new(1), s_AnimationLength, EasingType.EaseOutBack);
+	private Animator<FloatAnimatable> m_Animator = Animator<FloatAnimatable>.CreateDone(1, 1, s_AnimationLength, EasingType.EaseOutBack);
 
 	void Start()
 	{
@@ -55,14 +56,14 @@ public class S_LandmarkMarker : MonoBehaviour
 	{
 		m_MarkerMaterial.SetColor("_CenterColor", s_MarkerCenterColorSelected);
 		m_IsHovered = true;
-		m_Animator.Reset(m_Animator.Current, new(s_HoveredScale));
+		m_Animator.Reset(s_HoveredScale);
 	}
 
 	public void OnHoverEnd()
 	{
 		m_MarkerMaterial.SetColor("_CenterColor", s_MarkerCenterColor);
 		m_IsHovered = false;
-		m_Animator.Reset(m_Animator.Current, new(1));
+		m_Animator.Reset(1);
 	}
 
 	private void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
@@ -82,7 +83,7 @@ public class S_LandmarkMarker : MonoBehaviour
 			float correctedDist = planetCenterDist - 1.01f;
 			correctedDist = math.clamp(correctedDist, camera.nearClipPlane * 1.05f, 0.95f * camera.farClipPlane);
 			transform.position = camera.transform.position + relPos * (correctedDist / dist) + camForward * correctedDist;
-			transform.localScale = m_ScreenSize * correctedDist * m_Animator.Current.Scale * Vector3.one;
+			transform.localScale = m_ScreenSize * correctedDist * m_Animator.Current * Vector3.one;
 		}
 		else
 			transform.localScale = Vector3.one * 0.01f;
@@ -92,8 +93,9 @@ public class S_LandmarkMarker : MonoBehaviour
 		Vector3 normal = Vector3.Normalize(landmarkPosition - planetPosition);
 		Vector3 viewDirection = Vector3.Normalize(landmarkPosition - camPos);
 
-		float markerAlpha = math.smoothstep(-0.2f, 0.1f, -Vector3.Dot(normal, viewDirection));
-		markerAlpha = m_IsHovered ? 1 : math.pow(markerAlpha, 2.2f);
+		float markerAlpha = m_IsHovered ? 1 : math.smoothstep(-0.2f, 0.1f, -Vector3.Dot(normal, viewDirection));
+		markerAlpha *= Manager.MarkersAlpha;
+		markerAlpha = math.pow(markerAlpha, 2.2f);
 		m_MarkerMaterial.SetFloat("_MarkerAlpha", markerAlpha);
 		m_LabelMesh.alpha = markerAlpha;
 	}
@@ -107,7 +109,7 @@ public class S_LandmarkMarker : MonoBehaviour
 			Scale = scale;
 		}
 
-		public MarkerProperties Lerp(MarkerProperties to, float alpha) => new(math.lerp(Scale, to.Scale, alpha));
+		public MarkerProperties Lerp(in MarkerProperties to, float alpha) => new(math.lerp(Scale, to.Scale, alpha));
 	}
 
 }

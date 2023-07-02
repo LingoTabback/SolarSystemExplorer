@@ -73,9 +73,9 @@ public class S_BodyHoverText : MonoBehaviour
 		transform.rotation = camera.transform.rotation;
 	}
 
-	public void OnHoverStart() => m_Animatior.Reset(m_Animatior.Current, new(1, true));
+	public void OnHoverStart() => m_Animatior.Reset(new(1, true));
 
-	public void OnHoverEnd() => m_Animatior.Reset(m_Animatior.Current, new(0, false));
+	public void OnHoverEnd() => m_Animatior.Reset(new(0, false));
 
 	private struct TextProperties : IAnimatable<TextProperties>
 	{
@@ -88,7 +88,7 @@ public class S_BodyHoverText : MonoBehaviour
 			Enabled = enabled;
 		}
 
-		public TextProperties Lerp(TextProperties to, float alpha)
+		public TextProperties Lerp(in TextProperties to, float alpha)
 			=> new(math.lerp(Alpha, to.Alpha, alpha), !Enabled | alpha >= 1 ? to.Enabled : Enabled);
 	}
 }

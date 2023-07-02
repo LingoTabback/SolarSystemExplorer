@@ -55,9 +55,9 @@ public class S_BodyHighlight : MonoBehaviour
 
 	public void SetActive(bool active) => m_MeshRenderer.enabled = active;
 
-	public void OnHoverStart() => m_Animatior.Reset(m_Animatior.Current, new(s_SelectedScale, s_BrightnessScale, s_SelectedHalo));
+	public void OnHoverStart() => m_Animatior.Reset(new(s_SelectedScale, s_BrightnessScale, s_SelectedHalo));
 
-	public void OnHoverEnd() => m_Animatior.Reset(m_Animatior.Current, new(1, 1, s_Halo));
+	public void OnHoverEnd() => m_Animatior.Reset(new(1, 1, s_Halo));
 
 	private void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
 	{
@@ -80,7 +80,7 @@ public class S_BodyHighlight : MonoBehaviour
 			Halo = halo;
 		}
 
-		public Highlight Lerp(Highlight to, float alpha)
+		public Highlight Lerp(in Highlight to, float alpha)
 			=> new(math.lerp(Scale, to.Scale, alpha), math.lerp(Brightness, to.Brightness, alpha), math.lerp(Halo, to.Halo, alpha));
 	}
 }

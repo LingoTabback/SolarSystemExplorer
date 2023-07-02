@@ -17,15 +17,12 @@ public class S_CelestialBodyInteractable : XRBaseInteractable
 	private S_BodyHoverText m_HoverText;
 	[SerializeField]
 	private S_CelestialBody m_CelestialBody;
-	[SerializeField]
-	private S_LandmarkManager m_LandmarkManager;
 
 	[SerializeField]
 	private InteractionLayerMask m_FocusedInterationLayer;
 	private InteractionLayerMask m_UnfocusedInterationLayer;
 
 	private int m_NumHovers = 0;
-	private bool m_LastFocused = false;
 
 	// Start is called before the first frame update
 	void Start()
@@ -43,13 +40,16 @@ public class S_CelestialBodyInteractable : XRBaseInteractable
 
 		if (m_CelestialBody.ParentSystem != null)
 		{
-			if (m_CelestialBody.ID != m_CelestialBody.ParentSystem.FocusedOrbit)
+			isFocused = m_CelestialBody.IsFocused;
+
+			if (!isFocused)
 			{
 				Camera cam = Camera.main;
 				Vector3 diff = transform.parent.position - cam.transform.position;
 				float distance = math.min(diff.magnitude, 100);
 				transform.position = cam.transform.position + Vector3.Normalize(diff) * distance;
-				m_Collider.radius = (float)math.max(distance * m_ColliderRadiusUnfocused, m_CelestialBody.ScaledRadiusInSolarSystem / diff.magnitude);
+				m_Collider.radius = math.max(distance * m_ColliderRadiusUnfocused,
+					(float)m_CelestialBody.ScaledRadiusInSolarSystem / math.max(diff.magnitude, 0.001f) * distance);
 			}
 			else
 			{
@@ -58,16 +58,10 @@ public class S_CelestialBodyInteractable : XRBaseInteractable
 			}
 
 			focusable = m_CelestialBody.ParentSystem.IsOrbitFocusable(m_CelestialBody.ID);
-			isFocused = m_CelestialBody.IsFocused;
 		}
 		m_Collider.enabled = focusable | isFocused;
 		interactionLayers = isFocused ? m_FocusedInterationLayer : m_UnfocusedInterationLayer;
 		m_Highlight.SetActive(focusable);
-
-		if (m_LastFocused & !isFocused)
-			m_LandmarkManager.OnSelectEnd();
-
-		m_LastFocused = isFocused;
 	}
 
 	protected override void OnHoverEntered(HoverEnterEventArgs args)
@@ -94,6 +88,5 @@ public class S_CelestialBodyInteractable : XRBaseInteractable
 	{
 		base.OnSelectEntered(args);
 		m_CelestialBody.Focus();
-		m_LandmarkManager.OnSelectStart();
 	}
 }

@@ -124,7 +124,7 @@ public class S_Moon : S_CelestialBody
 	}
 
 	// Update is called once per frame
-	void Update()
+	private void Update()
 	{
 		float rotation = m_Meridian / 360;
 		m_MoonMaterial.SetFloat("_MoonRotation", rotation);

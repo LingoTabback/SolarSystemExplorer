@@ -156,7 +156,7 @@ public class S_Planet : S_CelestialBody
 	}
 
 	// Update is called once per frame
-	void Update()
+	private void Update()
 	{
 		float rotation = m_Meridian / 360;
 		m_PlanetMaterial.SetFloat("_PlanetRotation", rotation);

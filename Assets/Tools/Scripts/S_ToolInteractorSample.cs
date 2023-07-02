@@ -9,7 +9,7 @@ public class S_ToolInteractorSample : XRDirectInteractor
 	{
 		base.OnHoverEntered(args);
 
-		var body = S_CelestialBody.GetCelestialBodyComponent(args.interactableObject.transform.gameObject);
+		var body = args.interactableObject.transform.gameObject.GetComponent<S_CelestialBody>();
 		if (body == null)
 			return;
 
@@ -20,7 +20,7 @@ public class S_ToolInteractorSample : XRDirectInteractor
 	{
 		base.OnHoverExited(args);
 
-		var body = S_CelestialBody.GetCelestialBodyComponent(args.interactableObject.transform.gameObject);
+		var body = args.interactableObject.transform.gameObject.GetComponent<S_CelestialBody>();
 		if (body == null)
 			return;
 

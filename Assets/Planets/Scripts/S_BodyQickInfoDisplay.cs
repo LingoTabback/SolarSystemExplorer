@@ -1,3 +1,4 @@
+using Animation;
 using AstroTime;
 using CustomMath;
 using Ephemeris;
@@ -48,24 +49,31 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 	private List<QickInfoItem> m_Items = new();
 	private bool m_IsVisible = true;
 
+	private static readonly float s_UIFocusAnimationLength = 4;
+	private Animator<FloatAnimatable> m_UIFocusAnimator = Animator<FloatAnimatable>.CreateDone(0, 0, s_UIFocusAnimationLength, EasingType.EaseOutQuad);
+
 	// Start is called before the first frame update
 	void Start()
 	{
 		InitItems();
+
+		m_Body.FocusGained += OnFocusGained;
+		m_Body.FocusLoosing += OnFocusLoosing;
+	}
+
+	private void OnDestroy()
+	{
+		if (m_Body != null)
+		{
+			m_Body.FocusGained -= OnFocusGained;
+			m_Body.FocusLoosing -= OnFocusLoosing;
+		}
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		bool isFocused = m_Body.IsFocused;
-		if (m_IsVisible != isFocused)
-		{
-			int numChildren = transform.childCount;
-			for (int i = 0; i < numChildren; ++i)
-				transform.GetChild(i).gameObject.SetActive(isFocused);
-
-			m_IsVisible = isFocused;
-		}
+		m_UIFocusAnimator.Update(Time.deltaTime);
 
 		if (!m_IsVisible)
 			return;
@@ -125,6 +133,26 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 		}
 	}
 
+	private void OnFocusGained()
+	{
+		m_UIFocusAnimator.Reset(1);
+
+		foreach (var item in m_Items)
+			item.GameObject.SetActive(true);
+
+		m_IsVisible = true;
+	}
+
+	private void OnFocusLoosing()
+	{
+		m_UIFocusAnimator.Reset(0);
+
+		foreach (var item in m_Items)
+			item.GameObject.SetActive(false);
+
+		m_IsVisible = false;
+	}
+
 	private void UpdateItems()
 	{
 		transform.localScale = Vector3.one;
@@ -132,6 +160,7 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 		float totalHeight = 0;
 		foreach (var item in m_Items)
 		{
+			item.AlphaScale = m_UIFocusAnimator.Current;
 			item.Update(m_Body);
 			totalHeight += item.Height;
 		}
@@ -269,6 +298,8 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 		private Vector3 m_Position = Vector3.zero;
 
 		public float Height => math.abs(m_LabelMesh.bounds.size.y + m_ValueMesh.bounds.size.y);
+		public GameObject GameObject => m_Object;
+		public float AlphaScale { get; set; } = 1;
 
 		private Func<S_CelestialBody, string> m_ValueFunc;
 		private Color m_LabelColor;
@@ -307,6 +338,9 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 
 		public void Update(S_CelestialBody body)
 		{
+			m_LabelMesh.alpha = AlphaScale;
+			m_ValueMesh.alpha = AlphaScale;
+
 			if (!m_IsRealtime & m_IsInitialized)
 				return;
 			Value = m_ValueFunc(body);

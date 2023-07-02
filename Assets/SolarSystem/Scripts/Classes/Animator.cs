@@ -6,7 +6,7 @@ namespace Animation
 
 	public interface IAnimatable<T>
 	{
-		public abstract T Lerp(T to, float alpha);
+		public abstract T Lerp(in T to, float alpha);
 	}
 
 	public enum EasingType : byte
@@ -15,6 +15,25 @@ namespace Animation
 		EaseOutQuad,
 		EaseOutSine,
 		EaseOutBack
+	}
+
+	public struct FloatAnimatable : IAnimatable<FloatAnimatable>
+	{
+		public FloatAnimatable(float value) => m_Value = value;
+
+		public static implicit operator FloatAnimatable(float value) => new(value);
+		public static implicit operator float(FloatAnimatable value) => value.m_Value;
+
+		public static bool operator ==(FloatAnimatable l, FloatAnimatable r) => l.m_Value == r.m_Value;
+		public static bool operator !=(FloatAnimatable l, FloatAnimatable r) => l.m_Value != r.m_Value;
+
+		public override bool Equals(object obj) => obj is FloatAnimatable id && this == id;
+		public override int GetHashCode() => HashCode.Combine(m_Value);
+		public override string ToString() => m_Value.ToString();
+
+		public FloatAnimatable Lerp(in FloatAnimatable to, float alpha) => new(math.lerp(m_Value, to.m_Value, alpha));
+
+		private float m_Value;
 	}
 
 	public class Animator<T> where T : IAnimatable<T>
@@ -97,6 +116,7 @@ namespace Animation
 		}
 
 		public void Reset(in T start, in T end) => Reset(start, end, Length);
+		public void Reset(in T end) => Reset(Current, end, Length);
 
 		private static float Linear(float x) => x;
 		private static float EaseOutQuad(float x) => 1f - (1f - x) * (1f - x);
