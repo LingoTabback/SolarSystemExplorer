@@ -29,6 +29,6 @@ public class S_SurfaceThermometerTool : XRDirectInteractor
 		if (body == null)
 			return;
 
-        Debug.Log($"");
-    }
+		Debug.Log($"");
+	}
 }

@@ -16,7 +16,7 @@ public class S_AtmosphereCompositionTool : XRDirectInteractor
 		if (body == null)
 			return;
 		else
-            m_AtmosphereComposition = body.AtmosphereComposition;
+			m_AtmosphereComposition = body.AtmosphereComposition;
 
 		Debug.Log($"Atmosphere Composition: {m_AtmosphereComposition}");
 	}
@@ -29,6 +29,6 @@ public class S_AtmosphereCompositionTool : XRDirectInteractor
 		if (body == null)
 			return;
 
-        Debug.Log($"");
-    }
+		Debug.Log($"");
+	}
 }
