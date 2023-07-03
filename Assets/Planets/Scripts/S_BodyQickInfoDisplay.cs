@@ -103,7 +103,7 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 			{
 				ItemType.DistanceToSun => new("Distanz zu Sonne", "n/a", GetDistanceToSunValue, m_ItemTemplate, m_LabelColor, true),
 				ItemType.OneWayLightTimeToSun => new("Lichtzeit zu Sonne", "n/a", GetOneWayLightTimeToSun, m_ItemTemplate, m_LabelColor, true),
-				ItemType.LengthOfYear => new("Jahreslänge", "n/a", GetYearLengthValue, m_ItemTemplate, m_LabelColor),
+				ItemType.LengthOfYear => new("JahreslÃ¤nge", "n/a", GetYearLengthValue, m_ItemTemplate, m_LabelColor),
 				ItemType.PlanetType => new("Planetenart", "n/a", GetBodyTypeValue, m_ItemTemplate, m_LabelColor),
 				ItemType.Description => new(m_Body.BodyName, "n/a", GetDescriptionValue, m_DescriptionTemplate, Color.white),
 				ItemType.Age => new("Alter", "n/a", GetAgeValue, m_ItemTemplate, m_LabelColor),
@@ -111,7 +111,7 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 				ItemType.StarType => new("Sternart", "n/a", GetBodyTypeValue, m_ItemTemplate, m_LabelColor),
 				ItemType.DistanceToEarth => new("Distanz zu Erde", "n/a", GetDistanceFromEarthValue, m_ItemTemplate, m_LabelColor, true),
 				ItemType.HumanVisitors => new("Menschliche Besucher", "n/a", GetHumanVisitorsValue, m_ItemTemplate, m_LabelColor),
-				ItemType.Moonwalkers => new("Mondläufer", "n/a", GetMoonwalkersValue, m_ItemTemplate, m_LabelColor),
+				ItemType.Moonwalkers => new("MondlÃ¤ufer", "n/a", GetMoonwalkersValue, m_ItemTemplate, m_LabelColor),
 				ItemType.RoboticVisits => new("Robotische Besuche", "n/a", GetRobotikVisitsValue, m_ItemTemplate, m_LabelColor),
 				ItemType.DistanceToJupiter => new("Distanz zu Jupiter", "n/a", GetDistanceFromJupiterValue, m_ItemTemplate, m_LabelColor, true),
 				ItemType.OneWayLightTimeToEarth => new("Lichtzeit zu Erde", "n/a", GetOneWayLightTimeToEarth, m_ItemTemplate, m_LabelColor, true),
@@ -222,54 +222,54 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 	{
 		return body.BodyIndex switch
 		{
-			OrbitType.Mercury => "Von Merkurs Oberfläche aus würde die Sonne mehr als dreimal " +
-							"so groß erscheinen wie von der Erde aus betrachtet, und das Sonnenlicht " +
-							"wäre bis zu 11-mal heller.",
+			OrbitType.Mercury => "Von Merkurs OberflÃ¤che aus wÃ¼rde die Sonne mehr als dreimal " +
+							"so groÃŸ erscheinen wie von der Erde aus betrachtet, und das Sonnenlicht " +
+							"wÃ¤re bis zu 11-mal heller.",
 
-			OrbitType.Venus => "Ähnlich in Struktur und Größe wie die Erde, fängt die dichte Atmosphäre von " +
-							"Venus Wärme in einem sich verstärkenden Treibhauseffekt ein und macht sie damit zum " +
-							"heißesten Planeten in unserem Sonnensystem.",
+			OrbitType.Venus => "Ã„hnlich in Struktur und GrÃ¶ÃŸe wie die Erde, fÃ¤ngt die dichte AtmosphÃ¤re von " +
+							"Venus WÃ¤rme in einem sich verstÃ¤rkenden Treibhauseffekt ein und macht sie damit zum " +
+							"heiÃŸesten Planeten in unserem Sonnensystem.",
 
 			OrbitType.Earth => "Die Erde - unser Heimatplanet - ist bisher der einzige uns bekannte Ort, " +
 							"der von Lebewesen bewohnt wird. Sie ist auch der einzige Planet in unserem " +
-							"Sonnensystem mit flüssigem Wasser auf der Oberfläche.",
+							"Sonnensystem mit flÃ¼ssigem Wasser auf der OberflÃ¤che.",
 
-			OrbitType.Mars => "Mars ist eine staubige, kalte Wüstenwelt mit einer sehr dünnen Atmosphäre. " +
+			OrbitType.Mars => "Mars ist eine staubige, kalte WÃ¼stenwelt mit einer sehr dÃ¼nnen AtmosphÃ¤re. " +
 							"Es gibt starke Hinweise darauf, dass der Mars vor Milliarden von Jahren feuchter " +
-							"und wärmer war und eine dickere Atmosphäre hatte.",
+							"und wÃ¤rmer war und eine dickere AtmosphÃ¤re hatte.",
 
-			OrbitType.Jupiter => "Jupiter ist mehr als doppelt so groß wie alle anderen Planeten unseres Sonnensystems zusammen. " +
-							"Der riesige rote Fleck des Planeten ist ein jahrhundertealter Sturm, der größer ist als die Erde.",
+			OrbitType.Jupiter => "Jupiter ist mehr als doppelt so groÃŸ wie alle anderen Planeten unseres Sonnensystems zusammen. " +
+							"Der riesige rote Fleck des Planeten ist ein jahrhundertealter Sturm, der grÃ¶ÃŸer ist als die Erde.",
 
-			OrbitType.Saturn => "Geschmückt mit einem atemberaubenden, komplexen System aus eisigen Ringen ist Saturn " +
+			OrbitType.Saturn => "GeschmÃ¼ckt mit einem atemberaubenden, komplexen System aus eisigen Ringen ist Saturn " +
 							"einzigartig in unserem Sonnensystem. Die anderen Gasplaneten haben zwar auch Ringe, " +
-							"aber keine sind so spektakulär wie die Ringe Saturns.",
+							"aber keine sind so spektakulÃ¤r wie die Ringe Saturns.",
 
 			OrbitType.Uranus => "Uranus - der siebte Planet von der Sonne aus gesehen - dreht sich fast im 90-Grad-Winkel " +
-							"zur Ebene seiner Umlaufbahn. Diese einzigartige Neigung lässt Uranus erscheinen, " +
-							"als ob er seitlich rotieren würde.",
+							"zur Ebene seiner Umlaufbahn. Diese einzigartige Neigung lÃ¤sst Uranus erscheinen, " +
+							"als ob er seitlich rotieren wÃ¼rde.",
 
-			OrbitType.Neptune => "Neptun - der achte und am weitesten entfernte große Planet, der unsere Sonne umkreist - ist dunkel, " +
-							"kalt und von Überschallwinden gepeitscht. Er wurde als erster Planet durch mathematische Berechnungen lokalisiert.",
+			OrbitType.Neptune => "Neptun - der achte und am weitesten entfernte groÃŸe Planet, der unsere Sonne umkreist - ist dunkel, " +
+							"kalt und von Ãœberschallwinden gepeitscht. Er wurde als erster Planet durch mathematische Berechnungen lokalisiert.",
 
-			OrbitType.Lunar => "Der fünftgrößte Mond im Sonnensystem, der Mond der Erde, ist der einzige Ort außerhalb der Erde, " +
-							"auf dem Menschen ihren Fuß gesetzt haben.",
+			OrbitType.Lunar => "Der fÃ¼nftgrÃ¶ÃŸte Mond im Sonnensystem, der Mond der Erde, ist der einzige Ort auÃŸerhalb der Erde, " +
+							"auf dem Menschen ihren FuÃŸ gesetzt haben.",
 
-			OrbitType.Io => "Io ist der vulkanisch aktivste Körper in unserem Sonnensystem.",
+			OrbitType.Io => "Io ist der vulkanisch aktivste KÃ¶rper in unserem Sonnensystem.",
 
-			OrbitType.Europa => "Unter Europas eisiger Oberfläche befindet sich ein Ozean aus salzigem Wasser, " +
-							"der möglicherweise eine Umgebung Leben bieten könnte.",
+			OrbitType.Europa => "Unter Europas eisiger OberflÃ¤che befindet sich ein Ozean aus salzigem Wasser, " +
+							"der mÃ¶glicherweise eine Umgebung Leben bieten kÃ¶nnte.",
 
-			OrbitType.Ganymede => "Ganymed ist der größte Satellit in unserem Sonnensystem. " +
-							"Er ist größer als Merkur und Pluto und hat drei Viertel der Größe von Mars.",
+			OrbitType.Ganymede => "Ganymed ist der grÃ¶ÃŸte Satellit in unserem Sonnensystem. " +
+							"Er ist grÃ¶ÃŸer als Merkur und Pluto und hat drei Viertel der GrÃ¶ÃŸe von Mars.",
 
-			OrbitType.Callisto => "Callisto ist das am stärksten verkraterte Objekt in unserem Sonnensystem.",
+			OrbitType.Callisto => "Callisto ist das am stÃ¤rksten verkraterte Objekt in unserem Sonnensystem.",
 
-			OrbitType.Titan => "Der größte Mond des Saturns, Titan, hat einen erdähnlichen Zyklus von Flüssigkeiten, " +
-							"die über seine Oberfläche fließen. Er ist der einzige Mond mit einer dicken Atmosphäre.",
+			OrbitType.Titan => "Der grÃ¶ÃŸte Mond des Saturns, Titan, hat einen erdÃ¤hnlichen Zyklus von FlÃ¼ssigkeiten, " +
+							"die Ã¼ber seine OberflÃ¤che flieÃŸen. Er ist der einzige Mond mit einer dicken AtmosphÃ¤re.",
 
-			OrbitType.Sun => "Die Sonne hält das Sonnensystem zusammen und hält alles - " +
-							"von den größten Planeten bis zu den kleinsten Trümmern - in ihrer Umlaufbahn.",
+			OrbitType.Sun => "Die Sonne hÃ¤lt das Sonnensystem zusammen und hÃ¤lt alles - " +
+							"von den grÃ¶ÃŸten Planeten bis zu den kleinsten TrÃ¼mmern - in ihrer Umlaufbahn.",
 
 			_ => "n/a"
 		};
