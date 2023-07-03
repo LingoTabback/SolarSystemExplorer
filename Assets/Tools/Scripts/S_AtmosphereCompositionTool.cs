@@ -8,13 +8,10 @@ public class S_AtmosphereCompositionTool : XRDirectInteractor
 {
 	[SerializeField]
     private GameObject m_Template;
-
-    [SerializeField]
+    
     private string m_AtmosphereComposition;
-
     private int m_Counter = 0;
-	private bool m_IsLoading = true;
-	private bool m_HoverEntered = false;
+    private bool m_HoverEntered = false;
 
     protected override void OnHoverEntered(HoverEnterEventArgs args)
 	{
@@ -51,15 +48,10 @@ public class S_AtmosphereCompositionTool : XRDirectInteractor
 	{
 		if (m_HoverEntered)
 		{
-			m_Counter++;
-
 			if (m_Counter < 200)
-			{
-				m_IsLoading = true;
-			}
+				m_Counter++;
 			else
 			{
-				m_IsLoading = false;
 				var textMash = m_Template.GetComponent<TextMeshPro>();
 				textMash.text = m_AtmosphereComposition;
 			}

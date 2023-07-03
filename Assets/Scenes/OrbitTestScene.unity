@@ -824,7 +824,7 @@ PrefabInstance:
     - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
       propertyPath: m_ToolPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 5324529165427265608, guid: ed587385ff3116d43ba869ea74afc417,
+      objectReference: {fileID: 5324529165427265608, guid: c1759f3fa9a33774186d5934dd4a56c3,
         type: 3}
     - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
       propertyPath: m_ToolPrefabs.Array.data[1]
@@ -860,6 +860,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_MaxRaycastDistance
       value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009452121742794678, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_ModelPrefab
+      value: 
+      objectReference: {fileID: 1276266140428445009, guid: c1759f3fa9a33774186d5934dd4a56c3,
+        type: 3}
+    - target: {fileID: 4009452121742794678, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_AnimateModel
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7224251335516208022, guid: ec57412d09ebf3a4cbb280f6378d0593,
         type: 3}
