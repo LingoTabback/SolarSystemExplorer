@@ -306,6 +306,8 @@ MonoBehaviour:
   m_AllowHoverHapticsWhileSelecting: 1
   m_SurfaceTemperature: 0
   m_Template: {fileID: 4819458571436143066}
+  m_DefaultTemperature: -273.15
+  m_CurrentTemperature: -273.15
 --- !u!1 &9049145210905355441
 GameObject:
   m_ObjectHideFlags: 0
