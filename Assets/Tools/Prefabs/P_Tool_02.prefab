@@ -100,7 +100,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "-272,15\xB0C"
+  m_text: None
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -182,7 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1276266140428445009}
   - component: {fileID: 2406593273788328685}
-  - component: {fileID: 2724878216938128175}
+  - component: {fileID: 7078526339393799141}
   m_Layer: 0
   m_Name: P_Tool_02
   m_TagString: Untagged
@@ -219,7 +219,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: -0.1, z: 0.7}
---- !u!114 &2724878216938128175
+--- !u!114 &7078526339393799141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_HapticHoverCancelIntensity: 0
   m_HapticHoverCancelDuration: 0
   m_AllowHoverHapticsWhileSelecting: 1
-  m_AtmosphereComposition: 
+  m_Template: {fileID: 1714010922812459591}
 --- !u!1 &9049145210905355441
 GameObject:
   m_ObjectHideFlags: 0
