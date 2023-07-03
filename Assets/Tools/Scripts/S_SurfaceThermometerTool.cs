@@ -13,16 +13,38 @@ public class S_SurfaceThermometerTool : XRDirectInteractor
 	[SerializeField] 
 	private GameObject m_Template;
 	
-	private int m_UpdateSteps = 0;
-	private double m_UpdateWidth = 0;
-	private double m_UpdateStart = 0;
+	[SerializeField] 
+	private double m_DefaultTemperature = -273.15;
+	
+	[SerializeField]
+	private double m_CurrentTemperature = -273.15;
+
+	private double m_DisplayedTemperature;
+	
+	protected void Start()
+	{
+		m_DisplayedTemperature = m_DefaultTemperature;
+		var textMash = m_Template.GetComponent<TextMeshPro>();
+		textMash.text = m_DisplayedTemperature.ToString() + "°C";
+	}
+	
 	protected void Update()
 	{
-		if (m_UpdateSteps > 0)
+		double dist = Math.Abs(m_DisplayedTemperature - m_CurrentTemperature);
+		if (dist >= 0.01)
 		{
-			var updateValue = 
-			m_UpdateSteps--;
-		}
+			dist = dist / 50;
+			if (m_DisplayedTemperature < m_CurrentTemperature)
+				m_DisplayedTemperature = m_DisplayedTemperature + dist;
+			else
+				m_DisplayedTemperature = m_DisplayedTemperature - dist;
+		} 
+		else 
+			m_DisplayedTemperature = m_CurrentTemperature;
+		
+		var textMash = m_Template.GetComponent<TextMeshPro>();
+		textMash.text = Math.Round(m_DisplayedTemperature,2).ToString() + "°C";
+		
 	}
 
 	protected override void OnHoverEntered(HoverEnterEventArgs args)
@@ -30,10 +52,10 @@ public class S_SurfaceThermometerTool : XRDirectInteractor
 		base.OnHoverEntered(args);
 
 		var body = args.interactableObject.transform.gameObject.GetComponent<S_CelestialBody>();
-		if (body == null && m_UpdateSteps > 0)
+		if (body == null)
 			return;
-		
-		
+
+		m_CurrentTemperature = body.SurfaceTemparature;
 		Debug.Log($"Temperature {m_SurfaceTemperature}");
 	}
 
@@ -44,8 +66,7 @@ public class S_SurfaceThermometerTool : XRDirectInteractor
 		var body = args.interactableObject.transform.gameObject.GetComponent<S_CelestialBody>();
 		if (body == null)
 			return;
-		
-		var textMash = m_Template.GetComponent<TextMeshPro>();
-		textMash.text = "-272,15°C";
+
+		m_CurrentTemperature = m_DefaultTemperature;
 	}
 }
