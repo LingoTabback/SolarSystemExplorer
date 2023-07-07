@@ -236,7 +236,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 2
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_HapticHoverCancelIntensity: 0
   m_HapticHoverCancelDuration: 0
   m_AllowHoverHapticsWhileSelecting: 1
-  m_Template: {fileID: 1714010922812459591}
+  m_TextMesh: {fileID: 3171691101759272405}
 --- !u!1 &9049145210905355441
 GameObject:
   m_ObjectHideFlags: 0

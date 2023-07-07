@@ -35,9 +35,29 @@ public class S_SolarSystem : MonoBehaviour
 {
 	public bool Paused { get => m_Paused; set => m_Paused = value; }
 	public double TimeScale { get => m_TimeScale; set => m_TimeScale = value; }
+	public double BarycentricDynamicalTime => m_BarycentricDynamicalTime;
 	public Date Date => TimeUtil.TDBtoUTC(m_BarycentricDynamicalTime);
 	public OrbitID FocusedOrbit => m_FocusedOrbit;
 	public ReferenceTransform CurrentReferenceTransform => m_ReferenceTransform;
+	public double CurrentOrbitalPeriod
+	{
+		get
+		{
+			if (m_FocusedOrbit.Valid && m_AllOrbits != null && m_AllOrbits[(int)m_FocusedOrbit] != null)
+				return m_AllOrbits[(int)m_FocusedOrbit].Orbit.Period;
+			return 365.25;
+		}
+	}
+
+	public double CurrentRotationalPeriod
+	{
+		get
+		{
+			if (m_FocusedOrbit.Valid && m_AllOrbits != null && m_AllOrbits[(int)m_FocusedOrbit] != null)
+				return m_AllOrbits[(int)m_FocusedOrbit].RotationalModel.Period;
+			return 1;
+		}
+	}
 
 	[SerializeField]
 	private S_OrbitSettings[] m_OrbitsSettingsObjects;
@@ -126,6 +146,21 @@ public class S_SolarSystem : MonoBehaviour
 			return m_SunPosition;
 		OrbitID id = m_AllOrbits != null && (int)type >= 0 && (int)type <= (int)OrbitType.Sun ? m_OrbitDict[(int)type] : OrbitID.Invalid;
 		return (int)id < 0 | (int)id >= m_AllOrbits.Count ? 0 : (m_AllOrbits[(int)id] == null ? 0 : m_AllOrbits[(int)id].BodyPositionWorld);
+	}
+
+	public double3 GetBodyPositionInScene(OrbitID id)
+	{
+		double3 localPosition = GetBodyPositionInSystem(id);
+		return dQuaternion.mul((dQuaternion)transform.rotation,
+			(localPosition - m_ReferenceTransform.Position)
+			* m_ReferenceTransform.InvScale) + (float3)transform.position;
+	}
+	public double3 GetBodyPositionInScene(OrbitType type)
+	{
+		double3 localPosition = GetBodyPositionInSystem(type);
+		return dQuaternion.mul((dQuaternion)transform.rotation,
+			(localPosition - m_ReferenceTransform.Position)
+			* m_ReferenceTransform.InvScale) + (float3)transform.position;
 	}
 
 	public double GetOrbitalPeriod(OrbitID id) => (int)id < 0 | (int)id >= m_AllOrbits.Count ? 0 : m_AllOrbits[(int)id].Orbit.Period;
@@ -361,6 +396,7 @@ public class S_SolarSystem : MonoBehaviour
 		public double3 ParentPosition => m_Parent != null ? m_Parent.BodyPositionWorld : double3.zero;
 		public dQuaternion ParentOrientation => m_Parent != null ? m_Parent.EquatorOrientationWorld : dQuaternion.identity;
 		public Orbit Orbit => m_Orbit;
+		public RotationModel RotationalModel => m_RotationModel;
 
 		private Orbit m_Orbit;
 		private RotationModel m_RotationModel;

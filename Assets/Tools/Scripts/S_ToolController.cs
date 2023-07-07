@@ -67,5 +67,7 @@ public class S_ToolController : MonoBehaviour
 	private void CreateTool(int toolIndex)
 	{
 		m_CurrentToolObject = Instantiate(m_ToolPrefabs[toolIndex], transform);
+		m_CurrentToolObject.transform.localPosition = Vector3.zero;
+		m_CurrentToolObject.transform.localScale = Vector3.one * 0.1f;
 	}
 }

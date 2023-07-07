@@ -225,7 +225,6 @@ MonoBehaviour:
   m_Highlight: {fileID: 8273775846169744613}
   m_HoverText: {fileID: 2360672085740854862}
   m_CelestialBody: {fileID: 4368623461897024738}
-  m_LandmarkManager: {fileID: 8530058019577059744}
   m_FocusedInterationLayer:
     m_Bits: 0
 --- !u!135 &187985926436514726
@@ -375,7 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Type: 4
-  m_BodyName: Sonne
+  m_BodyName: Sun
   m_BodyIndex: 14
   m_HumanVisitors: -1
   m_Moonwalkers: -1

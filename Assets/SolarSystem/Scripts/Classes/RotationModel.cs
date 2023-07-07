@@ -28,6 +28,7 @@ namespace Ephemeris
 
 	public class RotationModel
 	{
+		public double Period => m_Period;
 		protected double m_Period;
 
 		public virtual dQuaternion ComputeEquatorOrientation(double t) => dQuaternion.identity;

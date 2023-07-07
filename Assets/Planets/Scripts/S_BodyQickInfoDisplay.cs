@@ -53,8 +53,10 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 	private Animator<FloatAnimatable> m_UIFocusAnimator = Animator<FloatAnimatable>.CreateDone(0, 0, s_UIFocusAnimationLength, EasingType.EaseOutQuad);
 
 	// Start is called before the first frame update
-	void Start()
+	private void Start()
 	{
+		System.Globalization.CultureInfo.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
+
 		InitItems();
 
 		m_Body.FocusGained += OnFocusGained;
@@ -71,7 +73,7 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update()
+	private void Update()
 	{
 		m_UIFocusAnimator.Update(Time.deltaTime);
 
@@ -89,7 +91,10 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 			float angle = math.atan2(relativePos.z, relativePos.x);
 			transform.eulerAngles = new(0, -math.degrees(angle) - 90, 0);
 		}
+	}
 
+	private void FixedUpdate()
+	{
 		UpdateItems();
 	}
 
@@ -101,22 +106,22 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 		{
 			QickInfoItem item = type switch
 			{
-				ItemType.DistanceToSun => new("Distanz zu Sonne", "n/a", GetDistanceToSunValue, m_ItemTemplate, m_LabelColor, true),
-				ItemType.OneWayLightTimeToSun => new("Lichtzeit zu Sonne", "n/a", GetOneWayLightTimeToSun, m_ItemTemplate, m_LabelColor, true),
-				ItemType.LengthOfYear => new("Jahreslänge", "n/a", GetYearLengthValue, m_ItemTemplate, m_LabelColor),
-				ItemType.PlanetType => new("Planetenart", "n/a", GetBodyTypeValue, m_ItemTemplate, m_LabelColor),
+				ItemType.DistanceToSun => new("distance from sun", "n/a", GetDistanceToSunValue, m_ItemTemplate, m_LabelColor, true),
+				ItemType.OneWayLightTimeToSun => new("one way light time to the sun", "n/a", GetOneWayLightTimeToSun, m_ItemTemplate, m_LabelColor, true),
+				ItemType.LengthOfYear => new("length of year", "n/a", GetYearLengthValue, m_ItemTemplate, m_LabelColor),
+				ItemType.PlanetType => new("planet type", "n/a", GetBodyTypeValue, m_ItemTemplate, m_LabelColor),
 				ItemType.Description => new(m_Body.BodyName, "n/a", GetDescriptionValue, m_DescriptionTemplate, Color.white),
-				ItemType.Age => new("Alter", "n/a", GetAgeValue, m_ItemTemplate, m_LabelColor),
-				ItemType.DistanceToGalacticCenter => new("Distanz zu galaktischem Mittelpunkt", "n/a", GetDistFromGalacticCenterValue, m_ItemTemplate, m_LabelColor),
-				ItemType.StarType => new("Sternart", "n/a", GetBodyTypeValue, m_ItemTemplate, m_LabelColor),
-				ItemType.DistanceToEarth => new("Distanz zu Erde", "n/a", GetDistanceFromEarthValue, m_ItemTemplate, m_LabelColor, true),
-				ItemType.HumanVisitors => new("Menschliche Besucher", "n/a", GetHumanVisitorsValue, m_ItemTemplate, m_LabelColor),
-				ItemType.Moonwalkers => new("Mondläufer", "n/a", GetMoonwalkersValue, m_ItemTemplate, m_LabelColor),
-				ItemType.RoboticVisits => new("Robotische Besuche", "n/a", GetRobotikVisitsValue, m_ItemTemplate, m_LabelColor),
-				ItemType.DistanceToJupiter => new("Distanz zu Jupiter", "n/a", GetDistanceFromJupiterValue, m_ItemTemplate, m_LabelColor, true),
-				ItemType.OneWayLightTimeToEarth => new("Lichtzeit zu Erde", "n/a", GetOneWayLightTimeToEarth, m_ItemTemplate, m_LabelColor, true),
-				ItemType.Discovered => new("Entdeckung", "n/a", GetDiscoveredValue, m_ItemTemplate, m_LabelColor),
-				ItemType.DistanceToSaturn => new("Distanz zu Saturn", "n/a", GetDistanceFromSaturnValue, m_ItemTemplate, m_LabelColor, true),
+				ItemType.Age => new("age", "n/a", GetAgeValue, m_ItemTemplate, m_LabelColor),
+				ItemType.DistanceToGalacticCenter => new("distance from galactic center", "n/a", GetDistFromGalacticCenterValue, m_ItemTemplate, m_LabelColor),
+				ItemType.StarType => new("star-type", "n/a", GetBodyTypeValue, m_ItemTemplate, m_LabelColor),
+				ItemType.DistanceToEarth => new("distance from earth", "n/a", GetDistanceFromEarthValue, m_ItemTemplate, m_LabelColor, true),
+				ItemType.HumanVisitors => new("human visitors", "n/a", GetHumanVisitorsValue, m_ItemTemplate, m_LabelColor),
+				ItemType.Moonwalkers => new("moonwalkers", "n/a", GetMoonwalkersValue, m_ItemTemplate, m_LabelColor),
+				ItemType.RoboticVisits => new("robotic visits", "n/a", GetRobotikVisitsValue, m_ItemTemplate, m_LabelColor),
+				ItemType.DistanceToJupiter => new("distance from jupiter", "n/a", GetDistanceFromJupiterValue, m_ItemTemplate, m_LabelColor, true),
+				ItemType.OneWayLightTimeToEarth => new("one way light time to earth", "n/a", GetOneWayLightTimeToEarth, m_ItemTemplate, m_LabelColor, true),
+				ItemType.Discovered => new("discovered", "n/a", GetDiscoveredValue, m_ItemTemplate, m_LabelColor),
+				ItemType.DistanceToSaturn => new("distance from saturn", "n/a", GetDistanceFromSaturnValue, m_ItemTemplate, m_LabelColor, true),
 				_ => null
 			};
 
@@ -184,12 +189,12 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 	{
 		double distance = CMath.AUtoKM(math.length(body.PositionInSystem - body.ParentSystem.GetBodyPositionInSystem(OrbitType.Sun)));
 		distance = math.max(distance - body.Radius, 0);
-		return $"{distance / CMath.SpeedOfLight / 60:n3} Minuten";
+		return $"{distance / CMath.SpeedOfLight / 60:n3} mins";
 	}
-	private static string GetYearLengthValue(S_CelestialBody body) => $"{body.OrbitalPeriod:n0} Tage";
-	private static string GetBodyTypeValue(S_CelestialBody body) => CelestialBodyTypes.ToStringGerman(body.Type);
-	private static string GetAgeValue(S_CelestialBody body) => "~4,5 Mrd. Jahre";
-	private static string GetDistFromGalacticCenterValue(S_CelestialBody body) => "26.000 Lichtjahre";
+	private static string GetYearLengthValue(S_CelestialBody body) => $"{body.OrbitalPeriod:n0} Earth Days";
+	private static string GetBodyTypeValue(S_CelestialBody body) => CelestialBodyTypes.ToStringEN(body.Type);
+	private static string GetAgeValue(S_CelestialBody body) => "~4.5 billion years";
+	private static string GetDistFromGalacticCenterValue(S_CelestialBody body) => "26,000 light years";
 	private static string GetDistanceFromEarthValue(S_CelestialBody body)
 	{
 		double distance = CMath.AUtoKM(math.length(body.PositionInSystem - body.ParentSystem.GetBodyPositionInSystem(OrbitType.Earth)));
@@ -207,10 +212,10 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 	{
 		double distance = CMath.AUtoKM(math.length(body.PositionInSystem - body.ParentSystem.GetBodyPositionInSystem(OrbitType.Earth)));
 		distance = math.max(distance - body.Radius, 0);
-		return $"{distance / CMath.SpeedOfLight / 60:n3} Minuten";
+		return $"{distance / CMath.SpeedOfLight / 60:n3} mins";
 	}
 	private static string GetDiscoveredValue(S_CelestialBody body)
-		=> body.DiscoveryDate == S_CelestialBody.InvalidDiscoveryDate ? "n/a" : body.DiscoveryDate.ToString(Date.Format.DE, true);
+		=> body.DiscoveryDate == S_CelestialBody.InvalidDiscoveryDate ? "n/a" : body.DiscoveryDate.ToString(Date.Format.US, true);
 
 	private static string GetDistanceFromSaturnValue(S_CelestialBody body)
 	{
@@ -218,7 +223,7 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 		return $"{distance:n0} km";
 	}
 
-	private static string GetDescriptionValue(S_CelestialBody body)
+	private static string GetDescriptionValueDE(S_CelestialBody body)
 	{
 		return body.BodyIndex switch
 		{
@@ -275,6 +280,67 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 		};
 	}
 
+	private static string GetDescriptionValue(S_CelestialBody body)
+	{
+		return body.BodyIndex switch
+		{
+			OrbitType.Mercury => "From the surface of Mercury, the Sun would appear more " +
+							"than three times as large as it does when viewed from " +
+							"Earth, and the sunlight would be as much as 11 times brighter.",
+
+			OrbitType.Venus => "Similar in structure and size to Earth, Venus's thick " +
+								"atmosphere traps heat in a runaway greenhouse effect, " +
+								"making it the hottest planet in our solar system.",
+
+			OrbitType.Earth => "Earth—our home planet—is the only place we know of so " +
+								"far that’s inhabited by living things. It's also the only " +
+								"planet in our solar system with liquid water on the surface.",
+
+			OrbitType.Mars => "Mars is a dusty, cold, desert world with a very thin " +
+								"atmosphere. There is strong evidence Mars was – billions " +
+								"of years ago – wetter and warmer, with a thicker atmosphere.",
+
+			OrbitType.Jupiter => "Jupiter is more than twice as massive than the other " +
+								"planets of our solar system combined. The giant planet's " +
+								"Great Red Spot is a centuries-old storm bigger than Earth.",
+
+			OrbitType.Saturn => "Adorned with a dazzling, complex system of icy rings, " +
+								"Saturn is unique in our solar system. The other giant " +
+								"planets have rings, but none are as spectacular as Saturn's.",
+
+			OrbitType.Uranus => "Uranus—seventh planet from the Sun—rotates at a nearly " +
+								"90-degree angle from the plane of its orbit. This unique " +
+								"tilt makes Uranus appear to spin on its side.",
+
+			OrbitType.Neptune => "Neptune—the eighth and most distant major planet " +
+								"orbiting our Sun—is dark, cold and whipped by " +
+								"supersonic winds. It was the first planet located through " +
+								"mathematical calculations.",
+
+			OrbitType.Lunar => "The fifth largest moon in the solar system, Earth's moon " +
+								"is the only place beyond Earth where humans have set foot.",
+
+			OrbitType.Io => "Io is the most volcanically active body in the solar system.",
+
+			OrbitType.Europa => "Europa may be one of the best places to look for " +
+								"environments where life could exist beyond Earth.",
+
+			OrbitType.Ganymede => "Ganymede is the largest satellite in our solar system. It is " +
+								"larger than Mercury and Pluto, and three-quarters the size of Mars.",
+
+			OrbitType.Callisto => "Callisto is the most heavily cratered object in our solar system.",
+
+			OrbitType.Titan => "Saturn’s largest moon, Titan has an earthlike cycle of " +
+								"liquids flowing across its surface. It is the only moon with " +
+								"a thick atmosphere.",
+
+			OrbitType.Sun => "The Sun holds the solar system together, keeping " +
+							"everything – from the biggest planets to the smallest " +
+							"debris – in its orbit.",
+
+			_ => "n/a"
+		};
+	}
 	public class QickInfoItem
 	{
 		public string Label
@@ -288,7 +354,7 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 			get => m_Value;
 			set { m_Value = value; if (m_ValueMesh != null) m_ValueMesh.text = m_Value; }
 		}
-		private string m_Value = "NA";
+		private string m_Value = "n/a";
 
 		public Vector3 Position
 		{

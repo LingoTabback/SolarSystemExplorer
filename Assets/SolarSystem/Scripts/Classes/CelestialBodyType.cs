@@ -11,7 +11,7 @@ namespace Ephemeris
 
 	public static class CelestialBodyTypes
 	{
-		public static string ToStringGerman(CelestialBodyType type)
+		public static string ToStringDE(CelestialBodyType type)
 		{
 			return type switch
 			{
@@ -20,6 +20,18 @@ namespace Ephemeris
 				CelestialBodyType.IceGiant => "Eisriese",
 				CelestialBodyType.YellowDwarf => "Gelber Zwerg",
 				_ => "Unbekannt",
+			};
+		}
+
+		public static string ToStringEN(CelestialBodyType type)
+		{
+			return type switch
+			{
+				CelestialBodyType.Terrestrial => "Terrestrial",
+				CelestialBodyType.GasGiant => "Gas Giant",
+				CelestialBodyType.IceGiant => "Ice Giant",
+				CelestialBodyType.YellowDwarf => "Yellow Dwarf",
+				_ => "Unknown",
 			};
 		}
 	}

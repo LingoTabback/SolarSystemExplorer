@@ -80,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
       propertyPath: m_BodyName
-      value: Ganymed
+      value: Ganymede
       objectReference: {fileID: 0}
     - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}

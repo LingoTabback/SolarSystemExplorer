@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using TMPro;
@@ -11,40 +8,15 @@ public class S_SurfaceThermometerTool : XRDirectInteractor
 	private double m_SurfaceTemperature;
 
 	[SerializeField] 
-	private GameObject m_Template;
+	private TextMeshPro m_TextMesh;
 	
 	[SerializeField] 
-	private double m_DefaultTemperature = -273.15;
+	private float m_DefaultTemperature = -273.15f;
 	
-	[SerializeField]
-	private double m_CurrentTemperature = -273.15;
-
-	private double m_DisplayedTemperature;
-	
-	protected void Start()
+	protected override void Start()
 	{
-		m_DisplayedTemperature = m_DefaultTemperature;
-		var textMash = m_Template.GetComponent<TextMeshPro>();
-		textMash.text = m_DisplayedTemperature.ToString() + "°C";
-	}
-	
-	protected void Update()
-	{
-		double dist = Math.Abs(m_DisplayedTemperature - m_CurrentTemperature);
-		if (dist >= 0.01)
-		{
-			dist = dist / 50;
-			if (m_DisplayedTemperature < m_CurrentTemperature)
-				m_DisplayedTemperature = m_DisplayedTemperature + dist;
-			else
-				m_DisplayedTemperature = m_DisplayedTemperature - dist;
-		} 
-		else 
-			m_DisplayedTemperature = m_CurrentTemperature;
-		
-		var textMash = m_Template.GetComponent<TextMeshPro>();
-		textMash.text = Math.Round(m_DisplayedTemperature,2).ToString() + "°C";
-		
+		base.Start();
+		m_TextMesh.text = $"{m_DefaultTemperature} °C";
 	}
 
 	protected override void OnHoverEntered(HoverEnterEventArgs args)
@@ -55,8 +27,7 @@ public class S_SurfaceThermometerTool : XRDirectInteractor
 		if (body == null)
 			return;
 
-		m_CurrentTemperature = body.SurfaceTemparature;
-		Debug.Log($"Temperature {m_SurfaceTemperature}");
+		m_TextMesh.text = $"{body.SurfaceTemparature} °C";
 	}
 
 	protected override void OnHoverExited(HoverExitEventArgs args)
@@ -66,7 +37,7 @@ public class S_SurfaceThermometerTool : XRDirectInteractor
 		var body = args.interactableObject.transform.gameObject.GetComponent<S_CelestialBody>();
 		if (body == null)
 			return;
-
-		m_CurrentTemperature = m_DefaultTemperature;
+		
+		m_TextMesh.text = $"{m_DefaultTemperature} °C";
 	}
 }
