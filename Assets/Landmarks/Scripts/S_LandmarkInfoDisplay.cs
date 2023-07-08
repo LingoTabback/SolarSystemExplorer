@@ -1,11 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
+using Animation;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class S_LandmarkInfoDisplay : MonoBehaviour
 {
+	public S_LandmarkInfoSettings Settings
+	{
+		get => m_Settings;
+		set { m_Settings = value; UpdateSettings(); }
+	}
+
+	[SerializeField]
+	CanvasGroup m_CanvasGroup;
 	[SerializeField]
 	VerticalLayoutGroup m_LayoutGroup;
 	[SerializeField]
@@ -18,27 +26,31 @@ public class S_LandmarkInfoDisplay : MonoBehaviour
 	TextMeshProUGUI m_TextComponent;
 
 	[SerializeField]
-	Sprite m_Image;
+	S_LandmarkInfoSettings m_Settings;
+
 	[SerializeField]
-	string m_Caption;
-	[SerializeField]
-	string m_Title;
-	[SerializeField]
-	string m_Text;
+	Animator<FloatAnimatable> m_Animator = Animator<FloatAnimatable>.Create(0, 1, 1, EasingType.EaseOutSine);
 
 	// Start is called before the first frame update
 	private void Start()
 	{
-		m_ImageComponent.sprite = m_Image;
-		m_ImageComponent.GetComponent<S_ImageScaler>().ComputeBounds();
-		m_CaptionComponent.text = m_Caption;
-		m_TitleComponent.text = m_Title;
-		m_TextComponent.text = m_Text;
+		UpdateSettings();
 	}
 
 	// Update is called once per frame
 	private void Update()
 	{
 		m_LayoutGroup.SetLayoutVertical();
+		m_Animator.Update(Time.deltaTime);
+		m_CanvasGroup.alpha = math.pow(m_Animator.Current, 2.2f);
+	}
+
+	private void UpdateSettings()
+	{
+		m_ImageComponent.sprite = m_Settings.Image;
+		m_ImageComponent.GetComponent<S_ImageScaler>().ComputeBounds();
+		m_CaptionComponent.text = m_Settings.Caption;
+		m_TitleComponent.text = m_Settings.Title;
+		m_TextComponent.text = m_Settings.Description;
 	}
 }

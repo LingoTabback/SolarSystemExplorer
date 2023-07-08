@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 25202536899061289}
   - component: {fileID: 4167104573613199243}
   - component: {fileID: 135813154722457203}
+  - component: {fileID: 8464259551580084770}
   m_Layer: 5
   m_Name: P_LandmarkInfoDisplay
   m_TagString: Untagged
@@ -126,7 +127,7 @@ RectTransform:
   m_Children:
   - {fileID: 1311846062938528516}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -178,7 +179,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 100
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &4167104573613199243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,15 +209,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a38cf055bd10ef47a3594557725285e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_CanvasGroup: {fileID: 8464259551580084770}
   m_LayoutGroup: {fileID: 5876250713065673416}
   m_ImageComponent: {fileID: 4446709865144009373}
   m_CaptionComponent: {fileID: 4644052333021922782}
   m_TitleComponent: {fileID: 2376058891507476149}
   m_TextComponent: {fileID: 1288592488227441289}
-  m_Image: {fileID: 21300000, guid: 5e7fa5fd351a10645885b043b8f6cfcd, type: 3}
-  m_Caption: Caption
-  m_Title: Title
-  m_Text: Text
+  m_Settings: {fileID: 11400000, guid: 2fd83a970be871046bbec27d59beb579, type: 2}
+--- !u!225 &8464259551580084770
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2400237524970340032}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 1
 --- !u!1 &2410888892113201858
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,17 +289,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Composite, false-color view of the Yarlung Tsangpo River region draped
-    over a three-dimensional model. The images and stereoscopic data behind the model
-    were acquired by the Advanced Thermal Emission and Reflection Radiometer (ASTER)
-    on NASA\u2019s Terra spacecraft. Vegetated areas range in color from red to pink;
-    snow is white; water is black; and bare rock is earth-toned."
+  m_text: Image Caption
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c20a79123e7af4a459504e9232506b69, type: 2}
   m_sharedMaterial: {fileID: 2400581304518491449, guid: c20a79123e7af4a459504e9232506b69,
@@ -340,7 +347,7 @@ MonoBehaviour:
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
-  m_isRichText: 1
+  m_isRichText: 0
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -433,16 +440,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: At a maximum depth 19,715 feet (6,009 meters) deep, Yarlung Zangbo is the
-    deepest surface canyon on Earth (more than three times as deep as the Grand Canyon).
-    It is also slightly longer than the Grand Canyon, stretching for about 310 miles
-    (500 kilometers).
+  m_text: Description
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c20a79123e7af4a459504e9232506b69, type: 2}
   m_sharedMaterial: {fileID: 2400581304518491449, guid: c20a79123e7af4a459504e9232506b69,
@@ -494,7 +498,7 @@ MonoBehaviour:
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
-  m_isRichText: 1
+  m_isRichText: 0
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -654,13 +658,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Yarlung Tsangpo, Tibet, China
+  m_text: Title
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c911aab685d1e7c419546c03364228ea, type: 2}
   m_sharedMaterial: {fileID: 8622045733419082144, guid: c911aab685d1e7c419546c03364228ea,
@@ -712,7 +716,7 @@ MonoBehaviour:
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
-  m_isRichText: 1
+  m_isRichText: 0
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Yarlung_Tsangpo_Tibet_China
+  m_EditorClassIdentifier: 
+  m_Title: Yarlung Tsangpo, Tibet, China
+  m_Caption: "\u200BComposite, false-color view of the Yarlung Tsangpo River region
+    draped over a three-dimensional model. The images and stereoscopic data behind
+    the model were acquired by the Advanced Thermal Emission and Reflection Radiometer
+    (ASTER) on NASA\u2019s Terra spacecraft. Vegetated areas range in color from
+    red to pink; snow is white; water is black; and bare rock is earth-toned."
+  m_Description: At a maximum depth 19,715 feet (6,009 meters) deep, Yarlung Zangbo
+    is the deepest surface canyon on Earth (more than three times as deep as the
+    Grand Canyon). It is also slightly longer than the Grand Canyon, stretching for
+    about 310 miles (500 kilometers).
+  m_Image: {fileID: 21300000, guid: 5e7fa5fd351a10645885b043b8f6cfcd, type: 3}
