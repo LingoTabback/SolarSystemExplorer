@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: F_RobotoRegularSDF LandmarkLabel
-  m_Shader: {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
+  m_Shader: {fileID: 4800000, guid: 884fda10a394391439e50c97ce010fd0, type: 3}
   m_ValidKeywords:
   - UNDERLAY_ON
   m_InvalidKeywords: []

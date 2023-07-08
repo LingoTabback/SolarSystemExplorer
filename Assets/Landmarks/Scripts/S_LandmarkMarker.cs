@@ -68,7 +68,7 @@ public class S_LandmarkMarker : MonoBehaviour
 
 	private void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
 	{
-		transform.localPosition = Vector3.zero;
+		//transform.localPosition = Vector3.zero;
 		Vector3 camPos = camera.transform.position;
 		Vector3 camForward = camera.transform.forward;
 		Vector3 relPos = transform.position - camPos;
@@ -77,13 +77,13 @@ public class S_LandmarkMarker : MonoBehaviour
 		Vector3 planetPosition = transform.parent.parent.position;
 		if (dist > 0)
 		{
-			relPos -= camForward * dist;
-			float planetCenterDist = Vector3.Dot(planetPosition - camPos, camForward);
+			//relPos -= camForward * dist;
+			//float planetCenterDist = Vector3.Dot(planetPosition - camPos, camForward);
 
-			float correctedDist = planetCenterDist - 1.01f;
-			correctedDist = math.clamp(correctedDist, camera.nearClipPlane * 1.05f, 0.95f * camera.farClipPlane);
-			transform.position = camera.transform.position + relPos * (correctedDist / dist) + camForward * correctedDist;
-			transform.localScale = m_ScreenSize * correctedDist * m_Animator.Current * Vector3.one;
+			//float correctedDist = planetCenterDist - 1.01f;
+			//correctedDist = math.clamp(correctedDist, camera.nearClipPlane * 1.05f, 0.95f * camera.farClipPlane);
+			//transform.position = camera.transform.position + relPos * (correctedDist / dist) + camForward * correctedDist;
+			transform.localScale = m_ScreenSize * dist * m_Animator.Current * Vector3.one;
 		}
 		else
 			transform.localScale = Vector3.one * 0.01f;

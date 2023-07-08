@@ -932,6 +932,21 @@ PrefabInstance:
       propertyPath: m_AnimateModel
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7051308316529812696, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_SlopeLimit
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7051308316529812697, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_RightHandMoveAction.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7051308316529812701, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7224251335516208022, guid: ec57412d09ebf3a4cbb280f6378d0593,
         type: 3}
       propertyPath: m_Enabled
