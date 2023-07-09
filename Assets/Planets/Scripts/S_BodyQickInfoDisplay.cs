@@ -9,6 +9,7 @@ using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 
+[RequireComponent(typeof(S_InfoDisplayAnchor))]
 public class S_BodyQickInfoDisplay : MonoBehaviour
 {
 	public enum ItemType : byte
@@ -47,15 +48,19 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 	private GameObject m_ItemTemplate;
 	
 	private List<QickInfoItem> m_Items = new();
-	private bool m_IsVisible = true;
 
-	private static readonly float s_UIFocusAnimationLength = 4;
-	private Animator<FloatAnimatable> m_UIFocusAnimator = Animator<FloatAnimatable>.CreateDone(0, 0, s_UIFocusAnimationLength, EasingType.EaseOutQuad);
+	private static readonly float s_UIFocusAnimationLength = 2;
+	private Animator<FloatAnimatable> m_UIFocusAnimator = Animator<FloatAnimatable>.CreateDone(0, 0, s_UIFocusAnimationLength, 0.5f);
+
+	private S_InfoDisplayAnchor m_DisplayAnchor;
 
 	// Start is called before the first frame update
 	private void Start()
 	{
 		System.Globalization.CultureInfo.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
+
+		m_DisplayAnchor = GetComponent<S_InfoDisplayAnchor>();
+		m_DisplayAnchor.enabled = false;
 
 		InitItems();
 
@@ -76,21 +81,6 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 	private void Update()
 	{
 		m_UIFocusAnimator.Update(Time.deltaTime);
-
-		if (!m_IsVisible)
-			return;
-
-		float3 camPos = Camera.main.transform.position;
-		float3 pos = transform.position;
-		float3 relativePos = camPos - pos;
-
-		float3 right = math.normalize(math.cross(relativePos, new float3(0, 1, 0)));
-		relativePos -= right;
-		if (math.dot(relativePos, relativePos) > 0.001f)
-		{
-			float angle = math.atan2(relativePos.z, relativePos.x);
-			transform.eulerAngles = new(0, -math.degrees(angle) - 90, 0);
-		}
 	}
 
 	private void FixedUpdate()
@@ -145,7 +135,7 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 		foreach (var item in m_Items)
 			item.GameObject.SetActive(true);
 
-		m_IsVisible = true;
+		m_DisplayAnchor.enabled = true;
 	}
 
 	private void OnFocusLoosing()
@@ -155,7 +145,7 @@ public class S_BodyQickInfoDisplay : MonoBehaviour
 		foreach (var item in m_Items)
 			item.GameObject.SetActive(false);
 
-		m_IsVisible = false;
+		m_DisplayAnchor.enabled = false;
 	}
 
 	private void UpdateItems()

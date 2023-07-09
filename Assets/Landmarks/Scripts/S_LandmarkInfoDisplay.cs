@@ -11,30 +11,36 @@ public class S_LandmarkInfoDisplay : MonoBehaviour
 		get => m_Settings;
 		set { m_Settings = value; UpdateSettings(); }
 	}
+	public bool IsClosing { get; private set; } = false;
 
 	[SerializeField]
-	CanvasGroup m_CanvasGroup;
+	private Canvas m_Canvas;
 	[SerializeField]
-	VerticalLayoutGroup m_LayoutGroup;
+	private CanvasGroup m_CanvasGroup;
 	[SerializeField]
-	Image m_ImageComponent;
+	private VerticalLayoutGroup m_LayoutGroup;
 	[SerializeField]
-	TextMeshProUGUI m_CaptionComponent;
+	private Image m_ImageComponent;
 	[SerializeField]
-	TextMeshProUGUI m_TitleComponent;
+	private TextMeshProUGUI m_CaptionComponent;
 	[SerializeField]
-	TextMeshProUGUI m_TextComponent;
+	private TextMeshProUGUI m_TitleComponent;
+	[SerializeField]
+	private TextMeshProUGUI m_TextComponent;
 
 	[SerializeField]
-	S_LandmarkInfoSettings m_Settings;
+	private S_LandmarkInfoSettings m_Settings;
 
-	[SerializeField]
-	Animator<FloatAnimatable> m_Animator = Animator<FloatAnimatable>.Create(0, 1, 1, EasingType.EaseOutSine);
+	private Animator<FloatAnimatable> m_Animator = Animator<FloatAnimatable>.Create(0, 1, 0.75f, EasingType.EaseOutQuad);
+	private Vector3 m_LocalPosition;
 
 	// Start is called before the first frame update
 	private void Start()
 	{
+		m_CanvasGroup.alpha = math.pow(m_Animator.Current, 2.2f);
 		UpdateSettings();
+		m_LocalPosition = m_Canvas.transform.localPosition;
+		m_Canvas.transform.localPosition = Vector3.Lerp(Vector3.zero, m_LocalPosition, m_Animator.Current);
 	}
 
 	// Update is called once per frame
@@ -43,6 +49,8 @@ public class S_LandmarkInfoDisplay : MonoBehaviour
 		m_LayoutGroup.SetLayoutVertical();
 		m_Animator.Update(Time.deltaTime);
 		m_CanvasGroup.alpha = math.pow(m_Animator.Current, 2.2f);
+
+		m_Canvas.transform.localPosition = Vector3.Lerp(Vector3.zero, m_LocalPosition, m_Animator.Current);
 	}
 
 	private void UpdateSettings()
@@ -52,5 +60,14 @@ public class S_LandmarkInfoDisplay : MonoBehaviour
 		m_CaptionComponent.text = m_Settings.Caption;
 		m_TitleComponent.text = m_Settings.Title;
 		m_TextComponent.text = m_Settings.Description;
+	}
+
+	public void OnClose()
+	{
+		if (IsClosing)
+			return;
+		m_Animator.Reset(0);
+		Destroy(gameObject, m_Animator.Delay + m_Animator.Length);
+		IsClosing = true;
 	}
 }

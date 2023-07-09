@@ -975,6 +975,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_SolarSystemPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 3769943085731393605, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_AllowAnchorControl
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769943085731393605, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_RaycastMask.m_Bits
+      value: 2147483688
+      objectReference: {fileID: 0}
     - target: {fileID: 4009452121742794678, guid: ec57412d09ebf3a4cbb280f6378d0593,
         type: 3}
       propertyPath: m_ModelPrefab
@@ -1031,6 +1041,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7051308315525656865, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_EnableMouseInput
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7051308315525656865, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_EnableTouchInput
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7051308315525656865, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_SendPointerHoverToParent
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7051308316529812696, guid: ec57412d09ebf3a4cbb280f6378d0593,
         type: 3}
       propertyPath: m_SlopeLimit
@@ -1049,7 +1074,7 @@ PrefabInstance:
     - target: {fileID: 7051308316529812701, guid: ec57412d09ebf3a4cbb280f6378d0593,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7224251335516208022, guid: ec57412d09ebf3a4cbb280f6378d0593,
         type: 3}

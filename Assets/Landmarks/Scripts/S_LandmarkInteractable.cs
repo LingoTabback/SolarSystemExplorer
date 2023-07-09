@@ -40,4 +40,10 @@ public class S_LandmarkInteractable : XRBaseInteractable
 			m_Marker.OnHoverEnd();
 	}
 
+	protected override void OnSelectEntered(SelectEnterEventArgs args)
+	{
+		base.OnSelectEntered(args);
+		m_Marker.OnSelectStart();
+	}
+
 }

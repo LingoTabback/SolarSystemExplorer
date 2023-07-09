@@ -18,8 +18,7 @@ public class S_LandmarkManager : MonoBehaviour
 		public float Longitude = 0;
 		public string Name = "Unnamed";
 		public int ColorIndex = 0;
-		[TextArea(5, 10)]
-		public string InfoText = "n/a";
+		public S_LandmarkInfoSettings Settings;
 	}
 
 	[SerializeField]
@@ -29,11 +28,14 @@ public class S_LandmarkManager : MonoBehaviour
 	private Landmark[] m_Landsmarks;
 	[SerializeField]
 	private GameObject m_LandmarkPrefab;
+	[SerializeField]
+	private GameObject m_InfoDisplayPrefab;
 
 	private GameObject[] m_LandmarkObjects;
 
-	private static readonly float s_UIFocusAnimationLength = 4;
-	private Animator<FloatAnimatable> m_UIFocusAnimator = Animator<FloatAnimatable>.CreateDone(0, 0, s_UIFocusAnimationLength, EasingType.EaseOutQuad);
+	private static readonly float s_UIFocusAnimationLength = 1.5f;
+	private Animator<FloatAnimatable> m_UIFocusAnimator = Animator<FloatAnimatable>.CreateDone(0, 0, s_UIFocusAnimationLength, 1);
+	private S_LandmarkInfoDisplay m_CurrentDisplay;
 
 	// Start is called before the first frame update
 	private void Start()
@@ -53,6 +55,7 @@ public class S_LandmarkManager : MonoBehaviour
 			marker.Manager = this;
 			marker.Label = landmark.Name;
 			marker.MarkerColor = m_MarkerColors[math.clamp(landmark.ColorIndex, 0, m_MarkerColors.Length - 1)];
+			marker.Settings = landmark.Settings;
 
 			landmarkObject.SetActive(false);
 			m_LandmarkObjects[i] = landmarkObject;
@@ -85,6 +88,23 @@ public class S_LandmarkManager : MonoBehaviour
 		m_UIFocusAnimator.Reset(0);
 		foreach (var landmark in m_LandmarkObjects)
 			landmark.SetActive(false);
+
+		if (m_CurrentDisplay != null)
+		{
+			m_CurrentDisplay.OnClose();
+			m_CurrentDisplay = null;
+		}
+
+	}
+
+	public void OnLandmarkSeleced(S_LandmarkMarker landmark)
+	{
+		if (m_CurrentDisplay != null)
+			m_CurrentDisplay.OnClose();
+
+		var displayObject = Instantiate(m_InfoDisplayPrefab, transform.parent);
+		m_CurrentDisplay = displayObject.GetComponent<S_LandmarkInfoDisplay>();
+		m_CurrentDisplay.Settings = landmark.Settings;
 	}
 
 	private static Vector3 LatLongToDirection(float lat, float lon)

@@ -12,7 +12,10 @@ public class S_LandmarkMarker : MonoBehaviour
 		get => m_MarkerColor;
 		set { m_MarkerColor = value; if (m_MarkerMaterial != null) m_MarkerMaterial.SetColor("_RingColor", m_MarkerColor); }
 	}
+	public S_LandmarkInfoSettings Settings { get => m_Settings; set => m_Settings = value != null ? value : S_LandmarkInfoSettings.Default; }
 	public S_LandmarkManager Manager { get; set; }
+
+	private S_LandmarkInfoSettings m_Settings;
 
 	[SerializeField]
 	private float m_ScreenSize = 0.05f;
@@ -24,7 +27,7 @@ public class S_LandmarkMarker : MonoBehaviour
 
 	private Material m_MarkerMaterial;
 	private static readonly Color s_MarkerCenterColor = new(0, 0, 0, 0.35f);
-	private static readonly Color s_MarkerCenterColorSelected = new(1, 1, 1, 0.35f);
+	private static readonly Color s_MarkerCenterColorHovered = new(1, 1, 1, 0.35f);
 
 	private bool m_IsHovered = false;
 	private static readonly float s_HoveredScale = 1.2f;
@@ -38,6 +41,11 @@ public class S_LandmarkMarker : MonoBehaviour
 		meshRenderer.sharedMaterial = m_MarkerMaterial;
 		m_MarkerMaterial.SetColor("_RingColor", m_MarkerColor);
 		m_MarkerMaterial.SetColor("_CenterColor", s_MarkerCenterColor);
+
+		float markerAlpha = Manager.MarkersAlpha;
+		markerAlpha = math.pow(markerAlpha, 2.2f);
+		m_MarkerMaterial.SetFloat("_MarkerAlpha", markerAlpha);
+		m_LabelMesh.alpha = markerAlpha;
 
 		RenderPipelineManager.beginCameraRendering += OnBeginCameraRendering;
 	}
@@ -54,7 +62,7 @@ public class S_LandmarkMarker : MonoBehaviour
 
 	public void OnHoverStart()
 	{
-		m_MarkerMaterial.SetColor("_CenterColor", s_MarkerCenterColorSelected);
+		m_MarkerMaterial.SetColor("_CenterColor", s_MarkerCenterColorHovered);
 		m_IsHovered = true;
 		m_Animator.Reset(s_HoveredScale);
 	}
@@ -64,6 +72,11 @@ public class S_LandmarkMarker : MonoBehaviour
 		m_MarkerMaterial.SetColor("_CenterColor", s_MarkerCenterColor);
 		m_IsHovered = false;
 		m_Animator.Reset(1);
+	}
+
+	public void OnSelectStart()
+	{
+		Manager.OnLandmarkSeleced(this);
 	}
 
 	private void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
@@ -76,15 +89,7 @@ public class S_LandmarkMarker : MonoBehaviour
 
 		Vector3 planetPosition = transform.parent.parent.position;
 		if (dist > 0)
-		{
-			//relPos -= camForward * dist;
-			//float planetCenterDist = Vector3.Dot(planetPosition - camPos, camForward);
-
-			//float correctedDist = planetCenterDist - 1.01f;
-			//correctedDist = math.clamp(correctedDist, camera.nearClipPlane * 1.05f, 0.95f * camera.farClipPlane);
-			//transform.position = camera.transform.position + relPos * (correctedDist / dist) + camForward * correctedDist;
 			transform.localScale = m_ScreenSize * dist * m_Animator.Current * Vector3.one;
-		}
 		else
 			transform.localScale = Vector3.one * 0.01f;
 		transform.rotation = camera.transform.rotation;
@@ -99,17 +104,4 @@ public class S_LandmarkMarker : MonoBehaviour
 		m_MarkerMaterial.SetFloat("_MarkerAlpha", markerAlpha);
 		m_LabelMesh.alpha = markerAlpha;
 	}
-
-	private struct MarkerProperties : IAnimatable<MarkerProperties>
-	{
-		public float Scale;
-
-		public MarkerProperties(float scale)
-		{
-			Scale = scale;
-		}
-
-		public MarkerProperties Lerp(in MarkerProperties to, float alpha) => new(math.lerp(Scale, to.Scale, alpha));
-	}
-
 }

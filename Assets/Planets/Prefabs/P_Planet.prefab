@@ -871,6 +871,8 @@ MonoBehaviour:
   m_Landsmarks: []
   m_LandmarkPrefab: {fileID: 8708439711239044045, guid: 50bbfa3cf4e654c4389ab3026a438338,
     type: 3}
+  m_InfoDisplayPrefab: {fileID: 1264696490786011134, guid: a84ec3ad924df6443afc8835784e2a7f,
+    type: 3}
 --- !u!1 &6561763226306492642
 GameObject:
   m_ObjectHideFlags: 0
