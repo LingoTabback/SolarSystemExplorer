@@ -525,9 +525,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_Landsmarks.Array.data[0].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 31466ba0388a2424794667b31d1f688d,
+        type: 2}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: m_Landsmarks.Array.data[1].Latitude
       value: -11.99
       objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[1].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 7ad8838c50378be4298cfcb0738ccd24,
+        type: 2}
     - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: m_Landsmarks.Array.data[2].Latitude
@@ -535,9 +547,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_Landsmarks.Array.data[2].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 4bb868b2f403ee74481d12e880e280da,
+        type: 2}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: m_Landsmarks.Array.data[3].Latitude
       value: -41.04
       objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[3].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: c06023cdf287f464797bc9f4cfaeb45b,
+        type: 2}
     - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: m_Landsmarks.Array.data[4].InfoText
@@ -550,9 +574,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_Landsmarks.Array.data[4].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: cd98b9b282b1ca040b98240f196981bc,
+        type: 2}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: m_Landsmarks.Array.data[5].Latitude
       value: 47.38
       objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[5].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 2457ce94d5cf3c942838d95ec1916c12,
+        type: 2}
     - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: m_Landsmarks.Array.data[6].Latitude
@@ -560,9 +596,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_Landsmarks.Array.data[6].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: a718bd9e0d77b9e4c8ec5cd41f5eb498,
+        type: 2}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: m_Landsmarks.Array.data[7].Latitude
       value: -2.1
       objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[7].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: c18c3b342af34fa48bf8fca3d7e41eef,
+        type: 2}
     - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: m_Landsmarks.Array.data[8].Latitude
@@ -570,9 +618,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_Landsmarks.Array.data[8].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 6cfe414290ea2ee44969192e1c6d364a,
+        type: 2}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: m_Landsmarks.Array.data[9].Latitude
       value: 4.52
       objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[9].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 925b56f0aeca5c34dadd14bf3a65d80d,
+        type: 2}
     - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: m_Landsmarks.Array.data[0].Longitude
@@ -585,9 +645,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_Landsmarks.Array.data[10].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 4aac14a396a28ea4ab077542dbd09777,
+        type: 2}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: m_Landsmarks.Array.data[11].Latitude
       value: -14.58
       objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[11].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 2f42c06d7dcc29a41acccd6ea1a2409c,
+        type: 2}
     - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: m_Landsmarks.Array.data[12].InfoText
@@ -598,6 +670,12 @@ PrefabInstance:
       propertyPath: m_Landsmarks.Array.data[12].Latitude
       value: 68.31
       objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[12].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: a718bd9e0d77b9e4c8ec5cd41f5eb498,
+        type: 2}
     - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: m_Landsmarks.Array.data[1].Longitude

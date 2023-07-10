@@ -386,7 +386,7 @@ PrefabInstance:
     - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
       propertyPath: m_AtmosphereComposition
-      value: 2% oxygen, 1% water
+      value: "D\xFCnne Sauerstoff (O2)-Atmosph\xE4re"
       objectReference: {fileID: 0}
     - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
