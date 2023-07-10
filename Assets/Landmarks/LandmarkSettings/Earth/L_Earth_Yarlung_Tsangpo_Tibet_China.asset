@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
-  m_Name: L_Yarlung_Tsangpo_Tibet_China
+  m_Name: L_Earth_Yarlung_Tsangpo_Tibet_China
   m_EditorClassIdentifier: 
   m_Title: Yarlung Tsangpo, Tibet, China
   m_Caption: "\u200BComposite, false-color view of the Yarlung Tsangpo River region

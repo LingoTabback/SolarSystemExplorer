@@ -469,6 +469,8 @@ MonoBehaviour:
   m_HumanVisitors: -1
   m_Moonwalkers: -1
   m_RoboticVisits: -1
+  m_SurfaceTemparature: 0
+  m_AtmosphereComposition: n/a
   m_Radius: 636
   m_MaxElevation: 0.88
   m_ElevationScale: 2

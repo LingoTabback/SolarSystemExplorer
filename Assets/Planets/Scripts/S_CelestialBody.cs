@@ -31,8 +31,8 @@ public abstract class S_CelestialBody : MonoBehaviour
 	public double3 PositionInSystem => ParentSystem.GetBodyPositionInSystem(ID);
 	public double OrbitalPeriod => ParentSystem.GetOrbitalPeriod(ID);
 	public bool IsFocused => ParentSystem.FocusedOrbit == ID & ID != OrbitID.Invalid;
-	public virtual double SurfaceTemparature => 0;
-	public virtual string AtmosphereComposition => "Gas 1, Gas 2, Gas 3.";
+	public double SurfaceTemparature => m_SurfaceTemparature;
+	public string AtmosphereComposition => m_AtmosphereComposition;
 
 	public Action FocusGained;
 	public Action FocusLoosing;
@@ -49,6 +49,10 @@ public abstract class S_CelestialBody : MonoBehaviour
 	private int m_Moonwalkers = -1;
 	[SerializeField]
 	private int m_RoboticVisits = -1;
+	[SerializeField]
+	private float m_SurfaceTemparature = 0;
+	[SerializeField]
+	private string m_AtmosphereComposition = "n/a";
 
 	[Serializable]
 	private class DiscoveryDateClass
