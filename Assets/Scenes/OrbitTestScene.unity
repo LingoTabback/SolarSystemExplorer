@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 1
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
-  m_CustomReflection: {fileID: 0}
+  m_ReflectionIntensity: 0.102
+  m_CustomReflection: {fileID: 8900000, guid: 98b9591b1e08a3944b6b62e67ae57751, type: 3}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.005355075, g: 0.005502315, b: 0.0052485787, a: 1}
+  m_IndirectSpecularColor: {r: 0.00054621766, g: 0.0005612361, b: 0.000535355, a: 0.102}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -584,6 +584,83 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5385368265250507288}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1028144545
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2174044205543690715, guid: 20e057d50b8255143a37fd1025bf773f,
+        type: 3}
+      propertyPath: m_Name
+      value: P_Thermometer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500856887985556960, guid: 20e057d50b8255143a37fd1025bf773f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500856887985556960, guid: 20e057d50b8255143a37fd1025bf773f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500856887985556960, guid: 20e057d50b8255143a37fd1025bf773f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500856887985556960, guid: 20e057d50b8255143a37fd1025bf773f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500856887985556960, guid: 20e057d50b8255143a37fd1025bf773f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500856887985556960, guid: 20e057d50b8255143a37fd1025bf773f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500856887985556960, guid: 20e057d50b8255143a37fd1025bf773f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500856887985556960, guid: 20e057d50b8255143a37fd1025bf773f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500856887985556960, guid: 20e057d50b8255143a37fd1025bf773f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500856887985556960, guid: 20e057d50b8255143a37fd1025bf773f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500856887985556960, guid: 20e057d50b8255143a37fd1025bf773f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5675317386769530852, guid: 20e057d50b8255143a37fd1025bf773f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 20e057d50b8255143a37fd1025bf773f, type: 3}
 --- !u!1 &1566099771
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,7 +1020,7 @@ PrefabInstance:
     - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
       propertyPath: m_ToolPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 5324529165427265608, guid: c1759f3fa9a33774186d5934dd4a56c3,
+      objectReference: {fileID: 2174044205543690715, guid: 20e057d50b8255143a37fd1025bf773f,
         type: 3}
     - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
       propertyPath: m_ToolPrefabs.Array.data[1]
