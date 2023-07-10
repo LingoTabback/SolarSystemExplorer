@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Europa_Rhadamanthys_Linea
+  m_EditorClassIdentifier: 
+  m_Title: Rhadamanthys Linea
+  m_Caption: This composite image combines data from the first and 17th Galileo spacecraft
+    flybys of Europa to make an enhanced-color view of complex, intriguing terrain.
+  m_Description: "As Europa orbits Jupiter it experiences strong tidal forces \u2014
+    somewhat like the tides in Earth\u2019s oceans caused by our Moon \u2014 that
+    cause its icy outer shell to flex. That flexing leads to intricate patterns of
+    linear cracks, ridges, bands, pits and domes that cover much of the moon\u2019s
+    surface. This image captures a wide variety of surface features, including the
+    prominent ridge Rhadamanthys Linea, which runs through the center of the picture
+    from upper left to lower right. While most ridges on Europa have a reddish appearance
+    in color images such as this one, Rhadamanthys appears to also have uneven blotches
+    of darker, redder material, which are more prominent in some locations than others.
+    Some scientists have interpreted the appearance of Rhadamanthys to indicate that
+    it is a recently, or perhaps currently, active feature on Europa's surface."
+  m_Image: {fileID: 21300000, guid: 4c8896c4fdd0eea45bdec930bacca167, type: 3}

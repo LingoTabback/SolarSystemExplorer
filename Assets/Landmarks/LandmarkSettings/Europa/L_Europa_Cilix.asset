@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Europa_Cilix
+  m_EditorClassIdentifier: 
+  m_Title: Cilix
+  m_Caption: "This 3D view of Cilix impact crater on Europa was created in 2013 using
+    3D stereo images taken by NASA's Galileo spacecraft in the late 1990s.\u200B"
+  m_Description: Cilix crater is one of the largest impact craters on Europa. The
+    crater rim rises steeply about 980 feet (300 meters) above a flat crater floor
+    that is interrupted by a central peak which is about 660 feet (200 meters) high.
+    Cilix is approximately 9 miles wide. Well-preserved craters like Cilix are rare
+    on Europa's surface, where ongoing geological activity is thought to disrupt
+    most surface features over timescales of tens of millions of years.
+  m_Image: {fileID: 21300000, guid: 319de304ce6590043b58d60dd3e2f3b4, type: 3}

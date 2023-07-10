@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Moon_Surveyor_1
+  m_EditorClassIdentifier: 
+  m_Title: Surveyor 1
+  m_Caption: "\u200BSurveyor 1 photograph of its shadow on the lunar surface."
+  m_Description: Surveyor 1, the first of a series of seven robotic spacecraft sent
+    to the Moon to gather data in preparation for NASA's Apollo missions, was the
+    first spacecraft to make a true soft landing on the Moon. This was one of the
+    great successes of NASA's early lunar and interplanetary program.
+  m_Image: {fileID: 21300000, guid: 73f533133b77dc341957ac0fc658a6b1, type: 3}

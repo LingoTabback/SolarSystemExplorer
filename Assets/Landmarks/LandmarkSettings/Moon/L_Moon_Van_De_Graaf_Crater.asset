@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Moon_Van_De_Graaf_Crater
+  m_EditorClassIdentifier: 
+  m_Title: Van De Graaf Crater
+  m_Caption: 
+  m_Description: Unlike other merged craters on the Moon, there is no rim separating
+    the two sections of this crater. A relatively strong magnetic field was detected
+    near this crater. This discovery is unusual because the Moon does not currently
+    have a global magnetic field like the Earth does.
+  m_Image: {fileID: 21300000, guid: f07fc40cee4758a40ade73b6f5807680, type: 3}

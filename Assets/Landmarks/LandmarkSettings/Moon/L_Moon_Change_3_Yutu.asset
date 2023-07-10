@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Moon_Change_3_Yutu
+  m_EditorClassIdentifier: 
+  m_Title: Chang'e 3 / Yutu
+  m_Caption: "\u200BLunar Reconnaissance Orbiter view of Chang'e 3 lander and Yutu
+    rover on the Moon."
+  m_Description: In December 2013, China became the second nation to deploy a robotic
+    rover on the Moon with the successful landing of Chang'e 3 and its Yutu rover
+    in the Sea of Rains. The successful landing made China the third nation to make
+    a successful soft landing on the Moon.
+  m_Image: {fileID: 21300000, guid: f52fb0e3c6331964697877e9f812afd0, type: 3}

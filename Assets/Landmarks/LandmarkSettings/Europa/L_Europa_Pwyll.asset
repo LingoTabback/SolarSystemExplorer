@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Europa_Pwyll
+  m_EditorClassIdentifier: 
+  m_Title: Pwyll
+  m_Caption: "\u200BThis enhanced color image of the region surrounding Pwyll crater
+    was taken by NASA\u2019s Galileo spacecraft in December 1996."
+  m_Description: Pwyll, featured in this image, is thought to be one of the youngest
+    features on Europa's surface. The diameter of the central dark spot is approximately
+    25 miles (about 40 kilometers), and bright white rays extend for hundreds of
+    miles in all directions from the impact site. The rays cross over many different
+    terrain types, indicating that they are younger than anything they cross. Their
+    bright white color may indicate that they are composed of fresh, fine water-ice
+    particles, as opposed to the blue and brown tints of older materials elsewhere
+    in the image.
+  m_Image: {fileID: 21300000, guid: 8c4951eb31335124eb526f9f1bc1968e, type: 3}

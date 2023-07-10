@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Europa_Tyre
+  m_EditorClassIdentifier: 
+  m_Title: Tyre
+  m_Caption: "\u200BTyre is an unusually large impact structure on Europa. Images
+    taken by NASA\u2019s Galileo spacecraft in April 1997 were used to create this
+    enhanced-color view."
+  m_Description: "Europa\u2019s Tyre impact structure likely formed when a mountain-sized
+    asteroid slammed into the moon. The crater-like area is about 25 miles (40 kilometers)
+    across, but the entire structure, including its concentric rings, is about the
+    size of the island of Hawaii on Earth (86 miles, or 140 kilometers across). Some
+    of the smaller craters that pockmark the surface surrounding Tyre were formed
+    when material was ejected by the impact and then fell back to the surface."
+  m_Image: {fileID: 21300000, guid: eee3586312aa1254392863ce43055dc2, type: 3}
