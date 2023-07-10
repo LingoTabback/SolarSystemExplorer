@@ -42,8 +42,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AbsorptionNormalInfluence: 9.68
-    - _AbsorptionScale: 1.08
+    - _AbsorptionNormalInfluence: 8.61
+    - _AbsorptionScale: 0.71
     - _Metallic: 0
     - _MinTempPoint: 0.15
     - _QueueControl: 0
