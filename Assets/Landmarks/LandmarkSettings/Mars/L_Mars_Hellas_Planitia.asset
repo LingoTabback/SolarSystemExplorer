@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Mars_Hellas_Planitia
+  m_EditorClassIdentifier: 
+  m_Title: Hellas Planitia
+  m_Caption: MRO HiRISE view of slop streaks in Hellas Planitia
+  m_Description: "At around 1300 miles ( 2,200 kilometers ) in diameter, Hellas Planitia
+    is the largest visible impact basin in the Solar System, and hosts the lowest
+    elevations on Mars\u2019 surface as well as a variety of landscapes. This above
+    image covers a small central portion of the basin and shows a dune field with
+    lots of dust devil trails. In the middle, we see what appears to be long and
+    straight \u201Cscratch marks\u201D running down the southeast (bottom-right)
+    facing dune slopes. If we look closer, we can see these scratch marks actually
+    squiggle back and forth on their way down the dune. These scratch marks are linear
+    gullies."
+  m_Image: {fileID: 21300000, guid: dec1f7376f26e4d419454d18ef3207d6, type: 3}

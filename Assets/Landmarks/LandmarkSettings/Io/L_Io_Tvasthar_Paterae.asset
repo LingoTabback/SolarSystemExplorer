@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Io_Tvasthar_Paterae
+  m_EditorClassIdentifier: 
+  m_Title: Tvasthar Paterae
+  m_Caption: 'MRO HiRISE view of slop streaks in Hellas Planitia. Image Credit: NASA/JPL/University
+    of Arizona.'
+  m_Description: "Seen here is part Tvashtar Paterea, a chain of giant volcanic calderas.
+    The two small bright spots at the far left, just above center, are molten rock
+    exposed to the surface at the toes of lava flows. The larger orange and yellow
+    ribbon is a cooling lava flow more than 37 miles (60 kilometers) long. On Feb.
+    22, 2000, the Galileo spacecraft captured images in the near-infrared, clear,
+    and violet filters \u2014 in all, slightly more than the human eye can detect
+    \u2014 which were combined to produce this mosaic. The image is about 155 miles
+    (250 kilometers) across."
+  m_Image: {fileID: 21300000, guid: bc24a3eb54a7f4548896a52726c78b5b, type: 3}

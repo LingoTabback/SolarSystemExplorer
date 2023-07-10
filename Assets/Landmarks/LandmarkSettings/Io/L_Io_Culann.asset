@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Io_Culann
+  m_EditorClassIdentifier: 
+  m_Title: Culann
+  m_Caption: "Culann is one of Io\u2019s deposits of green material, and it is named
+    after the Celtic smith god. Image Credit: NASA/JPL-Caltech/Cornell/ASU."
+  m_Description: "The central caldera (above and just left of center) of Io\u2019s
+    Culann region has an irregular, scalloped margin and a green-colored floor. Lava
+    spills out of the caldera on all sides. Green material can also be seen in the
+    caldera to the lower right of the image, named Tohil Patera. The Galileo spacecraft
+    captured the images used to create this mosaic from about 12,500 miles (20,000
+    kilometers) from Io on Nov. 25, 1999."
+  m_Image: {fileID: 21300000, guid: 70b7535dbdfb14c4396c880f1cd60ff0, type: 3}

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Mars_Curiosity_Rover
+  m_EditorClassIdentifier: 
+  m_Title: Curiosity Rover
+  m_Caption: "\u200BRover Self Portrait from the Curiosity Mars Rover"
+  m_Description: Curiosity is the largest and most capable rover ever sent to Mars.
+    It launched November 26, 2011 and landed on Mars at 10:32 p.m. PDT on Aug. 5,
+    2012 (1:32 a.m. EDT on Aug. 6, 2012). Mars Science Laboratory arrived at Mars
+    through technological innovations that tested a completely new landing method.
+    The spacecraft descended on a parachute, then during the final seconds before
+    landing, the landing system fired rockets to allow it to hover while a tether
+    lowered Curiosity to the surface. The rover landed on its wheels, the tether
+    was cut, and the landing system flew off to crash-land a safe distance away.
+    Curiosity carries the biggest, most advanced instruments for scientific studies
+    ever sent to the Martian surface. The history of Martian climate and geology
+    is written in the chemistry and structure of the rocks and soil. Curiosity reads
+    this record by analyzing powdered samples drilled from rocks. It also measures
+    the chemical fingerprints present in different rocks and soils to determine their
+    composition and history, especially their past interactions with water.
+  m_Image: {fileID: 21300000, guid: 0b99b15e5a276594499ad39bec431afb, type: 3}

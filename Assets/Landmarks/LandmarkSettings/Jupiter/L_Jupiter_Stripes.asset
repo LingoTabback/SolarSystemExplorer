@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Jupiter_Stripes
+  m_EditorClassIdentifier: 
+  m_Title: Stripes
+  m_Caption: "\u200BClouds of Many Colors"
+  m_Description: Jupiter is called a gas giant planet. Its atmosphere is made up
+    of mostly hydrogen gas and helium gas, like the sun. The planet is covered in
+    thick red, brown, yellow and white clouds. The clouds make the planet look like
+    it has stripes. The reasons for the rich detail and colors and swirls of are
+    currently unknown.
+  m_Image: {fileID: 21300000, guid: e91c7049ef6d610478f3b6d953f28960, type: 3}

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Mars_InSight
+  m_EditorClassIdentifier: 
+  m_Title: InSight
+  m_Caption: "\u200BArtists impression of the InSight lander"
+  m_Description: 'InSight (Interior Exploration using Seismic Investigations, Geodesy
+    and Heat Transport) is a NASA Discovery Program mission that will place a single
+    geophysical lander on Mars to study its deep interior. But InSight is more than
+    a Mars mission - it is a terrestrial planet explorer that will address one of
+    the most fundamental issues of planetary and solar system science - understanding
+    the processes that shaped the rocky planets of the inner solar system (including
+    Earth) more than four billion years ago. By using sophisticated geophysical instruments,
+    InSight will delve deep beneath the surface of Mars, detecting the fingerprints
+    of the processes of terrestrial planet formation, as well as measuring the planet''s
+    ''vital signs'': Its ''pulse'' (seismology), ''temperature'' (heat flow probe),
+    and ''reflexes'' (precision tracking). InSight is due to launch in May 2018.'
+  m_Image: {fileID: 21300000, guid: f8db18f5c362e7e439253f6deab0d656, type: 3}

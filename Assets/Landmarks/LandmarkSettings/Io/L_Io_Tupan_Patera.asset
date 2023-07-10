@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Io_Tupan_Patera
+  m_EditorClassIdentifier: 
+  m_Title: Tupan Patera
+  m_Caption: 'Named for the thunder god of the Tupi-Guarani Indians of Brazil, Tupan
+    patera is one of the more visually stunning regions of Io. Image Credit: NASA/JPL/University
+    of Arizona.'
+  m_Description: "The Galileo spacecraft captured this image of Tupan Patera in October
+    2001. About 47 miles (75 kilometers) across, the Tupan volcanic depression is
+    surrounded by cliffs about 3,000 feet (900 meters) tall. The color in the image
+    is only slightly enhanced from what a human eye would see (the reds includes
+    a small amount of infrared that humans can\u2019t detect)."
+  m_Image: {fileID: 21300000, guid: 6d9deb88545fb2a4da062b4cd863f60e, type: 3}

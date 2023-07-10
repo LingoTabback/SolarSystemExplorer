@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Mars_Orcus_Patera
+  m_EditorClassIdentifier: 
+  m_Title: Orcus Patera
+  m_Caption: "\u200BMRO HiRISE view of sand dunes in Orcus Patera"
+  m_Description: Orcus Patera is an irregular, large elliptical feature with limited
+    evidence of an ejecta blanket or U-shaped basin that would favor an origin as
+    an impact crater. The strongest arguments suggestive of impact origins are in
+    cavity wall and flank slopes. The odd shape, age relations and flat-floor topography
+    fit better into a model for a volcanic caldera. We conclude that the current
+    evidence favors a volcanic origin for Orcus Patera. The above image is of a small
+    field of sand dunes at the bottom of a small crater within Orcus Patera.
+  m_Image: {fileID: 21300000, guid: b56405239f2abf3499311748c20865ff, type: 3}

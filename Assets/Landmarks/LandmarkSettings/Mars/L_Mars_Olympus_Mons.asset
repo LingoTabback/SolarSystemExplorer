@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Mars_Olympus_Mons
+  m_EditorClassIdentifier: 
+  m_Title: Olympus Mons
+  m_Caption: "\u200BViking Orbiter view of the martian volcano Olympus Mons"
+  m_Description: The largest of the volcanoes in the Tharsis Montes region, as well
+    as all known volcanoes in the solar system, is Olympus Mons. Olympus Mons is
+    a shield volcano 374 mi ( 624 km ) in diameter (approximately the same size as
+    the state of Arizona), 16 mi ( 25 km) high, and is rimmed by a 4 mi ( 6 km) high
+    scarp. . To compare, the largest volcano on Earth is Mauna Loa. Mauna Loa is
+    a shield volcano but only 75 mi (120 km) across.
+  m_Image: {fileID: 21300000, guid: aa975efe592bd6844adb7614f33120b9, type: 3}

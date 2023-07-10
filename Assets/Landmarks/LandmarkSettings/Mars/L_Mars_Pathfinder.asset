@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Mars_Pathfinder
+  m_EditorClassIdentifier: 
+  m_Title: Pathfinder
+  m_Caption: "\u200BView from the Mars Pathfinder lander of the Sojourner Rover"
+  m_Description: Mars Pathfinder was launched December 4, 1996 and landed on Mars'
+    Ares Vallis on July 4, 1997. It was designed as a technology demonstration of
+    a new way to deliver an instrumented lander and the first-ever robotic rover
+    to the surface of the red planet. Pathfinder not only accomplished this goal
+    but also returned an unprecedented amount of data and outlived its primary design
+    life.Both the lander and the 23-pound (10.6 kilogram) rover carried instruments
+    for scientific observations and to provide engineering data on the new technologies
+    being demonstrated. Included were scientific instruments to analyze the Martian
+    atmosphere, climate, geology and the composition of its rocks and soil. Mars
+    Pathfinder used an innovative method of directly entering the Martian atmosphere,
+    assisted by a parachute to slow its descent through the thin Martian atmosphere
+    and a giant system of airbags to cushion the impact.
+  m_Image: {fileID: 21300000, guid: 33bc7205e8c6cfd4bb8d4e7e254fcfa8, type: 3}

@@ -266,6 +266,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_SurfaceTemparature
+      value: -145
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: m_Atmosphere.TipValue
       value: 0.5
       objectReference: {fileID: 0}
@@ -298,6 +303,11 @@ PrefabInstance:
         type: 3}
       propertyPath: Atmosphere.Absorption.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_AtmosphereComposition
+      value: Wasserstoff (89,8%), Helium (10,2%), Spurengase
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
@@ -541,9 +551,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_Landsmarks.Array.data[0].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d33bf4a9dc0f92439e1fa3c0c1257bd,
+        type: 2}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: m_Landsmarks.Array.data[1].Latitude
       value: -40.42
       objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[1].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 3d1dc1e5007e11b43a052452459c2ba2,
+        type: 2}
     - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: m_Landsmarks.Array.data[2].Latitude
@@ -551,9 +573,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_Landsmarks.Array.data[2].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 11e007628145b0f49aa592ed04ccaf77,
+        type: 2}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: m_Landsmarks.Array.data[3].Latitude
       value: 69.82
       objectReference: {fileID: 0}
+    - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[3].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: bb0f956012d6baf4d969a10ef66979a7,
+        type: 2}
     - target: {fileID: 3959784462597858754, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
       propertyPath: m_Landsmarks.Array.data[0].Longitude

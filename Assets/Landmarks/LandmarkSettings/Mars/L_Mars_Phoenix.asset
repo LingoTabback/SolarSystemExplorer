@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Mars_Phoenix
+  m_EditorClassIdentifier: 
+  m_Title: Phoenix
+  m_Caption: View from the Phoenix lander
+  m_Description: Named for the resilient mythological bird, Phoenix used a lander
+    that was intended for use by 2001's Mars Surveyor lander prior to its cancellation.
+    It also carried a complex suite of instruments that were improved variations
+    of those that flew on the lost Mars Polar Lander.In the continuing pursuit of
+    water on Mars, the polar regions are a good place to probe, as water ice is found
+    there. Phoenix landed on May 25th 2008, farther north than any previous mission,
+    at a latitude equivalent to that of northern Alaska. During the course of its
+    three-month mission, Phoenix dug into an ice-rich layer near the surface. It
+    checked samples of soil and ice for evidence about whether the site was ever
+    hospitable to life.To analyze soil samples collected by its robotic arm, Phoenix
+    carried tiny ovens and a portable laboratory. Selected samples were heated to
+    release volatiles that were examined for their chemical composition and other
+    characteristics. Phoenix's mission ended on November 2nd 2008.
+  m_Image: {fileID: 21300000, guid: 85b7da51838b0704aaf7f7558764537f, type: 3}

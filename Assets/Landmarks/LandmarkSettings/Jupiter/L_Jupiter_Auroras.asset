@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Jupiter_Auroras
+  m_EditorClassIdentifier: 
+  m_Title: Auroras
+  m_Caption: Perpetual Light Show
+  m_Description: Jupiter is best known for its colorful storms. But also has some
+    of the most vivid auroras. Not only are the auroras bigger than Earth, they are
+    also hundreds of times more energetic than auroras on our home world. And, unlike
+    those on Earth, they never cease. On Earth the most intense auroras are caused
+    by solar storms, but Jupiter generates its own. The strong magnetic field of
+    the gas giant grabs charged particles from its surroundings, including particles
+    thrown into space by its orbiting moon Io, known for its numerous and large volcanoes.
+  m_Image: {fileID: 21300000, guid: 5a3cef21f31a90142878e8382ad53d94, type: 3}

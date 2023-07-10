@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Io_Chaac
+  m_EditorClassIdentifier: 
+  m_Title: Chaac
+  m_Caption: "Chaac Patera is one of Io\u2019s eye-catching green deposits. The feature
+    is named after the Mayan thunder and rain god. Image Credit: NASA/JPL/University
+    of Arizona."
+  m_Description: This view of a Chaac region caldera was produced from images taken
+    by the Galileo spacecraft on Feb. 22, 2000. Galileo captured the five partial
+    images on the right from between 400 and 500 miles (700 to 800 kilometers) from
+    Io. They are the highest-resolution images ever of lava flows on Io. The approximate
+    locations of the five partial images are represented as boxes in the lower-resolution
+    image to the left. For scale, the deep, dark pit in the southernmost partial
+    image is thought to be about 440 yards (400 meters) across.
+  m_Image: {fileID: 21300000, guid: a928bb0597eee564f8e5254984adf657, type: 3}

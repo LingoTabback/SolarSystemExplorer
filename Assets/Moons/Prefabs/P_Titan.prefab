@@ -140,6 +140,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
+      propertyPath: m_SurfaceTemparature
+      value: -179
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
       propertyPath: Atmosphere.MaxSunAngle
       value: 125
       objectReference: {fileID: 0}
@@ -172,6 +177,12 @@ PrefabInstance:
         type: 3}
       propertyPath: Atmosphere.Absorption.r
       value: 0.73570466
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_AtmosphereComposition
+      value: "Dicke Atmosph\xE4re, haupts\xE4chlich aus Stickstoff (N2) mit Spuren
+        von Methan (CH4)"
       objectReference: {fileID: 0}
     - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}

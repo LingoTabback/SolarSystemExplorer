@@ -261,8 +261,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}
+      propertyPath: m_SurfaceTemparature
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
       propertyPath: m_Atmosphere.TipWidth
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2422630858039172434, guid: a783fef0c379aad4f9ffad6f32d3b967,
+        type: 3}
+      propertyPath: m_AtmosphereComposition
+      value: Stickstoff (78,08%), Sauerstoff (20,95%), Argon (0,93%)
       objectReference: {fileID: 0}
     - target: {fileID: 3826704154332498924, guid: a783fef0c379aad4f9ffad6f32d3b967,
         type: 3}

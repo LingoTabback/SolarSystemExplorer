@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Mars_Valles_Marineris
+  m_EditorClassIdentifier: 
+  m_Title: Valles Marineris
+  m_Caption: "\u200BViking Orbiter view of the Valles Marineris canyon system"
+  m_Description: Valles Marineris, or Mariner Valley, is a vast canyon system that
+    runs along the Martian equator just east of the Tharsis region. Valles Marineris
+    is 2500 mi (4000 km) long and reaches depths of up to 4 miles (7km) For comparison,
+    the Grand Canyon in Arizona is only 500 miles (800km) long and 1 mile (1.6km)
+    deep. In fact, the extent of Valles Marineris is as long as the United States
+    and it spans about 20 percent (1/5) of the entire distance around Mars! The canyon
+    extends from the Noctis Labyrinthus region in the west to the chaotic terrain
+    in the east. Most researchers agree that Valles Marineris is a large tectonic
+    'crack' in the Martian crust, forming as the planet cooled, affected by the rising
+    crust in the Tharsis region to the west, and subsequently widened by erosional
+    forces. However, near the eastern flanks of the rift there appear to be some
+    channels that may have been formed by water.
+  m_Image: {fileID: 21300000, guid: 70e0570d83c2db84da33cce3ff1b71f3, type: 3}

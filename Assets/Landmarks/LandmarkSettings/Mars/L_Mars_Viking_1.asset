@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Mars_Viking_1
+  m_EditorClassIdentifier: 
+  m_Title: Viking 1
+  m_Caption: "\u200BView from the Viking 1 lander"
+  m_Description: The Viking 1 lander touched down on the western slope of Chryse
+    Planitia (the Plains of Gold) on July 20th 1976. Besides taking photographs and
+    collecting other science data on the Martian surface, the two viking landers
+    conducted three biology experiments designed to look for possible signs of life.
+    These experiments discovered unexpected and enigmatic chemical activity in the
+    Martian soil, but provided no clear evidence for the presence of living microorganisms
+    in soil near the landing sites. Viking Lander 1 made its final transmission to
+    Earth November 11, 1982
+  m_Image: {fileID: 21300000, guid: 0d05cd57fa45b9a45b92ebfab40b8604, type: 3}

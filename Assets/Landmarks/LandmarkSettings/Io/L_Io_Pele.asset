@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Io_Pele
+  m_EditorClassIdentifier: 
+  m_Title: Pele
+  m_Caption: 'Two images from the Voyager mission captured Pele erupting, confirming
+    the existence of active volcanism on Io. It was the first time active volcanoes
+    were found on a world other than Earth. Pele is named after the Hawaiian volcano
+    goddess. Image Credit: NASA/JPL/Ames Research Center.'
+  m_Description: "The large orange ring dominating the leftmost third of this image
+    is a deposit from the plume of Io\u2019s Pele volcano. The material ejected from
+    the volcano collects on the surface more than 350 miles (about 600 kilometers)
+    from the dark central vent. The Galileo spacecraft took the images used to create
+    this view on the spacecraft\u2019s first and third orbit of Jupiter in June and
+    November of 1996."
+  m_Image: {fileID: 21300000, guid: 9ee97577c37ba454f81de05624e5447f, type: 3}
