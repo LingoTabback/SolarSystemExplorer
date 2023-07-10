@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Europa_Agenor_Linea
+  m_EditorClassIdentifier: 
+  m_Title: Agenor Linea
+  m_Caption: "These combined Galileo spacecraft images taken in September 1998 show
+    Agenor Linea is not a ridge, but is relatively flat.\u200B"
+  m_Description: Agenor Linea is an unusual feature on Europa, since it is brighter
+    than its surroundings while most of Europa's ridges and bands are relatively
+    dark. Its interior consists of several long bands, just one of which is the very
+    bright feature known as Agenor. A few very small craters pockmark Agenor Linea
+    and its surroundings. Agenor is cut by narrow fractures, and by small rounded
+    features called lenticulae.
+  m_Image: {fileID: 21300000, guid: 0ef52462de095d542951e571e95144df, type: 3}

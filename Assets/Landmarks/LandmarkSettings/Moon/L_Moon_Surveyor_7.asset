@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Moon_Surveyor_7
+  m_EditorClassIdentifier: 
+  m_Title: Surveyor 7
+  m_Caption: 
+  m_Description: Surveyor 7 was the last of the original series of Surveyor Moon
+    landers of the late 1960s and was dedicated primarily to scientific investigations.
+    By 1968, the spacecraft's predecessors had already performed much of the investigative
+    work into the feasibility of a future human mission to the Moon, so Surveyor
+    7's mission was unique.
+  m_Image: {fileID: 21300000, guid: 1db96de04df2c0749a99954c3bd2fc2e, type: 3}

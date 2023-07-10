@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Europa_Argadnel_Regio
+  m_EditorClassIdentifier: 
+  m_Title: Argadnel Regio
+  m_Caption: "NASA\u2019s Galileo spacecraft captured this image of rugged Argadnel
+    Regio in November 1996. The image spans about 150 miles (238 kilometers), roughly
+    the distance between Los Angeles and San Diego in Southern California.\u200B"
+  m_Description: Symmetric ridges in the dark bands of Argadnel Regio suggest that
+    the surface crust was separated and filled with darker material. While some craters
+    are visible, the absence of more craters indicates this area is geologically
+    young. The youngest ridges in the area have central fractures, aligned knobs
+    and irregular dark patches. These and other features might indicate cryovolcanism,
+    or processes related to eruption of ice and gases.
+  m_Image: {fileID: 21300000, guid: 56db472706f05f64ba6c1dc6cea655ca, type: 3}

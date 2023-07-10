@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Moon_Marius_Hills_Lava_Tube_Pit
+  m_EditorClassIdentifier: 
+  m_Title: Marius Hills Lava Tube Pit
+  m_Caption: "The Marius Hills pit is a possible skylight in a lava tube in an ancient
+    volcanic region of the Moon called the Marius Hills. This image comes from NASA\u2019s
+    Lunar Reconnaissance Orbiter. Image credit: NASA/GSFC/Arizona State University"
+  m_Description: This pit in the Marius Hills of the Moon intrigues scientists because
+    it could be the opening to a large lava tube complex under the lunar surface.
+    Such features can help scientists understand volcanic processes and provide clues
+    about the types of volcanism the Moon experienced in its early history. Lava
+    tubes also may be important to potential future astronauts because they may offer
+    protection from harmful radiation, cosmic rays, meteorite impacts and the extreme
+    temperature differences between the lunar day and night. A lava tube also could
+    be the site of a future lunar base. This circular pit, 190 feet (58 meters) in
+    diameter and 131 feet (40 meters) deep, was discovered by Japanese scientists
+    in images from the Kaguya orbiter.
+  m_Image: {fileID: 21300000, guid: 415252b10240ac0408a600e0afc63aba, type: 3}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Moon_Mare_Orientale
+  m_EditorClassIdentifier: 
+  m_Title: Mare Orientale
+  m_Caption: "\u200BThe Orientale impact basin, combining shaded relief with free
+    air gravity."
+  m_Description: The Orientale Basin is located near the western limb of the lunar
+    nearside and is only partially visible from telescopes on Earth. Lunar Orbiter
+    images provided the first good look at this basin, which is 930 kilometers in
+    diameter.
+  m_Image: {fileID: 21300000, guid: 4258c21417a26a5448cdc63457f1c9f3, type: 3}
