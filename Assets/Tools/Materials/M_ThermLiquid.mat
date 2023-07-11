@@ -28,6 +28,10 @@ Material:
         m_Texture: {fileID: 8900000, guid: 98b9591b1e08a3944b6b62e67ae57751, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleCubemap_959ccc9e21114891a95611832872b4b5_Cube_1_Cubemap:
+        m_Texture: {fileID: 8900000, guid: 98b9591b1e08a3944b6b62e67ae57751, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -42,14 +46,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AbsorptionNormalInfluence: 8.61
-    - _AbsorptionScale: 0.71
+    - _AbsorptionNormalInfluence: 2.54
+    - _AbsorptionScale: 0.43
     - _Metallic: 0
     - _MinTempPoint: 0.15
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _RefractionLod: 0
     - _RelativeTemp: 1
-    - _Roughness: 0.05
+    - _Roughness: 0.125
     m_Colors:
     - _Color: {r: 1, g: 0.3726415, b: 0.3726415, a: 1}
   m_BuildTextureStacks: []
