@@ -629,7 +629,7 @@ MonoBehaviour:
   m_TransitionTime: 1
   m_PlanetScale: 1
   m_LineMaterial: {fileID: 2100000, guid: c63ca54422b11664285547b4693eb92d, type: 2}
-  m_Paused: 1
+  m_Paused: 0
 --- !u!4 &1566099773
 Transform:
   m_ObjectHideFlags: 0
@@ -659,7 +659,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SelectAction: {fileID: 415127961827104363, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
-  m_SolarSystem: {fileID: 1566099772}
+  m_TimeSpeedAction: {fileID: -7494269984937872003, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  m_TimeSpeedValues:
+  - Speed: 1
+    Unit: 0
+  - Speed: 1
+    Unit: 1
+  - Speed: 1
+    Unit: 2
+  - Speed: 1
+    Unit: 3
+  - Speed: 1
+    Unit: 4
+  - Speed: 1
+    Unit: 5
+  - Speed: 1
+    Unit: 6
+  m_MultitapMaxDelay: 0.3
 --- !u!1 &1684480501
 GameObject:
   m_ObjectHideFlags: 0

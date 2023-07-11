@@ -2141,6 +2141,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "TimeSpeedChange",
+                    "type": "Button",
+                    "id": "e8c539a7-4f5e-4eab-970a-d9ca3f0fa8b2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -2196,6 +2205,28 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "FasterTimeMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c5e2bcd0-a4d9-4791-8c14-7647dcb15629",
+                    "path": "<XRController>{RightHand}/thumbstickClicked",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "TimeSpeedChange",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9fb15c35-16bb-4b04-9baf-97845f28a517",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "TimeSpeedChange",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

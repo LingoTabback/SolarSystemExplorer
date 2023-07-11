@@ -259,6 +259,7 @@ namespace AstroTime
 		Hours,
 		Days,
 		Weeks,
+		Months,
 		Years
 	}
 
@@ -282,6 +283,7 @@ namespace AstroTime
 				AstroTimeUnit.Minutes => t * s_DaysPerMinute,
 				AstroTimeUnit.Hours => t * s_DaysPerHour,
 				AstroTimeUnit.Weeks => t * s_DaysPerWeek,
+				AstroTimeUnit.Months => t * s_DaysPerMonth,
 				AstroTimeUnit.Years => t * s_DaysPerYear,
 				_ => t
 			};
@@ -295,6 +297,7 @@ namespace AstroTime
 				AstroTimeUnit.Minutes => t * s_MinutesPerDay,
 				AstroTimeUnit.Hours => t * s_HoursPerDay,
 				AstroTimeUnit.Weeks => t * s_WeeksPerDay,
+				AstroTimeUnit.Months => t * s_MonthsPerDay,
 				AstroTimeUnit.Years => t * s_YearsPerDay,
 				_ => t
 			};
@@ -416,12 +419,14 @@ namespace AstroTime
 		private static readonly double s_MinutesPerDay = 1440.0;
 		private static readonly double s_HoursPerDay = 24.0;
 		private static readonly double s_WeeksPerDay = 1.0 / 7.0;
+		private static readonly double s_MonthsPerDay = 1.0 / 30.0;
 		private static readonly double s_YearsPerDay = 1.0 / 365.25;
 
 		private static readonly double s_DaysPerSecond = 1.0 / 86400.0;
 		private static readonly double s_DaysPerMinute = 1.0 / 1440.0;
 		private static readonly double s_DaysPerHour = 1.0 / 24.0;
 		private static readonly double s_DaysPerWeek = 7.0;
+		private static readonly double s_DaysPerMonth = 30.0;
 		private static readonly double s_DaysPerYear = 365.25;
 
 		// Input is a TDB Julian Date; result is in seconds
