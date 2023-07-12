@@ -1,5 +1,6 @@
 using AstroTime;
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,13 +8,26 @@ using UnityEngine.InputSystem;
 public class S_SolarSystemInputHandler : MonoBehaviour
 {
 	[SerializeField]
+	private InputActionReference m_RightStickAction;
+	[SerializeField]
+	private InputActionReference m_FasterTimeMoveAction;
+	[SerializeField]
+	private float m_Deadzone = 0.75f;
+	[SerializeField]
+	private double m_RotationScale = 0.25;
+	[SerializeField]
+	[Range(0.001f, 1)]
+	private float m_AnimationSmoothing = 0.1f;
+
+	private float m_PrevAngle = 0;
+	private float m_CurAngleDiff = 0;
+	private float m_NextAngleDiff = 0;
+	private bool m_FirstFrameOfInput = true;
+
+	[SerializeField]
 	private InputActionReference m_SelectAction;
 	[SerializeField]
 	private InputActionReference m_TimeSpeedAction;
-	//[SerializeField]
-	//private InputActionReference m_TimeSpeedUpAction;
-	//[SerializeField]
-	//private InputActionReference m_TimeSlowDownAction;
 
 	[Serializable]
 	private struct TimeSpeed
@@ -52,16 +66,23 @@ public class S_SolarSystemInputHandler : MonoBehaviour
 	{
 		m_SelectAction.action.performed += Teleport;
 		m_TimeSpeedAction.action.performed += OnTimeSpeedPressed;
-		//m_TimeSpeedUpAction.action.performed += SpeedUpTime;
-		//m_TimeSlowDownAction.action.performed += SlowDownTime;
 	}
 
 	void OnDestroy()
 	{
 		m_SelectAction.action.performed -= Teleport;
 		m_TimeSpeedAction.action.performed -= OnTimeSpeedPressed;
-		//m_TimeSpeedUpAction.action.performed -= SpeedUpTime;
-		//m_TimeSlowDownAction.action.performed -= SlowDownTime;
+	}
+
+	private void Update()
+	{
+		float blend = math.pow(0.5f, Time.deltaTime / m_AnimationSmoothing);
+		m_CurAngleDiff = math.lerp(m_NextAngleDiff, m_CurAngleDiff, blend);
+		if (math.abs(m_CurAngleDiff) < 0.0001f)
+			m_CurAngleDiff = 0;
+
+		double timeScale = m_FasterTimeMoveAction.action.ReadValue<float>() > 0.9f ? m_SolarSystem.CurrentOrbitalPeriod : m_SolarSystem.CurrentRotationalPeriod;
+		m_SolarSystem.SetTime(m_SolarSystem.BarycentricDynamicalTime - m_CurAngleDiff / math.PI_DBL * 0.5 * m_RotationScale * timeScale);
 	}
 
 	private void FixedUpdate()
@@ -77,6 +98,31 @@ public class S_SolarSystemInputHandler : MonoBehaviour
 
 			m_MultitapCount = 0;
 		}
+
+		float2 stickPosition = m_RightStickAction.action.ReadValue<Vector2>();
+		if (math.lengthsq(stickPosition) < m_Deadzone * m_Deadzone)
+		{
+			m_FirstFrameOfInput = true;
+			m_NextAngleDiff = 0;
+			return;
+		}
+
+		float2 stickDirection = math.normalize(stickPosition);
+		float angle = math.atan2(stickDirection.y, stickDirection.x);
+
+		if (!m_FirstFrameOfInput)
+		{
+			float angleDiff = angle - m_PrevAngle;
+			if (angleDiff > math.PI)
+				angleDiff = -math.PI * 2 + angleDiff;
+			else if (angleDiff < -math.PI)
+				angleDiff = math.PI * 2 + angleDiff;
+
+			m_NextAngleDiff = angleDiff;
+		}
+
+		m_PrevAngle = angle;
+		m_FirstFrameOfInput = false;
 	}
 
 	private void Teleport(InputAction.CallbackContext context) => m_SolarSystem.SetFocus(OrbitID.Invalid);
@@ -95,13 +141,13 @@ public class S_SolarSystemInputHandler : MonoBehaviour
 
 	private void SpeedUpTime()
 	{
-		m_TimeSpeedIndex = Math.Min(m_TimeSpeedIndex + 1, m_TimeSpeedValues.Length - 1);
+		m_TimeSpeedIndex = math.min(m_TimeSpeedIndex + 1, m_TimeSpeedValues.Length - 1);
 		m_SolarSystem.TimeScale = TimeUtil.ConvertToDays(m_TimeSpeedValues[m_TimeSpeedIndex].Speed, m_TimeSpeedValues[m_TimeSpeedIndex].Unit);
 	}
 
 	private void SlowDownTime()
 	{
-		m_TimeSpeedIndex = Math.Max(m_TimeSpeedIndex - 1, 0);
+		m_TimeSpeedIndex = math.max(m_TimeSpeedIndex - 1, 0);
 		m_SolarSystem.TimeScale = TimeUtil.ConvertToDays(m_TimeSpeedValues[m_TimeSpeedIndex].Speed, m_TimeSpeedValues[m_TimeSpeedIndex].Unit);
 	}
 }
