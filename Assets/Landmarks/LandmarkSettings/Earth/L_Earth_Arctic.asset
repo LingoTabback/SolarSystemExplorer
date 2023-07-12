@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Earth_Arctic
+  m_EditorClassIdentifier: 
+  m_Title: Arctic
+  m_Caption: 'Visualization of the Arctic region as seen from space in September
+    2017. Image Credit: Goddard SVS.'
+  m_Description: "Most commonly, scientists define the Arctic as the region above
+    the Arctic Circle, an imaginary line that circles the globe at approximately
+    66\xB0 34' N. The Arctic Circle marks the latitude above which the sun does not
+    set on the summer solstice, and does not rise on the winter solstice. The region
+    surrounding the North Pole consists of a large ocean surrounded by land. This
+    ocean, called the Arctic Ocean, is like no other ocean on Earth; and because
+    of its special location and climate, the lands that surround it are unique."
+  m_Image: {fileID: 21300000, guid: c308e302450b1784db1e3fa76532f9b1, type: 3}

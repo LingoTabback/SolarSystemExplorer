@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Earth_Dead_Sea
+  m_EditorClassIdentifier: 
+  m_Title: Dead Sea
+  m_Caption: "\u200BImage of the Dead Sea acquired on November 29, 2015, by the Moderate
+    Resolution Imaging Spectroradiometer (MODIS) sensor on board the Aqua satellite."
+  m_Description: The lowest spot on land, the Dead Sea depression sinks 1,300 feet
+    (400 meters) below sea level. This body of water occurs in a rift zone, where
+    the Arabian tectonic plate (east side) is pulling northward, away from the Africa
+    tectonic plate (west side). Highlands and plateaus on either side of the rift
+    end in escarpments at the seashore.
+  m_Image: {fileID: 21300000, guid: 51162c66a53f4c14699f2748d7580367, type: 3}

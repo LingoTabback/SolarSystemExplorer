@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Earth_Antarctica
+  m_EditorClassIdentifier: 
+  m_Title: Antarctica
+  m_Caption: "\u200BVisualization of Antarctica as seen from space."
+  m_Description: "Antarctica is Earth\u2019s southernmost continent, located primarily
+    south of the Antarctic Circle (66\xB0S). Antarctica is considered a desert because
+    it receives very little rain or snowfall, and the small amount of snow it does
+    receive builds up over hundreds and thousands of years to form large, thick ice
+    sheets. The continent's terrain is made up of glaciers, ice shelves and icebergs.
+    The only plants that can survive the extreme cold are lichens, mosses and algae.
+    Many types of whales are found in the oceans surrounding Antarctica and the continent
+    is home to seals and penguins. While the Antarctic continent ranks only fifth
+    in size (larger than Europe and Australia), it is large enough that the entire
+    United States could fit within in its 5.4 million square mile (14 million square
+    kilometer) size."
+  m_Image: {fileID: 21300000, guid: 01e1f19e65d261f449804e1130c1b758, type: 3}
