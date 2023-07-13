@@ -9,7 +9,7 @@ public class S_LandmarkManager : MonoBehaviour
 {
 	[SerializeField]
 	private S_CelestialBody m_Body;
-	public float MarkersAlpha => m_UIFocusAnimator.Current;
+	public float MarkersAlpha => m_UIFocusAnimator.Current * m_VisibilityAnimator.Current;
 
 	[Serializable]
 	public class Landmark
@@ -35,6 +35,7 @@ public class S_LandmarkManager : MonoBehaviour
 
 	private static readonly float s_UIFocusAnimationLength = 1.5f;
 	private Animator<FloatAnimatable> m_UIFocusAnimator = Animator<FloatAnimatable>.CreateDone(0, 0, s_UIFocusAnimationLength, 1);
+	private Animator<FloatAnimatable> m_VisibilityAnimator = Animator<FloatAnimatable>.CreateDone(1, 1, 0.5f, EasingType.EaseOutSine);
 	private S_LandmarkInfoDisplay m_CurrentDisplay;
 
 	// Start is called before the first frame update
@@ -74,27 +75,33 @@ public class S_LandmarkManager : MonoBehaviour
 	private void Update()
 	{
 		m_UIFocusAnimator.Update(Time.deltaTime);
+		bool doneThisFrame = m_VisibilityAnimator.IsDone;
+		m_VisibilityAnimator.Update(Time.deltaTime);
+		doneThisFrame = !doneThisFrame & m_VisibilityAnimator.IsDone;
+
+		if (doneThisFrame)
+		{
+			if (m_VisibilityAnimator.Current < 0.5f)
+				SetLandmarksActive(false);
+		}
 	}
 
 	public void OnFocusGained()
 	{
 		m_UIFocusAnimator.Reset(1);
-		foreach (var landmark in m_LandmarkObjects)
-			landmark.SetActive(true);
+		SetLandmarksActive(true);
 	}
 
 	public void OnFocusLoosing()
 	{
 		m_UIFocusAnimator.Reset(0);
-		foreach (var landmark in m_LandmarkObjects)
-			landmark.SetActive(false);
+		SetLandmarksActive(false);
 
 		if (m_CurrentDisplay != null)
 		{
 			m_CurrentDisplay.OnClose();
 			m_CurrentDisplay = null;
 		}
-
 	}
 
 	public void OnLandmarkSeleced(S_LandmarkMarker landmark)
@@ -105,6 +112,26 @@ public class S_LandmarkManager : MonoBehaviour
 		var displayObject = Instantiate(m_InfoDisplayPrefab, transform.parent);
 		m_CurrentDisplay = displayObject.GetComponent<S_LandmarkInfoDisplay>();
 		m_CurrentDisplay.Settings = landmark.Settings;
+	}
+
+	public void OnVisibilityChanged(bool newVis)
+	{
+		m_VisibilityAnimator.Reset(newVis ? 1 : 0);
+
+		if (!newVis & m_CurrentDisplay != null)
+		{
+			m_CurrentDisplay.OnClose();
+			m_CurrentDisplay = null;
+		}
+
+		if (newVis)
+			SetLandmarksActive(true);
+	}
+
+	private void SetLandmarksActive(bool active)
+	{
+		foreach (var landmark in m_LandmarkObjects)
+			landmark.SetActive(active);
 	}
 
 	private static Vector3 LatLongToDirection(float lat, float lon)

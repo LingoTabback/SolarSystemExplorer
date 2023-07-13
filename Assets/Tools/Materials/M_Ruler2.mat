@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_TherGlass
+  m_Name: M_Ruler2
   m_Shader: {fileID: -6465566751694194690, guid: 39bc817dd448da0409d50de35028214c,
     type: 3}
   m_Parent: {fileID: 0}
@@ -18,7 +18,7 @@ Material:
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords:
   - _CULL_A
-  m_LightmapFlags: 2
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -50,7 +50,7 @@ Material:
     - _BlendModePreserveSpecular: 1
     - _CULL: 0
     - _CastShadows: 1
-    - _Cull: 0
+    - _Cull: 2
     - _DstBlend: 10
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -58,13 +58,13 @@ Material:
     - _Roughness: 0.05
     - _SrcBlend: 1
     - _Surface: 1
-    - _Translucency: 1
+    - _Translucency: 0.475
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7347458732315861661
 MonoBehaviour:

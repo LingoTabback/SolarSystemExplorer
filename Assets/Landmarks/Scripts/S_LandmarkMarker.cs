@@ -98,7 +98,7 @@ public class S_LandmarkMarker : MonoBehaviour
 		Vector3 normal = Vector3.Normalize(landmarkPosition - planetPosition);
 		Vector3 viewDirection = Vector3.Normalize(landmarkPosition - camPos);
 
-		float markerAlpha = m_IsHovered ? 1 : math.smoothstep(-0.2f, 0.1f, -Vector3.Dot(normal, viewDirection));
+		float markerAlpha = m_IsHovered ? 1 : math.smoothstep(-0.3f, 0.0f, -Vector3.Dot(normal, viewDirection));
 		markerAlpha *= Manager.MarkersAlpha;
 		markerAlpha = math.pow(markerAlpha, 2.2f);
 		m_MarkerMaterial.SetFloat("_MarkerAlpha", markerAlpha);

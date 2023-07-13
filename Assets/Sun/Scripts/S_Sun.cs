@@ -35,5 +35,6 @@ public class S_Sun : S_CelestialBody
 	private void InitObjects()
 	{
 		m_SunObject = gameObject.transform.Find("SolarSurface").gameObject;
+		m_SunObject.TryGetComponent<S_LandmarkManager>(out m_LandmarksManager);
 	}
 }

@@ -48,7 +48,6 @@ public class S_SolarSystem : MonoBehaviour
 			return 365.25;
 		}
 	}
-
 	public double CurrentRotationalPeriod
 	{
 		get
@@ -56,6 +55,19 @@ public class S_SolarSystem : MonoBehaviour
 			if (m_FocusedOrbit.Valid && m_AllOrbits != null && m_AllOrbits[(int)m_FocusedOrbit] != null)
 				return m_AllOrbits[(int)m_FocusedOrbit].RotationalModel.Period;
 			return 1;
+		}
+	}
+	public S_CelestialBody FocusedBody
+	{
+		get
+		{
+			if (!m_FocusedOrbit.Valid)
+				return null;
+			if (m_FocusedOrbit == m_OrbitDict[(int)OrbitType.Sun])
+				return m_SunScript;
+			if (m_AllOrbits != null && (int)m_FocusedOrbit < m_AllOrbits.Count)
+				return m_AllOrbits[(int)m_FocusedOrbit].Script;
+			return null;
 		}
 	}
 

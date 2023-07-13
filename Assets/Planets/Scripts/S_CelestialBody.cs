@@ -66,5 +66,11 @@ public abstract class S_CelestialBody : MonoBehaviour
 
 	public void OnFocusGained() => FocusGained?.Invoke();
 	public void OnFocusLoosing() => FocusLoosing?.Invoke();
-
+	public bool LandmarksVisible
+	{
+		get => m_LandmarksVisible;
+		set { m_LandmarksVisible = value; m_LandmarksManager.OnVisibilityChanged(value); }
+	}
+	protected bool m_LandmarksVisible = true;
+	protected S_LandmarkManager m_LandmarksManager;
 }

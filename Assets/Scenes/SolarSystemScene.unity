@@ -905,7 +905,7 @@ PrefabInstance:
       objectReference: {fileID: 878628706}
     - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
       propertyPath: m_ToolPrefabs.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
       propertyPath: m_ToolPrefabs.Array.data[0]
@@ -920,7 +920,12 @@ PrefabInstance:
     - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
       propertyPath: m_ToolPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 5324529165427265608, guid: 5b8a7310a1c310b498367d043bda88cf,
+      objectReference: {fileID: 2920178239521720440, guid: 30c0b264cf536ef4fb8a3dc1cc5487b4,
+        type: 3}
+    - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
+      propertyPath: m_ToolPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 2008118680904143374, guid: 8411040c5ef43f2478dae5a81d1b5c49,
         type: 3}
     - target: {fileID: 1205567830094144206, guid: ec57412d09ebf3a4cbb280f6378d0593,
         type: 3}
@@ -997,6 +1002,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrackedAction.m_Action.m_Name
       value: Is Tracked
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009452121915227957, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 4009452122405576534, guid: ec57412d09ebf3a4cbb280f6378d0593,
         type: 3}

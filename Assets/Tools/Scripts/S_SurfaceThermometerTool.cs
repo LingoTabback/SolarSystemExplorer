@@ -19,7 +19,7 @@ public class S_SurfaceThermometerTool : XRDirectInteractor
 	protected override void Start()
 	{
 		base.Start();
-		m_TextMesh.text = $"{m_DefaultTemperature} °C";
+		m_TextMesh.text = $"{m_DefaultTemperature:n0} °C";
 	}
 
 	protected override void Awake()
@@ -37,9 +37,9 @@ public class S_SurfaceThermometerTool : XRDirectInteractor
 	private void OnUse(InputAction.CallbackContext context)
 	{
 		if (m_HoveredBody == null)
-			m_TextMesh.text = $"{m_DefaultTemperature} °C";
+			m_TextMesh.text = $"{m_DefaultTemperature:n0} °C";
 		else
-			m_TextMesh.text = $"{m_HoveredBody.SurfaceTemparature} °C";
+			m_TextMesh.text = $"{m_HoveredBody.SurfaceTemparature:n0} °C";
 	}
 
 	protected override void OnHoverEntered(HoverEnterEventArgs args)

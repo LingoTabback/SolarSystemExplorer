@@ -408,7 +408,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_ColliderSize: 0.085
+  m_ColliderSize: 0.11
   m_Marker: {fileID: 5418855051294488198}
 --- !u!135 &7419397834477269513
 SphereCollider:

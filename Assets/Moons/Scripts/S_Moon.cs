@@ -164,6 +164,7 @@ public class S_Moon : S_CelestialBody
 		m_AtmosphereAbsorptionObject = m_MoonObject.transform.Find("AtmosphereAbsorptionMesh").gameObject;
 		m_AtmosphereScatteringObject = m_MoonObject.transform.Find("AtmosphereScatteringMesh").gameObject;
 
+		m_MoonObject.TryGetComponent<S_LandmarkManager>(out m_LandmarksManager);
 		m_AtmosphereScatteringObject.TryGetComponent(out m_AtmosphereScatteringRenderer);
 
 		m_MoonObject.transform.localScale = Vector3.one * (m_ScaleToSize * 0.5f);

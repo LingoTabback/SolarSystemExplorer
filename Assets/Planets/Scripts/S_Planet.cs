@@ -203,6 +203,8 @@ public class S_Planet : S_CelestialBody
 		m_AtmosphereScatteringObject = m_PlanetObject.transform.Find("AtmosphereScatteringMesh").gameObject;
 		m_RingsObject = m_PlanetObject.transform.Find("Rings").gameObject;
 
+		m_PlanetObject.TryGetComponent<S_LandmarkManager>(out m_LandmarksManager);
+
 		m_AtmosphereAbsorptionObject.TryGetComponent(out m_AtmosphereAbsorptionRenderer);
 		m_AtmosphereScatteringObject.TryGetComponent(out m_AtmosphereScatteringRenderer);
 		m_RingsObject.TryGetComponent(out m_RingsRenderer);
