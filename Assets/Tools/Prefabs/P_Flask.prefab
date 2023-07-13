@@ -373,6 +373,9 @@ MonoBehaviour:
     m_Bits: 1
   m_PhysicsTriggerInteraction: 1
   m_TextMesh: {fileID: 7374208259711412929}
+  m_DefaultValue: ' '
+  m_UseAction: {fileID: 3420776691140144352, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
 --- !u!1 &8464641722902386866
 GameObject:
   m_ObjectHideFlags: 0

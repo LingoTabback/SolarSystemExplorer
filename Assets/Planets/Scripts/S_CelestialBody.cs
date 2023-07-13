@@ -52,6 +52,7 @@ public abstract class S_CelestialBody : MonoBehaviour
 	[SerializeField]
 	private float m_SurfaceTemparature = 0;
 	[SerializeField]
+	[TextArea(3, 6)]
 	private string m_AtmosphereComposition = "n/a";
 
 	[Serializable]

@@ -2150,6 +2150,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "UseTool",
+                    "type": "Button",
+                    "id": "ba45332d-1811-44fb-af71-b8cba331d0cc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -2227,6 +2236,39 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "TimeSpeedChange",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "da05b236-68b9-4ca0-9f3a-26835b689f12",
+                    "path": "<ViveController>{RightHand}/trackpadClicked",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "TimeSpeedChange",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0a1841f2-d182-4eaf-8e1a-a37a7c7461a7",
+                    "path": "<XRController>{RightHand}/menuButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "UseTool",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48c69b94-d508-4879-b448-86f75063fb28",
+                    "path": "<Keyboard>/#(Ü)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseTool",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

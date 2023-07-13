@@ -927,6 +927,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1610893512071485267, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1610893512071485276, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1610893512071485277, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1715029501187791658, guid: ec57412d09ebf3a4cbb280f6378d0593,
         type: 3}
       propertyPath: m_IsActive
@@ -1002,6 +1017,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrackedAction.m_Action.m_Name
       value: Is Tracked
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553410271970014003, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7051308314999243695, guid: ec57412d09ebf3a4cbb280f6378d0593,
         type: 3}
@@ -1112,6 +1132,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385329556996668482, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385329556996668482, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_UIScrollAction.m_Action.m_Id
+      value: a180d25f-b0b9-4a24-aa42-84efa4f30a72
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385329556996668482, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_IsTrackedAction.m_Action.m_Id
+      value: 57065da1-62bb-435e-97ff-32fbe468071f
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385329556996668482, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_UIScrollAction.m_Action.m_Name
+      value: UI Scroll
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385329556996668482, guid: ec57412d09ebf3a4cbb280f6378d0593,
+        type: 3}
+      propertyPath: m_IsTrackedAction.m_Action.m_Name
+      value: Is Tracked
       objectReference: {fileID: 0}
     - target: {fileID: 8736523940670349064, guid: ec57412d09ebf3a4cbb280f6378d0593,
         type: 3}
