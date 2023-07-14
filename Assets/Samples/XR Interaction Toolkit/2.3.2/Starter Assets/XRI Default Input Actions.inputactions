@@ -2143,7 +2143,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "TimeSpeedChange",
+                    "name": "TimePause",
                     "type": "Button",
                     "id": "e8c539a7-4f5e-4eab-970a-d9ca3f0fa8b2",
                     "expectedControlType": "Button",
@@ -2224,7 +2224,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
-                    "action": "TimeSpeedChange",
+                    "action": "TimePause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -2235,7 +2235,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
-                    "action": "TimeSpeedChange",
+                    "action": "TimePause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -2246,7 +2246,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
-                    "action": "TimeSpeedChange",
+                    "action": "TimePause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

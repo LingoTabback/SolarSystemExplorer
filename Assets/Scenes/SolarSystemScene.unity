@@ -166,7 +166,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -224,14 +224,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164533416}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.07992911, y: -0.889951, z: 0.41499165, w: 0.17140767}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: -158.196, z: 0}
 --- !u!114 &164533419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,24 +660,8 @@ MonoBehaviour:
   m_AnimationSmoothing: 0.1
   m_SelectAction: {fileID: 415127961827104363, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
-  m_TimeSpeedAction: {fileID: -7494269984937872003, guid: c348712bda248c246b8c49b3db54643f,
+  m_TimePauseAction: {fileID: -7494269984937872003, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
-  m_TimeSpeedValues:
-  - Speed: 1
-    Unit: 0
-  - Speed: 1
-    Unit: 1
-  - Speed: 1
-    Unit: 2
-  - Speed: 1
-    Unit: 3
-  - Speed: 1
-    Unit: 4
-  - Speed: 1
-    Unit: 5
-  - Speed: 1
-    Unit: 6
-  m_MultitapMaxDelay: 0.3
 --- !u!1 &1684480501
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,25 +889,30 @@ PrefabInstance:
       objectReference: {fileID: 878628706}
     - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
       propertyPath: m_ToolPrefabs.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
       propertyPath: m_ToolPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 2174044205543690715, guid: 20e057d50b8255143a37fd1025bf773f,
+      objectReference: {fileID: 4269124939991396809, guid: 1e7ed8d68a661734ea54d536b437aed5,
         type: 3}
     - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
       propertyPath: m_ToolPrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 8464641722902386866, guid: 22d5fa47161b9db4d8dfbaff893b6399,
+      objectReference: {fileID: 2174044205543690715, guid: 20e057d50b8255143a37fd1025bf773f,
         type: 3}
     - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
       propertyPath: m_ToolPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 2920178239521720440, guid: 30c0b264cf536ef4fb8a3dc1cc5487b4,
+      objectReference: {fileID: 8464641722902386866, guid: 22d5fa47161b9db4d8dfbaff893b6399,
         type: 3}
     - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
       propertyPath: m_ToolPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 2920178239521720440, guid: 30c0b264cf536ef4fb8a3dc1cc5487b4,
+        type: 3}
+    - target: {fileID: 516591152, guid: ec57412d09ebf3a4cbb280f6378d0593, type: 3}
+      propertyPath: m_ToolPrefabs.Array.data[4]
       value: 
       objectReference: {fileID: 2008118680904143374, guid: 8411040c5ef43f2478dae5a81d1b5c49,
         type: 3}

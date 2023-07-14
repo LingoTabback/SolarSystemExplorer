@@ -165,7 +165,7 @@ namespace AstroTime
 		private static readonly double s_MinutesPerDay = 1440.0;
 		private static readonly double s_HoursPerDay = 24.0;
 
-		private static readonly string[] s_MonthAbbreviationsUS =
+		private static readonly string[] s_MonthAbbreviationsEN =
 		{
 			"Jan", "Feb", "Mar", "Apr", "May", "Jun",
 			"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
@@ -175,6 +175,9 @@ namespace AstroTime
 			"Jan", "Feb", "Mär", "Apr", "Mai", "Jun",
 			"Jul", "Aug", "Sep", "Okt", "Nov", "Dez"
 		};
+
+		public static string GetMonthAbbreviationEN(int month) => month < 1 | month > 12 ? null : s_MonthAbbreviationsEN[month - 1];
+		public static string GetMonthAbbreviationDE(int month) => month < 1 | month > 12 ? null : s_MonthAbbreviationsDE[month - 1];
 
 		public override string ToString() => ToString(Format.ISO8601);
 		public string ToString(bool dateOnly) => ToString(Format.ISO8601, dateOnly);
@@ -188,7 +191,7 @@ namespace AstroTime
 				return format switch
 				{
 					Format.ISO8601 => $"{m_Year:0000}-{m_Month:00}-{m_Day:00}",
-					Format.US => $"{s_MonthAbbreviationsUS[m_Month - 1]} {m_Day:00}, {m_Year:0000}",
+					Format.US => $"{s_MonthAbbreviationsEN[m_Month - 1]} {m_Day:00}, {m_Year:0000}",
 					Format.DE => $"{m_Day:00}.{s_MonthAbbreviationsDE[m_Month - 1]} {m_Year:0000}",
 					_ => "NOT A VALID DATE",
 				};
@@ -196,7 +199,7 @@ namespace AstroTime
 			return format switch
 			{
 				Format.ISO8601 => $"{m_Year:0000}-{m_Month:00}-{m_Day:00} {m_Hour:00}:{m_Minute:00}:{(int)m_Seconds:00} {m_TZName}",
-				Format.US => $"{s_MonthAbbreviationsUS[m_Month - 1]} {m_Day:00}, {m_Year:0000} {m_Hour:00}:{m_Minute:00}:{(int)m_Seconds:00} {m_TZName}",
+				Format.US => $"{s_MonthAbbreviationsEN[m_Month - 1]} {m_Day:00}, {m_Year:0000} {m_Hour:00}:{m_Minute:00}:{(int)m_Seconds:00} {m_TZName}",
 				Format.DE => $"{m_Day:00}.{s_MonthAbbreviationsDE[m_Month - 1]} {m_Year:0000} {m_Hour:00}:{m_Minute:00}:{(int)m_Seconds:00} {m_TZName}",
 				_ => "NOT A VALID DATE",
 			};
