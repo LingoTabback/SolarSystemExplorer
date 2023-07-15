@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Saturn_Structure
+  m_EditorClassIdentifier: 
+  m_Title: Structure
+  m_Caption: 
+  m_Description: "Like Jupiter, Saturn is made mostly of hydrogen and helium. At
+    Saturn's center is a dense core of metals like iron and nickel surrounded by
+    rocky material and other compounds solidified by intense pressure and heat. It
+    is enveloped by liquid metallic hydrogen inside a layer of liquid hydrogen \u2013similar
+    to Jupiter's core but considerably smaller.\n\nIt's hard to imagine, but Saturn
+    is the only planet in our solar system with an average density that is less than
+    water. The giant gas planet could float in a bathtub if such a colossal thing
+    existed."
+  m_Image: {fileID: 0}

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Earth_Moons
+  m_EditorClassIdentifier: 
+  m_Title: Moons
+  m_Caption: 
+  m_Description: "Earth is the only planet that has a single moon. Our Moon is the
+    brightest and most familiar object in the night sky. In many ways, the Moon is
+    responsible for making Earth such a great home. It stabilizes our planet's wobble,
+    which has made the climate less variable over thousands of years.\r\n\r\nEarth
+    sometimes temporarily hosts orbiting asteroids or large rocks. They are typically
+    trapped by Earth's gravity for a few months or years before returning to an orbit
+    around the Sun. Some asteroids will be in a long \u201Cdance\u201D with Earth
+    as both orbit the Sun.\r\n\r\nSome moons are bits of rock that were captured
+    by a planet's gravity, but our Moon is likely the result of a collision billions
+    of years ago. When Earth was a young planet, a large chunk of rock smashed into
+    it, displacing a portion of Earth's interior. The resulting chunks clumped together
+    and formed our Moon. With a radius of 1,080 miles (1,738 kilometers), the Moon
+    is the fifth largest moon in our solar system (after Ganymede, Titan, Callisto,
+    and Io).\r\n\r\nThe Moon is an average of 238,855 miles (384,400 kilometers)
+    away from Earth. That means 30 Earth-sized planets could fit in between Earth
+    and its Moon."
+  m_Image: {fileID: 0}

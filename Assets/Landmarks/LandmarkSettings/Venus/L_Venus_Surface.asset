@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Venus_Surface
+  m_EditorClassIdentifier: 
+  m_Title: Surface
+  m_Caption: 
+  m_Description: "The broiling surface of Venus has been a topic of heated discussion
+    among planetary scientists. The traditional picture includes a catastrophic,
+    planetwide resurfacing between 350 and 750 million years ago. In other words,
+    Venus appears to have completely erased most traces of its early surface. The
+    causes: volcanic and tectonic forces, which could include surface buckling and
+    massive eruptions. But newer estimates made with help from computer models paint
+    a different portrait. While the same forces would be at work, resurfacing would
+    be piecemeal over an extended time. The average age of surface features could
+    be as young as 150 million years, with some older surfaces mixed in.\n\nVenus
+    is a landscape of valleys and high mountains dotted with thousands of volcanoes.
+    Its surface features \u2013 most named for both real and mythical women \u2013
+    include Ishtar Terra, a rocky, highland area around the size of Australia near
+    the north pole, and an even larger, South-America-sized region called Aphrodite
+    Terra that stretches across the equator. One mountain reaches 36,000 feet (11
+    kilometers), higher than Mt. Everest. Notably, except for Earth, Venus has by
+    far the fewest impact craters of any rocky planet, revealing a young surface.\r\n\r\nOn
+    your tour of Venus, during the 117 days you\u2019re waiting for sunset, you might
+    stop by a volcanic crater, Sacajawea, named for Lewis and Clark\u2019s Native
+    American guide. Or stroll through a deep canyon, Diana, named for the Roman goddess
+    of the hunt."
+  m_Image: {fileID: 0}

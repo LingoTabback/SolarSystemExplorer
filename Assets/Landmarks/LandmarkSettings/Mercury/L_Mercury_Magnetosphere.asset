@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Mercury_Magnetosphere
+  m_EditorClassIdentifier: 
+  m_Title: Magnetosphere
+  m_Caption: 
+  m_Description: "Mercury's magnetic field is offset relative to the planet's equator.
+    Though Mercury's magnetic field at the surface has just 1% the strength of Earth's,
+    it interacts with the magnetic field of the solar wind to sometimes create intense
+    magnetic tornadoes that funnel the fast, hot solar wind plasma down to the surface
+    of the planet. When the ions strike the surface, they knock off neutrally charged
+    atoms and send them on a loop high into the sky.\r"
+  m_Image: {fileID: 0}

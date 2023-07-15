@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Uranus_Moons
+  m_EditorClassIdentifier: 
+  m_Title: Moons
+  m_Caption: 
+  m_Description: 'Uranus has 27 known moons. While most of the satellites orbiting
+    other planets take their names from Greek or Roman mythology, Uranus'' moons
+    are unique in being named for characters from the works of William Shakespeare
+    and Alexander Pope.
+
+    
+
+    All of Uranus'' inner moons appear to be roughly
+    half water ice and half rock. The composition of the outer moons remains unknown,
+    but they are likely captured asteroids.'
+  m_Image: {fileID: 0}

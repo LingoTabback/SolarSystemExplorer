@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Jupiter_Moons
+  m_EditorClassIdentifier: 
+  m_Title: Moons
+  m_Caption: 
+  m_Description: "With four large moons and many smaller moons, Jupiter forms a kind
+    of miniature solar system. Jupiter has 80 moons. Fifty-seven moons have been
+    given official names by the International Astronomical Union (IAU). Another 23
+    moons are awaiting names.\r\n\r\nJupiter's four largest moons \u2013 Io, Europa,
+    Ganymede, and Callisto \u2013 were first observed by the astronomer Galileo Galilei
+    in 1610 using an early version of the telescope. These four moons are known today
+    as the Galilean satellites, and they're some of the most fascinating destinations
+    in our solar system. Io is the most volcanically active body in the solar system.
+    Ganymede is the largest moon in the solar system (even bigger than the planet
+    Mercury). Callisto\u2019s very few small craters indicate a small degree of current
+    surface activity. A liquid-water ocean with the ingredients for life may lie
+    beneath the frozen crust of Europa, making it a tempting place to explore."
+  m_Image: {fileID: 0}

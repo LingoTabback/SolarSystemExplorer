@@ -60,7 +60,9 @@ Material:
     - _Occlusion_Bias: 1.75
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ShadowAmount: 0.524
+    - _ShadowAmount: 0.445
+    - _ShadowMidPoint: 0.575
+    - _ShadowSoftness: 0.087
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

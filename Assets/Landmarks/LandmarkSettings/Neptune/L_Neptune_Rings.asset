@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Neptune_Rings
+  m_EditorClassIdentifier: 
+  m_Title: Rings
+  m_Caption: 
+  m_Description: "Neptune has at least five main rings and four prominent ring arcs
+    that we know of so far. Starting near the planet and moving outward, the main
+    rings are named Galle, Leverrier, Lassell, Arago, and Adams. The rings are thought
+    to be relatively young and short-lived.\r\n\r\nNeptune's ring system also has
+    peculiar clumps of dust called arcs. Four prominent arcs named Libert\xE9 (Liberty),
+    Egalit\xE9 (Equality), Fraternit\xE9 (Fraternity), and Courage are in the outermost
+    ring, Adams. The arcs are strange because the laws of motion would predict that
+    they would spread out evenly rather than stay clumped together. Scientists now
+    think the gravitational effects of Galatea, a moon just inward from the ring,
+    stabilizes these arcs."
+  m_Image: {fileID: 21300000, guid: 88a423b38dc250d4e9a545220cadf5ee, type: 3}

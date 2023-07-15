@@ -61,6 +61,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ShadowAmount: 0.488
+    - _ShadowMidPoint: 0.569
+    - _ShadowSoftness: 0.086
     m_Colors:
     - _Color: {r: 1, g: 0.26886788, b: 0.26886788, a: 1}
   m_BuildTextureStacks: []

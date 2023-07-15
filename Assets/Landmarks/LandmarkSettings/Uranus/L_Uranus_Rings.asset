@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Uranus_Rings
+  m_EditorClassIdentifier: 
+  m_Title: Rings
+  m_Caption: 
+  m_Description: 'Uranus has two sets of rings. The inner system of nine rings consists
+    mostly of narrow, dark grey rings. There are two outer rings: the innermost one
+    is reddish like dusty rings elsewhere in the solar system, and the outer ring
+    is blue like Saturn''s E ring.
+
+    
+
+    In order of increasing distance from
+    the planet, the rings are called Zeta, 6, 5, 4, Alpha, Beta, Eta, Gamma, Delta,
+    Lambda, Epsilon, Nu, and Mu. Some of the larger rings are surrounded by belts
+    of fine dust.'
+  m_Image: {fileID: 0}

@@ -55,8 +55,13 @@ public class S_LandmarkInfoDisplay : MonoBehaviour
 
 	private void UpdateSettings()
 	{
-		m_ImageComponent.sprite = m_Settings.Image;
-		m_ImageComponent.GetComponent<S_ImageScaler>().ComputeBounds();
+		if (m_Settings.Image == null)
+			Destroy(m_ImageComponent.gameObject);
+		else
+		{
+			m_ImageComponent.sprite = m_Settings.Image;
+			m_ImageComponent.GetComponent<S_ImageScaler>().ComputeBounds();
+		}
 		m_CaptionComponent.text = m_Settings.Caption;
 		m_TitleComponent.text = m_Settings.Title;
 		m_TextComponent.text = m_Settings.Description;

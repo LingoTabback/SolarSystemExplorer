@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Saturn_Magnetosphere
+  m_EditorClassIdentifier: 
+  m_Title: Magnetosphere
+  m_Caption: 
+  m_Description: 'Saturn''s magnetic field is smaller than Jupiter''s but still 578
+    times as powerful as Earth''s. Saturn, the rings, and many of the satellites
+    lie totally within Saturn''s enormous magnetosphere, the region of space in which
+    the behavior of electrically charged particles is influenced more by Saturn''s
+    magnetic field than by the solar wind.
+
+
+    Aurorae occur when charged particles
+    spiral into a planet''s atmosphere along magnetic field lines. On Earth, these
+    charged particles come from the solar wind. Cassini showed that at least some
+    of Saturn''s aurorae are like Jupiter''s and are largely unaffected by the solar
+    wind. Instead, these aurorae are caused by a combination of particles ejected
+    from Saturn''s moons and Saturn''s magnetic field''s rapid rotation rate. But
+    these "non-solar-originating" aurorae are not completely understood yet.'
+  m_Image: {fileID: 0}

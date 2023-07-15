@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Jupiter_Structure
+  m_EditorClassIdentifier: 
+  m_Title: Structure
+  m_Caption: 
+  m_Description: "The composition of Jupiter is similar to that of the Sun \u2013
+    mostly hydrogen and helium. Deep in the atmosphere, pressure and temperature
+    increase, compressing the hydrogen gas into a liquid. This gives Jupiter the
+    largest ocean in the solar system \u2013 an ocean made of hydrogen instead of
+    water. Scientists think that, at depths perhaps halfway to the planet's center,
+    the pressure becomes so great that electrons are squeezed off the hydrogen atoms,
+    making the liquid electrically conducting like metal. Jupiter's fast rotation
+    is thought to drive electrical currents in this region, generating the planet's
+    powerful magnetic field. It is still unclear if deeper down, Jupiter has a central
+    core of solid material or if it may be a thick, super-hot and dense soup. It
+    could be up to 90,032 degrees Fahrenheit (50,000 degrees Celsius) down there,
+    made mostly of iron and silicate minerals (similar to quartz)."
+  m_Image: {fileID: 0}

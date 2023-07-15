@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Mars_Structure
+  m_EditorClassIdentifier: 
+  m_Title: Structure
+  m_Caption: 
+  m_Description: Mars has a dense core at its center between 930 and 1,300 miles
+    (1,500 to 2,100 kilometers) in radius. It's made of iron, nickel, and sulfur.
+    Surrounding the core is a rocky mantle between 770 and 1,170 miles (1,240 to
+    1,880 kilometers) thick, and above that, a crust made of iron, magnesium, aluminum,
+    calcium, and potassium. This crust is between 6 and 30 miles (10 to 50 kilometers)
+    deep.
+  m_Image: {fileID: 0}

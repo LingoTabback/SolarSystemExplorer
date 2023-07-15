@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Earth_Structure
+  m_EditorClassIdentifier: 
+  m_Title: Structure
+  m_Caption: 
+  m_Description: 'Earth is composed of four main layers, starting with an inner core
+    at the planet''s center, enveloped by the outer core, mantle, and crust.
+
+    
+
+    The
+    inner core is a solid sphere made of iron and nickel metals about 759 miles (1,221
+    kilometers) in radius. There the temperature is as high as 9,800 degrees Fahrenheit
+    (5,400 degrees Celsius). Surrounding the inner core is the outer core. This layer
+    is about 1,400 miles (2,300 kilometers) thick, made of iron and nickel fluids.
+
+    
+
+    In
+    between the outer core and crust is the mantle, the thickest layer. This hot,
+    viscous mixture of molten rock is about 1,800 miles (2,900 kilometers) thick
+    and has the consistency of caramel. The outermost layer, Earth''s crust, goes
+    about 19 miles (30 kilometers) deep on average on land. At the bottom of the
+    ocean, the crust is thinner and extends about 3 miles (5 kilometers) from the
+    seafloor to the top of the mantle.'
+  m_Image: {fileID: 0}

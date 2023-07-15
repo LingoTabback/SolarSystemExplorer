@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Neptune_Magnetosphere
+  m_EditorClassIdentifier: 
+  m_Title: Magnetosphere
+  m_Caption: 
+  m_Description: "The main axis of Neptune's magnetic field is tipped over by about
+    47 degrees compared with the planet's rotation axis. Like Uranus, whose magnetic
+    axis is tilted about 60 degrees from the axis of rotation, Neptune's magnetosphere
+    undergoes wild variations during each rotation because of this misalignment.
+    The magnetic field of Neptune is about 27 times more powerful than that of Earth.\u200B"
+  m_Image: {fileID: 0}

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Venus_Structure
+  m_EditorClassIdentifier: 
+  m_Title: Structure
+  m_Caption: 
+  m_Description: "If we could slice Venus and Earth in half, pole to pole, and place
+    them side by side, they would look remarkably similar. Each planet has an iron
+    core enveloped by a hot-rock mantle; the thinnest of skins forms a rocky, exterior
+    crust. On both planets, this thin skin changes form and sometimes erupts into
+    volcanoes in response to the ebb and flow of heat and pressure deep beneath.\r\n\r\nOther
+    possible similarities will require further investigation \u2013 and perhaps another
+    visit to a planet that has hosted many Earth probes, both in orbit and (briefly)
+    on the surface. On Earth, the slow movement of continents over thousands and
+    millions of years reshapes the surface, a process known as \u201Cplate tectonics.\u201D
+    Something similar might have happened on Venus early in its history. Today a
+    key element of this process could be operating: subduction, or the sliding of
+    one continental \u201Cplate\u201D beneath another, which can also trigger volcanoes.
+    Subduction is believed to be the first step in creating plate tectonics.\r\n\r\nNASA\u2019s
+    Magellan spacecraft, which ended a five-year mission to Venus in 1994, mapped
+    the broiling surface using radar. Magellan saw a land of extreme volcanism. The
+    orbiter saw a relatively young surface, one recently reshaped (in geologic terms),
+    and chains of towering mountains."
+  m_Image: {fileID: 0}

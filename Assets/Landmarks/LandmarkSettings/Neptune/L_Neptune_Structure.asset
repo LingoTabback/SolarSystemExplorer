@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Neptune_Structure
+  m_EditorClassIdentifier: 
+  m_Title: Structure
+  m_Caption: 
+  m_Description: "Neptune is one of two ice giants in the outer solar system (the
+    other is Uranus). Most (80% or more) of the planet's mass is made up of a hot
+    dense fluid of \"icy\" materials \u2013 water, methane, and ammonia \u2013 above
+    a small, rocky core. Of the giant planets, Neptune is the densest.\r\n\r\nScientists
+    think there might be an ocean of super hot water under Neptune's cold clouds.
+    It does not boil away because incredibly high pressure keeps it locked inside."
+  m_Image: {fileID: 0}

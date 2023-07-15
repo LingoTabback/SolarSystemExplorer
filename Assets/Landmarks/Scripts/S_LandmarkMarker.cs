@@ -1,4 +1,5 @@
 using Animation;
+using CustomMath;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
@@ -82,23 +83,31 @@ public class S_LandmarkMarker : MonoBehaviour
 	private void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
 	{
 		//transform.localPosition = Vector3.zero;
-		Vector3 camPos = camera.transform.position;
-		Vector3 camForward = camera.transform.forward;
-		Vector3 relPos = transform.position - camPos;
-		float dist = Vector3.Dot(relPos, camForward);
+		float3 camPos = camera.transform.position;
+		float3 camForward = camera.transform.forward;
+		float3 relPos = (float3)transform.position - camPos;
+		float dist = math.dot(relPos, camForward);
 
-		Vector3 planetPosition = transform.parent.parent.position;
 		if (dist > 0)
 			transform.localScale = m_ScreenSize * dist * m_Animator.Current * Vector3.one;
 		else
 			transform.localScale = Vector3.one * 0.01f;
 		transform.rotation = camera.transform.rotation;
 
-		Vector3 landmarkPosition = transform.parent.position;
-		Vector3 normal = Vector3.Normalize(landmarkPosition - planetPosition);
-		Vector3 viewDirection = Vector3.Normalize(landmarkPosition - camPos);
+		float3 planetPosition = transform.parent.parent.position;
+		float3 landmarkPosition = transform.parent.position;
+		float3 normal = math.normalize(landmarkPosition - planetPosition);
+		float3 viewDirection = math.normalize(landmarkPosition - camPos);
+		float3 rayOrigin = landmarkPosition + normal * 0.01f;
 
-		float markerAlpha = m_IsHovered ? 1 : math.smoothstep(-0.3f, 0.0f, -Vector3.Dot(normal, viewDirection));
+		float markerAlpha = 1;
+		if (CMath.RaySphereIntersection(rayOrigin, -viewDirection, planetPosition, 1, out float interDist))
+		{
+			float3 interPosition = rayOrigin - viewDirection * interDist;
+			float3 interNormal = math.normalize(interPosition - planetPosition);
+			markerAlpha = m_IsHovered ? 1 : math.smoothstep(-0.3f, 0.0f, -math.dot(interNormal, viewDirection));
+		}
+
 		markerAlpha *= Manager.MarkersAlpha;
 		markerAlpha = math.pow(markerAlpha, 2.2f);
 		m_MarkerMaterial.SetFloat("_MarkerAlpha", markerAlpha);

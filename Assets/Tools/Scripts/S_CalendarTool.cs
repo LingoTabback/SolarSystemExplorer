@@ -30,10 +30,10 @@ public class S_CalendarTool : MonoBehaviour
 
 	private S_SolarSystem m_SolarSystem;
 	private TimeSpeed[] m_TimeSpeedValues = {
-		(-1, AstroTimeUnit.Years), (-1, AstroTimeUnit.Months), (-1, AstroTimeUnit.Weeks), (-1, AstroTimeUnit.Days),
-		(-1, AstroTimeUnit.Hours), (-1, AstroTimeUnit.Minutes), (-1, AstroTimeUnit.Seconds),
+		(-10, AstroTimeUnit.Years), (-1, AstroTimeUnit.Years), (-1, AstroTimeUnit.Months), (-1, AstroTimeUnit.Weeks),
+		(-1, AstroTimeUnit.Days), (-1, AstroTimeUnit.Hours), (-1, AstroTimeUnit.Minutes), (-1, AstroTimeUnit.Seconds),
 		(1, AstroTimeUnit.Seconds), (1, AstroTimeUnit.Minutes), (1, AstroTimeUnit.Hours), (1, AstroTimeUnit.Days),
-		(1, AstroTimeUnit.Weeks), (1, AstroTimeUnit.Months), (1, AstroTimeUnit.Years)
+		(1, AstroTimeUnit.Weeks), (1, AstroTimeUnit.Months), (1, AstroTimeUnit.Years), (10, AstroTimeUnit.Years)
 	};
 	private int m_TimeSpeedIndex = 7;
 	private double m_LastTimeSpeedPressTime = -double.MaxValue * 0.5;

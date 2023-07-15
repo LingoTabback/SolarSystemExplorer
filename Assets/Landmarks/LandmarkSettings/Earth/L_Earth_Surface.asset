@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Earth_Surface
+  m_EditorClassIdentifier: 
+  m_Title: Surface
+  m_Caption: 
+  m_Description: 'Like Mars and Venus, Earth has volcanoes, mountains, and valleys.
+    Earth''s lithosphere, which includes the crust (both continental and oceanic)
+    and the upper mantle, is divided into huge plates that are constantly moving.
+    For example, the North American plate moves west over the Pacific Ocean basin,
+    roughly at a rate equal to the growth of our fingernails. Earthquakes result
+    when plates grind past one another, ride up over one another, collide to make
+    mountains, or split and separate.
+
+    
+
+    Earth''s global ocean, which covers
+    nearly 70% of the planet''s surface, has an average depth of about 2.5 miles
+    (4 kilometers) and contains 97% of Earth''s water. Almost all of Earth''s volcanoes
+    are hidden under these oceans. Hawaii''s Mauna Kea volcano is taller from base
+    to summit than Mount Everest, but most of it is underwater. Earth''s longest
+    mountain range is also underwater, at the bottom of the Arctic and Atlantic oceans.
+    It is four times longer than the Andes, Rockies and Himalayas combined.'
+  m_Image: {fileID: 0}

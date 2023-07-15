@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Venus_Magnetossphere
+  m_EditorClassIdentifier: 
+  m_Title: Magnetosphere
+  m_Caption: 
+  m_Description: "Even though Venus is similar in size to Earth and has a similar-sized
+    iron core, the planet does not have its own internally generated magnetic field.
+    Instead, Venus has what is known as an induced magnetic field. This weak magnetic
+    field is created by the interaction of the Sun's magnetic field and the planet's
+    outer atmosphere. Ultraviolet light from the Sun excites gases in Venus' outermost
+    atmosphere; these electrically excited gases are called ions, and thus this region
+    is called the ionosphere (Earth has an ionosphere as well). The solar wind \u2013
+    a million-mile-per-hour gale of electrically charged particles streaming continuously
+    from the Sun \u2013 carries with it the Sun's magnetic field. When the Sun's
+    magnetic field interacts with the electrically excited ionosphere of Venus, it
+    creates or induces, a magnetic field there. This induced magnetic field envelops
+    the planet and is shaped like an extended teardrop, or the tail of a comet, as
+    the solar wind blows past Venus and outward into the solar system."
+  m_Image: {fileID: 0}

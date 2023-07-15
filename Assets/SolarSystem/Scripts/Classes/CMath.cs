@@ -21,5 +21,26 @@ namespace CustomMath
 		public static double KMtoAU(double km) => km / 1.496e+8;
 
 		public static readonly double SpeedOfLight = 299_792_458.0 / 1000.0; // in km/s
+
+		public static bool RaySphereIntersection(float3 rayOrigin, float3 rayDirection,
+			float3 sphereCenter, float sphereRadius, out float distance)
+		{
+			float3 oc = rayOrigin - sphereCenter;
+			float b = math.dot(oc, rayDirection);
+			float c = math.dot(oc, oc) - sphereRadius * sphereRadius;
+			float h = b * b - c;
+
+			if (h < 0.0)
+			{
+				distance = -1;
+				return false;
+			}
+
+			h = math.sqrt(h);
+			float near = -b - h;
+			float far = -c + h;
+			distance = near < 0 ? far : near;
+			return near >= 0 | far >= 0;
+		}
 	}
 }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Jupiter_Rings
+  m_EditorClassIdentifier: 
+  m_Title: Rings
+  m_Caption: New Horizons spacecraft image of Jupiter's faint dust rings
+  m_Description: Discovered in 1979 by NASA's Voyager 1 spacecraft, Jupiter's rings
+    were a surprise, as they are composed of small, dark particles and are difficult
+    to see except when backlit by the Sun. Data from the Galileo spacecraft indicate
+    that Jupiter's ring system may be formed by dust kicked up as interplanetary
+    meteoroids smash into the giant planet's small innermost moons.
+  m_Image: {fileID: 21300000, guid: 354dd25cd0d187448b6ab6cf1a53f18f, type: 3}

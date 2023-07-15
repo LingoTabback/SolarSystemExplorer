@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Earth_Magnetosphere
+  m_EditorClassIdentifier: 
+  m_Title: Magnetosphere
+  m_Caption: 
+  m_Description: "Our planet's rapid rotation and molten nickel-iron core give rise
+    to a magnetic field, which the solar wind distorts into a teardrop shape in space.
+    (The solar wind is a stream of charged particles continuously ejected from the
+    Sun.) When charged particles from the solar wind become trapped in Earth's magnetic
+    field, they collide with air molecules above our planet's magnetic poles. These
+    air molecules then begin to glow and cause aurorae, or the northern and southern
+    lights.\r\n\r\nThe magnetic field is what causes compass needles to point to
+    the North Pole regardless of which way you turn. But the magnetic polarity of
+    Earth can change, flipping the direction of the magnetic field. The geologic
+    record tells scientists that a magnetic reversal takes place about every 400,000
+    years on average, but the timing is very irregular. As far as we know, such a
+    magnetic reversal doesn't cause any harm to life on Earth, and a reversal is
+    very unlikely to happen for at least another thousand years. But when it does
+    happen, compass needles are likely to point in many different directions for
+    a few centuries while the switch is being made. And after the switch is completed,
+    they will all point south instead of north.\u200B"
+  m_Image: {fileID: 0}

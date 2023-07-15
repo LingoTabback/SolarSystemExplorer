@@ -16,6 +16,7 @@ public class S_LandmarkManager : MonoBehaviour
 	{
 		public float Latitude = 0;
 		public float Longitude = 0;
+		public float Radius = 1;
 		public string Name = "Unnamed";
 		public int ColorIndex = 0;
 		public S_LandmarkInfoSettings Settings;
@@ -50,7 +51,7 @@ public class S_LandmarkManager : MonoBehaviour
 		{
 			var landmark = m_Landsmarks[i];
 			var landmarkObject = Instantiate(m_LandmarkPrefab, transform);
-			landmarkObject.transform.localPosition = LatLongToDirection(math.radians(landmark.Latitude), math.radians(landmark.Longitude));
+			landmarkObject.transform.localPosition = LatLongToDirection(math.radians(landmark.Latitude), math.radians(landmark.Longitude)) * landmark.Radius;
 
 			var marker = landmarkObject.transform.GetChild(0).gameObject.GetComponent<S_LandmarkMarker>();
 			marker.Manager = this;

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Mars_Surface
+  m_EditorClassIdentifier: 
+  m_Title: Surface
+  m_Caption: 
+  m_Description: "The Red Planet is actually many colors. At the surface, we see
+    colors such as brown, gold, and tan. The reason Mars looks reddish is due to
+    oxidization \u2013 or rusting \u2013 of iron in the rocks, regolith (Martian
+    \u201Csoil\u201D), and dust of Mars. This dust gets kicked up into the atmosphere
+    and from a distance makes the planet appear mostly red.\r\n\r\nInterestingly,
+    while Mars is about half the diameter of Earth, its surface has nearly the same
+    area as Earth\u2019s dry land. Its volcanoes, impact craters, crustal movement,
+    and atmospheric conditions such as dust storms have altered the landscape of
+    Mars over many years, creating some of the solar system's most interesting topographical
+    features.\r\n\r\nA large canyon system called Valles Marineris is long enough
+    to stretch from California to New York \u2013 more than 3,000 miles (4,800 kilometers).
+    This Martian canyon is 200 miles (320 kilometers) at its widest and 4.3 miles
+    (7 kilometers) at its deepest. That's about 10 times the size of Earth's Grand
+    Canyon.\n\nMars is home to the largest volcano in the solar system, Olympus Mons.
+    It's three times taller than Earth's Mt. Everest with a base the size of the
+    state of New Mexico.\r\n\r\nMars appears to have had a watery past, with ancient
+    river valley networks, deltas, and lakebeds, as well as rocks and minerals on
+    the surface that could only have formed in liquid water. Some features suggest
+    that Mars experienced huge floods about 3.5 billion years ago.\r\n\r\nThere is
+    water on Mars today, but the Martian atmosphere is too thin for liquid water
+    to exist for long on the surface. Today, water on Mars is found in the form of
+    water-ice just under the surface in the polar regions as well as in briny (salty)
+    water, which seasonally flows down some hillsides and crater walls."
+  m_Image: {fileID: 0}

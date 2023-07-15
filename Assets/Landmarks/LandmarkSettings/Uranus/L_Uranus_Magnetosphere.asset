@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Uranus_Magnetosphere
+  m_EditorClassIdentifier: 
+  m_Title: Magnetosphere
+  m_Caption: 
+  m_Description: "Uranus has an unusual, irregularly shaped magnetosphere. Magnetic
+    fields are typically in alignment with a planet's rotation, but Uranus' magnetic
+    field is tipped over: the magnetic axis is tilted nearly 60 degrees from the
+    planet's axis of rotation, and is also offset from the center of the planet by
+    one-third of the planet's radius.\r\n\r\nAuroras on Uranus are not in line with
+    the poles (like they are on Earth, Jupiter, and Saturn) due to the lopsided magnetic
+    field.\r\n\r\nThe magnetosphere tail behind Uranus opposite the Sun extends into
+    space for millions of miles. Its magnetic field lines are twisted by Uranus\u2019
+    sideways rotation into a long corkscrew shape."
+  m_Image: {fileID: 0}
