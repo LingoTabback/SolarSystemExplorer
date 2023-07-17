@@ -11,7 +11,6 @@ using AstroTime;
 using Ephemeris;
 using System.Collections.Generic;
 using Animation;
-using System.ComponentModel.Design;
 
 public struct OrbitID
 {
@@ -52,6 +51,8 @@ public class S_SolarSystem : MonoBehaviour
 	{
 		get
 		{
+			if (m_FocusedOrbit == m_OrbitDict[(int)OrbitType.Sun])
+				return m_SunRotation.Period;
 			if (m_FocusedOrbit.Valid && m_AllOrbits != null && m_AllOrbits[(int)m_FocusedOrbit] != null)
 				return m_AllOrbits[(int)m_FocusedOrbit].RotationalModel.Period;
 			return 1;
@@ -87,8 +88,10 @@ public class S_SolarSystem : MonoBehaviour
 	private double m_PlanetScale = 1;
 	[SerializeField]
 	private Material m_LineMaterial;
-	
+
 	[Header("Time")]
+	[SerializeField]
+	private bool m_StartAtCurrentTime = false;
 	[SerializeField]
 	private bool m_Paused = true;
 
@@ -99,6 +102,7 @@ public class S_SolarSystem : MonoBehaviour
 	private static double s_PlanetScale = 1;
 
 	private Orbit m_SunOrbit;
+	private RotationModel m_SunRotation;
 	private OrbitWrapper[] m_PlanetOrbits;
 	private List<OrbitWrapper> m_AllOrbits;
 	private OrbitID[] m_OrbitDict;
@@ -183,6 +187,7 @@ public class S_SolarSystem : MonoBehaviour
 		s_PlanetScale = m_PlanetScale;
 
 		m_SunOrbit = Orbit.Create(OrbitType.Sun);
+		m_SunRotation = RotationModel.Create(RotationModelType.Sun);
 		m_SunObject = Instantiate(m_SunPrefab, transform, false);
 		m_SunScript = m_SunObject.GetComponent<S_Sun>();
 		m_SunScript.ID = 0;
@@ -207,6 +212,9 @@ public class S_SolarSystem : MonoBehaviour
 			orbit.SpawnPrefab(transform, this);
 
 		MarkFocusableOrbits();
+
+		if (m_StartAtCurrentTime)
+			SetTime(Date.Now);
 	}
 
 	private static double3 GetOffsetOnCircle(double3 from, double3 to, double radius)
@@ -314,7 +322,11 @@ public class S_SolarSystem : MonoBehaviour
 		if (m_Animator.End.ID.Valid)
 			m_AllOrbits[(int)m_Animator.End.ID]?.LineMaterial.SetFloat("_FadeAmount", math.smoothstep(0.25f, 0.75f, m_Animator.Progress));
 
-		m_SunObject.transform.localPosition = (float3)((m_SunDisplayPosition - m_ReferenceTransform.Position) * m_ReferenceTransform.InvScale);
+		m_SunObject.transform.SetLocalPositionAndRotation(
+			(float3)((m_SunDisplayPosition - m_ReferenceTransform.Position) * m_ReferenceTransform.InvScale),
+			(quaternion)m_SunRotation.ComputeEquatorOrientation(m_BarycentricDynamicalTime));
+
+		m_SunScript.SetSpin(m_SunRotation.ComputeSpin(m_BarycentricDynamicalTime));
 		m_SunScript.SetScale((float)(m_SunRadiusInAU * m_ReferenceTransform.InvScale));
 
 		foreach (var orbit in m_PlanetOrbits)
@@ -582,7 +594,7 @@ public class S_SolarSystem : MonoBehaviour
 
 				
 				int iters = math.min(numVerts, s_LinePointCount + 1);
-				int i = numVerts - 1;
+				int i = numVerts;
 				for (int vId = 0; vId < iters; ++vId)
 				{
 					m_Vertices[vId] = (float3)m_Orbit.PositionAtTime(m_LineStartJulian - segmentTime * i);
@@ -635,9 +647,10 @@ public class S_SolarSystem : MonoBehaviour
 
 			if (OrbitingObject != null)
 			{
-				OrbitingObject.transform.localPosition = (float3)((BodyPositionWorld - referenceTransform.Position) * referenceTransform.InvScale);
 				//OrbitingObject.transform.localScale = Vector3.one * (float)(BodyRadiusInAU / referenceTransform.Scale);
-				OrbitingObject.transform.localRotation = (Quaternion)EquatorOrientationWorld;
+				OrbitingObject.transform.SetLocalPositionAndRotation(
+					(float3)((BodyPositionWorld - referenceTransform.Position) * referenceTransform.InvScale),
+					(Quaternion)EquatorOrientationWorld);
 			}
 
 			if (Script != null)

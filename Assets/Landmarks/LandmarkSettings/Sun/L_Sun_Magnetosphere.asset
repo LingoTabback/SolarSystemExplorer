@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Sun_Magnetosphere
+  m_EditorClassIdentifier: 
+  m_Title: Magnetosphere
+  m_Caption: 
+  m_Description: "The Sun generates magnetic fields that extend out into space to
+    form the interplanetary magnetic field \u2013 the magnetic field that pervades
+    our solar system. The field is carried through the solar system by the solar
+    wind \u2013 a stream of electrically charged gas blowing outward from the Sun
+    in all directions. The vast bubble of space dominated by the Sun\u2019s magnetic
+    field is called the heliosphere. Since the Sun rotates, the magnetic field spins
+    out into a large rotating spiral, known as the Parker spiral. This spiral has
+    a shape something like the pattern of water from a rotating garden sprinkler.\r\n\r\nThe
+    Sun doesn't behave the same way all the time. It goes through phases of high
+    and low activity, which make up the solar cycle. Approximately every 11 years,
+    the Sun\u2019s geographic poles change their magnetic polarity \u2013 that is,
+    the north and south magnetic poles swap. During this cycle, the Sun's photosphere,
+    chromosphere, and corona change from quiet and calm to violently active.\r\n\r\nThe
+    height of the Sun\u2019s activity cycle, known as solar maximum, is a time of
+    greatly increased solar storm activity. Sunspots, eruptions called solar flares,
+    and coronal mass ejections are common at solar maximum. The latest solar cycle
+    \u2013 Solar Cycle 25 \u2013 started in December 2019 when solar minimum occurred,
+    according to the Solar Cycle 25 Prediction Panel, an international group of experts
+    co-sponsored by NASA and NOAA. Scientists now expect the Sun\u2019s activity
+    to ramp up toward the next predicted maximum in July 2025.\r\n\r\nSolar activity
+    can release huge amounts of energy and particles, some of which impact us here
+    on Earth. Much like weather on Earth, conditions in space \u2013 known as space
+    weather \u2013 are always changing with the Sun\u2019s activity. \"Space weather\"
+    can interfere with satellites, GPS, and radio communications. It also can cripple
+    power grids, and corrode pipelines that carry oil and gas.\r\n\r\nThe strongest
+    geomagnetic storm on record is the Carrington Event, named for British astronomer
+    Richard Carrington who observed the Sept. 1, 1859, solar flare that triggered
+    the event. Telegraph systems worldwide went haywire. Spark discharges shocked
+    telegraph operators and set their telegraph paper on fire. Just before dawn the
+    next day, skies all over Earth erupted in red, green, and purple auroras \u2013
+    the result of energy and particles from the Sun interacting with Earth\u2019s
+    atmosphere. Reportedly, the auroras were so brilliant that newspapers could be
+    read as easily as in daylight. The auroras, or Northern Lights, were visible
+    as far south as Cuba, the Bahamas, Jamaica, El Salvador, and Hawaii."
+  m_Image: {fileID: 0}

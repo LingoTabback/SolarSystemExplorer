@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Sun_Structure
+  m_EditorClassIdentifier: 
+  m_Title: Structure
+  m_Caption: 
+  m_Description: "The Sun is a huge ball of hydrogen and helium held together by
+    its own gravity.\r\n\r\nThe Sun has several regions. The interior regions include
+    the core, the radiative zone, and the convection zone. Moving outward \u2013
+    the visible surface or photosphere is next, then the chromosphere, followed by
+    the transition zone, and then the corona \u2013 the Sun\u2019s expansive outer
+    atmosphere.\r\n\r\nOnce material leaves the corona at supersonic speeds, it becomes
+    the solar wind, which forms a huge magnetic \"bubble\" around the Sun, called
+    the heliosphere. The heliosphere extends beyond the orbit of the planets in our
+    solar system. Thus, Earth exists inside the Sun\u2019s atmosphere. Outside the
+    heliosphere is interstellar space.\r\n\r\nThe core is the hottest part of the
+    Sun. Nuclear reactions here \u2013 where hydrogen is fused to form helium \u2013
+    power the Sun\u2019s heat and light. Temperatures top 27 million \xB0F (15 million
+    \xB0C) and it\u2019s about 86,000 miles (138,000 kilometers) thick. The density
+    of the Sun\u2019s core is about 150 grams per cubic centimeter (g/cm\xB3). That
+    is approximately 8 times the density of gold (19.3 g/cm\xB3) or 13 times the
+    density of lead (11.3 g/cm\xB3).\r\n\r\nEnergy from the core is carried outward
+    by radiation. This radiation bounces around the radiative zone, taking about
+    170,000 years to get from the core to the top of the convection zone. Moving
+    outward, in the convection zone, the temperature drops below 3.5 million \xB0F
+    (2 million \xB0C). Here, large bubbles of hot plasma (a soup of ionized atoms)
+    move upward toward the photosphere, which is the layer we think of as the Sun's
+    surface."
+  m_Image: {fileID: 0}

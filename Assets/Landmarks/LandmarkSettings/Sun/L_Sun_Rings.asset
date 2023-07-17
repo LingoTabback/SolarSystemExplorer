@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Sun_Rings
+  m_EditorClassIdentifier: 
+  m_Title: Rings
+  m_Caption: "In this illustration, several dust rings circle the Sun. These rings
+    form when planets\u2019 gravities tug dust grains into orbit around the Sun.
+    Recently, scientists have detected a dust ring at Mercury\u2019s orbit. Others
+    hypothesize the source of Venus\u2019 dust ring is a group of never-before-detected
+    co-orbital asteroids.\nCredits: NASA\u2019s Goddard Space Flight Center/Mary
+    Pat Hrybyk-Keith"
+  m_Description: The Sun would have been surrounded by a disk of gas and dust early
+    in its history when the solar system was first forming, about 4.6 billion years
+    ago. Some of that dust is still around today, in several dust rings that circle
+    the Sun. They trace the orbits of planets, whose gravity tugs dust into place
+    around the Sun.
+  m_Image: {fileID: 21300000, guid: 955961dce0872634682a2b989a7d4474, type: 3}

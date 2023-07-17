@@ -623,6 +623,7 @@ MonoBehaviour:
   m_TransitionTime: 1
   m_PlanetScale: 1
   m_LineMaterial: {fileID: 2100000, guid: c63ca54422b11664285547b4693eb92d, type: 2}
+  m_StartAtCurrentTime: 1
   m_Paused: 0
 --- !u!4 &1566099773
 Transform:

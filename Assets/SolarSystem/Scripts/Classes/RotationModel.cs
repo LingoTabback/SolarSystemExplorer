@@ -23,7 +23,8 @@ namespace Ephemeris
 		Europa,
 		Ganymede,
 		Callisto,
-		Titan
+		Titan,
+		Sun
 	}
 
 	public class RotationModel
@@ -52,6 +53,7 @@ namespace Ephemeris
 				RotationModelType.Ganymede => new IAUGanymedeRotationModel(),
 				RotationModelType.Callisto => new IAUCallistoRotationModel(),
 				RotationModelType.Titan => new IAUTitanRotationModel(),
+				RotationModelType.Sun => new IAUPrecessingRotationModel(0.0, 0.0, 90.0 - 7.25, 0.0, 0.0, 12.8571426), // not based on real data!!!
 				_ => new RotationModel()
 			};
 		}

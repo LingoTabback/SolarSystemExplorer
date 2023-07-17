@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Sun_Surface
+  m_EditorClassIdentifier: 
+  m_Title: Surface
+  m_Caption: 
+  m_Description: "The Sun doesn\u2019t have a solid surface like Earth and the other
+    rocky planets and moons. The part of the Sun commonly called its surface is the
+    photosphere. The word photosphere means \"light sphere\" \u2013 which is apt
+    because this is the layer that emits the most visible light. It\u2019s what we
+    see from Earth with our eyes. (Hopefully, it goes without saying \u2013 but never
+    look directly at the Sun without protecting your eyes.)\r\n\r\nAlthough we call
+    it the surface, the photosphere is actually the first layer of the solar atmosphere.
+    It's about 250 miles thick, with temperatures reaching about 10,000 degrees Fahrenheit
+    (5,500 degrees Celsius). That's much cooler than the blazing core, but it's still
+    hot enough to make carbon \u2013 like diamonds and graphite \u2013 not just melt,
+    but boil. Most of the Sun's radiation escapes outward from the photosphere into
+    space."
+  m_Image: {fileID: 0}

@@ -739,8 +739,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Body: {fileID: 4368623461897024738}
-  m_MarkerColors: []
-  m_Landsmarks: []
+  m_MarkerColors:
+  - {r: 4.0472007, g: 4.0472007, b: 4.0472007, a: 0}
+  m_Landsmarks:
+  - Latitude: 0
+    Longitude: -45
+    Radius: 1.5
+    Name: Rings
+    ColorIndex: 0
+    Settings: {fileID: 11400000, guid: 1eb2a2bbcc8b2ac40a3dd669fe60817f, type: 2}
+  - Latitude: 10
+    Longitude: 0
+    Radius: 1
+    Name: Structure
+    ColorIndex: 0
+    Settings: {fileID: 11400000, guid: 5e7f117de41b19b4b880b2e8c504bff4, type: 2}
+  - Latitude: -10
+    Longitude: 20
+    Radius: 1
+    Name: Surface
+    ColorIndex: 0
+    Settings: {fileID: 11400000, guid: dedd4a1bb0e272045b33aa123d7e4fcb, type: 2}
+  - Latitude: 70
+    Longitude: 180
+    Radius: 1
+    Name: Magnetosphere
+    ColorIndex: 0
+    Settings: {fileID: 11400000, guid: 362f6d936fdf6214096bf98658ccd110, type: 2}
   m_LandmarkPrefab: {fileID: 8708439711239044045, guid: 50bbfa3cf4e654c4389ab3026a438338,
     type: 3}
   m_InfoDisplayPrefab: {fileID: 1264696490786011134, guid: a84ec3ad924df6443afc8835784e2a7f,
