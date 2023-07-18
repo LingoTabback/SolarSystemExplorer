@@ -1006,6 +1006,11 @@ PrefabInstance:
       propertyPath: m_SurfaceTemparature
       value: -41.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_AtmosphereComposition
+      value: Thin exosphere
+      objectReference: {fileID: 0}
     - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
       propertyPath: m_RootOrder

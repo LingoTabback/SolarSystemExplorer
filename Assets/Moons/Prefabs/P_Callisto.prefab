@@ -161,7 +161,7 @@ PrefabInstance:
     - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
       propertyPath: m_AtmosphereComposition
-      value: "Sehr d\xFCnne Atmosph\xE4re, haupts\xE4chlich aus Kohlendioxid (CO2)"
+      value: Carbon dioxide (99.9%)
       objectReference: {fileID: 0}
     - target: {fileID: 4613350030550146091, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}

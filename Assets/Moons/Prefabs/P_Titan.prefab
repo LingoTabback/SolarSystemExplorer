@@ -181,8 +181,7 @@ PrefabInstance:
     - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
       propertyPath: m_AtmosphereComposition
-      value: "Dicke Atmosph\xE4re, haupts\xE4chlich aus Stickstoff (N2) mit Spuren
-        von Methan (CH4)"
+      value: Nitrogen (99.9%)
       objectReference: {fileID: 0}
     - target: {fileID: 3860934045257871789, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}

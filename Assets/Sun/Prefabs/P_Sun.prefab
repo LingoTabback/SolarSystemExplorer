@@ -401,7 +401,9 @@ MonoBehaviour:
   m_Moonwalkers: -1
   m_RoboticVisits: -1
   m_SurfaceTemparature: 5500
-  m_AtmosphereComposition: Wasserstoff (H2) und Helium (He)
+  m_AtmosphereComposition: 'Hydrogen (73.46%)
+
+    Helium (24.85%)'
   m_Radius: 69550
   m_ScaleToSize: 2
 --- !u!114 &6075348402544880791
