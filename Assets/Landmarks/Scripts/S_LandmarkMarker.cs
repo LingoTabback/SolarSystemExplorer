@@ -15,6 +15,7 @@ public class S_LandmarkMarker : MonoBehaviour
 	}
 	public S_LandmarkInfoSettings Settings { get => m_Settings; set => m_Settings = value != null ? value : S_LandmarkInfoSettings.Default; }
 	public S_LandmarkManager Manager { get; set; }
+	public int Index { get; set; } = -2; // only set by S_LandmarkManager!!
 
 	private S_LandmarkInfoSettings m_Settings;
 
@@ -75,10 +76,7 @@ public class S_LandmarkMarker : MonoBehaviour
 		m_Animator.Reset(1);
 	}
 
-	public void OnSelectStart()
-	{
-		Manager.OnLandmarkSeleced(this);
-	}
+	public void OnSelectStart() => Manager.OnLandmarkSeleced(this);
 
 	private void OnBeginCameraRendering(ScriptableRenderContext context, Camera camera)
 	{
@@ -100,13 +98,15 @@ public class S_LandmarkMarker : MonoBehaviour
 		float3 viewDirection = math.normalize(landmarkPosition - camPos);
 		float3 rayOrigin = landmarkPosition + normal * 0.01f;
 
-		float markerAlpha = 1;
+		float markerAlpha = Manager.NoneSelectedAlpha;
 		if (CMath.RaySphereIntersection(rayOrigin, -viewDirection, planetPosition, 1, out float interDist))
 		{
 			float3 interPosition = rayOrigin - viewDirection * interDist;
 			float3 interNormal = math.normalize(interPosition - planetPosition);
-			markerAlpha = m_IsHovered ? 1 : math.smoothstep(-0.3f, 0.0f, -math.dot(interNormal, viewDirection));
+			markerAlpha *= math.smoothstep(-0.3f, 0.0f, -math.dot(interNormal, viewDirection));
 		}
+
+		markerAlpha = m_IsHovered | (Index == Manager.SelectedMarker) ? 1 : markerAlpha;
 
 		markerAlpha *= Manager.MarkersAlpha;
 		markerAlpha = math.pow(markerAlpha, 2.2f);

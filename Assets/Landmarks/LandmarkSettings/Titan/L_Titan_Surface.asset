@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Titan_Surface
+  m_EditorClassIdentifier: 
+  m_Title: Surface
+  m_Caption: 
+  m_Description: "The surface of Titan is one of the most Earthlike places in the
+    solar system, albeit at vastly colder temperatures and with different chemistry.
+    Here it is so cold (-290 degrees Fahrenheit or -179 degrees Celsius) that water
+    ice plays the role of rock. Titan may have volcanic activity as well, but with
+    liquid water \u201Clava\u201D instead of molten rock. Titan\u2019s surface is
+    sculpted by flowing methane and ethane, which carves river channels and fills
+    great lakes with liquid natural gas. No other world in the solar system, aside
+    from Earth, has that kind of liquid activity on its surface.\n\nVast regions
+    of dark dunes stretch across Titan\u2019s landscape, primarily around the equatorial
+    regions. The \"sand\" in these dunes is composed of dark hydrocarbon grains thought
+    to look something like coffee grounds. In appearance, the tall, linear dunes
+    are not unlike those seen in the desert of Namibia in Africa. Titan has few visible
+    impact craters, meaning its surface must be relatively young and some combination
+    of processes erases evidence of impacts over time. Earth is similar in that respect
+    as well; craters on our planet are erased by the relentless forces of flowing
+    liquid (water, in Earth's case), wind, and the recycling of the crust via plate
+    tectonics. These forces are present on Titan as well, in modified forms. In particular,
+    tectonic forces\u2014the movement of the ground due to pressures from beneath\u2014appear
+    to be at work on the icy moon, although scientists do not see evidence of plates
+    like on Earth."
+  m_Image: {fileID: 0}

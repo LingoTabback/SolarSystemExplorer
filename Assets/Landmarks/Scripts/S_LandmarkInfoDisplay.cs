@@ -34,6 +34,8 @@ public class S_LandmarkInfoDisplay : MonoBehaviour
 	private Animator<FloatAnimatable> m_Animator = Animator<FloatAnimatable>.Create(0, 1, 0.75f, EasingType.EaseOutQuad);
 	private Vector3 m_LocalPosition;
 
+	public S_LandmarkManager Manager { get; set; } // only set by S_LandmarkManager!!
+
 	// Start is called before the first frame update
 	private void Start()
 	{
@@ -74,5 +76,8 @@ public class S_LandmarkInfoDisplay : MonoBehaviour
 		m_Animator.Reset(0);
 		Destroy(gameObject, m_Animator.Delay + m_Animator.Length);
 		IsClosing = true;
+
+		if (Manager != null)
+			Manager.OnLandmarkDeselect();
 	}
 }

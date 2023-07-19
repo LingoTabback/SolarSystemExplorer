@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Ganymede_Structure
+  m_EditorClassIdentifier: 
+  m_Title: Structure
+  m_Caption: 
+  m_Description: "Ganymede has three main layers: A metallic iron core at its center,
+    a spherical shell of rock (mantle) surrounding the core, and a spherical shell
+    of mostly ice surrounding the rock shell. The surface is the very top of the
+    ice shell. Scientists have discovered irregular lumps beneath Ganymede\u2019s
+    icy surface. These irregular masses may be rock formations, supported by Ganymede's
+    icy shell for billions of years.\r\n\r\nComputer models show Ganymede might have
+    ice and oceans stacked up in several layers like a club sandwich. Scientists
+    first suspected Ganymede had an underground ocean in the 1970s. The Galileo spacecraft
+    discovered Ganymede's magnetic field in 1996, providing evidence to support the
+    theory.\r\n\r\nNASA\u2019s Hubble Space Telescope has found more evidence for
+    an underground saltwater ocean, and evidence of a thin oxygen atmosphere on Ganymede."
+  m_Image: {fileID: 0}

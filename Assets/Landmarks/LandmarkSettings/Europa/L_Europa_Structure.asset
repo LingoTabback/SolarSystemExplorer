@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Europa_Structure
+  m_EditorClassIdentifier: 
+  m_Title: Structure
+  m_Caption: 
+  m_Description: "Like our planet, Europa is thought to have an iron core, a rocky
+    mantle, and an ocean of salty water. Unlike Earth, however, Europa\u2019s ocean
+    lies below a shell of ice probably 10 to 15 miles (15 to 25 kilometers) thick,
+    and has an estimated depth of 40 to 100 miles (60 to 150 kilometers). While evidence
+    for an internal ocean is strong, its presence awaits confirmation by a future
+    mission."
+  m_Image: {fileID: 0}

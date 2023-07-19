@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
       propertyPath: m_Landsmarks.Array.size
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
@@ -66,7 +66,12 @@ PrefabInstance:
     - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
       propertyPath: m_Landsmarks.Array.data[10].Name
-      value: Tvasthar Paterae
+      value: Surface
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[11].Name
+      value: Magnetosphere
       objectReference: {fileID: 0}
     - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
@@ -116,6 +121,21 @@ PrefabInstance:
     - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
       propertyPath: m_Landsmarks.Array.data[9].Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[10].Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[11].Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[12].Radius
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
@@ -236,8 +256,25 @@ PrefabInstance:
     - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
       propertyPath: m_Landsmarks.Array.data[10].Latitude
-      value: 62.76
+      value: -10
       objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[10].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: cc667470adb481449b89d98c44acbf60,
+        type: 2}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[11].Latitude
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[11].Settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 8e8510628332fc3469040396073d8a5f,
+        type: 2}
     - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
       propertyPath: m_Landsmarks.Array.data[1].Longitude
@@ -286,7 +323,12 @@ PrefabInstance:
     - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}
       propertyPath: m_Landsmarks.Array.data[10].Longitude
-      value: 123.53
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 518490034125468179, guid: 84e9e7edf65b8dc4c827639909962914,
+        type: 3}
+      propertyPath: m_Landsmarks.Array.data[11].Longitude
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 1071266137419343411, guid: 84e9e7edf65b8dc4c827639909962914,
         type: 3}

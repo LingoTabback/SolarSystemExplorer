@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Callisto_Structure
+  m_EditorClassIdentifier: 
+  m_Title: Structure
+  m_Caption: 
+  m_Description: "Callisto has an icy surface covered by craters of various shapes
+    and sizes, including bowl-shaped craters and craters with multiple rings. Data
+    gathered by the Galileo spacecraft indicate Callisto may have a subsurface ocean
+    and scientists estimate it may be 155 miles (250 kilometers) below the surface.
+    More recent research reveals that this ocean may be located deeper beneath the
+    surface than previously thought, or may not exist at all. If there is an ocean,
+    it may be interacting with rocks, giving Callisto a chance of supporting life.
+    Callisto\u2019s interior may have layers of ice mixed with rock and metal, possibly
+    extending to its center."
+  m_Image: {fileID: 0}

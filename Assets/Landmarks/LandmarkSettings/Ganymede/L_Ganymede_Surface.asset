@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Ganymede_Surface
+  m_EditorClassIdentifier: 
+  m_Title: Surface
+  m_Caption: 
+  m_Description: 'Spacecraft images of Ganymede show its surface is a mix of two
+    types of terrain. Forty percent of the surface is covered by highly cratered
+    dark regions, and the remaining sixty percent is covered by a light grooved terrain,
+    which forms intricate patterns across the moon. Some of the groove ridges are
+    as high as 2,000 feet (700 meters), and the grooves run for thousands of miles
+    across Ganymede''s surface. The large craters on Ganymede are mostly flat, probably
+    due to settling in the soft icy surface. Both bright and dark rays of ejecta
+    can be seen around Ganymede''s craters.
+
+    
+
+    In 2004, scientists discovered
+    irregular lumps beneath the icy surface of Ganymede. The irregular masses may
+    be rock formations, supported by Ganymede''s icy shell for billions of years.
+    This tells scientists that the ice is probably strong enough, at least near the
+    surface, to support such rock masses from sinking to the bottom of the ice. However,
+    this anomaly could also be caused by piles of rock at the bottom of the ice.'
+  m_Image: {fileID: 0}

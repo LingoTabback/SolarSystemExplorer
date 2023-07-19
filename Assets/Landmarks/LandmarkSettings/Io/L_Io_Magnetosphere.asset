@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Io_Magnetosphere
+  m_EditorClassIdentifier: 
+  m_Title: Magnetosphere
+  m_Caption: 
+  m_Description: As Jupiter rotates, it takes its magnetic field around with it,
+    sweeping past Io and stripping off about 1 ton (1,000 kilograms) of Io's material
+    every second. This material becomes ionized in the magnetic field and forms a
+    doughnut-shaped cloud of intense radiation referred to as a plasma torus. Some
+    of the ions are pulled into Jupiter's atmosphere along the magnetic lines of
+    force and create auroras in the planet's upper atmosphere. It is the ions escaping
+    from this torus that inflate Jupiter's magnetosphere to over twice the size we
+    would expect.
+  m_Image: {fileID: 0}

@@ -10,6 +10,8 @@ public class S_LandmarkManager : MonoBehaviour
 	[SerializeField]
 	private S_CelestialBody m_Body;
 	public float MarkersAlpha => m_UIFocusAnimator.Current * m_VisibilityAnimator.Current;
+	public int SelectedMarker { get; private set; } = -1;
+	public float NoneSelectedAlpha => m_SelectionAnimator.Current;
 
 	[Serializable]
 	public class Landmark
@@ -37,6 +39,7 @@ public class S_LandmarkManager : MonoBehaviour
 	private static readonly float s_UIFocusAnimationLength = 1.5f;
 	private Animator<FloatAnimatable> m_UIFocusAnimator = Animator<FloatAnimatable>.CreateDone(0, 0, s_UIFocusAnimationLength, 1);
 	private Animator<FloatAnimatable> m_VisibilityAnimator = Animator<FloatAnimatable>.CreateDone(1, 1, 0.5f, EasingType.EaseOutSine);
+	private Animator<FloatAnimatable> m_SelectionAnimator = Animator<FloatAnimatable>.CreateDone(1, 1, 0.3f, EasingType.EaseOutSine);
 	private S_LandmarkInfoDisplay m_CurrentDisplay;
 
 	// Start is called before the first frame update
@@ -55,10 +58,11 @@ public class S_LandmarkManager : MonoBehaviour
 
 			var marker = landmarkObject.transform.GetChild(0).gameObject.GetComponent<S_LandmarkMarker>();
 			marker.Manager = this;
+			marker.Index = i;
 			marker.Label = landmark.Name;
 			marker.MarkerColor = m_MarkerColors[math.clamp(landmark.ColorIndex, 0, m_MarkerColors.Length - 1)];
 			marker.Settings = landmark.Settings;
-
+			
 			landmarkObject.SetActive(false);
 			m_LandmarkObjects[i] = landmarkObject;
 		}
@@ -79,6 +83,8 @@ public class S_LandmarkManager : MonoBehaviour
 		bool doneThisFrame = m_VisibilityAnimator.IsDone;
 		m_VisibilityAnimator.Update(Time.deltaTime);
 		doneThisFrame = !doneThisFrame & m_VisibilityAnimator.IsDone;
+
+		m_SelectionAnimator.Update(Time.deltaTime);
 
 		if (doneThisFrame)
 		{
@@ -112,7 +118,17 @@ public class S_LandmarkManager : MonoBehaviour
 
 		var displayObject = Instantiate(m_InfoDisplayPrefab, transform.parent);
 		m_CurrentDisplay = displayObject.GetComponent<S_LandmarkInfoDisplay>();
+		m_CurrentDisplay.Manager = this;
 		m_CurrentDisplay.Settings = landmark.Settings;
+
+		SelectedMarker = landmark.Index;
+		m_SelectionAnimator.Reset(0.25f);
+	}
+
+	public void OnLandmarkDeselect()
+	{
+		SelectedMarker = -1;
+		m_SelectionAnimator.Reset(1);
 	}
 
 	public void OnVisibilityChanged(bool newVis)

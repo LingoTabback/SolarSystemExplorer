@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Callisto_Surface
+  m_EditorClassIdentifier: 
+  m_Title: Surface
+  m_Caption: 
+  m_Description: "Callisto\u2019s rocky, icy surface is the oldest and most heavily
+    cratered in our solar system. The surface is about 4 billion years old and it\u2019s
+    been pummeled, likely by comets and asteroids. Because the impact craters are
+    still visible, scientists think the moon has little geologic activity\u2014there
+    are no active volcanoes or tectonic shifting to erode the craters. Callisto looks
+    like it\u2019s sprinkled with bright white dots that scientists think are the
+    peaks of the craters capped with water ice."
+  m_Image: {fileID: 0}

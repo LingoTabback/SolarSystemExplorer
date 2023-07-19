@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Titan_Structure
+  m_EditorClassIdentifier: 
+  m_Title: Structure
+  m_Caption: 
+  m_Description: "Titan\u2019s internal structure isn\u2019t entirely known, but
+    one model based on data from the Cassini-Huygens mission suggests Titan has five
+    primary layers. The innermost layer is a core of rock (specifically, water-bearing
+    silicate rock) about 2,500 miles (4,000 kilometers) in diameter. Surrounding
+    the core is a shell of water ice\u2014a special type called ice-VI that is only
+    found at extremely high-pressures. The high-pressure ice is surrounded by a layer
+    of salty liquid water, on top of which sits an outer crust of water ice. This
+    surface is coated with organic molecules that have rained or otherwise settled
+    out of the atmosphere in the form of sands and liquids. The surface is hugged
+    by a dense atmosphere."
+  m_Image: {fileID: 21300000, guid: a3d6e4c0d6ce7c74eaa882d996d7b7a1, type: 3}

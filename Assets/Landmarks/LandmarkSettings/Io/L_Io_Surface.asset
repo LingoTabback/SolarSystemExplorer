@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492ec23fa7fa47241b6fb905dc97857f, type: 3}
+  m_Name: L_Io_Surface
+  m_EditorClassIdentifier: 
+  m_Title: Surface
+  m_Caption: 
+  m_Description: The tidal forces generate a tremendous amount of heat within Io,
+    keeping much of its subsurface crust in liquid form seeking any available escape
+    route to the surface to relieve the pressure. Thus, the surface of Io is constantly
+    renewing itself, filling in any impact craters with molten lava lakes and spreading
+    smooth new floodplains of liquid rock. The composition of this material is not
+    yet entirely clear, but theories suggest that it is largely molten sulfur and
+    its compounds (which would account for the varied coloring) or silicate rock
+    (which would better account for the apparent temperatures, which may be too hot
+    to be sulfur). Sulfur dioxide is the primary constituent of a thin atmosphere
+    on Io. It has no water to speak of, unlike the other, colder Galilean moons.
+    Data from the Galileo spacecraft indicates that an iron core may form Io's center,
+    thus giving Io its own magnetic field.
+  m_Image: {fileID: 0}
