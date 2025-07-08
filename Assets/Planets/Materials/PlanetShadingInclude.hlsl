@@ -549,13 +549,15 @@ void AtmosphereScattering2_float(float3 rayOrigin, float3 rayDirection, float3 p
 
 	float3 position = rayOrigin + rayDirection * tMax;
 
-	float shadowIn, shadowOut;
-	GetSphereShadowInOut(planetPos, atmosphere.BottomRadius, rayOrigin, rayDirection, -lightDirection, shadowIn, shadowOut);
-
-	float lightshaftFade = 1.0 - smoothstep(0.0, 0.3, dot(normalize(rayOrigin + rayDirection * (tMin + tMax) * 0.5 - planetPos), lightDirection));
-	lightshaftFade *= lightshaftFade;
-	float shadowLength = shadowOut - shadowIn;
-	shadowLength = max(0.0, shadowLength - max(tMin - shadowIn, 0.0) - max(shadowOut - tMax, 0.0)) * (1.0 - lightshaftFade);
+	//float shadowIn, shadowOut;
+	//GetSphereShadowInOut(planetPos, atmosphere.BottomRadius, rayOrigin, rayDirection, -lightDirection, shadowIn, shadowOut);
+	//
+	//float lightshaftFade = 1.0 - smoothstep(0.0, 0.3, dot(normalize(rayOrigin + rayDirection * (tMin + tMax) * 0.5 - planetPos), lightDirection));
+	//lightshaftFade *= lightshaftFade;
+	//float shadowLength = shadowOut - shadowIn;
+	//shadowLength = max(0.0, shadowLength - max(tMin - shadowIn, 0.0) - max(shadowOut - tMax, 0.0)) * (1.0 - lightshaftFade);
+	
+	float shadowLength = 0.0;
 
 	float3 transmittance;
 	output = GetSkyRadianceToPoint(atmosphere, transmittanceTexture, scatteringTexture, ss,

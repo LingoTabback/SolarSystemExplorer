@@ -55,7 +55,10 @@ public class S_SolarSystemInspector : Editor
 
 		EditorGUILayout.BeginHorizontal();
 		if (GUILayout.Button("Set Time"))
+		{
 			script.SetTime(m_Date);
+			Debug.Log(TimeUtil.UTCtoTDB(m_Date));
+		}
 		TimeJumpButton(script, "Jump to Now", DateTime.UtcNow);
 		TimeJumpButton(script, "Jump to J2000.0", TimeUtil.J2000);
 		EditorGUILayout.EndHorizontal();
@@ -113,6 +116,7 @@ public class S_SolarSystemInspector : Editor
 		if (!GUILayout.Button(label))
 			return false;
 		script.SetTime(date);
+		Debug.Log(TimeUtil.UTCtoTDB(date));
 		return true;
 	}
 	private bool TimeJumpButton(S_SolarSystem script, string label, double t)

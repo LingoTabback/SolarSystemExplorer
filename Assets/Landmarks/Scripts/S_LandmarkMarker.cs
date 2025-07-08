@@ -90,7 +90,9 @@ public class S_LandmarkMarker : MonoBehaviour
 			transform.localScale = m_ScreenSize * dist * m_Animator.Current * Vector3.one;
 		else
 			transform.localScale = Vector3.one * 0.01f;
-		transform.rotation = camera.transform.rotation;
+
+		transform.rotation = Quaternion.Euler(0.0f, camera.transform.rotation.eulerAngles.y, 0.0f);
+		//transform.rotation = camera.transform.rotation;
 
 		float3 planetPosition = transform.parent.parent.position;
 		float3 landmarkPosition = transform.parent.position;

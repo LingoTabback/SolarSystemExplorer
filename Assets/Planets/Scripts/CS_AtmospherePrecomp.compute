@@ -312,10 +312,15 @@ float3 GetTransmittance(
 float3 GetTransmittanceToSun(
 	in AtmosphereParameters atmosphere,
 	in Texture2D<float4> transmittanceTexture, in SamplerState ss,
-	float r, float muS) {
+	float r, float muS)
+{
 	float sinThetaH = atmosphere.BottomRadius / r;
 	float cosThetaH = -sqrt(max(1.0 - sinThetaH * sinThetaH, 0.0));
-	return GetTransmittanceToTopAtmosphereBoundary(atmosphere, transmittanceTexture, ss, r, muS);
+	
+	const float sunAngularRadius = 0.01;
+	
+	return GetTransmittanceToTopAtmosphereBoundary(atmosphere, transmittanceTexture, ss, r, muS)
+		* smoothstep(-sinThetaH * sunAngularRadius, sinThetaH * sunAngularRadius, muS - cosThetaH);
 }
 
 void ComputeSingleScatteringIntegrand(
